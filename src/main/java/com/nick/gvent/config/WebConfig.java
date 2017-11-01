@@ -1,4 +1,4 @@
-package com.nick.voter.config;
+package com.nick.gvent.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.ComponentScan;
@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Configuration
-@ComponentScan("com.nick.voter")
+@ComponentScan("com.nick.gvent")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override

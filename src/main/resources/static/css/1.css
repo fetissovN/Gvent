@@ -1,0 +1,147 @@
+/* HTML1 */
+body, html {
+	height: 100%;
+	width: 100%;
+}
+
+html {
+	background-color:rgb(248, 248, 248);
+}
+
+body {
+	margin: 0 auto;
+	font-family: Roboto,Arial,sans-serif;
+}
+
+/* ----------Navigation Header---------- */
+#header {
+	border: 0px solid rgb(230, 230, 230);
+	width: 100%;
+	height:50px;
+	text-align: center;
+	margin: 0;
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0.966);
+	box-shadow: 0px 5px 7px 0px rgb(209, 209, 209);
+	position: sticky;
+	z-index: 1;
+	top: 0;
+}
+
+.user {
+	border: 2px solid gray;
+	border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-moz-webkit-border-radius: 12px;
+	-o-webkit-border-radius: 12px;
+	-ms-webkit-border-radius: 12px;
+	height: 20px;
+	width: 20px;
+	float: right;
+
+}
+
+ul.nav {
+	list-style-type: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+
+.nav li {
+	 display: inline-block;
+	 font-size: 1em;
+	 margin-left: 0.5%;
+	 padding-left: 0.5%;
+}
+
+.logo {
+	color:orange;
+	background-color:transparent;
+	font-size:200%;
+	font-weight:700;
+	text-align:left;
+	/* text-shadow: 1px 1px 4px rgb(182, 182, 182); */
+	float: left;
+	padding-left: 1%;
+}
+
+.super {
+	vertical-align: +7px;
+}
+/* ----------Navigation Header END---------- */
+
+/* ----------Body Cards---------- */
+#card_m, #cardZip_m {
+	border: 2px solid rgb(255, 255, 255);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-webkit-border-radius: 5px;
+	-o-webkit-border-radius: 5px;
+	-ms-webkit-border-radius: 5px;
+	width: 180px;
+	height: 100px;
+	text-align: center;
+	font-size: 70%;
+	word-wrap: break-word;
+	color: #666666;
+	margin: 1%;
+	padding: 0.5%;
+	overflow: hidden;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0px 2px 3px 0px rgb(209, 209, 209);
+	float: left;
+	transition: .1s ease;
+}
+
+#card_m:hover{
+	box-shadow:0px 2px 8px 1px rgb(196, 196, 196);
+	-webkit-transform: translateY(-1px);
+	transform: translateY(-1px);
+}
+
+#cardZip_m:hover{
+	box-shadow:0px 2px 8px 1px rgb(196, 196, 196);
+	-webkit-transform: translateY(-1px);
+	transform: translateY(-1px);
+}
+
+h6 {
+	text-align: center;
+	font-size: 110%;
+	font-family: Roboto,Arial,sans-serif;
+	font-weight: bolder;
+	color: #666666;
+	margin: 0;
+	overflow: hidden;
+	margin-top: 1%;
+	margin-bottom: 2%;
+}
+/* ----------Body Cards END----------- */
+
+/* ----------Searchbox---------- */
+#searchbox {
+	border: 2px	solid black;
+	background-color: white;
+	height: 15%;
+	width: 80%;
+	display: none;
+	font-family: Roboto,Arial,sans-serif;
+}
+
+#searchbox:target {
+	display:block;
+}
+/* ----------Searchbox END---------- */
+
+
+/* LINKS */
+
+#header a:hover, a:active, a:focus{
+	color: orange;
+	text-decoration: none;
+}
+
+#header ul, a:link, a:visited{
+	color: gray;
+	text-decoration: none;
+}

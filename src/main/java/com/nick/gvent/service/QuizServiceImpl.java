@@ -1,7 +1,7 @@
-package com.nick.voter.service;
+package com.nick.gvent.service;
 
-import com.nick.voter.dao.RemindRepository;
-import com.nick.voter.entity.Quiz;
+import com.nick.gvent.dao.RemindRepository;
+import com.nick.gvent.entity.Quiz;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

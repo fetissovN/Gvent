@@ -1,10 +1,10 @@
-package com.nick.voter.controllers;
+package com.nick.gvent.controllers;
 
-import com.nick.voter.dto.Theme;
-import com.nick.voter.entity.Quiz;
-import com.nick.voter.service.QuizServiceImpl;
-import com.nick.voter.util.JsonParser;
-import com.nick.voter.util.converters.ThemeToQuiz;
+import com.nick.gvent.dto.Theme;
+import com.nick.gvent.entity.Quiz;
+import com.nick.gvent.service.QuizServiceImpl;
+import com.nick.gvent.util.JsonParser;
+import com.nick.gvent.util.converters.ThemeToQuiz;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

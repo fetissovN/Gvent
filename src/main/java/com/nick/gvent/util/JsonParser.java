@@ -1,11 +1,11 @@
-package com.nick.voter.util;
+package com.nick.gvent.util;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nick.voter.dto.Theme;
-import com.nick.voter.entity.Quiz;
-import com.nick.voter.util.converters.ThemeToQuiz;
+import com.nick.gvent.dto.Theme;
+import com.nick.gvent.entity.Quiz;
+import com.nick.gvent.util.converters.ThemeToQuiz;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;

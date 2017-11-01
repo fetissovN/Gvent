@@ -1,4 +1,4 @@
-package com.nick.voter.dto;
+package com.nick.gvent.dto;
 
 /** Simple POJO class consisting of theme from Quiz class
  * @autor Fetissov Mikalai

@@ -1,8 +1,8 @@
-package com.nick.voter.util.converters;
+package com.nick.gvent.util.converters;
 
 
-import com.nick.voter.dto.Theme;
-import com.nick.voter.entity.Quiz;
+import com.nick.gvent.dto.Theme;
+import com.nick.gvent.entity.Quiz;
 import org.springframework.core.convert.converter.Converter;
 
 /** Spring object converter from Theme DTO to Quiz

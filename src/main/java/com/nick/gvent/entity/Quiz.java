@@ -1,4 +1,4 @@
-package com.nick.voter.entity;
+package com.nick.gvent.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

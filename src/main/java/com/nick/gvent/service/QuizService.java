@@ -1,6 +1,6 @@
-package com.nick.voter.service;
+package com.nick.gvent.service;
 
-import com.nick.voter.entity.Quiz;
+import com.nick.gvent.entity.Quiz;
 
 import java.util.List;
 
