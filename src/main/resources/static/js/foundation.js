@@ -5724,7 +5724,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
         });
         if (this.options.matchHeight) {
-          var $images = this.$tabContent.find('img');
+          var $images = this.$tabContent.find('images');
 
           if ($images.length) {
             Foundation.onImagesLoaded($images, this._setHeight.bind(this));
@@ -7451,7 +7451,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      */
     templateClasses: '',
     /**
-     * Non-optional class added to tooltip templates. Foundation default is 'tooltip'.
+     * Non-optional class added to tooltip public. Foundation default is 'tooltip'.
      * @option
      * @type {string}
      * @default 'tooltip'
@@ -7592,7 +7592,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.$wrapper = this.$element.find('.' + this.options.containerClass);
         this.$slides = this.$element.find('.' + this.options.slideClass);
 
-        var $images = this.$element.find('img'),
+        var $images = this.$element.find('images'),
             initActive = this.$slides.filter('.is-active'),
             id = this.$element[0].id || Foundation.GetYoDigits(6, 'orbit');
 
@@ -9889,7 +9889,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           onPostEqualizedBound: this._onPostEqualized.bind(this)
         };
 
-        var imgs = this.$element.find('img');
+        var imgs = this.$element.find('images');
         var tooSmall;
         if (this.options.equalizeOn) {
           tooSmall = this._checkMQ();

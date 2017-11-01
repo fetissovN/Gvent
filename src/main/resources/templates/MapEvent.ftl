@@ -1,10 +1,10 @@
-<!doctype html>
+<!--<!doctype html>-->
 <html>
     <head>
-	    <link rel="stylesheet" type="text/css" href="1.css">
+	    <link rel="stylesheet" type="text/css" href="/css/1.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" rel='stylesheet'>
 		<title>Knot</title>
-		<link rel="icon" href="logo.png">
+		<link rel="icon" href="/images/logo.png">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
         <style>
@@ -21,12 +21,12 @@
         <!-- Header_navigation_menu -->
 		<div id="header">
 			<div class="logo">
-				<a href="Main.html"> <img src="logo.png" alt="logo" style="width:30px;height:30px;"> </a>
+				<a href="Main.ftl"> <img src="/images/logo.png" alt="logo" style="width:30px;height:30px;"> </a>
 				<span class="super">k</span>not
             </div>
             
 			<ul class="nav">
-				<li> <a href="MapEvent.html">2nd page</a> </li>
+				<li> <a href="/map">2nd page</a> </li>
 				<li> <a href="">3rd page</a> </li>
 				<li> <a href="">4th page</a> </li>
 				<li> <span id="text" title="Help text should be here." style="cursor:help;"> Need help?</span> </li>

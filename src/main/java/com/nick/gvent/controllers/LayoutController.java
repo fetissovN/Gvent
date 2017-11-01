@@ -22,17 +22,22 @@ public class LayoutController {
 
     @RequestMapping("/")
     public String main(){
-        return "index";
+        return "Main";
     }
 
-    @RequestMapping("/quiz/{id}")
-    public String quizLook(@PathVariable Long id, Model model){
-        if (id != null){
-            Quiz quiz = quizService.getById(id);
-            if (quiz != null){
-                model.addAttribute("quiz", quiz);
-            }
-        }
-        return "quiz";
+    @RequestMapping("/map")
+    public String map(){
+        return "MapEvent";
     }
+
+//    @RequestMapping("/quiz/{id}")
+//    public String quizLook(@PathVariable Long id, Model model){
+//        if (id != null){
+//            Quiz quiz = quizService.getById(id);
+//            if (quiz != null){
+//                model.addAttribute("quiz", quiz);
+//            }
+//        }
+//        return "quiz";
+//    }
 }
