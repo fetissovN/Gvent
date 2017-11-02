@@ -30,6 +30,6 @@
     <div id="searchbox">
         <input type="search" id="search" placeholder="Search Knot.com">
     </div>
-<!-- Header_navigation_menu END -->
+<!-- Header_navigation_menu END! -->
 </body>
 </html>
