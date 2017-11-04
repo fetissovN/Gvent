@@ -1,26 +1,35 @@
 package com.nick.gvent.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users_events")
 public class Event {
 
     @Id
-    @Column(name = "id_event")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEvent;
+    private Long id;
 
-    @Id
-    @Column(name = "id_user")
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUser;
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User userId;
 
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "latitude")
-    private int latitude;
+    private float latitude;
 
     @Column(name = "longitude")
-    private int longitude;
+    private float longitude;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "event_id")
+    private List<Message> eventRelatedMessages;
+
 
 }
