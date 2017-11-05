@@ -6,7 +6,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-
 public class User {
 
     @Id
@@ -69,8 +68,8 @@ public class User {
         return gender;
     }
 
-    public void setGende(String gende) {
-        this.gender = gende;
+    public void setGende(String gender) {
+        this.gender = gender;
     }
 
     public String getEmail() {

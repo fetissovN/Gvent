@@ -31,5 +31,4 @@ public class Event {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "event_id")
     private List<Message> eventRelatedMessages;
 
-
 }
