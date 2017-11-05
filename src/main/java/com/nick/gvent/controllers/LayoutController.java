@@ -22,7 +22,7 @@ public class LayoutController {
 
     @RequestMapping("/")
     public String main(){
-        return "Main";
+        return "Dashboard";
     }
 
     @RequestMapping("/map")

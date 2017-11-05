@@ -14,7 +14,7 @@ body {
 }
 
 /* ----------Navigation Header---------- */
-#header {
+#headNavBox {
 	border: 0px solid rgb(230, 230, 230);
 	width: 100%;
 	height:50px;
@@ -27,40 +27,81 @@ body {
 	z-index: 1;
 	top: 0;
 }
-
-.user {
-	border: 2px solid gray;
-	border-radius: 12px;
-	-webkit-border-radius: 12px;
-	-moz-webkit-border-radius: 12px;
-	-o-webkit-border-radius: 12px;
-	-ms-webkit-border-radius: 12px;
-	height: 20px;
-	width: 20px;
-	float: right;
-
+/*-------USER ICON---------*/
+.userSettings {
+	position: absolute;
+	display: block;
+	margin-top: 2px;
+	margin-left:92%;
+	z-index: 2;
 }
+
+.userIcon {
+	border: 5px solid transparent;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-webkit-border-radius: 50%;
+	-o-webkit-border-radius: 50%;
+	-ms-webkit-border-radius: 50%;
+	background-color: orange;
+	/* box-shadow: 0px 2px 6px 0px rgb(154, 154, 154); */
+	height: 35px;
+	width: 35px;
+	text-align: center;
+}
+
+.userIcon:hover {
+	border: 5px solid transparent;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-webkit-border-radius: 50%;
+	-o-webkit-border-radius: 50%;
+	-ms-webkit-border-radius: 50%;
+	height: 35px;
+	width: 35px;
+	/* box-shadow: 0px 2px 5px 2px rgb(195, 195, 195); */
+}
+
+.userSettings-dropdown {
+	position: absolute;
+	display: none;
+	width: 80px;
+}
+
+.userSettings-dropdown li {
+	list-style-type: none;
+	padding-top: 5px;
+	text-align:	center;
+	font-size: .85em;
+}
+
+.userSettings:hover > .userSettings-dropdown {
+	display: block;
+	top:20px;
+	right:0px;
+}
+/*-------USER ICON END---------*/
 
 ul.nav {
 	list-style-type: none;
 	padding-left: 0;
 	margin-left: 0;
+
 }
 
 .nav li {
-	 display: inline-block;
-	 font-size: 1em;
-	 margin-left: 0.5%;
-	 padding-left: 0.5%;
+	display: inline-block;
+	font-size: 1em;
+	margin-left: 0.5%;
+	padding-left: 0.5%;
 }
 
-.logo {
+.headNavBox_logo {
 	color:orange;
 	background-color:transparent;
 	font-size:200%;
 	font-weight:700;
 	text-align:left;
-	/* text-shadow: 1px 1px 4px rgb(182, 182, 182); */
 	float: left;
 	padding-left: 1%;
 }
@@ -71,7 +112,7 @@ ul.nav {
 /* ----------Navigation Header END---------- */
 
 /* ----------Body Cards---------- */
-#card_m, #cardZip_m {
+.card_m, .cardZip_m {
 	border: 2px solid rgb(255, 255, 255);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -93,17 +134,38 @@ ul.nav {
 	transition: .1s ease;
 }
 
-#card_m:hover{
+.card_m:hover{
 	box-shadow:0px 2px 8px 1px rgb(196, 196, 196);
 	-webkit-transform: translateY(-1px);
 	transform: translateY(-1px);
 }
 
-#cardZip_m:hover{
+.cardZip_m:hover{
 	box-shadow:0px 2px 8px 1px rgb(196, 196, 196);
 	-webkit-transform: translateY(-1px);
 	transform: translateY(-1px);
 }
+
+.cardZip_s {
+	box-shadow:0px 2px 8px 1px rgb(196, 196, 196);
+	-webkit-transform: translateY(-1px);
+	transform: translateY(-1px);
+	transform: scale(1.2);
+}
+
+.cardZip_F {
+	box-shadow:0px 10px 35px 5px rgb(167, 167, 167);
+	-webkit-transform: translateY(-1px);
+	position: absolute;
+	width: 80%;
+	height: 80%;
+	z-index: 1;
+	margin-top: 2%;
+	margin-left: 10%;
+	/* filter: blur(1px); */
+}
+
+/*---------------------------------*/
 
 h6 {
 	text-align: center;
@@ -136,12 +198,37 @@ h6 {
 
 /* LINKS */
 
-#header a:hover, a:active, a:focus{
+#headNavBox a:hover, a:active, a:focus{
 	color: orange;
 	text-decoration: none;
 }
 
-#header ul, a:link, a:visited{
+#headNavBox ul, a:link, a:visited{
 	color: gray;
 	text-decoration: none;
 }
+
+.userSettings-dropdown a:hover, a:active, a:focus{
+	color: orange;
+	text-decoration: none;
+}
+
+.userSettings-dropdown a:link, a:visited{
+	color: gray;
+	text-decoration: none;
+}
+
+
+
+
+/* -----MapEvent- mapContentBox----- */
+.mapContentBox {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+}
+
+#map {
+	flex: 1 1 auto;
+}
+/* -----MapEvent- mapContentBox END----- */
