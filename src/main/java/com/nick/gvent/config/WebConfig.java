@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.Collections;
@@ -22,6 +23,13 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         converter.setObjectMapper(new ObjectMapper());
         converter.setSupportedMediaTypes(Collections.singletonList(MediaType.APPLICATION_JSON));
         converters.add(converter);
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("Dashboard");
+        registry.addViewController("/map").setViewName("MapEvent");
+        registry.addViewController("/login").setViewName("login");
     }
 
 //    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
