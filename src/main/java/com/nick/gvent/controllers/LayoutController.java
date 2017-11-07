@@ -19,6 +19,10 @@ public class LayoutController {
     @Autowired
     private QuizServiceImpl quizService;
 
+    @RequestMapping("/login")
+    public String login(){
+        return "LoginPage";
+    }
 
     @RequestMapping("/")
     public String main(){
