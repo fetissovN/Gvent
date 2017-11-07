@@ -34,14 +34,14 @@ public class LayoutController {
         return "MapEvent";
     }
 
-    @RequestMapping("/quiz/{id}")
-    public String quizLook(@PathVariable Long id, Model model){
-        if (id != null){
-            Quiz quiz = quizService.getById(id);
-            if (quiz != null){
-                model.addAttribute("quiz", quiz);
-            }
-        }
-        return "quiz";
-    }
+//    @RequestMapping("/quiz/{id}")
+//    public String quizLook(@PathVariable Long id, Model model){
+//        if (id != null){
+//            Quiz quiz = quizService.getById(id);
+//            if (quiz != null){
+//                model.addAttribute("quiz", quiz);
+//            }
+//        }
+//        return "quiz";
+//    }
 }
