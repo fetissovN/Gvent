@@ -1,20 +1,30 @@
 package com.nick.gvent.entity;
 
+import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+import javax.annotation.sql.DataSourceDefinition;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
 import java.util.List;
-
+@Data
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements UserDetails{
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nickname")
-    private String nickname;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "userId")
+    private List<Role> authorities;
+
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "age")
     private String age;
@@ -30,85 +40,19 @@ public class User {
 
     transient String passwordCheck;
 
-    @Column(name = "banned")
-    @NotNull
-    private int banned;
+    @Column(name = "accountNonExpired")
+    private boolean accountNonExpired;
+
+    @Column(name = "accountNonLocked")
+    private boolean accountNonLocked;
+
+    @Column(name = "credentialsNonExpired")
+    private boolean credentialsNonExpired;
+
+    @Column(name = "enabled")
+    private boolean enabled;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "userId")
     private List<Event> eventsList;
 
-    public User() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public String getGende() {
-        return gender;
-    }
-
-    public void setGende(String gender) {
-        this.gender = gender;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPasswordCheck() {
-        return passwordCheck;
-    }
-
-    public void setPasswordCheck(String passwordCheck) {
-        this.passwordCheck = passwordCheck;
-    }
-
-    public int getBanned() {
-        return banned;
-    }
-
-    public void setBanned(int banned) {
-        this.banned = banned;
-    }
-
-    public List<Event> getEventsList() {
-        return eventsList;
-    }
-
-    public void setEventsList(List<Event> eventsList) {
-        this.eventsList = eventsList;
-    }
 }

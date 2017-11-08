@@ -19,7 +19,15 @@
         <#--<div th:if="${logout}">-->
             <#--You have been logged out.-->
         <#--</div>-->
-        <form th:action="@{/login}" method="post">
+        <#if logout>
+        <div class="info">Uve been logged in</div>
+        </#if>
+        <#if error>
+        <div class="danger">Invalid user or password</div>
+        </#if>
+        <#--th:action="@{/login/}"-->
+        <form method="post">
+            <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden">
             <div><label> User Name : <input type="text" name="username"/> </label></div>
             <div><label> Password: <input type="password" name="password"/> </label></div>
             <div><input type="submit" value="Sign In"/></div>

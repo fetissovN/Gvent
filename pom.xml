@@ -69,6 +69,11 @@
       <artifactId>json-simple</artifactId>
       <version>${json-simple}</version>
     </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.8</version>
+    </dependency>
   </dependencies>
 
   <build>

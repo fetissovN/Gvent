@@ -29,7 +29,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("Dashboard");
         registry.addViewController("/map").setViewName("MapEvent");
-        registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/login/").setViewName("login");
     }
 
 //    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {

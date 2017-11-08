@@ -10,26 +10,25 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by Nick on 11/6/2017.
  */
 @Controller
+@RequestMapping(value = "/login")
 public class LoginController {
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String getLogin(@RequestParam(value = "param", required = false) String param,
+    @RequestMapping(value = "/")
+    public String getLogin(@RequestParam(value = "error", required = false) String error,
                            @RequestParam(value = "logout", required = false) String logout,
                            Model model) {
-
-        model.addAttribute("param", param);
-        model.addAttribute("logout", logout);
+        model.addAttribute("error", error != null);
+        model.addAttribute("logout", logout != null);
         return "login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String setLogin(@RequestParam(value = "param", required = false) String param,
-                           @RequestParam(value = "logout", required = false) String logout,
-                           Model model) {
-
-        model.addAttribute("param", param);
-        model.addAttribute("logout", logout);
-        return "login";
-    }
+//    @RequestMapping(value = "/", method = RequestMethod.POST)
+//    public String setLogin(@RequestParam(value = "err", required = false) String param,
+//                           @RequestParam(value = "logout", required = false) String logout,
+//                           Model model) {
+//        model.addAttribute("param", param);
+//        model.addAttribute("logout", logout);
+//        return "Dashboard";
+//    }
 
 }
