@@ -1,6 +1,6 @@
 package com.nick.gvent.service;
 
-import com.nick.gvent.dao.RemindRepository;
+import com.nick.gvent.dao.EventRepository;
 import com.nick.gvent.entity.Quiz;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,45 +21,45 @@ public class QuizServiceImpl implements QuizService {
 
 
     @Autowired
-    private RemindRepository repository;
+    private EventRepository repository;
 
-    @Override
-    public long saveNewQuiz(Quiz quiz) {
-        Quiz newQuiz = repository.saveAndFlush(quiz);
-        LOGGER.info("Save new quiz id " + newQuiz.getId());
-        return newQuiz.getId();
-    }
-
-    @Override
-    public Quiz getById(Long id) {
-        LOGGER.info("Get quiz by id " + id);
-        return repository.findOne(id);
-    }
-
-    @Override
-    public void startQuiz(Quiz quiz) {
-        quiz.setStarted(1);
-        Quiz quizDB = repository.save(quiz);
-        LOGGER.info("Start quiz id " + quizDB.getId());
-    }
-
-    @Override
-    public void closeQuiz(Quiz quiz) {
-        quiz.setClosed(1);
-        repository.save(quiz);
-        LOGGER.info("Close quiz id " + quiz.getId());
-    }
-
-    @Override
-    public void assertQuiz(Quiz quiz) {
-        quiz.setVotes(quiz.getVotes()+1);
-        repository.save(quiz);
-        LOGGER.info("Plus one vote to quiz id " + quiz.getId());
-    }
-
-    @Override
-    public List<Quiz> getAllQuiz() {
-        LOGGER.info("Get all quiz");
-        return repository.findAll();
-    }
+//    @Override
+//    public long saveNewQuiz(Quiz quiz) {
+//        Quiz newQuiz = repository.saveAndFlush(quiz);
+//        LOGGER.info("Save new quiz id " + newQuiz.getId());
+//        return newQuiz.getId();
+//    }
+//
+//    @Override
+//    public Quiz getById(Long id) {
+//        LOGGER.info("Get quiz by id " + id);
+//        return repository.findOne(id);
+//    }
+//
+//    @Override
+//    public void startQuiz(Quiz quiz) {
+//        quiz.setStarted(1);
+//        Quiz quizDB = repository.save(quiz);
+//        LOGGER.info("Start quiz id " + quizDB.getId());
+//    }
+//
+//    @Override
+//    public void closeQuiz(Quiz quiz) {
+//        quiz.setClosed(1);
+//        repository.save(quiz);
+//        LOGGER.info("Close quiz id " + quiz.getId());
+//    }
+//
+//    @Override
+//    public void assertQuiz(Quiz quiz) {
+//        quiz.setVotes(quiz.getVotes()+1);
+//        repository.save(quiz);
+//        LOGGER.info("Plus one vote to quiz id " + quiz.getId());
+//    }
+//
+//    @Override
+//    public List<Quiz> getAllQuiz() {
+//        LOGGER.info("Get all quiz");
+//        return repository.findAll();
+//    }
 }

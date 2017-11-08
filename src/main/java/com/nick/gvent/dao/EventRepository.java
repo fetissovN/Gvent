@@ -1,8 +1,11 @@
 package com.nick.gvent.dao;
 
 import com.nick.gvent.entity.Quiz;
+import com.nick.gvent.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface RemindRepository extends JpaRepository<Quiz, Long> {
+public interface EventRepository extends JpaRepository<User, Long> {
+
+
 
 }
