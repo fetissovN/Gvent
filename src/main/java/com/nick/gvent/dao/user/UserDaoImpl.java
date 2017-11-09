@@ -10,12 +10,16 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
+@Repository("userDaoImpl")
+@Transactional
 public class UserDaoImpl implements UserDao  {
 
     private final Logger LOGGER = Logger.getLogger(getClass());
@@ -31,17 +35,20 @@ public class UserDaoImpl implements UserDao  {
 
 
     public Optional<User> getUserByUsername(String name){
-        Query query = sessionFactory.getCurrentSession().createQuery("FROM User WHERE name = :name");
-        query.setParameter("username", name);
 
-        List userEntities = query.list();
-        if (userEntities.size()==0){
-            return null;
-        }
-        User user = (User) userEntities.get(0);
+//        Query query = sessionFactory.getCurrentSession().createQuery("from User where username = :name");
+//        query.setParameter("username", name);
+
+//        List userEntities = query.list();
+//        if (userEntities.size()==0){
+//            return null;
+//        }
+//        User user = (User) userEntities.get(0);
+
 //        LOGGER.info(messageSource.getMessage("log.get.user.email", new Object[] {email}, Locale.ENGLISH));
 //        User user = sessionFactory.getCurrentSession().get(User.class,email);
-        return Optional.ofNullable(user);
+//        return Optional.ofNullable(user);
+        return Optional.ofNullable(eventRepository.findOne(1L));
     }
 
     public void save(@NonNull User user) {

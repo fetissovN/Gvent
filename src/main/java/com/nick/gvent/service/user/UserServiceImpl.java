@@ -1,11 +1,12 @@
-package com.nick.gvent.service;
+package com.nick.gvent.service.user;
 
 
 import com.google.common.collect.ImmutableList;
-import com.nick.gvent.dao.EventRepository;
-import com.nick.gvent.dao.user.UserDaoImpl;
+import com.nick.gvent.dao.role.RoleDao;
+import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.entity.Role;
 import com.nick.gvent.entity.User;
+import com.nick.gvent.service.user.UserService;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,21 +15,22 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Autowired
-    private UserDaoImpl userDao;
+    UserDao userDao;
 
     @Autowired
-    private EventRepository eventRepository;
+    RoleDao roleDao;
+
+
     @PostConstruct
     public void init(){
         Role role = new Role();
-        role.
-        String auth = "User";
+        role.setName("USER");
+
         if (!userDao.getUserByUsername("username").isPresent()){
             userDao.save(User.builder()
                     .username("user")
@@ -39,10 +41,8 @@ public class UserService implements UserDetailsService {
                     .age("26")
                     .email("fetissov.n@gmail.com")
                     .enabled(true)
-                    .authorities()
+                    .authorities(ImmutableList.of(role))
                     .build());
-
-
         }
     }
 
