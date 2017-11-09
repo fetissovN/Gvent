@@ -21,7 +21,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 @Configuration
-//@EnableJpaRepositories("com.nick.gvent.dao")
+@EnableJpaRepositories("com.nick.gvent.dao")
 @EnableTransactionManagement
 @PropertySource("classpath:db.properties")
 @ComponentScan("com.nick.gvent")
