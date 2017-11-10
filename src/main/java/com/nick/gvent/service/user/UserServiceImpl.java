@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     public void save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         Set<Role> roles = new HashSet<>();
-        roles.add(roleDao.getOne(1L));
+        roles.add(roleDao.findByName("USER"));
         user.setAuthorities(roles);
         user.setAge(user.getAge());
         user.setUsername(user.getUsername());
@@ -64,15 +64,15 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
     @PostConstruct
     public void init() throws InterruptedException {
-        if (roleDao.findAll().size() == 0){
-            roleDao.save(Role.builder()
-                    .id(1L)
-                    .name("USER")
-                    .build());
-        }
-        Thread.sleep(1000);
+//        if (roleDao.findAll().size() == 0){
+//            roleDao.save(Role.builder()
+//                    .id(1L)
+//                    .name("USER")
+//                    .build());
+//        }
+//        Thread.sleep(1000);
         Set<Role> roles = new HashSet<>();
-        roles.add(roleDao.get(1L));
+        roles.add(new Role(1L,"USER"));
 
         if (!userDao.getUserByUsername("username").isPresent()){
             userDao.save(User.builder()
