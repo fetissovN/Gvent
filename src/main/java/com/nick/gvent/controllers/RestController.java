@@ -1,10 +1,7 @@
 package com.nick.gvent.controllers;
 
 import com.nick.gvent.dto.Theme;
-import com.nick.gvent.entity.Quiz;
-import com.nick.gvent.service.QuizServiceImpl;
 import com.nick.gvent.util.JsonParser;
-import com.nick.gvent.util.converters.ThemeToQuiz;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,8 +20,7 @@ public class RestController {
 //    @Value("${host}")
 //    private String HOST;
 //
-//    @Autowired
-//    private QuizServiceImpl quizService;
+
 //
 //
 //    /** Makes Quiz objects form from Theme object and saves to db

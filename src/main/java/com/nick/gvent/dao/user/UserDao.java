@@ -2,13 +2,14 @@ package com.nick.gvent.dao.user;
 
 import com.nick.gvent.entity.User;
 import lombok.NonNull;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface UserDao{
+public interface UserDao extends JpaRepository<User,Long>{
 
-    Optional<User> getUserByUsername(String name);
+    Optional<User> getUserByUsername(String username);
 
-    void save(@NonNull User user);
+    User save(@NonNull User user);
 
-    }
+}

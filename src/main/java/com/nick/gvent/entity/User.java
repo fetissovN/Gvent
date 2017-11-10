@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -24,7 +25,7 @@ public class User implements UserDetails{
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = {@JoinColumn(name = "user_id")}
                 , inverseJoinColumns = {@JoinColumn(name = "role_id")})
-    private List<Role> authorities;
+    private Set<Role> authorities;
 
     @Column(name = "username", unique = true)
     private String username;
