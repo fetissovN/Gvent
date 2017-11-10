@@ -1,4 +1,3 @@
-/* HTML1 */
 body, html {
 	height: 100%;
 	width: 100%;
@@ -15,14 +14,14 @@ body {
 
 /* ----------Navigation Header---------- */
 #headNavBox {
-	border: 0px solid rgb(230, 230, 230);
+	border: 0 solid rgb(230, 230, 230);
 	width: 100%;
 	height:50px;
 	text-align: center;
 	margin: 0;
 	overflow: hidden;
 	background-color: rgba(255, 255, 255, 0.966);
-	box-shadow: 0px 5px 7px 0px rgb(209, 209, 209);
+	box-shadow: 0 5px 7px 0 rgb(209, 209, 209);
 	position: sticky;
 	z-index: 1;
 	top: 0;
@@ -30,9 +29,8 @@ body {
 /*-------USER ICON---------*/
 .userSettings {
 	position: absolute;
-	display: block;
-	margin-top: 2px;
-	margin-left:92%;
+	right: 6px;
+	top: 2px;
 	z-index: 2;
 }
 
@@ -43,7 +41,7 @@ body {
 	-moz-webkit-border-radius: 50%;
 	-o-webkit-border-radius: 50%;
 	-ms-webkit-border-radius: 50%;
-	background-color: orange;
+	background-color: gray;
 	/* box-shadow: 0px 2px 6px 0px rgb(154, 154, 154); */
 	height: 35px;
 	width: 35px;
@@ -51,21 +49,14 @@ body {
 }
 
 .userIcon:hover {
-	border: 5px solid transparent;
-	border-radius: 50%;
-	-webkit-border-radius: 50%;
-	-moz-webkit-border-radius: 50%;
-	-o-webkit-border-radius: 50%;
-	-ms-webkit-border-radius: 50%;
-	height: 35px;
-	width: 35px;
-	/* box-shadow: 0px 2px 5px 2px rgb(195, 195, 195); */
+	background-color: orange;
 }
 
 .userSettings-dropdown {
 	position: absolute;
 	display: none;
-	width: 80px;
+	top:25px;
+	right:0px;
 }
 
 .userSettings-dropdown li {
@@ -77,8 +68,7 @@ body {
 
 .userSettings:hover > .userSettings-dropdown {
 	display: block;
-	top:20px;
-	right:0px;
+
 }
 /*-------USER ICON END---------*/
 
@@ -129,32 +119,32 @@ ul.nav {
 	padding: 0.5%;
 	overflow: hidden;
 	background-color: rgb(255, 255, 255);
-	box-shadow: 0px 2px 3px 0px rgb(209, 209, 209);
+	box-shadow: 0 2px 3px 0 rgb(209, 209, 209);
 	float: left;
 	transition: .1s ease;
 }
 
 .card_m:hover{
-	box-shadow:0px 2px 8px 1px rgb(196, 196, 196);
+	box-shadow:0 2px 8px 1px rgb(196, 196, 196);
 	-webkit-transform: translateY(-1px);
 	transform: translateY(-1px);
 }
 
 .cardZip_m:hover{
-	box-shadow:0px 2px 8px 1px rgb(196, 196, 196);
+	box-shadow:0 2px 8px 1px rgb(196, 196, 196);
 	-webkit-transform: translateY(-1px);
 	transform: translateY(-1px);
 }
 
 .cardZip_s {
-	box-shadow:0px 2px 8px 1px rgb(196, 196, 196);
+	box-shadow:0 2px 8px 1px rgb(196, 196, 196);
 	-webkit-transform: translateY(-1px);
 	transform: translateY(-1px);
 	/*transform: scale(1.2);*/
 }
 
 .cardZip_F {
-	box-shadow:0px 10px 35px 5px rgb(167, 167, 167);
+	box-shadow:0 10px 35px 5px rgb(167, 167, 167);
 	-webkit-transform: translateY(-1px);
 	position: absolute;
 	width: 80%;
@@ -236,4 +226,3 @@ h6 {
 	flex: 1 1 auto;
 }
 /* -----MapEvent- mapContentBox END----- */
-
