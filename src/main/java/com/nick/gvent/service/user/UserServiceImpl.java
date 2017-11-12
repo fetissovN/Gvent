@@ -22,7 +22,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class UserServiceImpl implements UserDetailsService, UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
@@ -62,32 +62,33 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
 
     }
-    @PostConstruct
-    public void init() throws InterruptedException {
-//        if (roleDao.findAll().size() == 0){
-//            roleDao.save(Role.builder()
-//                    .id(1L)
-//                    .name("USER")
+
+//    @PostConstruct
+//    public void init() throws InterruptedException {
+////        if (roleDao.findAll().size() == 0){
+////            roleDao.save(Role.builder()
+////                    .id(1L)
+////                    .name("USER")
+////                    .build());
+////        }
+////        Thread.sleep(1000);
+//        Set<Role> roles = new HashSet<>();
+//        roles.add(new Role(1L,"USER"));
+//
+//        if (!userDao.getUserByUsername("username").isPresent()){
+//            userDao.save(User.builder()
+//                    .username("user")
+//                    .password("qwerty")
+//                    .accountNonExpired(true)
+//                    .accountNonLocked(true)
+//                    .credentialsNonExpired(true)
+//                    .age("26")
+//                    .gender("male")
+//                    .email("fetissov.n@gmail.com")
+//                    .enabled(true)
+//                    .authorities(roles)
 //                    .build());
 //        }
-//        Thread.sleep(1000);
-        Set<Role> roles = new HashSet<>();
-        roles.add(new Role(1L,"USER"));
-
-        if (!userDao.getUserByUsername("username").isPresent()){
-            userDao.save(User.builder()
-                    .username("user")
-                    .password("password")
-                    .accountNonExpired(true)
-                    .accountNonLocked(true)
-                    .credentialsNonExpired(true)
-                    .age("26")
-                    .gender("male")
-                    .email("fetissov.n@gmail.com")
-                    .enabled(true)
-                    .authorities(roles)
-                    .build());
-        }
-    }
+//    }
 
 }

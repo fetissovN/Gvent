@@ -1,9 +1,6 @@
 package com.nick.gvent.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.List;
@@ -11,6 +8,8 @@ import java.util.Set;
 
 @Entity
 @Data
+//@ToString
+@EqualsAndHashCode
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -59,4 +58,22 @@ public class User implements UserDetails{
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "userId")
     private List<Event> eventsList;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", authorities=" + authorities +
+                ", username='" + username + '\'' +
+                ", age='" + age + '\'' +
+                ", gender='" + gender + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", passwordCheck='" + passwordCheck + '\'' +
+                ", accountNonExpired=" + accountNonExpired +
+                ", accountNonLocked=" + accountNonLocked +
+                ", credentialsNonExpired=" + credentialsNonExpired +
+                ", enabled=" + enabled +
+                ", eventsList=" + eventsList +
+                '}';
+    }
 }

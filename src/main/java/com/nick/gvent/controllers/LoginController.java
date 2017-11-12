@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/**
- * Created by Nick on 11/6/2017.
- */
 @Controller
 @RequestMapping(value = "/login")
 public class LoginController {
