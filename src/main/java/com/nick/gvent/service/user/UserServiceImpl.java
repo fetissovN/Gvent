@@ -52,6 +52,8 @@ public class UserServiceImpl implements UserService {
         user.setAccountNonLocked(true);
         user.setCredentialsNonExpired(true);
         user.setEnabled(true);
+        user.setFirstName(user.getFirstName());
+        user.setLastName(user.getLastName());
         user.setEmail(user.getEmail());
         user.setGender(user.getGender());
         userDao.save(user);
@@ -63,7 +65,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @PostConstruct
-    @Transactional
     public void init() throws InterruptedException {
 //        if (roleDao.findAll().size() == 0){
 //        roleDao.save(Role.builder()
@@ -96,7 +97,6 @@ public class UserServiceImpl implements UserService {
         rolesAdmin.add(roleDao.findByName("USER"));
         rolesAdmin.add(roleDao.findByName("ADMIN"));
 
-//        if (userDao.findByUsername("username") != null){
         userDao.save(User.builder()
                 .username("user")
                 .password(passwordEncoder.encode("root"))
@@ -107,6 +107,8 @@ public class UserServiceImpl implements UserService {
                 .gender("male")
                 .email("fetissov.n@gmail.com")
                 .enabled(true)
+                .firstName("user")
+                .lastName("useravich")
                 .authorities(rolesUser)
                 .build());
         userDao.save(User.builder()
@@ -120,8 +122,9 @@ public class UserServiceImpl implements UserService {
                 .email("fetissov.admin.n@gmail.com")
                 .enabled(true)
                 .authorities(rolesAdmin)
+                .firstName("admin")
+                .lastName("adminovich")
                 .build());
-//        }
     }
 
 }

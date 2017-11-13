@@ -15,7 +15,7 @@ public class RoleCustom {
     public SessionFactory sessionFactory;
 
     public void persistUser(Role role){
-        sessionFactory.getCurrentSession().persist(role);
+        sessionFactory.getCurrentSession().save(role);
 //        LOGGER.info(messageSource.getMessage("log.new.user", new Object[] {user}, Locale.ENGLISH));
     }
 }
