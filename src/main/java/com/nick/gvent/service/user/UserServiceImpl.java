@@ -8,8 +8,10 @@ import com.nick.gvent.entity.Role;
 import com.nick.gvent.entity.User;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -35,10 +37,10 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void save(User user) {
+    public void saveNewUser(User user, Long role) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         Set<Role> roles = new HashSet<>();
-        roles.add(roleDao.findByName("USER"));
+        roles.add(roleDao.findOne(role));
         user.setAuthorities(roles);
         user.setAge(user.getAge());
         user.setUsername(user.getUsername());
@@ -52,18 +54,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(@NonNull String username) throws UsernameNotFoundException {
-        User user = userDao.getUserByUsername(username).orElse(null);
-        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        for (Role role: user.getAuthorities()) {
-            grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
-
+    public User findByUsername(String username) {
+        return userDao.findByUsername(username);
     }
 
 //    @PostConstruct
+//    @Transactional
 //    public void init() throws InterruptedException {
 ////        if (roleDao.findAll().size() == 0){
 ////            roleDao.save(Role.builder()
@@ -73,12 +69,15 @@ public class UserServiceImpl implements UserService {
 ////        }
 ////        Thread.sleep(1000);
 //        Set<Role> roles = new HashSet<>();
-//        roles.add(new Role(1L,"USER"));
+//        roles.add(roleDao.findOne(1L));
 //
-//        if (!userDao.getUserByUsername("username").isPresent()){
+//        Object o = SecurityContextHolder.getContext();
+//        System.out.println(0);
+//
+////        if (userDao.findByUsername("username") != null){
 //            userDao.save(User.builder()
 //                    .username("user")
-//                    .password("qwerty")
+//                    .password(passwordEncoder.encode("qwerty"))
 //                    .accountNonExpired(true)
 //                    .accountNonLocked(true)
 //                    .credentialsNonExpired(true)
@@ -88,7 +87,7 @@ public class UserServiceImpl implements UserService {
 //                    .enabled(true)
 //                    .authorities(roles)
 //                    .build());
-//        }
+////        }
 //    }
 
 }

@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface UserDao extends JpaRepository<User,Long>{
 
-    Optional<User> getUserByUsername(String username);
+    User findByUsername(String username);
 
     User save(@NonNull User user);
 

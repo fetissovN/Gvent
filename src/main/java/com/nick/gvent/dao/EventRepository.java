@@ -1,6 +1,5 @@
 package com.nick.gvent.dao;
 
-import com.nick.gvent.entity.Quiz;
 import com.nick.gvent.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 

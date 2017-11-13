@@ -6,9 +6,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 
-public interface UserService extends UserDetailsService {
+public interface UserService {
 
-    void save(User user);
+    void saveNewUser(User user, Long role);
 
-    UserDetails loadUserByUsername(@NonNull String username);
+    UserDetails findByUsername(@NonNull String username);
 }
