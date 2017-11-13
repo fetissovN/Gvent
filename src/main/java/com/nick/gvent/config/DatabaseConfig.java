@@ -35,7 +35,7 @@ public class DatabaseConfig {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setPackagesToScan(
-                new String[] { "com.nick.gvent.dao" });
+                new String[] { "com.nick.gvent" });
         sessionFactory.setHibernateProperties(getHibernateProperties());
 
         return sessionFactory;

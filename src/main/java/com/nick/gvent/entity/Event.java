@@ -1,8 +1,11 @@
 package com.nick.gvent.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "users_events")
 public class Event {

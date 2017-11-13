@@ -1,20 +1,39 @@
 package com.nick.gvent.entity;
 
+import lombok.*;
+import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Set;
 
 @Entity
+//@Data
+//@ToString
+//@EqualsAndHashCode
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "users")
-public class User {
+public class User implements UserDetails{
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "nickname")
-    private String nickname;
+    @ManyToMany
+    @JoinTable(name = "user_role", joinColumns = {@JoinColumn(name = "user_id")}
+                , inverseJoinColumns = {@JoinColumn(name = "role_id")})
+    private Set<Role> authorities;
+
+    @Column(name = "username", unique = true)
+    private String username;
+
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
 
     @Column(name = "age")
     private String age;
@@ -28,17 +47,23 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    transient String passwordCheck;
+    @Transient
+    private String passwordCheck;
 
-    @Column(name = "banned")
-    @NotNull
-    private int banned;
+    @Column(name = "accountNonExpired")
+    private boolean accountNonExpired;
+
+    @Column(name = "accountNonLocked")
+    private boolean accountNonLocked;
+
+    @Column(name = "credentialsNonExpired")
+    private boolean credentialsNonExpired;
+
+    @Column(name = "enabled")
+    private boolean enabled;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "userId")
     private List<Event> eventsList;
-
-    public User() {
-    }
 
     public Long getId() {
         return id;
@@ -48,12 +73,38 @@ public class User {
         this.id = id;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Override
+    public Set<Role> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<Role> authorities) {
+        this.authorities = authorities;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getAge() {
@@ -64,11 +115,11 @@ public class User {
         this.age = age;
     }
 
-    public String getGende() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGende(String gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -80,6 +131,7 @@ public class User {
         this.email = email;
     }
 
+    @Override
     public String getPassword() {
         return password;
     }
@@ -96,12 +148,40 @@ public class User {
         this.passwordCheck = passwordCheck;
     }
 
-    public int getBanned() {
-        return banned;
+    @Override
+    public boolean isAccountNonExpired() {
+        return accountNonExpired;
     }
 
-    public void setBanned(int banned) {
-        this.banned = banned;
+    public void setAccountNonExpired(boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
+    }
+
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return credentialsNonExpired;
+    }
+
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public List<Event> getEventsList() {
@@ -111,4 +191,5 @@ public class User {
     public void setEventsList(List<Event> eventsList) {
         this.eventsList = eventsList;
     }
+
 }
