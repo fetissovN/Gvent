@@ -1,4 +1,4 @@
-package com.nick.gvent.service.security;
+package com.nick.gvent.service.security.userDetails;
 
 import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.entity.Role;
@@ -35,6 +35,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         return new org.springframework.security.core.userdetails.User(user.getUsername()
                 , user.getPassword(), grantedAuthorities);
-
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value = "/login")
 public class LoginController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String getLogin(@RequestParam(value = "error", required = false) String error,
                            @RequestParam(value = "logout", required = false) String logout,
                            Model model) {
@@ -20,10 +20,10 @@ public class LoginController {
     }
 
 //    @RequestMapping(value = "/", method = RequestMethod.POST)
-//    public String setLogin(@RequestParam(value = "err", required = false) String param,
+//    public String setLogin(@RequestParam(value = "error", required = false) String param,
 //                           @RequestParam(value = "logout", required = false) String logout,
 //                           Model model) {
-//        model.addAttribute("param", param);
+//        model.addAttribute("error", param);
 //        model.addAttribute("logout", logout);
 //        return "Dashboard";
 //    }

@@ -2,6 +2,7 @@ package com.nick.gvent.service.user;
 
 
 import com.google.common.collect.ImmutableList;
+import com.nick.gvent.dao.role.RoleCustom;
 import com.nick.gvent.dao.role.RoleDao;
 import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.entity.Role;
@@ -33,6 +34,9 @@ public class UserServiceImpl implements UserService {
     private RoleDao roleDao;
 
     @Autowired
+    private RoleCustom roleCustom;
+
+    @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
 
@@ -58,36 +62,66 @@ public class UserServiceImpl implements UserService {
         return userDao.findByUsername(username);
     }
 
-//    @PostConstruct
-//    @Transactional
-//    public void init() throws InterruptedException {
-////        if (roleDao.findAll().size() == 0){
-////            roleDao.save(Role.builder()
-////                    .id(1L)
-////                    .name("USER")
-////                    .build());
-////        }
-////        Thread.sleep(1000);
-//        Set<Role> roles = new HashSet<>();
-//        roles.add(roleDao.findOne(1L));
-//
-//        Object o = SecurityContextHolder.getContext();
-//        System.out.println(0);
-//
-////        if (userDao.findByUsername("username") != null){
-//            userDao.save(User.builder()
-//                    .username("user")
-//                    .password(passwordEncoder.encode("qwerty"))
-//                    .accountNonExpired(true)
-//                    .accountNonLocked(true)
-//                    .credentialsNonExpired(true)
-//                    .age("26")
-//                    .gender("male")
-//                    .email("fetissov.n@gmail.com")
-//                    .enabled(true)
-//                    .authorities(roles)
-//                    .build());
-////        }
-//    }
+    @PostConstruct
+    @Transactional
+    public void init() throws InterruptedException {
+//        if (roleDao.findAll().size() == 0){
+//        roleDao.save(Role.builder()
+//                .id(1L)
+//                .name("USER")
+//                .users(null)
+//                .build());
+//        roleDao.save(Role.builder()
+//                .id(2L)
+//                .name("ADMIN")
+//                .users(null)
+//                .build());
+//        }
+//        roleDao.persist(1L, "USER");
+//        roleDao.persist(2L, "ADMIN");
+        roleCustom.persistUser(Role.builder()
+                .id(1L)
+                .name("USER")
+                .users(null)
+                .build());
+        roleCustom.persistUser(Role.builder()
+                .id(2L)
+                .name("ADMIN")
+                .users(null)
+                .build());
+        Set<Role> rolesUser = new HashSet<>();
+        rolesUser.add(roleDao.findByName("USER"));
+
+        Set<Role> rolesAdmin= new HashSet<>();
+        rolesAdmin.add(roleDao.findByName("USER"));
+        rolesAdmin.add(roleDao.findByName("ADMIN"));
+
+//        if (userDao.findByUsername("username") != null){
+        userDao.save(User.builder()
+                .username("user")
+                .password(passwordEncoder.encode("root"))
+                .accountNonExpired(true)
+                .accountNonLocked(true)
+                .credentialsNonExpired(true)
+                .age("26")
+                .gender("male")
+                .email("fetissov.n@gmail.com")
+                .enabled(true)
+                .authorities(rolesUser)
+                .build());
+        userDao.save(User.builder()
+                .username("admin")
+                .password(passwordEncoder.encode("admin"))
+                .accountNonExpired(true)
+                .accountNonLocked(true)
+                .credentialsNonExpired(true)
+                .age("26")
+                .gender("male")
+                .email("fetissov.admin.n@gmail.com")
+                .enabled(true)
+                .authorities(rolesAdmin)
+                .build());
+//        }
+    }
 
 }
