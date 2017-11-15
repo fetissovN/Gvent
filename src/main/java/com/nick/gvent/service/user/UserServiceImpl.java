@@ -64,67 +64,67 @@ public class UserServiceImpl implements UserService {
         return userDao.findByUsername(username);
     }
 
-    @PostConstruct
-    public void init() throws InterruptedException {
-//        if (roleDao.findAll().size() == 0){
-//        roleDao.save(Role.builder()
+//    @PostConstruct
+//    public void init() throws InterruptedException {
+////        if (roleDao.findAll().size() == 0){
+////        roleDao.save(Role.builder()
+////                .id(1L)
+////                .name("USER")
+////                .users(null)
+////                .build());
+////        roleDao.save(Role.builder()
+////                .id(2L)
+////                .name("ADMIN")
+////                .users(null)
+////                .build());
+////        }
+////        roleDao.persist(1L, "USER");
+////        roleDao.persist(2L, "ADMIN");
+//        roleCustom.persistUser(Role.builder()
 //                .id(1L)
 //                .name("USER")
 //                .users(null)
 //                .build());
-//        roleDao.save(Role.builder()
+//        roleCustom.persistUser(Role.builder()
 //                .id(2L)
 //                .name("ADMIN")
 //                .users(null)
 //                .build());
-//        }
-//        roleDao.persist(1L, "USER");
-//        roleDao.persist(2L, "ADMIN");
-        roleCustom.persistUser(Role.builder()
-                .id(1L)
-                .name("USER")
-                .users(null)
-                .build());
-        roleCustom.persistUser(Role.builder()
-                .id(2L)
-                .name("ADMIN")
-                .users(null)
-                .build());
-        Set<Role> rolesUser = new HashSet<>();
-        rolesUser.add(roleDao.findByName("USER"));
-
-        Set<Role> rolesAdmin= new HashSet<>();
-        rolesAdmin.add(roleDao.findByName("USER"));
-        rolesAdmin.add(roleDao.findByName("ADMIN"));
-
-        userDao.save(User.builder()
-                .username("user")
-                .password(passwordEncoder.encode("root"))
-                .accountNonExpired(true)
-                .accountNonLocked(true)
-                .credentialsNonExpired(true)
-                .age("26")
-                .gender("male")
-                .email("fetissov.n@gmail.com")
-                .enabled(true)
-                .firstName("user")
-                .lastName("useravich")
-                .authorities(rolesUser)
-                .build());
-        userDao.save(User.builder()
-                .username("admin")
-                .password(passwordEncoder.encode("admin"))
-                .accountNonExpired(true)
-                .accountNonLocked(true)
-                .credentialsNonExpired(true)
-                .age("26")
-                .gender("male")
-                .email("fetissov.admin.n@gmail.com")
-                .enabled(true)
-                .authorities(rolesAdmin)
-                .firstName("admin")
-                .lastName("adminovich")
-                .build());
-    }
+//        Set<Role> rolesUser = new HashSet<>();
+//        rolesUser.add(roleDao.findByName("USER"));
+//
+//        Set<Role> rolesAdmin= new HashSet<>();
+//        rolesAdmin.add(roleDao.findByName("USER"));
+//        rolesAdmin.add(roleDao.findByName("ADMIN"));
+//
+//        userDao.save(User.builder()
+//                .username("user")
+//                .password(passwordEncoder.encode("root"))
+//                .accountNonExpired(true)
+//                .accountNonLocked(true)
+//                .credentialsNonExpired(true)
+//                .age("26")
+//                .gender("male")
+//                .email("fetissov.n@gmail.com")
+//                .enabled(true)
+//                .firstName("user")
+//                .lastName("useravich")
+//                .authorities(rolesUser)
+//                .build());
+//        userDao.save(User.builder()
+//                .username("admin")
+//                .password(passwordEncoder.encode("admin"))
+//                .accountNonExpired(true)
+//                .accountNonLocked(true)
+//                .credentialsNonExpired(true)
+//                .age("26")
+//                .gender("male")
+//                .email("fetissov.admin.n@gmail.com")
+//                .enabled(true)
+//                .authorities(rolesAdmin)
+//                .firstName("admin")
+//                .lastName("adminovich")
+//                .build());
+//    }
 
 }
