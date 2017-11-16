@@ -2,6 +2,9 @@ package com.nick.gvent.dao.role;
 
 import com.nick.gvent.entity.Role;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -11,11 +14,14 @@ import javax.transaction.Transactional;
 @Transactional
 public class RoleCustom {
 
+    @Autowired
+    final Logger LOGGER = LoggerFactory.getLogger(RoleCustom.class);
+
     @Resource(name = "sessionFactory")
     public SessionFactory sessionFactory;
 
-    public void persistUser(Role role){
+    public void persistRole(Role role){
         sessionFactory.getCurrentSession().save(role);
-//        LOGGER.info(messageSource.getMessage("log.new.user", new Object[] {user}, Locale.ENGLISH));
+        LOGGER.info("New role {} was set to db.",role);
     }
 }

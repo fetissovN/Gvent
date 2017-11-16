@@ -30,7 +30,6 @@ public class LoginController {
     public String register(@ModelAttribute("newUser") User newUser) {
 
         userService.saveNewUser(newUser,1L);
-
         return "Dashboard";
     }
 

@@ -20,4 +20,3 @@ card_dblcl.dblclick(function() {
 
 
 
-console.log("!EventCard.js");

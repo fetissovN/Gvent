@@ -10,7 +10,7 @@
     
     <body>
         <div class ="mapContentBox">
-        <#include "Bar.ftl">
+        <#include "bar.ftl">
             <div id="map"></div>
         </div>
 

@@ -7,9 +7,6 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-//@Data
-//@ToString
-//@EqualsAndHashCode
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

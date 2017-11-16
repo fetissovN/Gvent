@@ -1,24 +1,14 @@
 package com.nick.gvent.service.user;
 
 
-import com.google.common.collect.ImmutableList;
 import com.nick.gvent.dao.role.RoleCustom;
 import com.nick.gvent.dao.role.RoleDao;
 import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.entity.Role;
 import com.nick.gvent.entity.User;
-import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import java.util.HashSet;
@@ -64,6 +54,11 @@ public class UserServiceImpl implements UserService {
         return userDao.findByUsername(username);
     }
 
+    /**
+    * Creation of basic users:
+     * login: user, pass: root
+     * login: admin, pass: admin
+    * */
 //    @PostConstruct
 //    public void init() throws InterruptedException {
 ////        if (roleDao.findAll().size() == 0){
@@ -80,12 +75,12 @@ public class UserServiceImpl implements UserService {
 ////        }
 ////        roleDao.persist(1L, "USER");
 ////        roleDao.persist(2L, "ADMIN");
-//        roleCustom.persistUser(Role.builder()
+//        roleCustom.persistRole(Role.builder()
 //                .id(1L)
 //                .name("USER")
 //                .users(null)
 //                .build());
-//        roleCustom.persistUser(Role.builder()
+//        roleCustom.persistRole(Role.builder()
 //                .id(2L)
 //                .name("ADMIN")
 //                .users(null)

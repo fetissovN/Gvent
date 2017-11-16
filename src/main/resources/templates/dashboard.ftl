@@ -6,7 +6,7 @@
 	</head>
 	
     <body>
-    <#include "Bar.ftl">
+    <#include "bar.ftl">
 
 
     <!-- Card section -->
@@ -33,7 +33,7 @@
         <img src="images/image.jpeg" alt="img" draggable="false" style="width:75%;height:75%;">
     </div>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="js/EventCard.js"> </script>
+    <script src="js/eventCard.js"> </script>
     <!-- Card section END -->
 
     </body>
