@@ -1,5 +1,6 @@
 package com.nick.gvent.controllers;
 
+import com.nick.gvent.dto.UserDTO;
 import com.nick.gvent.entity.User;
 import com.nick.gvent.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,14 @@ public class LoginController {
         model.addAttribute("logout", logout != null);
         return "login";
     }
+
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    public String register(@ModelAttribute("newUser") UserDTO newUser, Model model) {
+        model.addAttribute("newUser",newUser);
+
+        return "Dashboard";
+    }
+
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String register(@ModelAttribute("newUser") User newUser) {

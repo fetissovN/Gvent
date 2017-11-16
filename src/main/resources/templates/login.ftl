@@ -43,19 +43,34 @@
     </div>
 
     <!--***********************************************-->
-    <#--<#import "/spring.ftl" as spring/>-->
+    <#import "/spring.ftl" as spring/>
     <div class="formBlock_signUp">
-        <form action="/login/registration" name="newUser" method="post">
+
+        <form action="/login/registration" method="post">
+        <@spring.bind path= "newUser" />
             <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden">
-            <input type="text" name="username" value="" placeholder="User Name">
-            <input type="text" name="firstName" value="" placeholder="First Name">
-            <input type="text" name="lastName" value="" placeholder="Last Name">
-            <input type="text" name="email" value="" placeholder="Email" required>
-            <input type="password" name="password" value="" placeholder="Password" required>
-            <input type="password" name="passwordConfirm" value="" placeholder="Confirm Password" required>
+        <@spring.formInput "newUser.username" />
+            <#--<input type="text" name="username" value="" placeholder="User Name">-->
+            <#--<input type="text" name="firstName" value="" placeholder="First Name">-->
+            <#--<input type="text" name="lastName" value="" placeholder="Last Name">-->
+            <#--<input type="text" name="email" value="" placeholder="Email" required>-->
+            <#--<input type="password" name="password" value="" placeholder="Password" required>-->
+            <#--<input type="password" name="passwordConfirm" value="" placeholder="Confirm Password" required>-->
             <input type="submit" value="SignUp">
         </form>
     </div>
+    <#--<div class="formBlock_signUp">-->
+        <#--<form action="/login/registration" name="newUser" method="post">-->
+            <#--<input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden">-->
+            <#--<input type="text" name="username" value="" placeholder="User Name">-->
+            <#--<input type="text" name="firstName" value="" placeholder="First Name">-->
+            <#--<input type="text" name="lastName" value="" placeholder="Last Name">-->
+            <#--<input type="text" name="email" value="" placeholder="Email" required>-->
+            <#--<input type="password" name="password" value="" placeholder="Password" required>-->
+            <#--<input type="password" name="passwordConfirm" value="" placeholder="Confirm Password" required>-->
+            <#--<input type="submit" value="SignUp">-->
+        <#--</form>-->
+    <#--</div>-->
 
     <!--***********************************************-->
 

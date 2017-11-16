@@ -1,14 +1,6 @@
 package com.nick.gvent.controllers;
 
-import com.nick.gvent.dto.Theme;
-import com.nick.gvent.util.JsonParser;
-import org.json.simple.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /** api RestController class
  * @autor Fetissov Mikalai
@@ -23,13 +15,13 @@ public class RestController {
 
 //
 //
-//    /** Makes Quiz objects form from Theme object and saves to db
+//    /** Makes Quiz objects form from UserDTO object and saves to db
 //     * @param theme
-//     * @see RestController#makeTheme(Theme)()
+//     * @see RestController#makeTheme(UserDTO)()
 //     */
 //    @RequestMapping(value = "api/makeQuiz", method = RequestMethod.POST)
 //    @ResponseBody
-//    public JSONObject makeTheme(@RequestBody Theme theme){
+//    public JSONObject makeTheme(@RequestBody UserDTO theme){
 //        Quiz quizNew = new ThemeToQuiz().convert(theme);
 //        Long id = quizService.saveNewQuiz(quizNew);
 //        return JsonParser.makeUrl(HOST + "/quiz/"+id);

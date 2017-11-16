@@ -33,7 +33,7 @@ public class User implements UserDetails{
     private String lastName;
 
     @Column(name = "age")
-    private String age;
+    private Integer age;
 
     @Column(name = "gender")
     private String gender;
@@ -104,11 +104,11 @@ public class User implements UserDetails{
         this.username = username;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

@@ -1,12 +1,7 @@
 package com.nick.gvent.util;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nick.gvent.dto.Theme;
 import org.json.simple.JSONObject;
-
-import java.io.IOException;
 
 /** Class for making valid json objects
  * @autor Fetissov Mikalai
@@ -22,7 +17,7 @@ public class JsonParser {
 //            return null;
 //        }
 //        ObjectMapper mapper = new ObjectMapper();
-//        Theme theme = mapper.readValue(s, Theme.class);
+//        UserDTO theme = mapper.readValue(s, UserDTO.class);
 //        ThemeToQuiz toQuiz = new ThemeToQuiz();
 //        return toQuiz.convert(theme);
 //    }
