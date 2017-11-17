@@ -29,11 +29,10 @@ body {
 }
 
 .str_logIn {
-	display: none;
 }
 
 .str_signUp {
-	display: none;
+
 }
 
 .signMenu {
@@ -60,13 +59,11 @@ body {
 
 /* ---------------LOGIN FORM-------------*/
 .formBlock_logIn {
-	display: none;
 	position: relative;
 	margin-top: 15%;
 }
 
 .formBlock_signUp {
-	display: none;
 	position: relative;
 	margin-top: 10%;
 }

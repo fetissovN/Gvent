@@ -9,5 +9,9 @@ public interface UserService {
 
     void saveNewUser(User user, Long role);
 
+    boolean isEmailExists(User user);
+
+    boolean isNicknameExists(User user);
+
     UserDetails findByUsername(@NonNull String username);
 }

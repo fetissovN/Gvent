@@ -23,13 +23,24 @@ public class RegFormValidator extends ValidatorSample implements Validator {
         valid(errors,user.getUsername(),"username", "reg.username.tooLong", "Username must not more than 20 characters.",20);
         valid(errors,user.getFirstName(),"firstName", "reg.firstName.tooLong", "First name must not more than 30 characters.",30);
         valid(errors,user.getLastName(),"lastName", "reg.lastName.tooLong", "Last name must not more than 30 characters.",30);
-        if (!(user.getGender().equals(Gender.MALE) || user.getGender().equals(Gender.FEMALE))){
-            if (!(user.getGender().equals(""))){
-                errors.rejectValue("gender","reg.gender","Wrong gender!");
+//        while (true){
+//            if (user.getGender() == null){
+//                break;
+//            }else if (user.getGender().equals("")){
+//                break;
+//            }else if (!(user.getGender().equals(Gender.MALE)) || !(user.getGender().equals(Gender.FEMALE))){
+//                errors.rejectValue("gender","reg.gender","Wrong gender!");
+//            }
+//            break;
+//        }
+        while (true){
+            if (user.getAge() == null){
+                break;
             }
-        }
-        if (!(user.getAge() > 100)){
-            errors.rejectValue("age","reg.age.tooOld","You can't live any more!");
+            if (!(user.getAge() > 100)){
+                errors.rejectValue("age","reg.age.tooOld","You can't live any more!");
+            }
+            break;
         }
         validNotBlank(errors,"password", "reg.password.empty", "Password must not be empty.");
         if (!(user.getPassword()).equals(user

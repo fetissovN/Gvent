@@ -36,17 +36,25 @@ public class UserServiceImpl implements UserService {
         Set<Role> roles = new HashSet<>();
         roles.add(roleDao.findOne(role));
         user.setAuthorities(roles);
-        user.setAge(user.getAge());
-        user.setUsername(user.getUsername());
-        user.setAccountNonExpired(true);
-        user.setAccountNonLocked(true);
-        user.setCredentialsNonExpired(true);
-        user.setEnabled(true);
-        user.setFirstName(user.getFirstName());
-        user.setLastName(user.getLastName());
-        user.setEmail(user.getEmail());
-        user.setGender(user.getGender());
         userDao.save(user);
+    }
+
+    @Override
+    public boolean isEmailExists(User user) {
+        User userDB = userDao.findByEmail(user.getEmail());
+        if (userDB != null){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isNicknameExists(User user) {
+        User userDB = userDao.findByUsername(user.getUsername());
+        if (userDB != null){
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -54,11 +62,11 @@ public class UserServiceImpl implements UserService {
         return userDao.findByUsername(username);
     }
 
-    /**
-    * Creation of basic users:
-     * login: user, pass: root
-     * login: admin, pass: admin
-    * */
+//    /**
+//    * Creation of basic users:
+//     * login: user, pass: root
+//     * login: admin, pass: admin
+//    * */
 //    @PostConstruct
 //    public void init() throws InterruptedException {
 ////        if (roleDao.findAll().size() == 0){
