@@ -1,6 +1,7 @@
 package com.nick.gvent.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.aspectj.lang.annotation.DeclareError;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -9,6 +10,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import javax.websocket.OnError;
 import java.util.Collections;
 import java.util.List;
 
@@ -29,7 +31,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/").setViewName("Dashboard");
         registry.addViewController("/map").setViewName("MapEvent");
         registry.addViewController("/login/").setViewName("login");
+        registry.addViewController("/error/404.html").setViewName("404");
+
     }
+
+
 
 //    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
 //            "classpath:/resources/",
