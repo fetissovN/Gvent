@@ -2,6 +2,7 @@ package com.nick.gvent.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.annotation.DeclareError;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -31,9 +32,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/").setViewName("Dashboard");
         registry.addViewController("/map").setViewName("MapEvent");
         registry.addViewController("/login/").setViewName("login");
-        registry.addViewController("/error/404.html").setViewName("404");
-
     }
+
+
 
 
 

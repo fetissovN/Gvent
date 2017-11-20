@@ -1,6 +1,7 @@
 package com.nick.gvent.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /** LayoutController class for UI
@@ -22,4 +23,9 @@ public class LayoutController {
         return "MapEvent";
     }
 
+//    @RequestMapping("/error")
+//    public String error(Model model){
+//        model.addAttribute("ex","eee");
+//        return "404";
+//    }
 }
