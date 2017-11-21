@@ -38,7 +38,7 @@
         <div class="cardEvent_chat">
 
             <div class="chatHead_title">
-                <p class="chatHead_eventAddress"> 8100 East 7th Streer, Charlotte, NC 28202 </p>
+                <p class="chatHead_eventAddress"> 810 East 7th Streer, Charlotte, NC 28202 </p>
 
                 <ul class="chatHead_menu">
                     <li> &#8285 </li>
