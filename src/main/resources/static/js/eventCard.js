@@ -1,3 +1,4 @@
+
 // show/hide SEND button --------------
 $("input").keyup(function () {
     if ($(this).val()) {
@@ -7,12 +8,6 @@ $("input").keyup(function () {
         $(".chatBody_btn_send").hide();
     }
 });
-// show/hide SEND button END ---------
-
-
-// CLOSE button-----------------
-
-$("div.cardEvent_chat_wrapper").hide();
 
 $(".closeBtn").click(function(){
     $(".cardEvent_chat_wrapper").hide();
@@ -22,11 +17,6 @@ $(".closeBtn").click(function(){
 $(".cardZip_m").click(function(){
     $(".cardEvent_chat_wrapper").show();
 });
-
-
-
-console.log("test");
-
 
 
 
