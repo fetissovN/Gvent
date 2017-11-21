@@ -130,7 +130,7 @@ ul.nav {
 	transform: translateY(-1px);
 }
 .cardEvent_chat_wrapper{
-	/*display: none;*/
+	display: none;
 }
 .cardEvent_chat {
 	position: absolute;
