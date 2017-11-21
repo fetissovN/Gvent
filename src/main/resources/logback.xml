@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- Log message format -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- Ned appender to write to file -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <!-- Name of the file where the log messages are written -->
+        <file>logs/myApp.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILEIN" class="ch.qos.logback.core.FileAppender">
+        <!-- Name of the file where the log messages are written -->
+        <file>logs/myAppInside.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="com.nick.gvent" level="ALL">
+        <appender-ref ref="FILEIN" />
+    </logger>
+    <!--<logger name="com.nick.gvent" level="INFO">-->
+        <!--<appender-ref ref="STDOUT" />-->
+    <!--</logger>-->
+
+    <!-- Setting the root level of logging to INFO -->
+    <root level="info">
+        <appender-ref ref="FILE" />
+    </root>
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<Configuration monitorInterval="60">-->
+    <!--<Properties>-->
+        <!--<Property name="path">logs</Property>-->
+    <!--</Properties>-->
+    <!--<Appenders>-->
+        <!--<Console name="Console-Appender" target="SYSTEM_OUT">-->
+            <!--<PatternLayout>-->
+                <!--<pattern>-->
+                    <!--[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n-->
+                <!--</pattern>-->
+                <!--&gt;-->
+            <!--</PatternLayout>-->
+        <!--</Console>-->
+        <!--<File name="App-Appender" fileName="${path}/app_log.log">-->
+            <!--<PatternLayout>-->
+                <!--<pattern>-->
+                    <!--[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n-->
+                <!--</pattern>-->
+            <!--</PatternLayout>-->
+        <!--</File>-->
+        <!--<File name="SpringBoot-Appender" fileName="${path}/springboot_log.log">-->
+            <!--<PatternLayout>-->
+                <!--<pattern>-->
+                    <!--[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n-->
+                <!--</pattern>-->
+            <!--</PatternLayout>-->
+        <!--</File>-->
+    <!--</Appenders>-->
+    <!--<Loggers>-->
+        <!--<Logger name="org.springframework.web" level="info" additivity="false">-->
+            <!--<AppenderRef ref="SpringBoot-Appender" />-->
+            <!--<AppenderRef ref="Console-Appender" />-->
+        <!--</Logger>-->
+        <!--<Logger name="com.javasampleapproach.log4j2.controller" level="info"-->
+                <!--additivity="false">-->
+            <!--<AppenderRef ref="App-Appender" />-->
+            <!--<AppenderRef ref="Console-Appender" />-->
+        <!--</Logger>-->
+        <!--<logger name="org.springframework.boot">-->
+            <!--<level value="trace"/>-->
+            <!--<appender-ref ref="console"/>-->
+            <!--<appender-ref ref="file"/>-->
+        <!--</logger>-->
+        <!--<Root>-->
+            <!--<AppenderRef ref="Console-Appender" />-->
+        <!--</Root>-->
+    <!--</Loggers>-->
+<!--</Configuration>-->

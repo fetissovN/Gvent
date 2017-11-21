@@ -3,6 +3,8 @@ package com.nick.gvent.service.security.userDetails;
 import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.entity.Role;
 import com.nick.gvent.entity.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,6 +20,8 @@ import java.util.Set;
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {
 
+    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     private UserDao userDao;
 
@@ -31,6 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         for (Role role : user.getAuthorities()) {
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
         }
+        LOGGER.info("New user saved {}",user);
         return new org.springframework.security.core.userdetails.User(user.getUsername()
                 , user.getPassword(), grantedAuthorities);
     }

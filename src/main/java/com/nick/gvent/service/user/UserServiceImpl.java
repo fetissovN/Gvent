@@ -42,9 +42,9 @@ public class UserServiceImpl implements UserService {
         user.setAuthorities(roles);
         User userFromDB = userDao.save(user);
         if (userFromDB != null){
-            LOGGER.info("New user saved",userFromDB);
+            LOGGER.info("New user saved {}",userFromDB);
         }else {
-            LOGGER.warn("User was not saved", user);
+            LOGGER.warn("User was not saved {}", user);
         }
     }
 
