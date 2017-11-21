@@ -1,12 +1,7 @@
-Автор: Фетисов Николай
-Проект: Voter(Создание голосований)
+author: Nick Fetissov(Backend), Denis Kiparyn(Frontend)
+progect: Gvent
 
-Проект построен на Maven. Использует технологии Spring, Spring Boot, Spring MVC, Hibernate.
-База данных PostgreSQL. Таблица создается автоматически. Изменить параметры можно в hibernate.properties и db.properties.
-В качестве шаблонизатора выступает Freemarker.
-Настройки сервера лежат в application.properties.
+Project build with Maven. Uses Spring, Spring Boot, Spring MVC, Hibernate, Freemarker.
+Database PostgreSQL.
 
-Запросы к api поступают в RestController.class.
-
-Создание проекта заняло 30 часов!
 
