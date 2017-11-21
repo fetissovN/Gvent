@@ -221,6 +221,9 @@ ul.nav {
 									border: 0px solid orange;
 									overflow: auto;
 								}
+								form {
+									height: 100%;
+								}
 								.chatBody_typer {
 									/*flex: 1 1;*/
 									height: 40px;
