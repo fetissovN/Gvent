@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Page not found</h1>
+<h1>${ex}</h1>
 
 </body>
 </html>
