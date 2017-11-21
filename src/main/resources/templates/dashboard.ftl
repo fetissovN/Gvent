@@ -55,9 +55,10 @@
                     </div>
 
                     <div class="chatBody_typer">
-                        <input class="chatBody_field_input" type="text" name="sendAMessage" placeholder="Send a message">
-                        <input class="chatBody_btn_send" type="submit" value="&#10148">
-                        <!-- <form action="/action_page.php"> -->
+                        <form>
+                            <input class="chatBody_field_input" type="text" name="sendAMessage" placeholder="Send a message">
+                            <input class="chatBody_btn_send" type="submit" value="&#10148">
+                            <!-- <form action="/action_page.php"> -->
                         </form>
                     </div>
                 </div>
