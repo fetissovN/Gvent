@@ -38,7 +38,7 @@
         <div class="cardEvent_chat">
 
             <div class="chatHead_title">
-                <p class="chatHead_eventAddress"> 8100 East 7th Streer, Charlotte, NC 28202 </p>
+                <p class="chatHead_eventAddress"> 810 East 7th Streer, Charlotte, NC 28202 </p>
 
                 <ul class="chatHead_menu">
                     <li> &#8285 </li>
@@ -55,9 +55,10 @@
                     </div>
 
                     <div class="chatBody_typer">
-                        <input class="chatBody_field_input" type="text" name="sendAMessage" placeholder="Send a message">
-                        <input class="chatBody_btn_send" type="submit" value="&#10148">
-                        <!-- <form action="/action_page.php"> -->
+                        <form>
+                            <input class="chatBody_field_input" type="text" name="sendAMessage" placeholder="Send a message">
+                            <input class="chatBody_btn_send" type="submit" value="&#10148">
+                            <!-- <form action="/action_page.php"> -->
                         </form>
                     </div>
                 </div>
