@@ -17,9 +17,8 @@
         and ROFL (or its older form ROTFL; "roll(ing) on the floor laughing"). Other unrelated expansions include the now mostly obsolete "lots of luck" or "lots of love" used in letter-writing.
     </div>
 
-    <div class="cardZip_m"  draggable="true"> <h6>David P. share the file</h6>
-        <img src="images/file.png" alt="file" draggable="false" style="width:20%;height:40%;">
-        <p>TestCase.zip</p>
+    <div class="cardZip_m"  draggable="true"> <h6>8100 East 7th Streer, Charlotte, NC 28202</h6>
+        <p>Chat</p>
     </div>
 
     <div class="card_m"  draggable="true"> <h6>Message: Nick</h6>
@@ -32,9 +31,44 @@
     <div class="card_m"  draggable="true"> <h6>John send you a picture</h6>
         <img src="images/image.jpeg" alt="img" draggable="false" style="width:75%;height:75%;">
     </div>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="js/eventCard.js"> </script>
     <!-- Card section END -->
 
+    <#--******************-->
+    <div class="cardEvent_chat_wrapper">
+        <div class="cardEvent_chat">
+
+            <div class="chatHead_title">
+                <p class="chatHead_eventAddress"> 8100 East 7th Streer, Charlotte, NC 28202 </p>
+
+                <ul class="chatHead_menu">
+                    <li> &#8285 </li>
+                    <li class="closeBtn"> &#10005 </li>
+                </ul>
+
+            </div>
+
+            <div class="bodyWrapper">
+                <div class="chatBody_userList"> users </div>
+                <div class="chatBody_chatWindow">
+
+                    <div class="chatBody_displayer">
+                    </div>
+
+                    <div class="chatBody_typer">
+                        <input class="chatBody_field_input" type="text" name="sendAMessage" placeholder="Send a message">
+                        <input class="chatBody_btn_send" type="submit" value="&#10148">
+                        <!-- <form action="/action_page.php"> -->
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <#--********************-->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="js/eventCard.js"> </script>
     </body>
 </html>

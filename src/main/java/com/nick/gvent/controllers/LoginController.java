@@ -59,7 +59,7 @@ public class LoginController {
         }
 
         userService.saveNewUser(user,1L);
-        return "Dashboard";
+        return "dashboard";
     }
 
 }

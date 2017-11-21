@@ -15,12 +15,12 @@ public class LayoutController {
 
     @RequestMapping("/")
     public String main(){
-        return "Dashboard";
+        return "dashboard";
     }
 
     @RequestMapping("/map")
     public String map(){
-        return "MapEvent";
+        return "mapEvent";
     }
 
 //    @RequestMapping("/error")

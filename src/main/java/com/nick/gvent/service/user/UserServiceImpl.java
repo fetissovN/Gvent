@@ -106,7 +106,7 @@ public class UserServiceImpl implements UserService {
 //                .accountNonExpired(true)
 //                .accountNonLocked(true)
 //                .credentialsNonExpired(true)
-//                .age("26")
+//                .age(26)
 //                .gender("male")
 //                .email("fetissov.n@gmail.com")
 //                .enabled(true)
@@ -120,7 +120,7 @@ public class UserServiceImpl implements UserService {
 //                .accountNonExpired(true)
 //                .accountNonLocked(true)
 //                .credentialsNonExpired(true)
-//                .age("26")
+//                .age(26)
 //                .gender("male")
 //                .email("fetissov.admin.n@gmail.com")
 //                .enabled(true)
@@ -129,5 +129,5 @@ public class UserServiceImpl implements UserService {
 //                .lastName("adminovich")
 //                .build());
 //    }
-
+//
 }

@@ -1,22 +1,38 @@
+// show/hide SEND button --------------
+$("input").keyup(function () {
+    if ($(this).val()) {
+        $(".chatBody_btn_send").show();
+    }
+    else {
+        $(".chatBody_btn_send").hide();
+    }
+});
+// show/hide SEND button END ---------
 
-var card_dblcl = $( "div.cardZip_m" );
-card_dblcl.dblclick(function() {
-    card_dblcl.toggleClass( "cardZip_F" );
+
+// CLOSE button-----------------
+
+$("div.cardEvent_chat_wrapper").hide();
+
+$(".closeBtn").click(function(){
+    $(".cardEvent_chat_wrapper").hide();
+});
+// CLOSE button END-------------
+
+$(".cardZip_m").click(function(){
+    $(".cardEvent_chat_wrapper").show();
 });
 
-// $(document).mouseup(function(e)
-// {
-//     var container = $(".loginForm");
-//
-//     // if the target of the click isn't the container nor a descendant of the container
-//     if (!container.is(e.target) && container.has(e.target).length === 0)
-//     {
-//         container.hide();
-//     }
-// });
 
 
-// $("body > div:not('.loginForm') ").addClass("blur");
+console.log("test");
+
+
+
+
+
+
+
 
 
 
