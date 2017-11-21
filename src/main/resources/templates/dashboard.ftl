@@ -34,7 +34,7 @@
     <!-- Card section END -->
 
     <#--******************-->
-    <div class="cardEvent_chat_wrapper">
+    <div class="cardEvent_chat_wrapper" style="display: none">
         <div class="cardEvent_chat">
 
             <div class="chatHead_title">
