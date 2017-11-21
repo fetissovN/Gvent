@@ -6,6 +6,8 @@ import com.nick.gvent.dao.role.RoleDao;
 import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.entity.Role;
 import com.nick.gvent.entity.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,8 @@ import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private UserDao userDao;
@@ -36,7 +40,12 @@ public class UserServiceImpl implements UserService {
         Set<Role> roles = new HashSet<>();
         roles.add(roleDao.findOne(role));
         user.setAuthorities(roles);
-        userDao.save(user);
+        User userFromDB = userDao.save(user);
+        if (userFromDB != null){
+            LOGGER.info("New user saved",userFromDB);
+        }else {
+            LOGGER.warn("User was not saved", user);
+        }
     }
 
     @Override
