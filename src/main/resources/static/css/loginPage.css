@@ -116,6 +116,12 @@ input[type="text"], input[type="password"] {
 	background: white;
 	box-shadow: 0px 5px 50px 0px #383838;
 }
+input[type=text]:focus {
+	outline: none;
+}
+input[type=password]:focus {
+	outline: none;
+}
 
 
 
@@ -146,6 +152,9 @@ input[type="submit"]:hover {
 	color:white;
 	background-color: orange;
 	box-shadow: 0px 5px 20px 0px #1d1d1d;
+}
+input[type=submit]:focus {
+	outline: none;
 }
 /* ---------------LOGIN FORM END---------*/
 

@@ -3,6 +3,12 @@
 
     <!--***********************************************-->
     <#import "/spring.ftl" as spring/>
+
+<div class="wrapper_headTitle">
+    <span class="super">k</span>not
+    <span class="str_signUp">| Sign Up</span>
+</div>
+
     <div class="formBlock_signUp">
 
         <form action="/login/registration" method="post">

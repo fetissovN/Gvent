@@ -26,6 +26,30 @@ body {
 	z-index: 1;
 	top: 0;
 }
+				ul.nav {
+					list-style-type: none;
+					padding-left: 0;
+					margin-left: 0;
+
+				}
+								.nav li {
+									display: inline-block;
+									font-size: 1em;
+									margin-left: 0.5%;
+									padding-left: 0.5%;
+								}
+				.headNavBox_logo {
+					color:orange;
+					background-color:transparent;
+					font-size:200%;
+					font-weight:700;
+					text-align:left;
+					float: left;
+					padding-left: 1%;
+				}
+								.super {
+									vertical-align: +7px;
+								}
 /*-------USER ICON---------*/
 .userSettings {
 	position: absolute;
@@ -66,33 +90,6 @@ body {
 																				}
 /*-------USER ICON END---------*/
 
-ul.nav {
-	list-style-type: none;
-	padding-left: 0;
-	margin-left: 0;
-
-}
-
-.nav li {
-	display: inline-block;
-	font-size: 1em;
-	margin-left: 0.5%;
-	padding-left: 0.5%;
-}
-
-.headNavBox_logo {
-	color:orange;
-	background-color:transparent;
-	font-size:200%;
-	font-weight:700;
-	text-align:left;
-	float: left;
-	padding-left: 1%;
-}
-
-.super {
-	vertical-align: +7px;
-}
 /* ----------Navigation Header END---------- */
 
 /* ----------Body Cards---------- */
@@ -117,17 +114,16 @@ ul.nav {
 	float: left;
 	transition: .1s ease;
 }
+				.card_m:hover{
+					box-shadow:0 2px 8px 1px rgb(196, 196, 196);
+					-webkit-transform: translateY(-1px);
+					transform: translateY(-1px);
+				}
 
-.card_m:hover{
-	box-shadow:0 2px 8px 1px rgb(196, 196, 196);
-	-webkit-transform: translateY(-1px);
-	transform: translateY(-1px);
-}
-
-.cardZip_m:hover{
-	box-shadow:0 2px 8px 1px rgb(196, 196, 196);
-	-webkit-transform: translateY(-1px);
-	transform: translateY(-1px);
+				.cardZip_m:hover{
+					box-shadow:0 2px 8px 1px rgb(196, 196, 196);
+					-webkit-transform: translateY(-1px);
+					transform: translateY(-1px);
 }
 .cardEvent_chat_wrapper{
 	display: none;
