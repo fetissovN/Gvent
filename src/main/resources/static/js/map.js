@@ -3,7 +3,16 @@
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
+function Event(lat,lng,name,desc){
+    this.latitute = lat;
+    this.longitute = lng;
+    this.name = name;
+    this.description = desc;
+}
+
+
 var map, infoWindow;
+var newEvent = null;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.758570, lng: -73.985077},
@@ -13,6 +22,20 @@ function initMap() {
     // trafficLayer.setMap(map); SHOWS TRAFFIC ON THE MAP
     infoWindow = new google.maps.InfoWindow;
 
+    google.maps.event.addListener(map, 'click', function(event) {
+        newEvent = new Event(event.latLng.lat(),event.latLng.lng(),"name","desc");
+        showChoiceBox();
+
+        placeMarker(event.latLng);
+
+    });
+
+    function placeMarker(location) {
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -42,5 +65,38 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
+function showChoiceBox() {
+    console.log(newEvent);
+    var box = $('.mapClickChoice');
+    box.show();
+    var btn_add = $('.createEvent');
+    var btn_cancel = $('.cancelEvent');
+    btn_add.on('click', createEvent);
+    btn_cancel.on('click', closeChoiceBox);
+}
+
+function createEvent() {
+    console.log(newEvent);
+    var d = JSON.stringify();
+    console.log(d);
+    $.ajax({
+        type: 'GET',
+        url: '/api/createEvent',
+        contentType: "application/json; charset=utf-8",
+        data: d,
+        success: function(data){
+            alert(data);
+        },
+        error: function () {
+            alert("fail!");
+        }
+    });
+}
+
+function closeChoiceBox() {
+    alert("closed");
+    var box = $('.mapClickChoice');
+    box.hide();
+}
 
 console.log("!map.js");

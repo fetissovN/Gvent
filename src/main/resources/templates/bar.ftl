@@ -3,7 +3,11 @@
 
     <head>
         <!-- jQuery -->
-        <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+        <#--<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>-->
+        <script
+                src="https://code.jquery.com/jquery-3.0.0.min.js"
+                integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="
+                crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel='stylesheet'>
         <meta charset="utf-8">

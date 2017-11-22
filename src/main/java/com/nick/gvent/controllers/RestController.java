@@ -1,20 +1,31 @@
 package com.nick.gvent.controllers;
 
+import com.nick.gvent.dto.EventDTO;
+import com.nick.gvent.entity.Event;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-/** api RestController class
- * @autor Fetissov Mikalai
- * @version 1.0
- */
+
 @Controller
+@RequestMapping(value = "/api")
 public class RestController {
 
-//    @Value("${host}")
-//    private String HOST;
-//
+    @Value("${host}")
+    private String HOST;
 
-//
-//
+    @RequestMapping(value = "/createEvent", method = RequestMethod.GET)
+    @ResponseBody
+    public String createNewEvent(@RequestBody EventDTO eventDTO){
+        System.out.println(eventDTO.toString());
+        return "success";
+    }
+
+
+
 //    /** Makes Quiz objects form from UserDTO object and saves to db
 //     * @param theme
 //     * @see RestController#makeTheme(UserDTO)()
