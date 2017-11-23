@@ -16,6 +16,8 @@ function Event(id,userId,name,desc,lat,lng){
 
 var map, infoWindow;
 var newEvent = null;
+var createEventBool = false;
+var closeChoiceBoole = false;
 
 function initMap() {
 
@@ -28,12 +30,14 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow;
 
     google.maps.event.addListener(map, 'click', function(event) {
-        // newEvent = new Event("asdasd");
-        newEvent = new Event(null,null,"name","desc",event.latLng.lat(),event.latLng.lng());
-
+        newEvent = new Event(null,null,null,null,event.latLng.lat(),event.latLng.lng());
         showChoiceBox();
+        if (createEventBool){
+            placeMarker(event.latLng);
+            createEventBool = false;
+        }else {
 
-        placeMarker(event.latLng);
+        }
 
     });
 
@@ -84,27 +88,33 @@ function showChoiceBox() {
 }
 
 function createEvent() {
-    // console.log(newEvent);
+    var inp_name = $('.nameIn');
+    var inp_desc = $('.descIn');
+
+    newEvent.name = inp_name.val();
+    newEvent.description = inp_desc.val();
     var d = JSON.stringify(newEvent);
-    // var token = $("meta[name='_csrf']").attr("content");
-    // var header = $("meta[name='_csrf_header']").attr("content");
-    console.log(d);
     $.ajax({
         type: 'POST',
         url: '/api/createEvent',
         contentType: "application/json",
         data: d,
         success: function(data){
-            alert(data);
+            if (data == "authFail"){
+                document.location.href = '/login';
+            }else if (data == 1){
+                createEventBool = true;
+            }else if (data == 0 ){
+                createEventBool = false;
+            }
         },
         error: function () {
-            alert("fail!");
+            createEventBool = false;
         }
     });
 }
 
 function closeChoiceBox() {
-    alert("closed");
     var inp_name = $('.nameIn');
     var inp_desc = $('.descIn');
     inp_name.val('');
