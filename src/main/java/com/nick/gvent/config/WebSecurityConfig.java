@@ -25,6 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().ignoringAntMatchers("/api/**")
+                .and()
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/css/**","/js/**").permitAll()
@@ -32,6 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login/**").permitAll()
                 .antMatchers("/error/**").permitAll()
                 .antMatchers("/api/**").permitAll()
+                .antMatchers("/api/createEvent").permitAll()
                 .antMatchers("/map").authenticated()
                 .anyRequest().authenticated()
                 .and()

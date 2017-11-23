@@ -20,8 +20,19 @@ public class EventDTO {
 
     private String description;
 
-    private float latitude;
+    private float latitute;
 
-    private float longitude;
+    private float longitute;
 
+    public EventDTO(Long id, User userId, String name, String description, float latitute, float longitute) {
+        this.id = id;
+        this.userId = userId;
+        this.name = name;
+        this.description = description;
+        this.latitute = latitute;
+        this.longitute = longitute;
+    }
+
+    public EventDTO() {
+    }
 }

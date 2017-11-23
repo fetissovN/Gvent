@@ -3,17 +3,22 @@
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
-function Event(lat,lng,name,desc){
-    this.latitute = lat;
-    this.longitute = lng;
+function Event(id,userId,name,desc,lat,lng){
+    this.id = id;
+    this.userId = userId;
     this.name = name;
     this.description = desc;
+    this.latitute = lat;
+    this.longitute = lng;
 }
+
 
 
 var map, infoWindow;
 var newEvent = null;
+
 function initMap() {
+
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.758570, lng: -73.985077},
         zoom: 17
@@ -23,7 +28,9 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow;
 
     google.maps.event.addListener(map, 'click', function(event) {
-        newEvent = new Event(event.latLng.lat(),event.latLng.lng(),"name","desc");
+        // newEvent = new Event("asdasd");
+        newEvent = new Event(null,null,"name","desc",event.latLng.lat(),event.latLng.lng());
+
         showChoiceBox();
 
         placeMarker(event.latLng);
@@ -73,16 +80,19 @@ function showChoiceBox() {
     var btn_cancel = $('.cancelEvent');
     btn_add.on('click', createEvent);
     btn_cancel.on('click', closeChoiceBox);
+
 }
 
 function createEvent() {
-    console.log(newEvent);
-    var d = JSON.stringify();
+    // console.log(newEvent);
+    var d = JSON.stringify(newEvent);
+    // var token = $("meta[name='_csrf']").attr("content");
+    // var header = $("meta[name='_csrf_header']").attr("content");
     console.log(d);
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: '/api/createEvent',
-        contentType: "application/json; charset=utf-8",
+        contentType: "application/json",
         data: d,
         success: function(data){
             alert(data);
@@ -95,6 +105,11 @@ function createEvent() {
 
 function closeChoiceBox() {
     alert("closed");
+    var inp_name = $('.nameIn');
+    var inp_desc = $('.descIn');
+    inp_name.val('');
+    inp_desc.val('');
+
     var box = $('.mapClickChoice');
     box.hide();
 }
