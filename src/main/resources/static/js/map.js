@@ -8,8 +8,8 @@ function Event(id,userId,name,desc,lat,lng){
     this.userId = userId;
     this.name = name;
     this.description = desc;
-    this.latitute = lat;
-    this.longitute = lng;
+    this.latitude = lat;
+    this.longitude = lng;
 }
 
 var markers = [];

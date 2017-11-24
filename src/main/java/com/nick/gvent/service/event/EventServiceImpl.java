@@ -20,8 +20,8 @@ public class EventServiceImpl implements EventService{
 
     @Override
     public Event save(Event event) {
-        Event event1 = eventDao.save(event);
-        return event;
+        Event eventDB = eventDao.save(event);
+        return eventDB;
     }
 
     @Override
