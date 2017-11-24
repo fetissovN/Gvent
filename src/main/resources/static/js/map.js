@@ -3,8 +3,26 @@
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
+function Event(id,userId,name,desc,lat,lng){
+    this.id = id;
+    this.userId = userId;
+    this.name = name;
+    this.description = desc;
+    this.latitute = lat;
+    this.longitute = lng;
+}
+
+var markers = [];
+
 var map, infoWindow;
+var choiceBoxEnabled = false;
+var newEvent = null;
+var createEventBool = false;
+var closeChoiceBool = false;
+var newMarker = null;
+
 function initMap() {
+
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.758570, lng: -73.985077},
         zoom: 17
@@ -12,6 +30,24 @@ function initMap() {
     // var trafficLayer = new google.maps.TrafficLayer(); SHOWS TRAFFIC ON THE MAP
     // trafficLayer.setMap(map); SHOWS TRAFFIC ON THE MAP
     infoWindow = new google.maps.InfoWindow;
+
+
+
+    google.maps.event.addListener(map, 'click', function(event) {
+        newEvent = new Event(null,null,null,null,event.latLng.lat(),event.latLng.lng());
+        if (choiceBoxEnabled == false){
+            choiceBoxEnabled = true;
+            showChoiceBox();
+            placeMarker(event.latLng);
+        }
+
+        if (createEventBool){
+            createEventBool = false;
+        }else if (closeChoiceBool){
+            closeChoiceBool = false;
+        }
+        showOverlays();
+    });
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -33,6 +69,45 @@ function initMap() {
         handleLocationError(false, infoWindow, map.getCenter());
     }
 }
+function setAllMap(map) {
+    alert('set in' +  markers.length);
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+        alert('marker set ' + i);
+    }
+}
+
+// Removes the overlays from the map, but keeps them in the array.
+function clearOverlays() {
+    alert('cl overlays' + markers.length);
+    for (var i = 0; i < markers.length; i++){
+        markers[i].setMap(null);
+        alert('marker cl ' + i);
+    }
+}
+
+function deleteLastMarker() {
+
+    markers.pop();
+    console.log(markers[0]);
+    alert('deletion');
+}
+
+// Shows any overlays currently in the array.
+function showOverlays() {
+    setAllMap(map);
+}
+
+function placeMarker(location) {
+    var marker = new google.maps.Marker({
+        position: location,
+
+    });
+    console.log(marker);
+    markers.push(marker);
+    return marker;
+}
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
@@ -42,5 +117,60 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
+function showChoiceBox() {
+    alert('show ch box')
+    var box = $('.mapClickChoice');
+    box.show();
+    var btn_add = $('.createEvent');
+    var btn_cancel = $('.cancelEvent');
+    btn_add.on('click', createEvent);
+    btn_cancel.on('click', function (){
+        closeChoiceBox(true);
+    });
 
-console.log("!map.js");
+}
+
+function createEvent() {
+    var inp_name = $('.nameIn');
+    var inp_desc = $('.descIn');
+
+    newEvent.name = inp_name.val();
+    newEvent.description = inp_desc.val();
+    var d = JSON.stringify(newEvent);
+    $.ajax({
+        type: 'POST',
+        url: '/api/createEvent',
+        contentType: "application/json",
+        data: d,
+        success: function(data){
+            if (data == "authFail"){
+                closeChoiceBox(false);
+                document.location.href = '/login';
+            }else if (data == 1){
+                closeChoiceBox(false);
+                createEventBool = true;
+            }else if (data == 0 ){
+                createEventBool = false;
+            }
+        },
+        error: function () {
+            createEventBool = false;
+        }
+    });
+}
+
+function closeChoiceBox(delLastMarker) {
+    var inp_name = $('.nameIn');
+    var inp_desc = $('.descIn');
+    inp_name.val('');
+    inp_desc.val('');
+    var box = $('.mapClickChoice');
+    box.hide();
+    closeChoiceBool = true;
+    clearOverlays();
+    if (delLastMarker){
+        deleteLastMarker();
+    }
+    showOverlays();
+    choiceBoxEnabled = false;
+}

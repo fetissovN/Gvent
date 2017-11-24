@@ -25,16 +25,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().ignoringAntMatchers("/api/**")
+                .and()
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/css/**","/js/**").permitAll()
                 .antMatchers("/images/*").permitAll()
                 .antMatchers("/login/**").permitAll()
                 .antMatchers("/error/**").permitAll()
-                .antMatchers("/map").authenticated()
+                .antMatchers("/api/**").permitAll()
+                .antMatchers("/map/**").permitAll()
+                .antMatchers("/").authenticated()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login/").permitAll()
+                .formLogin().loginPage("/login").permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll()
                 .permitAll();

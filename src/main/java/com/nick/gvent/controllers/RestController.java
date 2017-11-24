@@ -1,20 +1,68 @@
 package com.nick.gvent.controllers;
 
+import com.nick.gvent.converters.SpringConverterEventDTOToEvent;
+import com.nick.gvent.dao.event.EventDao;
+import com.nick.gvent.dao.user.UserDao;
+import com.nick.gvent.dto.EventDTO;
+import com.nick.gvent.entity.Event;
+import com.nick.gvent.entity.User;
+import com.nick.gvent.service.event.EventService;
+import com.nick.gvent.service.user.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-/** api RestController class
- * @autor Fetissov Mikalai
- * @version 1.0
- */
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.security.Principal;
+
+
 @Controller
+@RequestMapping(value = "/api")
 public class RestController {
 
-//    @Value("${host}")
-//    private String HOST;
-//
+    @Value("${host}")
+    private String HOST;
 
-//
-//
+    @Autowired
+    private EventService eventService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private SpringConverterEventDTOToEvent eventDTOToEvent;
+
+    @RequestMapping(value = "/createEvent", method = RequestMethod.POST,
+            consumes="application/json")
+    public @ResponseBody String createNewEvent(@RequestBody EventDTO eventDTO ,
+                                               Principal principal,
+                                               Authentication authentication){
+
+        if (authentication == null){return "authFail";}
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        System.out.println("User has authorities: " + userDetails.getAuthorities());
+        if (userDetails.getUsername() != null){
+            User user = userService.findUserByUsername(userDetails.getUsername());
+            Event event = eventDTOToEvent.convert(eventDTO);
+            event.setEventRelatedMessages(null);
+            event.setUserId(user);
+            Event eventDB = eventService.save(event);
+            if (eventDB != null){
+                return "1";
+            }else {
+                return "0";
+            }
+        }else {
+            return "0";
+        }
+    }
+
+
+
 //    /** Makes Quiz objects form from UserDTO object and saves to db
 //     * @param theme
 //     * @see RestController#makeTheme(UserDTO)()
