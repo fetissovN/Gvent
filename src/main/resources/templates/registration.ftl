@@ -3,6 +3,10 @@
 
     <!--***********************************************-->
     <#import "/spring.ftl" as spring/>
+<div class="wrapper_headTitle">
+    <span class="super">k</span>not
+    <span class="str_signUp">| Sign Up</span>
+</div>
     <div class="formBlock_signUp">
 
         <form action="/login/registration" method="post">
@@ -12,31 +16,31 @@
         <#if errorNicknameExist ??>
             <div class="danger">${errorNicknameExist}</div>
         </#if>
-        <@spring.formInput "newUser.username","placeholder='username'" />
+        <@spring.formInput "newUser.username","placeholder='User Name'" />
         <@spring.showErrors "newUser.username","error" />
 
-        <@spring.formInput "newUser.firstName","placeholder='firstName'" />
+        <@spring.formInput "newUser.firstName","placeholder='First Name'" />
         <@spring.showErrors "newUser.firstName","error" />
 
-        <@spring.formInput "newUser.lastName","placeholder='lastName'" />
+        <@spring.formInput "newUser.lastName","placeholder='Last Name'" />
         <@spring.showErrors "newUser.lastName","error" />
 
         <#if errorEmailExist ??>
             <div class="danger">${errorEmailExist}</div>
         </#if>
-        <@spring.formInput "newUser.email","placeholder='email'" />
+        <@spring.formInput "newUser.email","placeholder='Email'" />
         <@spring.showErrors "newUser.email","error" />
 
-        <@spring.formInput "newUser.age","placeholder='age',class='age'" />
+        <@spring.formInput "newUser.age","placeholder='Age',class='age'" />
         <@spring.showErrors "newUser.age","error" />
 
-        <@spring.formInput "newUser.gender","placeholder='gender',class='age'" />
+        <@spring.formInput "newUser.gender","placeholder='Gender',class='age'" />
         <@spring.showErrors "newUser.gender","error" />
 
-        <@spring.formInput "newUser.password","placeholder='password'" />
+        <@spring.formInput "newUser.password","placeholder='Password'" />
         <@spring.showErrors "newUser.password","error" />
 
-        <@spring.formInput "newUser.passwordCheck","placeholder='Confirm password'" />
+        <@spring.formInput "newUser.passwordCheck","placeholder='Confirm Password'" />
         <@spring.showErrors "newUser.passwordCheck","error" />
             <input type="submit" value="SignUp">
         </form>

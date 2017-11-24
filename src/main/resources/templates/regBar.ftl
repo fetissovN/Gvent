@@ -9,11 +9,6 @@
 </head>
 
 <body>
-    <div class="wrapper_headTitle">
-        <span class="super">k</span>not
-        <span class="str_logIn">| Log In</span>
-        <span class="str_signUp">| Sign Up</span>
-    </div>
 
     <div class="signMenu">
         <ul>

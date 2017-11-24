@@ -1,5 +1,9 @@
 
 <#include "regBar.ftl">
+<div class="wrapper_headTitle">
+    <span class="super">k</span>not
+    <span class="str_logIn">| Log In</span>
+</div>
     <!--***********************************************-->
     <#--<#if logout>-->
     <#--<div class="info">Uve been logged in</div>-->
@@ -14,6 +18,7 @@
             <input type="password" name="password" value="" placeholder="Password">
             <input type="submit" value="Login">
         </form>
+        <div class="createAnAccount"> <a href="/registration"> Create an Account </a> </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
