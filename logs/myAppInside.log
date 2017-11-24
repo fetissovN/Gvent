@@ -1,0 +1,79 @@
+19:31:25.452 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 88058 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+19:31:25.455 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+19:31:25.455 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+19:31:32.447 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.241 seconds (JVM running for 34.249)
+19:35:46.406 [http-nio-8077-exec-10] INFO  c.n.g.service.user.UserServiceImpl - New user saved User{id=4, authorities=[Role{id=1, name=USER}], username='janebelar', firstName='Jane', lastName='K', age=null, gender='female', email='lol@gmail.com', password='$2a$10$BFffWp.lcGbtApiDmAWyKuLq8nrlbubtEpQDrcOQiHglJhRl8Fxfm', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=null}
+07:44:50.673 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 98990 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+07:44:50.680 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+07:44:50.680 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+07:44:57.841 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.474 seconds (JVM running for 34.028)
+07:46:18.375 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 99094 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+07:46:18.380 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+07:46:18.381 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+07:46:25.631 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.506 seconds (JVM running for 33.706)
+16:04:02.721 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 5244 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+16:04:02.724 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+16:04:02.725 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+16:04:10.357 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.933 seconds (JVM running for 34.566)
+16:06:26.308 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 5293 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+16:06:26.310 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+16:06:26.311 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+16:06:31.562 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 20.482 seconds (JVM running for 31.474)
+17:20:31.325 [http-nio-8077-exec-8] INFO  c.n.g.s.s.u.UserDetailsServiceImpl - New user saved User{id=1, authorities=[Role{id=1, name=USER}], username='user', firstName='user', lastName='useravich', age=26, gender='male', email='fetissov.n@gmail.com', password='$2a$10$6cLWLwthRlGRAcnKyWc8.OZ6NwWKvelLKhMJIMCYZOoq7UX88SmZC', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=[]}
+17:23:02.543 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 6711 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+17:23:02.548 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:23:02.548 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:23:10.827 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 23.704 seconds (JVM running for 36.298)
+12:54:42.434 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 10575 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+12:54:42.437 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+12:54:42.438 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+12:54:49.639 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.54 seconds (JVM running for 33.986)
+12:57:14.620 [http-nio-8077-exec-10] INFO  c.n.g.s.s.u.UserDetailsServiceImpl - New user saved User{id=1, authorities=[Role{id=1, name=USER}], username='user', firstName='user', lastName='useravich', age=26, gender='male', email='fetissov.n@gmail.com', password='$2a$10$6cLWLwthRlGRAcnKyWc8.OZ6NwWKvelLKhMJIMCYZOoq7UX88SmZC', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=[]}
+14:21:58.716 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 12061 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+14:21:58.720 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+14:21:58.720 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+14:22:05.896 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.485 seconds (JVM running for 34.01)
+14:27:57.002 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 12269 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+14:27:57.005 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+14:27:57.006 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+14:28:04.656 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.945 seconds (JVM running for 34.554)
+14:31:49.822 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 12475 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+14:31:49.826 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+14:31:49.827 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+14:31:58.316 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 23.685 seconds (JVM running for 34.81)
+14:34:51.433 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 12748 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+14:34:51.438 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+14:34:51.438 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+14:34:58.617 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.511 seconds (JVM running for 33.948)
+14:36:37.398 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 12798 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+14:36:37.400 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+14:36:37.401 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+14:36:43.066 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 20.883 seconds (JVM running for 32.037)
+14:39:47.065 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 12934 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+14:39:47.069 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+14:39:47.069 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+14:39:53.144 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 21.287 seconds (JVM running for 32.336)
+14:42:53.544 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 12991 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+14:42:53.547 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+14:42:53.548 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+14:42:59.071 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 20.739 seconds (JVM running for 31.72)
+14:45:04.249 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 13032 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+14:45:04.251 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+14:45:04.252 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+14:45:09.920 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 20.9 seconds (JVM running for 31.893)
+14:47:42.780 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 13076 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+14:47:42.791 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+14:47:42.791 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+14:47:50.255 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.687 seconds (JVM running for 33.681)
+14:49:46.450 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 13117 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+14:49:46.456 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+14:49:46.456 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+14:49:55.033 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 23.817 seconds (JVM running for 35.123)
+15:01:50.182 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 13516 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+15:01:50.187 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+15:01:50.187 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+15:01:57.114 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.22 seconds (JVM running for 33.769)
+15:10:52.275 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 13962 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+15:10:52.279 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+15:10:52.279 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+15:10:58.984 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.004 seconds (JVM running for 33.214)
