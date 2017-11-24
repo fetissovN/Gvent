@@ -9,6 +9,8 @@ import com.nick.gvent.entity.User;
 import com.nick.gvent.service.event.EventService;
 import com.nick.gvent.service.user.UserService;
 import com.nick.gvent.util.event.EventValidation;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
@@ -65,6 +67,17 @@ public class RestController {
         }else {
             return "0";
         }
+    }
+
+    @RequestMapping(value = "/getAll{json}", method = RequestMethod.GET)
+    @ResponseBody
+    public String getAll(@PathVariable String json) throws JSONException {
+        JSONObject jsonObj = new JSONObject(json);
+        if (jsonObj.get("name").equals("all")){
+            return "all";
+        }
+        System.out.println(jsonObj);
+        return "asd";
     }
 
 

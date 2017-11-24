@@ -13,6 +13,7 @@ function Event(id,userId,name,desc,lat,lng){
 }
 
 var markers = [];
+var markersDB = [];
 
 var map, infoWindow;
 var choiceBoxEnabled = false;
@@ -45,7 +46,6 @@ function initMap() {
         }
         showOverlays();
     });
-
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -66,9 +66,38 @@ function initMap() {
         handleLocationError(false, infoWindow, map.getCenter());
     }
 }
+
+setMarkersFromDb();
+
+function setMarkersFromDb() {
+    var method = "all";
+    var obj = {"name":method};
+    console.log(obj);
+    var request = JSON.stringify(obj);
+    console.log(request);
+    $.ajax({
+        type: 'GET',
+        url: '/api/getAll'+request,
+        // contentType: "application/json",
+        // data: request,
+        success: function(data){
+            alert(data);
+        },
+        error: function () {
+            alert('fail');
+        }
+    });
+}
+
 function setAllMap(map) {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
+    }
+}
+
+function setAllMapDB(map) {
+    for (var i = 0; i < markersDB.length; i++) {
+        markersDB[i].setMap(map);
     }
 }
 
