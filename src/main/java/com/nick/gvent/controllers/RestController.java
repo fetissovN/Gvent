@@ -8,6 +8,7 @@ import com.nick.gvent.entity.Event;
 import com.nick.gvent.entity.User;
 import com.nick.gvent.service.event.EventService;
 import com.nick.gvent.service.user.UserService;
+import com.nick.gvent.util.event.EventValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
@@ -47,7 +48,12 @@ public class RestController {
         System.out.println("User has authorities: " + userDetails.getAuthorities());
         if (userDetails.getUsername() != null){
             User user = userService.findUserByUsername(userDetails.getUsername());
+            EventValidation validation = EventValidation.getInstance();
+            if (!validation.validate(eventDTO)){
+                return "0";
+            }
             Event event = eventDTOToEvent.convert(eventDTO);
+
             event.setEventRelatedMessages(null);
             event.setUserId(user);
             Event eventDB = eventService.save(event);

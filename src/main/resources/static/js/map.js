@@ -8,8 +8,8 @@ function Event(id,userId,name,desc,lat,lng){
     this.userId = userId;
     this.name = name;
     this.description = desc;
-    this.latitute = lat;
-    this.longitute = lng;
+    this.latitude = lat;
+    this.longitude = lng;
 }
 
 var markers = [];
@@ -19,7 +19,6 @@ var choiceBoxEnabled = false;
 var newEvent = null;
 var createEventBool = false;
 var closeChoiceBool = false;
-var newMarker = null;
 
 function initMap() {
 
@@ -30,8 +29,6 @@ function initMap() {
     // var trafficLayer = new google.maps.TrafficLayer(); SHOWS TRAFFIC ON THE MAP
     // trafficLayer.setMap(map); SHOWS TRAFFIC ON THE MAP
     infoWindow = new google.maps.InfoWindow;
-
-
 
     google.maps.event.addListener(map, 'click', function(event) {
         newEvent = new Event(null,null,null,null,event.latLng.lat(),event.latLng.lng());
@@ -70,27 +67,20 @@ function initMap() {
     }
 }
 function setAllMap(map) {
-    alert('set in' +  markers.length);
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
-        alert('marker set ' + i);
     }
 }
 
 // Removes the overlays from the map, but keeps them in the array.
 function clearOverlays() {
-    alert('cl overlays' + markers.length);
     for (var i = 0; i < markers.length; i++){
         markers[i].setMap(null);
-        alert('marker cl ' + i);
     }
 }
 
 function deleteLastMarker() {
-
     markers.pop();
-    console.log(markers[0]);
-    alert('deletion');
 }
 
 // Shows any overlays currently in the array.
@@ -101,7 +91,6 @@ function showOverlays() {
 function placeMarker(location) {
     var marker = new google.maps.Marker({
         position: location,
-
     });
     console.log(marker);
     markers.push(marker);
@@ -118,7 +107,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function showChoiceBox() {
-    alert('show ch box')
     var box = $('.mapClickChoice');
     box.show();
     var btn_add = $('.createEvent');
