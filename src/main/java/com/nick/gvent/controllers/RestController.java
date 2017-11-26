@@ -13,6 +13,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -71,13 +75,15 @@ public class RestController {
 
     @RequestMapping(value = "/getAll{json}", method = RequestMethod.GET)
     @ResponseBody
-    public String getAll(@PathVariable String json) throws JSONException {
-        JSONObject jsonObj = new JSONObject(json);
-        if (jsonObj.get("name").equals("all")){
-            return "all";
+    public ResponseEntity<List<EventDTO>> getAll(@PathVariable JSONObject json) throws JSONException {
+        if (json.get("name").equals("all")){
+            List<EventDTO> list = eventService.getAll();
+            JSONObject object = new JSONObject();
+            object.put("events", list);
+            return new ResponseEntity<List<EventDTO>>(list, HttpStatus.OK);
         }
-        System.out.println(jsonObj);
-        return "asd";
+
+        return new ResponseEntity<List<EventDTO>>(HttpStatus.OK);
     }
 
 

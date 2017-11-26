@@ -81,7 +81,8 @@ function setMarkersFromDb() {
         // contentType: "application/json",
         // data: request,
         success: function(data){
-            alert(data);
+            // var d = JSON.parse(data);
+            console.log(data);
         },
         error: function () {
             alert('fail');
