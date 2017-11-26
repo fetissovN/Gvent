@@ -31,7 +31,7 @@ function initMap() {
     // trafficLayer.setMap(map); SHOWS TRAFFIC ON THE MAP
     infoWindow = new google.maps.InfoWindow;
 
-    google.maps.event.addListener(map, 'click', function(event) {
+    google.maps.event.addListener(map, 'rightclick', function(event) {
         newEvent = new Event(null,null,null,null,event.latLng.lat(),event.latLng.lng());
         if (choiceBoxEnabled == false){
             choiceBoxEnabled = true;
@@ -83,7 +83,7 @@ function setMarkersFromDb() {
         success: function(data){
             console.log(data.authFail);
             if (data.auth == null){
-                document.location.href = '/login';
+                // document.location.href = '/login';
             }
             console.log(data);
             console.log(data.events);
@@ -141,10 +141,10 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function showChoiceBox() {
-    var box = $('.mapClickChoice');
+    var box = $('.createEventWindow_wrapper');
     box.show();
-    var btn_add = $('.createEvent');
-    var btn_cancel = $('.cancelEvent');
+    var btn_add = $('.createEvent_createBtn');
+    var btn_cancel = $('.createEvent_cancelBtn');
     btn_add.on('click', createEvent);
     btn_cancel.on('click', function (){
         closeChoiceBox(true);
@@ -186,7 +186,7 @@ function closeChoiceBox(delLastMarker) {
     var inp_desc = $('.descIn');
     inp_name.val('');
     inp_desc.val('');
-    var box = $('.mapClickChoice');
+    var box = $('.createEventWindow_wrapper');
     box.hide();
     closeChoiceBool = true;
     clearOverlays();

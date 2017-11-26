@@ -3230,3 +3230,803 @@ org.hibernate.MappingException: Unknown entity: com.nick.gvent.dto.EventDTO
 18:29:07.878 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
 18:29:07.956 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 63 ms
 18:29:12.472 [http-nio-8077-exec-2] INFO  c.n.g.s.s.u.UserDetailsServiceImpl - New user saved User{id=16, authorities=[Role{id=1, name=USER}], username='user', firstName='user', lastName='useravich', age=26, gender='male', email='fetissov.n@gmail.com', password='$2a$10$JqepHNM4QXxH08SDrLr0g.D2Tz3pWrFGbOLEsksqHGGVEVSmJZa/e', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=[com.nick.gvent.entity.Event@358e73d8, com.nick.gvent.entity.Event@358e73f7, com.nick.gvent.entity.Event@358e7416, com.nick.gvent.entity.Event@358e7454, com.nick.gvent.entity.Event@358e7473, com.nick.gvent.entity.Event@358e7492, com.nick.gvent.entity.Event@358e74b1, com.nick.gvent.entity.Event@358e74d0, com.nick.gvent.entity.Event@358e74ef]}
+11:58:22.876 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 47573 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+11:58:22.893 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+11:58:22.893 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+11:58:23.050 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56353d9e: startup date [Sun Nov 26 11:58:23 EST 2017]; root of context hierarchy
+11:58:25.058 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8077 (http)
+11:58:25.066 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+11:58:25.067 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+11:58:25.137 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+11:58:25.137 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2097 ms
+11:58:25.309 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+11:58:25.310 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+11:58:25.311 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+11:58:25.311 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+11:58:25.312 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+11:58:25.312 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+11:58:25.459 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+11:58:26.855 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11:58:27.926 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6bfdef9, org.springframework.security.web.context.SecurityContextPersistenceFilter@4ad32e72, org.springframework.security.web.header.HeaderWriterFilter@65bef362, org.springframework.security.web.csrf.CsrfFilter@473141b4, org.springframework.security.web.authentication.logout.LogoutFilter@ed708e2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6768c02b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2b44d4a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@69a5215c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1cbb7efc, org.springframework.security.web.session.SessionManagementFilter@7668ea05, org.springframework.security.web.access.ExceptionTranslationFilter@72624ba6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3a21a8be]
+11:58:28.198 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56353d9e: startup date [Sun Nov 26 11:58:23 EST 2017]; root of context hierarchy
+11:58:28.258 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.HttpErrorHandler.err(javax.servlet.http.HttpServletResponse,org.springframework.ui.Model)
+11:58:28.263 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.main()
+11:58:28.263 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/map]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.map()
+11:58:28.265 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[POST]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(com.nick.gvent.dto.UserDTO,org.springframework.ui.Model,org.springframework.validation.BindingResult)
+11:58:28.266 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(org.springframework.ui.Model)
+11:58:28.266 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.getLogin(java.lang.String,java.lang.String,org.springframework.ui.Model)
+11:58:28.268 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll{json}],methods=[GET],consumes=[application/json],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAll(org.json.JSONObject) throws org.json.JSONException
+11:58:28.268 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/createEvent],methods=[POST],consumes=[application/json]}" onto public java.lang.String com.nick.gvent.controllers.RestController.createNewEvent(com.nick.gvent.dto.EventDTO,java.security.Principal,org.springframework.security.core.Authentication)
+11:58:28.268 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll/absolute],methods=[GET],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAllAbs(org.springframework.security.core.Authentication)
+11:58:28.288 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+11:58:28.289 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/map] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+11:58:28.289 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/login/] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+11:58:28.301 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+11:58:28.301 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+11:58:28.342 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+11:58:28.620 [restartedMain] INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+11:58:28.737 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+11:58:28.819 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+11:58:28.821 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+11:58:28.832 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource]
+11:58:28.857 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8077"]
+11:58:28.869 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8077"]
+11:58:28.906 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+11:58:28.930 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8077 (http)
+11:58:28.936 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 21.345 seconds (JVM running for 32.554)
+11:58:42.855 [http-nio-8077-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+11:58:42.856 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+11:58:42.895 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 39 ms
+11:58:50.853 [http-nio-8077-exec-10] INFO  c.n.g.s.s.u.UserDetailsServiceImpl - New user saved User{id=1, authorities=[Role{id=1, name=USER}], username='user', firstName='user', lastName='useravich', age=26, gender='male', email='fetissov.n@gmail.com', password='$2a$10$6cLWLwthRlGRAcnKyWc8.OZ6NwWKvelLKhMJIMCYZOoq7UX88SmZC', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=[com.nick.gvent.entity.Event@175534cb]}
+12:00:09.859 [http-nio-8077-exec-9] INFO  c.n.g.s.s.u.UserDetailsServiceImpl - New user saved User{id=1, authorities=[Role{id=1, name=USER}], username='user', firstName='user', lastName='useravich', age=26, gender='male', email='fetissov.n@gmail.com', password='$2a$10$6cLWLwthRlGRAcnKyWc8.OZ6NwWKvelLKhMJIMCYZOoq7UX88SmZC', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=[com.nick.gvent.entity.Event@1999e1bd]}
+12:01:54.480 [http-nio-8077-exec-6] INFO  c.n.g.service.user.UserServiceImpl - New user saved User{id=5, authorities=[Role{id=1, name=USER}], username='dennis', firstName='Dennis', lastName='Kiparyn', age=null, gender='Male', email='kipden88@gmail.com', password='$2a$10$eGUI/tGGhi5SugULwjFMPeDaEytvTZZX.hPsXLaa0Vxrnl2WMKFU6', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=null}
+12:04:23.274 [Thread-52] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56353d9e: startup date [Sun Nov 26 11:58:23 EST 2017]; root of context hierarchy
+12:04:23.298 [Thread-52] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+12:04:23.299 [Thread-52] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+12:04:23.310 [Thread-52] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+12:04:23.321 [Thread-52] WARN  o.a.commons.dbcp2.BasicDataSource - Failed to unregister the JMX name: org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource
+javax.management.InstanceNotFoundException: org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.getMBean(DefaultMBeanServerInterceptor.java:1095)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.exclusiveUnregisterMBean(DefaultMBeanServerInterceptor.java:427)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.unregisterMBean(DefaultMBeanServerInterceptor.java:415)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.unregisterMBean(JmxMBeanServer.java:546)
+	at org.apache.commons.dbcp2.BasicDataSource.close(BasicDataSource.java:1917)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:364)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:287)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:578)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:554)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:961)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:523)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.destroySingletons(FactoryBeanRegistrySupport.java:230)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:968)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1030)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1006)
+	at org.springframework.context.support.AbstractApplicationContext$2.run(AbstractApplicationContext.java:929)
+12:05:39.625 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 47881 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+12:05:39.629 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+12:05:39.629 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+12:05:39.667 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@11ea40d: startup date [Sun Nov 26 12:05:39 EST 2017]; root of context hierarchy
+12:05:42.139 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8077 (http)
+12:05:42.154 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+12:05:42.156 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+12:05:42.279 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+12:05:42.280 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2615 ms
+12:05:42.481 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+12:05:42.482 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+12:05:42.482 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+12:05:42.482 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+12:05:42.483 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+12:05:42.483 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+12:05:42.665 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+12:05:44.399 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12:05:45.602 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c43dce2, org.springframework.security.web.context.SecurityContextPersistenceFilter@45834f01, org.springframework.security.web.header.HeaderWriterFilter@480df61b, org.springframework.security.web.csrf.CsrfFilter@3c840ffa, org.springframework.security.web.authentication.logout.LogoutFilter@271c0db1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2b01785b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25083de7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@178c40a7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@51eae1b3, org.springframework.security.web.session.SessionManagementFilter@248bbc83, org.springframework.security.web.access.ExceptionTranslationFilter@183c92d1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4b4a67e9]
+12:05:45.887 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@11ea40d: startup date [Sun Nov 26 12:05:39 EST 2017]; root of context hierarchy
+12:05:45.944 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.HttpErrorHandler.err(javax.servlet.http.HttpServletResponse,org.springframework.ui.Model)
+12:05:45.945 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.main()
+12:05:45.945 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/map]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.map()
+12:05:45.947 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[POST]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(com.nick.gvent.dto.UserDTO,org.springframework.ui.Model,org.springframework.validation.BindingResult)
+12:05:45.947 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(org.springframework.ui.Model)
+12:05:45.947 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.getLogin(java.lang.String,java.lang.String,org.springframework.ui.Model)
+12:05:45.949 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll{json}],methods=[GET],consumes=[application/json],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAll(org.json.JSONObject) throws org.json.JSONException
+12:05:45.949 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/createEvent],methods=[POST],consumes=[application/json]}" onto public java.lang.String com.nick.gvent.controllers.RestController.createNewEvent(com.nick.gvent.dto.EventDTO,java.security.Principal,org.springframework.security.core.Authentication)
+12:05:45.949 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll/absolute],methods=[GET],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAllAbs(org.springframework.security.core.Authentication)
+12:05:45.969 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:05:45.969 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/map] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:05:45.969 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/login/] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:05:45.984 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:05:45.984 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:05:46.023 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:05:46.249 [restartedMain] INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+12:05:46.390 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+12:05:46.455 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+12:05:46.456 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+12:05:46.466 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource]
+12:05:46.485 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8077"]
+12:05:46.496 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8077"]
+12:05:46.522 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+12:05:46.540 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8077 (http)
+12:05:46.548 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.167 seconds (JVM running for 34.237)
+12:06:15.625 [http-nio-8077-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+12:06:15.625 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+12:06:15.652 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 26 ms
+12:06:40.021 [http-nio-8077-exec-7] INFO  c.n.g.s.s.u.UserDetailsServiceImpl - New user saved User{id=1, authorities=[Role{id=1, name=USER}], username='user', firstName='user', lastName='useravich', age=26, gender='male', email='fetissov.n@gmail.com', password='$2a$10$6cLWLwthRlGRAcnKyWc8.OZ6NwWKvelLKhMJIMCYZOoq7UX88SmZC', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=[com.nick.gvent.entity.Event@2831726]}
+12:09:25.731 [http-nio-8077-exec-7] INFO  c.n.g.s.s.u.UserDetailsServiceImpl - New user saved User{id=1, authorities=[Role{id=1, name=USER}], username='user', firstName='user', lastName='useravich', age=26, gender='male', email='fetissov.n@gmail.com', password='$2a$10$6cLWLwthRlGRAcnKyWc8.OZ6NwWKvelLKhMJIMCYZOoq7UX88SmZC', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=[com.nick.gvent.entity.Event@2fd8148b]}
+12:11:05.749 [http-nio-8077-exec-8] INFO  c.n.g.s.s.u.UserDetailsServiceImpl - New user saved User{id=1, authorities=[Role{id=1, name=USER}], username='user', firstName='user', lastName='useravich', age=26, gender='male', email='fetissov.n@gmail.com', password='$2a$10$6cLWLwthRlGRAcnKyWc8.OZ6NwWKvelLKhMJIMCYZOoq7UX88SmZC', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=[com.nick.gvent.entity.Event@774c2d36]}
+12:12:22.908 [Thread-55] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@11ea40d: startup date [Sun Nov 26 12:05:39 EST 2017]; root of context hierarchy
+12:12:22.997 [Thread-55] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+12:12:22.998 [Thread-55] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+12:12:23.089 [Thread-55] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+12:12:23.131 [Thread-55] WARN  o.a.commons.dbcp2.BasicDataSource - Failed to unregister the JMX name: org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource
+javax.management.InstanceNotFoundException: org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.getMBean(DefaultMBeanServerInterceptor.java:1095)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.exclusiveUnregisterMBean(DefaultMBeanServerInterceptor.java:427)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.unregisterMBean(DefaultMBeanServerInterceptor.java:415)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.unregisterMBean(JmxMBeanServer.java:546)
+	at org.apache.commons.dbcp2.BasicDataSource.close(BasicDataSource.java:1917)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:364)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:287)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:578)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:554)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:961)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:523)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.destroySingletons(FactoryBeanRegistrySupport.java:230)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:968)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1030)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1006)
+	at org.springframework.context.support.AbstractApplicationContext$2.run(AbstractApplicationContext.java:929)
+12:12:53.453 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 48135 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+12:12:53.456 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+12:12:53.456 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+12:12:53.512 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@8503246: startup date [Sun Nov 26 12:12:53 EST 2017]; root of context hierarchy
+12:12:55.494 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8077 (http)
+12:12:55.507 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+12:12:55.508 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+12:12:55.606 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+12:12:55.607 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2100 ms
+12:12:55.839 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+12:12:55.841 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+12:12:55.841 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+12:12:55.841 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+12:12:55.843 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+12:12:55.843 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+12:12:56.026 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+12:12:57.958 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12:12:59.214 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5fa4c746, org.springframework.security.web.context.SecurityContextPersistenceFilter@2e699dcd, org.springframework.security.web.header.HeaderWriterFilter@566f6588, org.springframework.security.web.csrf.CsrfFilter@2f013fc8, org.springframework.security.web.authentication.logout.LogoutFilter@7effc876, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7c390ac4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7ff67835, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42ab17c1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@68918437, org.springframework.security.web.session.SessionManagementFilter@3c6b369a, org.springframework.security.web.access.ExceptionTranslationFilter@2095d273, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1d382bcf]
+12:12:59.497 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@8503246: startup date [Sun Nov 26 12:12:53 EST 2017]; root of context hierarchy
+12:12:59.569 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.HttpErrorHandler.err(javax.servlet.http.HttpServletResponse,org.springframework.ui.Model)
+12:12:59.570 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.main()
+12:12:59.570 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/map]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.map()
+12:12:59.572 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[POST]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(com.nick.gvent.dto.UserDTO,org.springframework.ui.Model,org.springframework.validation.BindingResult)
+12:12:59.572 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(org.springframework.ui.Model)
+12:12:59.572 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.getLogin(java.lang.String,java.lang.String,org.springframework.ui.Model)
+12:12:59.574 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll{json}],methods=[GET],consumes=[application/json],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAll(org.json.JSONObject) throws org.json.JSONException
+12:12:59.574 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/createEvent],methods=[POST],consumes=[application/json]}" onto public java.lang.String com.nick.gvent.controllers.RestController.createNewEvent(com.nick.gvent.dto.EventDTO,java.security.Principal,org.springframework.security.core.Authentication)
+12:12:59.575 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll/absolute],methods=[GET],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAllAbs(org.springframework.security.core.Authentication)
+12:12:59.594 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:12:59.594 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/map] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:12:59.595 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/login/] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:12:59.608 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:12:59.609 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:12:59.653 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:12:59.929 [restartedMain] INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+12:13:00.085 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+12:13:00.169 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+12:13:00.171 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+12:13:00.186 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource]
+12:13:00.219 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8077"]
+12:13:00.232 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8077"]
+12:13:00.273 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+12:13:00.310 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8077 (http)
+12:13:00.317 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.171 seconds (JVM running for 35.207)
+12:13:03.669 [http-nio-8077-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+12:13:03.671 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+12:13:03.690 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+12:13:27.802 [http-nio-8077-exec-6] INFO  c.n.g.s.s.u.UserDetailsServiceImpl - New user saved User{id=1, authorities=[Role{id=1, name=USER}], username='user', firstName='user', lastName='useravich', age=26, gender='male', email='fetissov.n@gmail.com', password='$2a$10$6cLWLwthRlGRAcnKyWc8.OZ6NwWKvelLKhMJIMCYZOoq7UX88SmZC', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=[com.nick.gvent.entity.Event@7842ba32]}
+12:13:52.589 [Thread-55] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@8503246: startup date [Sun Nov 26 12:12:53 EST 2017]; root of context hierarchy
+12:13:52.624 [Thread-55] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+12:13:52.625 [Thread-55] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+12:13:52.631 [Thread-55] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+12:13:52.645 [Thread-55] WARN  o.a.commons.dbcp2.BasicDataSource - Failed to unregister the JMX name: org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource
+javax.management.InstanceNotFoundException: org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.getMBean(DefaultMBeanServerInterceptor.java:1095)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.exclusiveUnregisterMBean(DefaultMBeanServerInterceptor.java:427)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.unregisterMBean(DefaultMBeanServerInterceptor.java:415)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.unregisterMBean(JmxMBeanServer.java:546)
+	at org.apache.commons.dbcp2.BasicDataSource.close(BasicDataSource.java:1917)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:364)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:287)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:578)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:554)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:961)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:523)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.destroySingletons(FactoryBeanRegistrySupport.java:230)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:968)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1030)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1006)
+	at org.springframework.context.support.AbstractApplicationContext$2.run(AbstractApplicationContext.java:929)
+12:14:25.749 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 48183 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+12:14:25.754 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+12:14:25.755 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+12:14:25.810 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@526e9517: startup date [Sun Nov 26 12:14:25 EST 2017]; root of context hierarchy
+12:14:27.815 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8077 (http)
+12:14:27.828 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+12:14:27.829 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+12:14:27.915 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+12:14:27.916 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2112 ms
+12:14:28.077 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+12:14:28.077 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+12:14:28.077 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+12:14:28.077 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+12:14:28.078 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+12:14:28.078 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+12:14:28.254 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+12:14:30.249 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12:14:31.526 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@33a4e0bb, org.springframework.security.web.context.SecurityContextPersistenceFilter@63faf43f, org.springframework.security.web.header.HeaderWriterFilter@68ea6bbc, org.springframework.security.web.csrf.CsrfFilter@2e49173a, org.springframework.security.web.authentication.logout.LogoutFilter@7327352a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6f373bbf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18ff3e40, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d9cc9a0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@564bc38, org.springframework.security.web.session.SessionManagementFilter@c980412, org.springframework.security.web.access.ExceptionTranslationFilter@3543df78, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@15cb845f]
+12:14:31.807 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@526e9517: startup date [Sun Nov 26 12:14:25 EST 2017]; root of context hierarchy
+12:14:31.876 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.HttpErrorHandler.err(javax.servlet.http.HttpServletResponse,org.springframework.ui.Model)
+12:14:31.877 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.main()
+12:14:31.878 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/map]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.map()
+12:14:31.879 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[POST]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(com.nick.gvent.dto.UserDTO,org.springframework.ui.Model,org.springframework.validation.BindingResult)
+12:14:31.880 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(org.springframework.ui.Model)
+12:14:31.880 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.getLogin(java.lang.String,java.lang.String,org.springframework.ui.Model)
+12:14:31.881 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll{json}],methods=[GET],consumes=[application/json],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAll(org.json.JSONObject) throws org.json.JSONException
+12:14:31.882 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/createEvent],methods=[POST],consumes=[application/json]}" onto public java.lang.String com.nick.gvent.controllers.RestController.createNewEvent(com.nick.gvent.dto.EventDTO,java.security.Principal,org.springframework.security.core.Authentication)
+12:14:31.882 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll/absolute],methods=[GET],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAllAbs(org.springframework.security.core.Authentication)
+12:14:31.898 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:14:31.898 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/map] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:14:31.898 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/login/] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:14:31.912 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:14:31.913 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:14:31.961 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:14:32.277 [restartedMain] INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+12:14:32.417 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+12:14:32.476 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+12:14:32.480 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+12:14:32.492 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource]
+12:14:32.512 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8077"]
+12:14:32.525 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8077"]
+12:14:32.566 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+12:14:32.588 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8077 (http)
+12:14:32.597 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.285 seconds (JVM running for 35.5)
+12:14:48.769 [http-nio-8077-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+12:14:48.770 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+12:14:48.810 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 40 ms
+12:15:11.069 [http-nio-8077-exec-10] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ERROR: column "latitude" is of type real but expression is of type character varying
+  Hint: You will need to rewrite or cast the expression.
+  Position: 88
+12:15:11.069 [http-nio-8077-exec-1] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ERROR: column "latitude" is of type real but expression is of type character varying
+  Hint: You will need to rewrite or cast the expression.
+  Position: 88
+12:15:11.117 [http-nio-8077-exec-10] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessResourceUsageException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not execute statement] with root cause
+org.postgresql.util.PSQLException: ERROR: column "latitude" is of type real but expression is of type character varying
+  Hint: You will need to rewrite or cast the expression.
+  Position: 88
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2103)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1836)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:257)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:512)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:388)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:334)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:98)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:98)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:204)
+	at org.hibernate.id.IdentityGenerator$GetGeneratedKeysDelegate.executeAndExtract(IdentityGenerator.java:84)
+	at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:42)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2791)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3361)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:474)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:179)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:163)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:198)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:317)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:272)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:178)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:109)
+	at org.hibernate.jpa.event.internal.core.JpaPersistEventListener.saveWithGeneratedId(JpaPersistEventListener.java:67)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:189)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:132)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:58)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:774)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:747)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:752)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1146)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:347)
+	at com.sun.proxy.$Proxy93.persist(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
+	at com.sun.proxy.$Proxy93.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:508)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.executeMethodOn(RepositoryFactorySupport.java:504)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:489)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:461)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:133)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy101.save(Unknown Source)
+	at com.nick.gvent.service.event.EventServiceImpl.save(EventServiceImpl.java:33)
+	at com.nick.gvent.controllers.RestController.createNewEvent(RestController.java:68)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:64)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:347)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+12:15:11.117 [http-nio-8077-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessResourceUsageException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not execute statement] with root cause
+org.postgresql.util.PSQLException: ERROR: column "latitude" is of type real but expression is of type character varying
+  Hint: You will need to rewrite or cast the expression.
+  Position: 88
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2103)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1836)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:257)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:512)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:388)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:334)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:98)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:98)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:204)
+	at org.hibernate.id.IdentityGenerator$GetGeneratedKeysDelegate.executeAndExtract(IdentityGenerator.java:84)
+	at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:42)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2791)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3361)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:474)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:179)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:163)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:198)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:317)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:272)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:178)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:109)
+	at org.hibernate.jpa.event.internal.core.JpaPersistEventListener.saveWithGeneratedId(JpaPersistEventListener.java:67)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:189)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:132)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:58)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:774)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:747)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:752)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1146)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:347)
+	at com.sun.proxy.$Proxy93.persist(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
+	at com.sun.proxy.$Proxy93.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:508)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.executeMethodOn(RepositoryFactorySupport.java:504)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:489)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:461)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:133)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy101.save(Unknown Source)
+	at com.nick.gvent.service.event.EventServiceImpl.save(EventServiceImpl.java:33)
+	at com.nick.gvent.controllers.RestController.createNewEvent(RestController.java:68)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:64)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:347)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+12:15:11.130 [http-nio-8077-exec-1] WARN  o.s.web.servlet.PageNotFound - Request method 'POST' not supported
+12:15:11.130 [http-nio-8077-exec-1] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved exception caused by Handler execution: org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported
+12:15:11.131 [http-nio-8077-exec-10] WARN  o.s.web.servlet.PageNotFound - Request method 'POST' not supported
+12:15:11.131 [http-nio-8077-exec-10] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved exception caused by Handler execution: org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported
+12:28:46.213 [Thread-56] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@526e9517: startup date [Sun Nov 26 12:14:25 EST 2017]; root of context hierarchy
+12:28:46.252 [Thread-56] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+12:28:46.254 [Thread-56] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+12:28:46.261 [Thread-56] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+12:28:46.266 [Thread-56] WARN  o.a.commons.dbcp2.BasicDataSource - Failed to unregister the JMX name: org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource
+javax.management.InstanceNotFoundException: org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.getMBean(DefaultMBeanServerInterceptor.java:1095)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.exclusiveUnregisterMBean(DefaultMBeanServerInterceptor.java:427)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.unregisterMBean(DefaultMBeanServerInterceptor.java:415)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.unregisterMBean(JmxMBeanServer.java:546)
+	at org.apache.commons.dbcp2.BasicDataSource.close(BasicDataSource.java:1917)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:364)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:287)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:578)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:554)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:961)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:523)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.destroySingletons(FactoryBeanRegistrySupport.java:230)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:968)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1030)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1006)
+	at org.springframework.context.support.AbstractApplicationContext$2.run(AbstractApplicationContext.java:929)
+12:29:16.963 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 48622 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+12:29:16.967 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+12:29:16.968 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+12:29:17.023 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@136c6cf4: startup date [Sun Nov 26 12:29:17 EST 2017]; root of context hierarchy
+12:29:19.033 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8077 (http)
+12:29:19.048 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+12:29:19.050 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+12:29:19.134 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+12:29:19.135 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2117 ms
+12:29:19.290 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+12:29:19.291 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+12:29:19.291 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+12:29:19.291 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+12:29:19.292 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+12:29:19.292 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+12:29:19.463 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+12:29:21.327 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12:29:22.558 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7bec1693, org.springframework.security.web.context.SecurityContextPersistenceFilter@708c180f, org.springframework.security.web.header.HeaderWriterFilter@3a14517a, org.springframework.security.web.csrf.CsrfFilter@75f2e582, org.springframework.security.web.authentication.logout.LogoutFilter@4e116b63, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@775903f5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d7ff76e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@237052d1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7439011b, org.springframework.security.web.session.SessionManagementFilter@18a6e1b6, org.springframework.security.web.access.ExceptionTranslationFilter@44db9e96, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1970e3e4]
+12:29:22.877 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@136c6cf4: startup date [Sun Nov 26 12:29:17 EST 2017]; root of context hierarchy
+12:29:22.954 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.HttpErrorHandler.err(javax.servlet.http.HttpServletResponse,org.springframework.ui.Model)
+12:29:22.955 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.main()
+12:29:22.956 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/map]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.map()
+12:29:22.957 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[POST]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(com.nick.gvent.dto.UserDTO,org.springframework.ui.Model,org.springframework.validation.BindingResult)
+12:29:22.958 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(org.springframework.ui.Model)
+12:29:22.958 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.getLogin(java.lang.String,java.lang.String,org.springframework.ui.Model)
+12:29:22.959 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll{json}],methods=[GET],consumes=[application/json],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAll(org.json.JSONObject) throws org.json.JSONException
+12:29:22.959 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/createEvent],methods=[POST],consumes=[application/json]}" onto public java.lang.String com.nick.gvent.controllers.RestController.createNewEvent(com.nick.gvent.dto.EventDTO,java.security.Principal,org.springframework.security.core.Authentication)
+12:29:22.960 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll/absolute],methods=[GET],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAllAbs(org.springframework.security.core.Authentication)
+12:29:22.977 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:29:22.977 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/map] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:29:22.978 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/login/] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:29:22.996 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:29:22.996 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:29:23.041 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:29:23.369 [restartedMain] INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+12:29:23.525 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+12:29:23.586 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+12:29:23.588 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+12:29:23.594 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource]
+12:29:23.615 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8077"]
+12:29:23.624 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8077"]
+12:29:23.655 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+12:29:23.675 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8077 (http)
+12:29:23.680 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.007 seconds (JVM running for 33.6)
+12:29:28.236 [http-nio-8077-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+12:29:28.237 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+12:29:28.265 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 28 ms
+12:31:44.535 [Thread-54] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@136c6cf4: startup date [Sun Nov 26 12:29:17 EST 2017]; root of context hierarchy
+12:31:44.564 [Thread-54] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+12:31:44.572 [Thread-54] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+12:31:44.588 [Thread-54] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+12:31:44.606 [Thread-54] WARN  o.a.commons.dbcp2.BasicDataSource - Failed to unregister the JMX name: org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource
+javax.management.InstanceNotFoundException: org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.getMBean(DefaultMBeanServerInterceptor.java:1095)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.exclusiveUnregisterMBean(DefaultMBeanServerInterceptor.java:427)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.unregisterMBean(DefaultMBeanServerInterceptor.java:415)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.unregisterMBean(JmxMBeanServer.java:546)
+	at org.apache.commons.dbcp2.BasicDataSource.close(BasicDataSource.java:1917)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:364)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:287)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:578)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:554)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:961)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:523)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.destroySingletons(FactoryBeanRegistrySupport.java:230)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:968)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1030)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1006)
+	at org.springframework.context.support.AbstractApplicationContext$2.run(AbstractApplicationContext.java:929)
+12:32:16.170 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 48691 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+12:32:16.173 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+12:32:16.173 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+12:32:16.209 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@51cdbac9: startup date [Sun Nov 26 12:32:16 EST 2017]; root of context hierarchy
+12:32:17.822 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8077 (http)
+12:32:17.833 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+12:32:17.834 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+12:32:17.914 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+12:32:17.915 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1709 ms
+12:32:18.074 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+12:32:18.075 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+12:32:18.075 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+12:32:18.076 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+12:32:18.076 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+12:32:18.076 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+12:32:18.245 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+12:32:19.682 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12:32:21.075 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@32a63c3e, org.springframework.security.web.context.SecurityContextPersistenceFilter@41d26adf, org.springframework.security.web.header.HeaderWriterFilter@455629ed, org.springframework.security.web.csrf.CsrfFilter@430965ab, org.springframework.security.web.authentication.logout.LogoutFilter@5670dfee, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6ddaf0f8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@64563141, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2d11f3a3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1e74dcb2, org.springframework.security.web.session.SessionManagementFilter@6e8e3db9, org.springframework.security.web.access.ExceptionTranslationFilter@3a4fa59a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6e023145]
+12:32:21.335 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@51cdbac9: startup date [Sun Nov 26 12:32:16 EST 2017]; root of context hierarchy
+12:32:21.403 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.HttpErrorHandler.err(javax.servlet.http.HttpServletResponse,org.springframework.ui.Model)
+12:32:21.404 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.main()
+12:32:21.404 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/map]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.map()
+12:32:21.406 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[POST]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(com.nick.gvent.dto.UserDTO,org.springframework.ui.Model,org.springframework.validation.BindingResult)
+12:32:21.407 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(org.springframework.ui.Model)
+12:32:21.407 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.getLogin(java.lang.String,java.lang.String,org.springframework.ui.Model)
+12:32:21.409 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll{json}],methods=[GET],consumes=[application/json],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAll(org.json.JSONObject) throws org.json.JSONException
+12:32:21.409 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/createEvent],methods=[POST],consumes=[application/json]}" onto public java.lang.String com.nick.gvent.controllers.RestController.createNewEvent(com.nick.gvent.dto.EventDTO,java.security.Principal,org.springframework.security.core.Authentication)
+12:32:21.409 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll/absolute],methods=[GET],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAllAbs(org.springframework.security.core.Authentication)
+12:32:21.423 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:32:21.424 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/map] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:32:21.424 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/login/] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:32:21.435 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:32:21.435 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:32:21.476 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:32:21.701 [restartedMain] INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+12:32:21.847 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+12:32:21.907 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+12:32:21.908 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+12:32:21.916 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource]
+12:32:21.930 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8077"]
+12:32:21.946 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8077"]
+12:32:21.975 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+12:32:21.989 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8077 (http)
+12:32:21.997 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 21.055 seconds (JVM running for 33.016)
+12:32:28.778 [http-nio-8077-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+12:32:28.779 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+12:32:28.798 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+12:37:56.707 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on Dzianiss-MacBook-Pro.local with PID 49136 (/Users/dzianiskiparyn/Desktop/Gvent/target/classes started by dzianiskiparyn in /Users/dzianiskiparyn/Desktop/Gvent)
+12:37:56.711 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+12:37:56.711 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+12:37:56.775 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@51cdbac9: startup date [Sun Nov 26 12:37:56 EST 2017]; root of context hierarchy
+12:37:58.897 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8077 (http)
+12:37:58.909 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+12:37:58.910 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+12:37:58.997 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+12:37:58.998 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2236 ms
+12:37:59.158 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+12:37:59.158 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+12:37:59.158 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+12:37:59.158 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+12:37:59.159 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+12:37:59.159 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+12:37:59.335 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+12:38:01.199 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12:38:02.463 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7e621344, org.springframework.security.web.context.SecurityContextPersistenceFilter@16067ae8, org.springframework.security.web.header.HeaderWriterFilter@3bca8ad8, org.springframework.security.web.csrf.CsrfFilter@2a98e825, org.springframework.security.web.authentication.logout.LogoutFilter@61e57fff, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5b2a9b0c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7ca92ef2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@704a61bd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56a84947, org.springframework.security.web.session.SessionManagementFilter@5fc2b4ba, org.springframework.security.web.access.ExceptionTranslationFilter@64563141, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5f16bdb7]
+12:38:02.789 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@51cdbac9: startup date [Sun Nov 26 12:37:56 EST 2017]; root of context hierarchy
+12:38:02.861 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.HttpErrorHandler.err(javax.servlet.http.HttpServletResponse,org.springframework.ui.Model)
+12:38:02.862 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.main()
+12:38:02.863 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/map]}" onto public java.lang.String com.nick.gvent.controllers.LayoutController.map()
+12:38:02.864 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[POST]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(com.nick.gvent.dto.UserDTO,org.springframework.ui.Model,org.springframework.validation.BindingResult)
+12:38:02.865 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login/registration],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.register(org.springframework.ui.Model)
+12:38:02.865 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET]}" onto public java.lang.String com.nick.gvent.controllers.LoginController.getLogin(java.lang.String,java.lang.String,org.springframework.ui.Model)
+12:38:02.867 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll{json}],methods=[GET],consumes=[application/json],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAll(org.json.JSONObject) throws org.json.JSONException
+12:38:02.867 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/createEvent],methods=[POST],consumes=[application/json]}" onto public java.lang.String com.nick.gvent.controllers.RestController.createNewEvent(com.nick.gvent.dto.EventDTO,java.security.Principal,org.springframework.security.core.Authentication)
+12:38:02.867 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/getAll/absolute],methods=[GET],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.util.List<com.nick.gvent.dto.EventDTO>> com.nick.gvent.controllers.RestController.getAllAbs(org.springframework.security.core.Authentication)
+12:38:02.884 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:38:02.884 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/map] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:38:02.885 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/login/] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+12:38:02.899 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:38:02.899 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:38:02.944 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+12:38:03.236 [restartedMain] INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+12:38:03.369 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+12:38:03.423 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+12:38:03.424 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+12:38:03.430 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [org.apache.commons.dbcp2:name=dataSource,type=BasicDataSource]
+12:38:03.456 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8077"]
+12:38:03.470 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8077"]
+12:38:03.515 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+12:38:03.546 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8077 (http)
+12:38:03.553 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 22.142 seconds (JVM running for 33.954)
+12:38:08.013 [http-nio-8077-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+12:38:08.014 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+12:38:08.052 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 38 ms

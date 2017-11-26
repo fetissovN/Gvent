@@ -12,12 +12,19 @@ body {
 	font-family: Roboto,Arial,sans-serif;
 }
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 /* ----------Navigation Header---------- */
 #headNavBox {
 	border: 0 solid rgb(230, 230, 230);
 	width: 100%;
 	height:50px;
 	text-align: center;
+	font-weight: 100;
 	margin: 0;
 	overflow: hidden;
 	background-color: rgba(255, 255, 255, 0.966);
@@ -26,70 +33,29 @@ body {
 	z-index: 1;
 	top: 0;
 }
-				ul.nav {
-					list-style-type: none;
-					padding-left: 0;
-					margin-left: 0;
-
-				}
-								.nav li {
-									display: inline-block;
-									font-size: 1em;
-									margin-left: 0.5%;
-									padding-left: 0.5%;
-								}
-				.headNavBox_logo {
-					color:orange;
-					background-color:transparent;
-					font-size:200%;
-					font-weight:700;
-					text-align:left;
-					float: left;
-					padding-left: 1%;
-				}
-								.super {
-									vertical-align: +7px;
-								}
-/*-------USER ICON---------*/
-.userSettings {
-	position: absolute;
-	right: 6px;
-	top: 2px;
-	z-index: 2;
+ul.nav {
+	display: block;
+	list-style-type: none;
+	padding: 0 auto;
+	line-height: 50px;
 }
-				.userIcon {
-					border: 5px solid transparent;
-					border-radius: 50%;
-					-webkit-border-radius: 50%;
-					-moz-webkit-border-radius: 50%;
-					-o-webkit-border-radius: 50%;
-					-ms-webkit-border-radius: 50%;
-					background-color: gray;
-					/* box-shadow: 0px 2px 6px 0px rgb(154, 154, 154); */
-					height: 35px;
-					width: 35px;
-					text-align: center;
-				}
-								.userIcon:hover {
-									background-color: orange;
-								}
-												.userSettings-dropdown {
-													position: absolute;
-													display: none;
-													top:25px;
-													right:0px;
-												}
-																.userSettings-dropdown li {
-																	list-style-type: none;
-																	padding-top: 5px;
-																	text-align:	center;
-																	font-size: .85em;
-																}
-																				.userSettings:hover > .userSettings-dropdown {
-																					display: block;
-																				}
-/*-------USER ICON END---------*/
-
+.nav li {
+	display: inline-block;
+	font-size: 1em;
+	margin-left: 0.5%;
+	padding-left: 0.5%;
+}
+.headNavBox_logo {
+	color:orange;
+	background-color:transparent;
+	font-size:200%;
+	text-align:left;
+	float: left;
+	padding-left: 1%;
+}
+.super {
+	vertical-align: +7px;
+}
 /* ----------Navigation Header END---------- */
 
 /* ----------Body Cards---------- */
@@ -114,16 +80,16 @@ body {
 	float: left;
 	transition: .1s ease;
 }
-				.card_m:hover{
-					box-shadow:0 2px 8px 1px rgb(196, 196, 196);
-					-webkit-transform: translateY(-1px);
-					transform: translateY(-1px);
-				}
+.card_m:hover{
+	box-shadow:0 2px 8px 1px rgb(196, 196, 196);
+	-webkit-transform: translateY(-1px);
+	transform: translateY(-1px);
+}
 
-				.cardZip_m:hover{
-					box-shadow:0 2px 8px 1px rgb(196, 196, 196);
-					-webkit-transform: translateY(-1px);
-					transform: translateY(-1px);
+.cardZip_m:hover{
+	box-shadow:0 2px 8px 1px rgb(196, 196, 196);
+	-webkit-transform: translateY(-1px);
+	transform: translateY(-1px);
 }
 .cardEvent_chat_wrapper{
 	display: none;
@@ -138,7 +104,7 @@ body {
 	width: 950px;
 	margin: 1% 12%;
 	z-index: 1;
-	border: 0px solid red;
+	border: 0 solid red;
 	border-radius: 2px;
 	-webkit-border-radius: 2px;
 	-moz-webkit-border-radius: 2px;
@@ -148,47 +114,48 @@ body {
 	background-color: white;
 	color: gray;
 }
-				/*------------chat_head----------*/
-				.chatHead_title {
-					display: fixed;
-					border: 0 solid orange;
-					border-radius: 2px 2px 0 0;
-					color: white;
-					background-color: gray;
-					font-size: 1.5em;
-					padding-left: 5px;
-				}
+/*------------chat_head----------*/
+.chatHead_title {
+	display: fixed;
+	border: 0 solid orange;
+	border-radius: 2px 2px 0 0;
+	color: white;
+	background-color: gray;
+	font-size: 1.5em;
+	padding-left: 5px;
+}
 
-								.chatHead_eventAddress {
-									float: left;
-								}
-								.chatHead_menu {
-									float: right;
-									padding-right: 30px;
-									line-height: 40px;
-								}
-												.chatHead_menu li {
-													float: left;
-													list-style: none;
-													height: 40px;
-													width: 40px;
-													font-size: 1em;
-												}
-																.chatHead_menu li:hover {
-																	border-radius: 50%;
-																	background-color: orange;
-																	box-shadow: 0 5px 5px 0 #555555;
-																	animation-name: chatHead_animation;
-																	animation-duration: .15s;
-																	cursor: pointer;
-																}
-																					@keyframes chatHead_animation {
-																						0%   {transform: scale(1);}
-																						50%   {transform: scale(1.08);}
-																						75%   {transform: scale(.92);}
-																						100%   {transform: scale(1);}
-																					}
-				/*------------chat_head_END----------*/
+.chatHead_eventAddress {
+	float: left;
+	line-height: 40px;
+}
+.chatHead_menu {
+	float: right;
+	padding-right: 30px;
+	line-height: 40px;
+}
+.chatHead_menu li {
+	float: left;
+	list-style: none;
+	height: 40px;
+	width: 40px;
+	font-size: 1em;
+}
+.chatHead_menu li:hover {
+	border-radius: 50%;
+	background-color: orange;
+	box-shadow: 0 5px 5px 0 #555555;
+	animation-name: chatHead_animation;
+	animation-duration: .15s;
+	cursor: pointer;
+}
+@keyframes chatHead_animation {
+	0%   {transform: scale(1);}
+	50%   {transform: scale(1.08);}
+	75%   {transform: scale(.92);}
+	100%   {transform: scale(1);}
+}
+/*------------chat_head_END----------*/
 
 
 /*------------chat_BODY------------*/
@@ -198,103 +165,103 @@ body {
 	border: 0px solid green;
 	height: 100%;
 }
-				.chatBody_userList {
-					width: 150px;
-					max-width: 450px;
-					min-width: 50px;
-					border-right: 1px solid lightgray;
-					resize: horizontal;
-					overflow: auto;
-				}
-				.chatBody_chatWindow {
-					flex: 1;
-					display: flex;
-					flex-flow: column;
-					border: 0px solid brown;
-				}
-								.chatBody_displayer {
-									flex: 10 1;
-									border: 0px solid orange;
-									overflow: auto;
-								}
-								form {
-									height: 100%;
-								}
-								.chatBody_typer {
-									/*flex: 1 1;*/
-									height: 40px;
-									display: fixed;
-									border: 0px solid gray;
-									box-shadow: inset 0 0 10px 0 lightgray;
-								}
-												.chatBody_field_input {
-													float: left;
-													height: 100%;
-													width: 92%;
-													border: 0px solid gray;
-													font-family: Roboto,Arial,sans-serif;
-													background-color: transparent;
-													padding-left: 10px;
-													font-size: 1em;
-													font-weight: 100;
-												}
-																input::-webkit-input-placeholder {
-																	font-family: Roboto,Arial,sans-serif;
-																	text-align: left;
-																	font-size: 1em;
-																	color: lightgray;
-																	padding-left: 10px;
-																}
-																input:-moz-placeholder {
-																	font-family: Roboto,Arial,sans-serif;
-																	text-align: left;
-																	font-size: 1em;
-																	color: lightgray;
-																	padding-left: 10px;
-																}
-																input::-moz-placeholder {
-																	font-family: Roboto,Arial,sans-serif;
-																	text-align: left;
-																	font-size: 1em;
-																	color: lightgray;
-																	padding-left: 10px;
-																}
-																input:-ms-input-placeholder {
-																	font-family: Roboto,Arial,sans-serif;
-																	text-align: left;
-																	font-size: 1em;
-																	color: lightgray;
-																	padding-left: 10px;
-																}
-																input[type=text]:focus {
-																	outline: none;
-																}
+.chatBody_userList {
+	width: 150px;
+	max-width: 450px;
+	min-width: 50px;
+	border-right: 1px solid lightgray;
+	resize: horizontal;
+	overflow: auto;
+}
+.chatBody_chatWindow {
+	flex: 1;
+	display: flex;
+	flex-flow: column;
+	border: 0px solid brown;
+}
+.chatBody_displayer {
+	flex: 10 1;
+	border: 0px solid orange;
+	overflow: auto;
+}
+form {
+	height: 100%;
+}
+.chatBody_typer {
+	/*flex: 1 1;*/
+	height: 40px;
+	display: fixed;
+	border: 0px solid gray;
+	box-shadow: inset 0 0 10px 0 lightgray;
+}
+.chatBody_field_input {
+	float: left;
+	height: 100%;
+	width: 92%;
+	border: 0px solid gray;
+	font-family: Roboto,Arial,sans-serif;
+	background-color: transparent;
+	padding-left: 10px;
+	font-size: 1em;
+	font-weight: 100;
+}
+input::-webkit-input-placeholder {
+	font-family: Roboto,Arial,sans-serif;
+	text-align: left;
+	font-size: 1em;
+	color: lightgray;
+	padding-left: 10px;
+}
+input:-moz-placeholder {
+	font-family: Roboto,Arial,sans-serif;
+	text-align: left;
+	font-size: 1em;
+	color: lightgray;
+	padding-left: 10px;
+}
+input::-moz-placeholder {
+	font-family: Roboto,Arial,sans-serif;
+	text-align: left;
+	font-size: 1em;
+	color: lightgray;
+	padding-left: 10px;
+}
+input:-ms-input-placeholder {
+	font-family: Roboto,Arial,sans-serif;
+	text-align: left;
+	font-size: 1em;
+	color: lightgray;
+	padding-left: 10px;
+}
+input[type=text]:focus {
+	outline: none;
+}
 
 
-												.chatBody_btn_send {
-													position: relative;
-													display: none;
-													z-index: 1;
-													margin: 3px 5px;
-													float: right;
-													height: 35px;
-													width: 35px;
-													font-size: 1em;
-													text-align: center;
-													border: 0px solid transparent;
-													border-radius: 50%;
-													color: white;
-													background-color: gray;
-													animation-name: chatHead_animation;
-													animation-duration: .3s;
-												}
-																input[type=submit]:focus {
-																	outline: none;
-																}
-																.chatBody_btn_send:hover {
-																	background-color: orange;
-																	box-shadow: 0 2px 6px 0 gray;
-																}
+.chatBody_btn_send {
+	position: relative;
+	display: none;
+	z-index: 1;
+	margin: 3px 5px;
+	float: right;
+	height: 35px;
+	width: 35px;
+	font-size: 1em;
+	text-align: center;
+	border: 0px solid transparent;
+	border-radius: 50%;
+	color: white;
+	background-color: gray;
+	animation-name: chatHead_animation;
+	animation-duration: .3s;
+}
+input[type=submit]:focus {
+	outline: none;
+}
+.chatBody_btn_send:hover {
+	background-color: orange;
+	box-shadow: 0 2px 6px 0 gray;
+}
 /*------------chat_BODY_END----------*/
 
 /*-------------CHAT WINDOW_END------------*/
@@ -368,3 +335,110 @@ h6 {
 	flex: 1 1 auto;
 }
 /* -----MapEvent- mapContentBox END----- */
+
+
+/*---------------MAP CREATE EVENT WINDOW----------------*/
+.createEventWindow_wrapper {
+	display: none;
+}
+.createEventWindow {
+	display: flex;
+	position: absolute;
+	margin: 80px 35%;
+	z-index: 3;
+	width: 450px;
+	height: 200px;
+	flex-flow: column;
+	outline: none;
+
+}
+.createEventWindow_header {
+	flex: 1;
+	position: relative;
+	height: 47px;
+	width: 100%;
+	background-color: gray;
+	border-radius: 3px 3px 0 0;
+}
+.nameIn {
+	position: relative;
+	float: left;
+	margin-left: 10px;
+	line-height: 45.45px;
+	width: 87.5%;
+	border-style: none;
+	outline: none;
+	color: white;
+	background: transparent;
+	font-size: 1.5em;
+}
+.nameIn::-webkit-input-placeholder {
+	padding: 5px;
+}
+.createEvent_cancelBtn {
+	display: block;
+	position: relative;
+	margin-top: 3px;
+	height: 40px;
+	width: 40px;
+	color: white;
+	text-align: center;
+	font-size: 1em;
+	outline: none;
+	border-style: none;
+	background-color: transparent;
+}
+.createEvent_cancelBtn:hover {
+	border-radius: 50%;
+	background-color: orange;
+	box-shadow: 0 5px 5px 0 #555555;
+	animation-name: chatHead_animation;
+	animation-duration: .15s;
+	cursor: pointer;
+}
+.createEventWindow_body {
+	flex: 10;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	border-radius: 0 0 3px 3px;
+}
+.descIn {
+	position: relative;
+	padding-top: 15px;
+	display: block;
+	outline: none;
+	border: none;
+	width: 95%;
+	margin: 0 auto;
+	font-size: 1em;
+	color: gray;
+	text-align: center;
+}
+.descIn::-webkit-input-placeholder {
+	text-align: center;
+}
+.createEvent_createBtn {
+	position: relative;
+	display: block;
+	margin: 120px auto;
+	height: 2em;
+	width: 80px;
+	outline: none;
+	color: white;
+	font-size: 1em;
+	background-color: gray;
+	border: 0px solid transparent;
+	border-radius: 1em;
+}
+.createEvent_createBtn:hover {
+	background-color: orange;
+	box-shadow: 0 5px 5px 0 #777777;
+	animation-name: chatHead_animation;
+	animation-duration: .15s;
+	cursor: pointer;
+}
+
+
+/*---------------MAP CREATE EVENT WINDOW END----------------*/

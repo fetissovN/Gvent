@@ -16,16 +16,6 @@
     </head>
 
     <body>
-    <div class="userSettings">
-        <div class="userIcon"></div>
-        <ul class="userSettings-dropdown">
-            <li> <a href="#"> Settings </a> </li>
-            <li> <a href="#"> Profile </a> </li>
-            <li> <a href="#"> 33333 </a> </li>
-            <li> <a href="mailto:support@knot.com"> Support </a> </li>
-            <li> <a href="#"> Logout </a> </li>
-        </ul>
-    </div>
 
     <!-- Header_navigation_menu -->
     <div id="headNavBox">
