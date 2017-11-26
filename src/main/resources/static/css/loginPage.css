@@ -10,11 +10,9 @@ body {
 	margin: 0 auto;
 	background-color: gray;
 }
-
 .super {
 	vertical-align: +7px;
 }
-
 .wrapper_headTitle {
 	width: 30%;
 	display: block;
@@ -27,26 +25,14 @@ body {
 	font-size: 3em;
 	color:white;
 }
-
-.str_logIn {
-}
-
-.str_signUp {
-
-}
-
 .signMenu {
 	width: 25%;
 	display: block;
 	position: relative;
-	marge-right: 5px;
 	margin-top: 2px;
 	font-family: Roboto, Arial, sans-serif;
 	float: right;
 }
-
-
-
 .signMenu li {
 	display: inline-block;
 	list-style: none;
@@ -55,19 +41,15 @@ body {
 	font-family: Roboto,Arial,sans-serif;
 }
 
-
-
 /* ---------------LOGIN FORM-------------*/
 .formBlock_logIn {
 	position: relative;
 	margin-top: 15%;
 }
-
 .formBlock_signUp {
 	position: relative;
 	margin-top: 10%;
 }
-
 input::-webkit-input-placeholder {
 	font-family: Roboto,Arial,sans-serif;
 	text-align: center;
@@ -92,15 +74,10 @@ input:-ms-input-placeholder {
 	font-size: 1em;
 	color: lightgray;
 }
-
-
-
-
 input[type="text"], input[type="password"] {
 	display: block;
 	position: relative;
-	margin: auto;
-	margin-top: 10px;
+	margin: 10px auto;
 	height: 35px;
 	width: 250px;
 	font-family: Roboto,Arial,sans-serif;
@@ -115,22 +92,12 @@ input[type="text"], input[type="password"] {
 	-ms-webkit-border-radius: 5px;
 	background: white;
 	box-shadow: 0px 5px 50px 0px #383838;
-}
-input[type=text]:focus {
 	outline: none;
 }
-input[type=password]:focus {
-	outline: none;
-}
-
-
-
-
 input[type="submit"] {
 	display: block;
 	position: relative;
-	margin: auto;
-	margin-top: 20px;
+	margin: 20px auto;
 	height: 30px;
 	width: 120px;
 	font-family: Roboto,Arial,sans-serif;
@@ -146,15 +113,19 @@ input[type="submit"] {
 	background-color: white;
 	color: gray;
 	box-shadow: 0px 5px 50px 0px #383838;
+	outline: none;
 }
-
 input[type="submit"]:hover {
 	color:white;
 	background-color: orange;
 	box-shadow: 0px 5px 20px 0px #1d1d1d;
 }
-input[type=submit]:focus {
-	outline: none;
+.createAnAccount {
+	display: block;
+	position: relative;
+	margin: 10px auto;
+	font-size: .9em;
+	width: 118px;
 }
 /* ---------------LOGIN FORM END---------*/
 
@@ -162,7 +133,6 @@ a:hover, a:active, a:focus {
 	color: orange;
 	text-decoration: none;
 }
-
 a:link, a:visited {
 	color: white;
 	text-decoration: none;
