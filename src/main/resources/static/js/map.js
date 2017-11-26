@@ -77,12 +77,16 @@ function setMarkersFromDb() {
     console.log(request);
     $.ajax({
         type: 'GET',
-        url: '/api/getAll'+request,
+        url: '/api/getAll/absolute',
         // contentType: "application/json",
         // data: request,
         success: function(data){
-            // var d = JSON.parse(data);
+            console.log(data.authFail);
+            if (data.auth == null){
+                document.location.href = '/login';
+            }
             console.log(data);
+            console.log(data.events);
         },
         error: function () {
             alert('fail');

@@ -15,7 +15,7 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.REFRESH)
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User userId;
 
@@ -91,5 +91,24 @@ public class Event {
 
     public void setEventRelatedMessages(List<Message> eventRelatedMessages) {
         this.eventRelatedMessages = eventRelatedMessages;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Event event = (Event) o;
+
+        if (!id.equals(event.id)) return false;
+        return userId.equals(event.userId);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + userId.hashCode();
+        return result;
     }
 }

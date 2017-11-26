@@ -18,6 +18,7 @@ public interface EventService {
 
     List<EventDTO> getAll();
 
+//    List<EventDTO> getAllPureTable();
 
 
 

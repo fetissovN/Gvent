@@ -9,6 +9,7 @@ import com.nick.gvent.entity.User;
 import com.nick.gvent.service.event.EventService;
 import com.nick.gvent.service.user.UserService;
 import com.nick.gvent.util.event.EventValidation;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -51,7 +54,7 @@ public class RestController {
 
         if (authentication == null){return "authFail";}
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        System.out.println("User has authorities: " + userDetails.getAuthorities());
+//        System.out.println("User has authorities: " + userDetails.getAuthorities());
         if (userDetails.getUsername() != null){
             User user = userService.findUserByUsername(userDetails.getUsername());
             EventValidation validation = EventValidation.getInstance();
@@ -73,20 +76,49 @@ public class RestController {
         }
     }
 
-    @RequestMapping(value = "/getAll{json}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAll/absolute", method = RequestMethod.GET,
+                    produces = "application/json")
     @ResponseBody
-    public ResponseEntity<List<EventDTO>> getAll(@PathVariable JSONObject json) throws JSONException {
+    public Map<String, List<EventDTO> > getAllAbs(Authentication authentication){
+        Map<String, List<EventDTO>> map = new HashMap<>();
+        if (authentication == null){
+            map.put("auth",null);
+            return map;
+        }
+        List<EventDTO> list = eventService.getAll();
+        map.put("events",list);
+        return map;
+    }
+
+    @RequestMapping(value = "/getAll{json}", method = RequestMethod.GET,
+                    produces = "application/json",
+                    consumes="application/json")
+    @ResponseBody
+    public Map<String, List<EventDTO> > getAll(@PathVariable JSONObject json) throws JSONException {
+        Map<String, List<EventDTO>> map = new HashMap<>();
         if (json.get("name").equals("all")){
             List<EventDTO> list = eventService.getAll();
             JSONObject object = new JSONObject();
             object.put("events", list);
-            return new ResponseEntity<List<EventDTO>>(list, HttpStatus.OK);
+            map.put("events",list);
+            return map;
         }
-
-        return new ResponseEntity<List<EventDTO>>(HttpStatus.OK);
+        return null;
     }
 
 
+//    @RequestMapping(value = "/getAll{json}", method = RequestMethod.GET)
+//    @ResponseBody
+//    public ResponseEntity<List<EventDTO>> getAll(@PathVariable JSONObject json) throws JSONException {
+//        if (json.get("name").equals("all")){
+//            List<EventDTO> list = eventService.getAll();
+//            JSONObject object = new JSONObject();
+//            object.put("events", list);
+//            return new ResponseEntity<List<EventDTO>>(list, HttpStatus.OK);
+//        }
+//
+//        return new ResponseEntity<List<EventDTO>>(HttpStatus.OK);
+//    }
 
 //    /** Makes Quiz objects form from UserDTO object and saves to db
 //     * @param theme

@@ -1,6 +1,8 @@
 package com.nick.gvent.service.event;
 
 
+import com.nick.gvent.converters.SpringConverterEventToEventDTO;
+import com.nick.gvent.dao.event.EventCustom;
 import com.nick.gvent.dao.event.EventDao;
 import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.dto.EventDTO;
@@ -15,10 +17,16 @@ import java.util.List;
 public class EventServiceImpl implements EventService{
 
     @Autowired
+    private SpringConverterEventToEventDTO eventToEventDTO;
+
+    @Autowired
     private EventDao eventDao;
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private EventCustom eventCustom;
 
     @Override
     public Event save(Event event) {
@@ -41,17 +49,16 @@ public class EventServiceImpl implements EventService{
         List<Event> list = eventDao.findAll();
         List<EventDTO> listDTO = new ArrayList<>();
         for (Event e: list){
-            EventDTO eventDTO = new EventDTO();
-            eventDTO.setId(e.getId());
-            eventDTO.setUserId(e.getUserId().getId());
-            eventDTO.setName(e.getName());
-            eventDTO.setDescription(e.getDescription());
-            eventDTO.setLatitude(e.getLatitude());
-            eventDTO.setLongitude(e.getLongitude());
+            EventDTO eventDTO = eventToEventDTO.convert(e);
             listDTO.add(eventDTO);
         }
         return listDTO;
     }
+
+//    public List<EventDTO> getAllPureTable(){
+//        return eventCustom.getAllPureTable();
+//
+//    }
 
 
 
