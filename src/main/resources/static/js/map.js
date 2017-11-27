@@ -67,6 +67,14 @@ function initMap() {
     }
 }
 
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
+}
+
 setMarkersFromDb();
 
 function setMarkersFromDb() {
@@ -78,15 +86,13 @@ function setMarkersFromDb() {
     $.ajax({
         type: 'GET',
         url: '/api/getAll/absolute',
-        // contentType: "application/json",
-        // data: request,
         success: function(data){
-            console.log(data.authFail);
-            if (data.auth == null){
-                // document.location.href = '/login';
+            if('auth' in data){
+                document.location.href = '/login';
             }
-            console.log(data);
-            console.log(data.events);
+            if('events' in data){
+                console.log(data);
+            }
         },
         error: function () {
             alert('fail');
@@ -126,22 +132,16 @@ function placeMarker(location) {
     var marker = new google.maps.Marker({
         position: location,
     });
-    console.log(marker);
     markers.push(marker);
     return marker;
 }
 
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
-    infoWindow.open(map);
-}
+
 
 function showChoiceBox() {
     var box = $('.createEventWindow_wrapper');
+    console.log(box);
     box.show();
     var btn_add = $('.createEvent_createBtn');
     var btn_cancel = $('.createEvent_cancelBtn');

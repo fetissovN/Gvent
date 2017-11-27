@@ -12,7 +12,7 @@
     <body>
         <div class ="mapContentBox">
         <#include "bar.ftl">
-                <div class=".createEventWindow_wrapper">
+                <div class="createEventWindow_wrapper">
                     <div class="createEventWindow">
                         <div class="createEventWindow_header">
                             <input class="nameIn" placeholder="Add title..."/>
