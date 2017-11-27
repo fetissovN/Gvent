@@ -79,7 +79,7 @@ public class RestController {
     @RequestMapping(value = "/getAll/absolute", method = RequestMethod.GET,
                     produces = "application/json")
     @ResponseBody
-    public Map<String, List<EventDTO> > getAllAbs(Authentication authentication){
+    public Map<String, List<EventDTO> > getAllEventsAbs(Authentication authentication){
         Map<String, List<EventDTO>> map = new HashMap<>();
         if (authentication == null){
             map.put("auth",null);
@@ -91,19 +91,19 @@ public class RestController {
     }
 
     @RequestMapping(value = "/getAll{json}", method = RequestMethod.GET,
-                    produces = "application/json",
-                    consumes="application/json")
+                    produces = "application/json")
     @ResponseBody
-    public Map<String, List<EventDTO> > getAll(@PathVariable JSONObject json) throws JSONException {
+    public Map<String, List<EventDTO> > getAllUserEvents(@PathVariable JSONObject json, Authentication authentication)
+            throws JSONException {
         Map<String, List<EventDTO>> map = new HashMap<>();
-        if (json.get("name").equals("all")){
-            List<EventDTO> list = eventService.getAll();
-            JSONObject object = new JSONObject();
-            object.put("events", list);
-            map.put("events",list);
+        if (authentication == null){
+            map.put("auth",null);
             return map;
         }
-        return null;
+        Long id = Long.parseLong((String) json.get("user"));
+        List<EventDTO> list = eventService.getAllByUserId(id);
+        map.put("events",list);
+        return map;
     }
 
 

@@ -47,8 +47,18 @@ public class EventServiceImpl implements EventService{
     @Override
     public List<EventDTO> getAll() {
         List<Event> list = eventDao.findAll();
+        return convertEventsToUser(list);
+    }
+
+    @Override
+    public List<EventDTO> getAllByUserId(Long id) {
+        List<Event> list = eventDao.findByUserId(id);
+        return convertEventsToUser(list);
+    }
+
+    private List<EventDTO> convertEventsToUser(List<Event> listEvents){
         List<EventDTO> listDTO = new ArrayList<>();
-        for (Event e: list){
+        for (Event e: listEvents){
             EventDTO eventDTO = eventToEventDTO.convert(e);
             listDTO.add(eventDTO);
         }

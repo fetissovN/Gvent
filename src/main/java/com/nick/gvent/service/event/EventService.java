@@ -18,6 +18,8 @@ public interface EventService {
 
     List<EventDTO> getAll();
 
+    List<EventDTO> getAllByUserId(Long id);
+
 //    List<EventDTO> getAllPureTable();
 
 

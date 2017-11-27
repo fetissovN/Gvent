@@ -14,12 +14,13 @@ function Event(id,userId,name,desc,lat,lng){
 
 var markers = [];
 var markersDB = [];
+var markersPrivate = [];
 
 var map, infoWindow;
-var choiceBoxEnabled = false;
 var newEvent = null;
-var createEventBool = false;
-var closeChoiceBool = false;
+// var choiceBoxEnabled = false;
+// var createEventBool = false;
+// var closeChoiceBool = false;
 
 function initMap() {
 
@@ -33,17 +34,8 @@ function initMap() {
 
     google.maps.event.addListener(map, 'rightclick', function(event) {
         newEvent = new Event(null,null,null,null,event.latLng.lat(),event.latLng.lng());
-        if (choiceBoxEnabled == false){
-            choiceBoxEnabled = true;
-            showChoiceBox();
-            placeMarker(event.latLng);
-        }
-
-        if (createEventBool){
-            createEventBool = false;
-        }else if (closeChoiceBool){
-            closeChoiceBool = false;
-        }
+        showChoiceBox();
+        placeMarker(event.latLng);
         showOverlays();
     });
     // Try HTML5 geolocation.
@@ -73,31 +65,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: The Geolocation service failed.' :
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
-}
-
-setMarkersFromDb();
-
-function setMarkersFromDb() {
-    var method = "all";
-    var obj = {"name":method};
-    console.log(obj);
-    var request = JSON.stringify(obj);
-    console.log(request);
-    $.ajax({
-        type: 'GET',
-        url: '/api/getAll/absolute',
-        success: function(data){
-            if('auth' in data){
-                document.location.href = '/login';
-            }
-            if('events' in data){
-                console.log(data);
-            }
-        },
-        error: function () {
-            alert('fail');
-        }
-    });
 }
 
 function setAllMap(map) {
@@ -136,9 +103,6 @@ function placeMarker(location) {
     return marker;
 }
 
-
-
-
 function showChoiceBox() {
     var box = $('.createEventWindow_wrapper');
     console.log(box);
@@ -170,16 +134,59 @@ function createEvent() {
                 document.location.href = '/login';
             }else if (data == 1){
                 closeChoiceBox(false);
-                createEventBool = true;
             }else if (data == 0 ){
-                createEventBool = false;
             }
         },
         error: function () {
-            createEventBool = false;
         }
     });
 }
+
+function getMarkersFromDb() {
+    var method = "all";
+    var obj = {"name":method};
+    console.log(obj);
+    var request = JSON.stringify(obj);
+    console.log(request);
+    $.ajax({
+        type: 'GET',
+        url: '/api/getAll/absolute',
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('events' in data){
+                console.log(data);
+            }
+        },
+        error: function () {
+            alert('fail');
+        }
+    });
+}
+
+function getMarkersFromDbPrivate(id) {
+    var obj = {"user":id};
+    var request = JSON.stringify(obj);
+    $.ajax({
+        type: 'GET',
+        url: '/api/getAll'+request,
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('events' in data){
+                console.log(data);
+            }
+        },
+        error: function () {
+            alert('fail');
+        }
+    });
+}
+
+
+
 
 function closeChoiceBox(delLastMarker) {
     var inp_name = $('.nameIn');
@@ -188,11 +195,11 @@ function closeChoiceBox(delLastMarker) {
     inp_desc.val('');
     var box = $('.createEventWindow_wrapper');
     box.hide();
-    closeChoiceBool = true;
     clearOverlays();
     if (delLastMarker){
         deleteLastMarker();
     }
     showOverlays();
-    choiceBoxEnabled = false;
 }
+
+getMarkersFromDb();
