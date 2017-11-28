@@ -16,6 +16,8 @@ var markers = [];
 var markersDB = [];
 var markersPrivate = [];
 
+var isLoaded = false;
+
 var map, infoWindow;
 var newEvent = null;
 
@@ -162,6 +164,7 @@ function getMarkersFromDb() {
                 var arr = data.events;
                 for(var i=0;i<arr.length;i++){
                     markersDB.push(arr[i]);
+                    isLoaded = true;
                 }
             }
         },
@@ -224,11 +227,22 @@ function closeChoiceBox(delLastMarker) {
 }
 
 function run() {
+    //Map is already shown
+    //1) getting Events from server to markersDB[] variable
     getMarkersFromDb();
-    console.log(markersDB);
-    setTimeout(function () {
-        setAllMarkerDBLocation(markersDB);
-    },2000);
-    console.log(markers);
-    setTimeout(showOverlays,3000);
+
+    //2) checking trigger(isLoaded) that markersBD[] is not empty
+    //   than
+    var timer = setInterval(function() {
+        console.log("not loaded");
+        if (isLoaded){
+            console.log("loaded");
+            //3) convert markersDB[] to markers[] with valid location
+            setAllMarkerDBLocation(markersDB);
+            //4) put map to all markers[] with delay 500ms, after that they will be shown to user
+            setTimeout(showOverlays,500);
+            clearInterval(timer);
+            isLoaded = false;
+        }
+    }, 50);
 }
