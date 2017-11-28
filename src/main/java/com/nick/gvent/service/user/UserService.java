@@ -13,5 +13,9 @@ public interface UserService {
 
     boolean isNicknameExists(User user);
 
+    User findUserByUsername(String username);
+
     UserDetails findByUsername(@NonNull String username);
+
+    User findById(Long id);
 }

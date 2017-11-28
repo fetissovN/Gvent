@@ -14,15 +14,14 @@ function Event(id,userId,name,desc,lat,lng){
 
 var markers = [];
 var markersDB = [];
+var markersDBPrivate = [];
+
+var isLoaded = false;
 
 var map, infoWindow;
-var choiceBoxEnabled = false;
 var newEvent = null;
-var createEventBool = false;
-var closeChoiceBool = false;
 
 function initMap() {
-
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.758570, lng: -73.985077},
         zoom: 17
@@ -31,34 +30,11 @@ function initMap() {
     // trafficLayer.setMap(map); SHOWS TRAFFIC ON THE MAP
     infoWindow = new google.maps.InfoWindow;
 
-
-// ///////////DARK BACKGROUND ////////////////
-
-    $('#map').mousedown(function (eventClick) {
-        if(eventClick.which === 3)
-        $('.overlay-back').fadeIn(200);
-    });
-
-    $('.createEvent_cancelBtn, .createEvent_createBtn').on('click', function () {
-        $('.overlay-back').fadeOut(200);
-    });
-
-// ////////////DARK BACKGROUND END ///////////
-
-
-    google.maps.event.addListener(map, 'click', function(event) {
+    google.maps.event.addListener(map, 'rightclick', function(event) {
         newEvent = new Event(null,null,null,null,event.latLng.lat(),event.latLng.lng());
-        if (choiceBoxEnabled == false){
-            choiceBoxEnabled = true;
-            showChoiceBox();
-            placeMarker(event.latLng);
-        }
-
-        if (createEventBool){
-            createEventBool = false;
-        }else if (closeChoiceBool){
-            closeChoiceBool = false;
-        }
+        showChoiceBox();
+        console.log(event.latLng);
+        placeMarker(event.latLng);
         showOverlays();
     });
     // Try HTML5 geolocation.
@@ -73,6 +49,7 @@ function initMap() {
             infoWindow.setContent('You are here!');
             infoWindow.open(map);
             map.setCenter(pos);
+            run();
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -90,40 +67,20 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
-setMarkersFromDb();
-
-function setMarkersFromDb() {
-    var method = "all";
-    var obj = {"name":method};
-    console.log(obj);
-    var request = JSON.stringify(obj);
-    console.log(request);
-    $.ajax({
-        type: 'GET',
-        url: '/api/getAll/absolute',
-        success: function(data){
-            if('auth' in data){
-                document.location.href = '/login';
-            }
-            if('events' in data){
-                console.log(data);
-            }
-        },
-        error: function () {
-            alert('fail');
-        }
-    });
-}
-
 function setAllMap(map) {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
     }
 }
 
-function setAllMapDB(map) {
-    for (var i = 0; i < markersDB.length; i++) {
-        markersDB[i].setMap(map);
+function setAllMarkerDBLocation(arr) {
+    console.log(arr);
+    for (var i = 0; i < arr.length; i++) {
+        var pos = {
+            lat: +arr[i].latitude,
+            lng: +arr[i].longitude
+        };
+        placeMarker(pos);
     }
 }
 
@@ -150,9 +107,6 @@ function placeMarker(location) {
     markers.push(marker);
     return marker;
 }
-
-
-
 
 function showChoiceBox() {
     var box = $('.createEventWindow_wrapper');
@@ -181,17 +135,78 @@ function createEvent() {
         data: d,
         success: function(data){
             if (data == "authFail"){
-                closeChoiceBox(false);
                 document.location.href = '/login';
             }else if (data == 1){
-                closeChoiceBox(false);
-                createEventBool = true;
+
             }else if (data == 0 ){
-                createEventBool = false;
             }
         },
         error: function () {
-            createEventBool = false;
+        }
+    });
+}
+
+function getMarkersFromDb() {
+    var method = "all";
+    var obj = {"name":method};
+    console.log(obj);
+    var request = JSON.stringify(obj);
+    console.log(request);
+    $.ajax({
+        type: 'GET',
+        url: '/api/getAll/absolute',
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('events' in data){
+                var arr = data.events;
+                for(var i=0;i<arr.length;i++){
+                    markersDB.push(arr[i]);
+                    isLoaded = true;
+                }
+            }
+        },
+        error: function () {
+            alert('fail');
+        }
+    });
+}
+
+function getMarkersFromDbPrivate(id) {
+    var request = JSON.stringify({"user":id});
+    $.ajax({
+        type: 'GET',
+        url: '/api/getUsersEvents/'+request,
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('events' in data){
+                console.log(data);
+            }
+        },
+        error: function () {
+            alert('fail');
+        }
+    });
+}
+
+function removeEvent(id) {
+    var request = JSON.stringify({"event":id});
+    $.ajax({
+        type: 'DELETE',
+        url: '/api/removeEvent/'+request,
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('deleted' in data){
+                console.log(data);
+            }
+        },
+        error: function () {
+            alert('fail');
         }
     });
 }
@@ -203,11 +218,29 @@ function closeChoiceBox(delLastMarker) {
     inp_desc.val('');
     var box = $('.createEventWindow_wrapper');
     box.hide();
-    closeChoiceBool = true;
     clearOverlays();
     if (delLastMarker){
         deleteLastMarker();
     }
     showOverlays();
-    choiceBoxEnabled = false;
+}
+
+function run() {
+    //Map is already shown
+    //1) getting Events from server to markersDB[] variable
+    getMarkersFromDb();
+
+    //2) checking trigger(isLoaded) that markersBD[] is not empty
+    var timer = setInterval(function() {
+        console.log("not loaded");
+        if (isLoaded){
+            console.log("loaded");
+            //3) convert markersDB[] to markers[] with valid location
+            setAllMarkerDBLocation(markersDB);
+            //4) put map to all markers[] with delay 500ms, after that they will be shown to user
+            setTimeout(showOverlays,500);
+            clearInterval(timer);
+            // isLoaded = false;
+        }
+    }, 50);
 }

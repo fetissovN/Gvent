@@ -1,20 +1,135 @@
 package com.nick.gvent.controllers;
 
-import org.springframework.stereotype.Controller;
+import com.nick.gvent.converters.SpringConverterEventDTOToEvent;
+import com.nick.gvent.dao.event.EventDao;
+import com.nick.gvent.dao.user.UserDao;
+import com.nick.gvent.dto.EventDTO;
+import com.nick.gvent.entity.Event;
+import com.nick.gvent.entity.User;
+import com.nick.gvent.service.event.EventService;
+import com.nick.gvent.service.user.UserService;
+import com.nick.gvent.util.event.EventValidation;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.*;
 
-/** api RestController class
- * @autor Fetissov Mikalai
- * @version 1.0
- */
-@Controller
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+
+@org.springframework.web.bind.annotation.RestController
+@RequestMapping(value = "/api")
 public class RestController {
 
-//    @Value("${host}")
-//    private String HOST;
-//
+    @Value("${host}")
+    private String HOST;
 
+    @Autowired
+    private EventService eventService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private SpringConverterEventDTOToEvent eventDTOToEvent;
+
+    @RequestMapping(value = "/createEvent", method = RequestMethod.POST,
+            consumes="application/json")
+    public String createNewEvent(@RequestBody EventDTO eventDTO ,
+                                               Principal principal,
+                                               Authentication authentication){
+        if (authentication == null){return "authFail";}
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        if (userDetails.getUsername() != null){
+            User user = userService.findUserByUsername(userDetails.getUsername());
+            EventValidation validation = EventValidation.getInstance();
+            if (!validation.validate(eventDTO)){
+                return "0";
+            }
+            Event event = eventDTOToEvent.convert(eventDTO);
+
+            event.setEventRelatedMessages(null);
+            event.setUserId(user);
+            Event eventDB = eventService.save(event);
+            if (eventDB != null){
+                return "1";
+            }else {
+                return "0";
+            }
+        }else {
+            return "0";
+        }
+    }
+
+    @RequestMapping(value = "/getAll/absolute", method = RequestMethod.GET,
+                    produces = "application/json")
+    public Map<String, List<EventDTO> > getAllEventsAbs(Authentication authentication){
+        Map<String, List<EventDTO>> map = new HashMap<>();
+//        if (authentication == null){
+//            map.put("auth",null);
+//            return map;
+//        }
+        List<EventDTO> list = eventService.getAll();
+        map.put("events",list);
+        return map;
+    }
+
+    @RequestMapping(value = "/getUsersEvents/{json}", method = RequestMethod.GET,
+                    produces = "application/json")
+    public Map<String, List<EventDTO> > getAllUserEvents(@PathVariable JSONObject json, Authentication authentication)
+            throws JSONException {
+        Map<String, List<EventDTO>> map = new HashMap<>();
+        if (authentication == null){
+            map.put("auth",null);
+            return map;
+        }
+        Integer id = (Integer) json.get("user");
+
+        List<EventDTO> list = eventService.getAllByUserId(id.longValue());
+        map.put("events",list);
+        return map;
+    }
+
+    @RequestMapping(value = "/removeEvent/{json}", method = RequestMethod.DELETE,
+            produces = "application/json")
+    public Map<String, List<EventDTO>> removeEvent(@PathVariable JSONObject json, Authentication authentication)
+            throws JSONException {
+        Map<String, List<EventDTO>> map = new HashMap<>();
+        if (authentication == null){
+            map.put("auth",null);
+            return map;
+        }
+        Integer id = (Integer) json.get("event");
+        eventService.delete(id.longValue());
+        map.put("deleted",new ArrayList<>());
+        return map;
+    }
+
+//    @RequestMapping(value = "/getAll{json}", method = RequestMethod.GET)
+//    @ResponseBody
+//    public ResponseEntity<List<EventDTO>> getAll(@PathVariable JSONObject json) throws JSONException {
+//        if (json.get("name").equals("all")){
+//            List<EventDTO> list = eventService.getAll();
+//            JSONObject object = new JSONObject();
+//            object.put("events", list);
+//            return new ResponseEntity<List<EventDTO>>(list, HttpStatus.OK);
+//        }
 //
-//
+//        return new ResponseEntity<List<EventDTO>>(HttpStatus.OK);
+//    }
+
 //    /** Makes Quiz objects form from UserDTO object and saves to db
 //     * @param theme
 //     * @see RestController#makeTheme(UserDTO)()

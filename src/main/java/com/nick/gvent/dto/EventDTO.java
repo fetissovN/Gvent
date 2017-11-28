@@ -1,40 +1,31 @@
-package com.nick.gvent.entity;
-
-import lombok.Data;
-
-import javax.persistence.*;
-import java.util.List;
+package com.nick.gvent.dto;
 
 
-@Entity
-@Table(name = "users_events")
-public class Event {
+public class EventDTO {
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User userId;
+    private Long userId;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "description")
     private String description;
 
-    @Column(name = "latitude")
     private String latitude;
 
-    @Column(name = "longitude")
     private String longitude;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "event_id")
-    private List<Message> eventRelatedMessages;
+    public EventDTO(Long id, Long userId, String name, String description, String latitude, String longitude) {
+        this.id = id;
+        this.userId = userId;
+        this.name = name;
+        this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
-    public Event() {
+    public EventDTO() {
     }
 
     public Long getId() {
@@ -45,11 +36,11 @@ public class Event {
         this.id = id;
     }
 
-    public User getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(User userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -85,23 +76,15 @@ public class Event {
         this.longitude = longitude;
     }
 
-    public List<Message> getEventRelatedMessages() {
-        return eventRelatedMessages;
-    }
-
-    public void setEventRelatedMessages(List<Message> eventRelatedMessages) {
-        this.eventRelatedMessages = eventRelatedMessages;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Event event = (Event) o;
+        EventDTO eventDTO = (EventDTO) o;
 
-        if (!id.equals(event.id)) return false;
-        return userId.equals(event.userId);
+        if (!id.equals(eventDTO.id)) return false;
+        return userId.equals(eventDTO.userId);
 
     }
 

@@ -1,0 +1,23 @@
+package com.nick.gvent.converters;
+
+
+import com.nick.gvent.dto.EventDTO;
+import com.nick.gvent.entity.Event;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
+
+@Component
+public class SpringConverterEventToEventDTO<T extends Event> implements Converter<Event, EventDTO> {
+
+    @Override
+    public EventDTO convert(Event event) {
+        EventDTO eventDTO = new EventDTO();
+        eventDTO.setId(event.getId());
+        eventDTO.setUserId(event.getUserId().getId());
+        eventDTO.setName(event.getName());
+        eventDTO.setDescription(event.getDescription());
+        eventDTO.setLatitude(event.getLatitude());
+        eventDTO.setLongitude(event.getLongitude());
+        return eventDTO;
+    }
+}
