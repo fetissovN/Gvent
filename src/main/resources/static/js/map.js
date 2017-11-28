@@ -32,6 +32,7 @@ function initMap() {
     google.maps.event.addListener(map, 'rightclick', function(event) {
         newEvent = new Event(null,null,null,null,event.latLng.lat(),event.latLng.lng());
         showChoiceBox();
+        console.log(event.latLng);
         placeMarker(event.latLng);
         showOverlays();
     });
@@ -47,6 +48,7 @@ function initMap() {
             infoWindow.setContent('You are here!');
             infoWindow.open(map);
             map.setCenter(pos);
+            run();
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -70,9 +72,14 @@ function setAllMap(map) {
     }
 }
 
-function setAllMapDB(map) {
-    for (var i = 0; i < markersDB.length; i++) {
-        markersDB[i].setMap(map);
+function setAllMarkerDBLocation(arr) {
+    console.log(arr.length);
+    for (var i = 0; i < arr.length; i++) {
+        var pos = {
+            lat: +arr[i].latitude,
+            lng: +arr[i].longitude
+        };
+        placeMarker(pos);
     }
 }
 
@@ -127,10 +134,9 @@ function createEvent() {
         data: d,
         success: function(data){
             if (data == "authFail"){
-                closeChoiceBox(false);
                 document.location.href = '/login';
             }else if (data == 1){
-                closeChoiceBox(false);
+
             }else if (data == 0 ){
             }
         },
@@ -153,7 +159,10 @@ function getMarkersFromDb() {
                 document.location.href = '/login';
             }
             if('events' in data){
-                console.log(data);
+                var arr = data.events;
+                for(var i=0;i<arr.length;i++){
+                    markersDB.push(arr[i]);
+                }
             }
         },
         error: function () {
@@ -166,7 +175,7 @@ function getMarkersFromDbPrivate(id) {
     var request = JSON.stringify({"user":id});
     $.ajax({
         type: 'GET',
-        url: '/api/getAll/'+request,
+        url: '/api/getUsersEvents/'+request,
         success: function(data){
             if('auth' in data){
                 document.location.href = '/login';
@@ -213,4 +222,13 @@ function closeChoiceBox(delLastMarker) {
     }
     showOverlays();
 }
-getMarkersFromDb();
+
+function run() {
+    getMarkersFromDb();
+    console.log(markersDB);
+    setTimeout(function () {
+        setAllMarkerDBLocation(markersDB);
+    },2000);
+    console.log(markers);
+    setTimeout(showOverlays,3000);
+}

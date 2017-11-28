@@ -50,10 +50,8 @@ public class RestController {
     public String createNewEvent(@RequestBody EventDTO eventDTO ,
                                                Principal principal,
                                                Authentication authentication){
-
         if (authentication == null){return "authFail";}
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-//        System.out.println("User has authorities: " + userDetails.getAuthorities());
         if (userDetails.getUsername() != null){
             User user = userService.findUserByUsername(userDetails.getUsername());
             EventValidation validation = EventValidation.getInstance();
@@ -88,7 +86,7 @@ public class RestController {
         return map;
     }
 
-    @RequestMapping(value = "/getAll/{json}", method = RequestMethod.GET,
+    @RequestMapping(value = "/getUsersEvents/{json}", method = RequestMethod.GET,
                     produces = "application/json")
     public Map<String, List<EventDTO> > getAllUserEvents(@PathVariable JSONObject json, Authentication authentication)
             throws JSONException {
@@ -104,7 +102,7 @@ public class RestController {
         return map;
     }
 
-    @RequestMapping(value = "/getAll/{json}", method = RequestMethod.GET,
+    @RequestMapping(value = "/removeEvent/{json}", method = RequestMethod.DELETE,
             produces = "application/json")
     public Map<String, List<EventDTO>> removeEvent(@PathVariable JSONObject json, Authentication authentication)
             throws JSONException {
