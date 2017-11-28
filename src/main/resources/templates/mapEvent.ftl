@@ -9,6 +9,7 @@
     </head>
     
     <body>
+    <div class="overlay-back"></div>
         <div class ="mapContentBox">
         <#include "bar.ftl">
             <div id="map"></div>

@@ -5,69 +5,52 @@ body, html {
 	overflow: auto;
 	font-family: Roboto,Arial,sans-serif;
 }
-
 body {
 	margin: 0 auto;
 	background-color: gray;
 }
-
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 .super {
 	vertical-align: +7px;
 }
-
-.wrapper_headTitle {
-	width: 30%;
-	display: block;
-	position: relative;
+.headTitle {
 	float: left;
-	overflow: hidden;
 	margin-left: 10px;
-	margin-top: 2px;
 	font-family: Roboto,Arial,sans-serif;
 	font-size: 3em;
-	color:white;
+	color: orange;
 }
-
 .str_logIn {
+	color: white;
 }
-
-.str_signUp {
-
-}
-
 .signMenu {
-	width: 25%;
 	display: block;
 	position: relative;
-	marge-right: 5px;
-	margin-top: 2px;
-	font-family: Roboto, Arial, sans-serif;
 	float: right;
+	margin-top: 10px;
+	font-family: Roboto, Arial, sans-serif;
 }
-
-
-
 .signMenu li {
 	display: inline-block;
 	list-style: none;
-	font-size: 1em;
+	font-size: 1.2em;
 	padding-right: 15px;
 	font-family: Roboto,Arial,sans-serif;
 }
 
-
-
 /* ---------------LOGIN FORM-------------*/
 .formBlock_logIn {
 	position: relative;
-	margin-top: 15%;
+	margin-top: 60px;
 }
-
 .formBlock_signUp {
 	position: relative;
 	margin-top: 10%;
 }
-
 input::-webkit-input-placeholder {
 	font-family: Roboto,Arial,sans-serif;
 	text-align: center;
@@ -92,15 +75,10 @@ input:-ms-input-placeholder {
 	font-size: 1em;
 	color: lightgray;
 }
-
-
-
-
 input[type="text"], input[type="password"] {
 	display: block;
 	position: relative;
-	margin: auto;
-	margin-top: 10px;
+	margin: 10px auto;
 	height: 35px;
 	width: 250px;
 	font-family: Roboto,Arial,sans-serif;
@@ -115,22 +93,12 @@ input[type="text"], input[type="password"] {
 	-ms-webkit-border-radius: 5px;
 	background: white;
 	box-shadow: 0px 5px 50px 0px #383838;
-}
-input[type=text]:focus {
 	outline: none;
 }
-input[type=password]:focus {
-	outline: none;
-}
-
-
-
-
 input[type="submit"] {
 	display: block;
 	position: relative;
-	margin: auto;
-	margin-top: 20px;
+	margin: 20px auto;
 	height: 30px;
 	width: 120px;
 	font-family: Roboto,Arial,sans-serif;
@@ -146,24 +114,81 @@ input[type="submit"] {
 	background-color: white;
 	color: gray;
 	box-shadow: 0px 5px 50px 0px #383838;
+	outline: none;
 }
-
 input[type="submit"]:hover {
 	color:white;
 	background-color: orange;
 	box-shadow: 0px 5px 20px 0px #1d1d1d;
 }
-input[type=submit]:focus {
-	outline: none;
+.createAnAccount {
+	display: block;
+	position: relative;
+	margin: 10px auto;
+	font-size: .9em;
+	width: 118px;
 }
-/* ---------------LOGIN FORM END---------*/
+/* -------------LOGIN FORM END----------- */
 
 a:hover, a:active, a:focus {
 	color: orange;
 	text-decoration: none;
 }
-
 a:link, a:visited {
 	color: white;
 	text-decoration: none;
 }
+
+/* ------------WARNING MESSAGES------------ */
+.danger {
+	position: relative;
+	margin: 0 auto;
+	height: 30px;
+	width: 200px;
+	text-align: center;
+	line-height: 30px;
+	color: white;
+	background-color: #ff5100;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	animation-name: warning-animation;
+	animation-duration: 1s;
+
+}
+@keyframes warning-animation {
+	0%   {background-color:#ff5100;}
+	25%  {background-color:#FAA178;}
+	50%  {background-color:#ff5100;}
+	75%  {background-color:#FAA178;}
+	100% {background-color:#ff5100;}
+}
+/* ----------WARNING MESSAGES END---------- */
+
+.loginPage-wrapper {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	width: 100%;
+
+}
+.title-wrapper {
+	flex: 1;
+	flex-grow: 0;
+	flex-shrink: 0;
+	max-height: 64px;
+}
+.warning-wrapper {
+	flex: 1;
+	min-height: 58px;
+	max-height: 58px;
+}
+.form-wrapper {
+	flex: 5;
+}
+
+
+
+
+
+

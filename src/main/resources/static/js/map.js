@@ -3,8 +3,26 @@
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
+function Event(id,userId,name,desc,lat,lng){
+    this.id = id;
+    this.userId = userId;
+    this.name = name;
+    this.description = desc;
+    this.latitude = lat;
+    this.longitude = lng;
+}
+
+var markers = [];
+var markersDB = [];
+
 var map, infoWindow;
+var choiceBoxEnabled = false;
+var newEvent = null;
+var createEventBool = false;
+var closeChoiceBool = false;
+
 function initMap() {
+
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.758570, lng: -73.985077},
         zoom: 17
@@ -13,6 +31,36 @@ function initMap() {
     // trafficLayer.setMap(map); SHOWS TRAFFIC ON THE MAP
     infoWindow = new google.maps.InfoWindow;
 
+
+// ///////////DARK BACKGROUND ////////////////
+
+    $('#map').mousedown(function (eventClick) {
+        if(eventClick.which === 3)
+        $('.overlay-back').fadeIn(200);
+    });
+
+    $('.createEvent_cancelBtn, .createEvent_createBtn').on('click', function () {
+        $('.overlay-back').fadeOut(200);
+    });
+
+// ////////////DARK BACKGROUND END ///////////
+
+
+    google.maps.event.addListener(map, 'click', function(event) {
+        newEvent = new Event(null,null,null,null,event.latLng.lat(),event.latLng.lng());
+        if (choiceBoxEnabled == false){
+            choiceBoxEnabled = true;
+            showChoiceBox();
+            placeMarker(event.latLng);
+        }
+
+        if (createEventBool){
+            createEventBool = false;
+        }else if (closeChoiceBool){
+            closeChoiceBool = false;
+        }
+        showOverlays();
+    });
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -42,5 +90,124 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
+setMarkersFromDb();
 
-console.log("!map.js");
+function setMarkersFromDb() {
+    var method = "all";
+    var obj = {"name":method};
+    console.log(obj);
+    var request = JSON.stringify(obj);
+    console.log(request);
+    $.ajax({
+        type: 'GET',
+        url: '/api/getAll/absolute',
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('events' in data){
+                console.log(data);
+            }
+        },
+        error: function () {
+            alert('fail');
+        }
+    });
+}
+
+function setAllMap(map) {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
+}
+
+function setAllMapDB(map) {
+    for (var i = 0; i < markersDB.length; i++) {
+        markersDB[i].setMap(map);
+    }
+}
+
+// Removes the overlays from the map, but keeps them in the array.
+function clearOverlays() {
+    for (var i = 0; i < markers.length; i++){
+        markers[i].setMap(null);
+    }
+}
+
+function deleteLastMarker() {
+    markers.pop();
+}
+
+// Shows any overlays currently in the array.
+function showOverlays() {
+    setAllMap(map);
+}
+
+function placeMarker(location) {
+    var marker = new google.maps.Marker({
+        position: location,
+    });
+    markers.push(marker);
+    return marker;
+}
+
+
+
+
+function showChoiceBox() {
+    var box = $('.createEventWindow_wrapper');
+    console.log(box);
+    box.show();
+    var btn_add = $('.createEvent_createBtn');
+    var btn_cancel = $('.createEvent_cancelBtn');
+    btn_add.on('click', createEvent);
+    btn_cancel.on('click', function (){
+        closeChoiceBox(true);
+    });
+
+}
+
+function createEvent() {
+    var inp_name = $('.nameIn');
+    var inp_desc = $('.descIn');
+
+    newEvent.name = inp_name.val();
+    newEvent.description = inp_desc.val();
+    var d = JSON.stringify(newEvent);
+    $.ajax({
+        type: 'POST',
+        url: '/api/createEvent',
+        contentType: "application/json",
+        data: d,
+        success: function(data){
+            if (data == "authFail"){
+                closeChoiceBox(false);
+                document.location.href = '/login';
+            }else if (data == 1){
+                closeChoiceBox(false);
+                createEventBool = true;
+            }else if (data == 0 ){
+                createEventBool = false;
+            }
+        },
+        error: function () {
+            createEventBool = false;
+        }
+    });
+}
+
+function closeChoiceBox(delLastMarker) {
+    var inp_name = $('.nameIn');
+    var inp_desc = $('.descIn');
+    inp_name.val('');
+    inp_desc.val('');
+    var box = $('.createEventWindow_wrapper');
+    box.hide();
+    closeChoiceBool = true;
+    clearOverlays();
+    if (delLastMarker){
+        deleteLastMarker();
+    }
+    showOverlays();
+    choiceBoxEnabled = false;
+}
