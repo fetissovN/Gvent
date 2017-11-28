@@ -14,7 +14,7 @@ function Event(id,userId,name,desc,lat,lng){
 
 var markers = [];
 var markersDB = [];
-var markersPrivate = [];
+var markersDBPrivate = [];
 
 var isLoaded = false;
 
@@ -22,7 +22,6 @@ var map, infoWindow;
 var newEvent = null;
 
 function initMap() {
-
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.758570, lng: -73.985077},
         zoom: 17
@@ -75,7 +74,7 @@ function setAllMap(map) {
 }
 
 function setAllMarkerDBLocation(arr) {
-    console.log(arr.length);
+    console.log(arr);
     for (var i = 0; i < arr.length; i++) {
         var pos = {
             lat: +arr[i].latitude,
@@ -232,7 +231,6 @@ function run() {
     getMarkersFromDb();
 
     //2) checking trigger(isLoaded) that markersBD[] is not empty
-    //   than
     var timer = setInterval(function() {
         console.log("not loaded");
         if (isLoaded){
@@ -242,7 +240,7 @@ function run() {
             //4) put map to all markers[] with delay 500ms, after that they will be shown to user
             setTimeout(showOverlays,500);
             clearInterval(timer);
-            isLoaded = false;
+            // isLoaded = false;
         }
     }, 50);
 }
