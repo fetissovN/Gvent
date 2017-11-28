@@ -12,9 +12,11 @@ public interface EventService {
 
     Event save(Event event);
 
-    Event delete(Event event);
+    void delete(Long id);
 
     Event update(Event event);
+
+    Event getOne(Long id);
 
     List<EventDTO> getAll();
 

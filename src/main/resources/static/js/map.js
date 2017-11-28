@@ -18,9 +18,6 @@ var markersPrivate = [];
 
 var map, infoWindow;
 var newEvent = null;
-// var choiceBoxEnabled = false;
-// var createEventBool = false;
-// var closeChoiceBool = false;
 
 function initMap() {
 
@@ -166,11 +163,10 @@ function getMarkersFromDb() {
 }
 
 function getMarkersFromDbPrivate(id) {
-    var obj = {"user":id};
-    var request = JSON.stringify(obj);
+    var request = JSON.stringify({"user":id});
     $.ajax({
         type: 'GET',
-        url: '/api/getAll'+request,
+        url: '/api/getAll/'+request,
         success: function(data){
             if('auth' in data){
                 document.location.href = '/login';
@@ -185,8 +181,24 @@ function getMarkersFromDbPrivate(id) {
     });
 }
 
-
-
+function removeEvent(id) {
+    var request = JSON.stringify({"event":id});
+    $.ajax({
+        type: 'DELETE',
+        url: '/api/removeEvent/'+request,
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('deleted' in data){
+                console.log(data);
+            }
+        },
+        error: function () {
+            alert('fail');
+        }
+    });
+}
 
 function closeChoiceBox(delLastMarker) {
     var inp_name = $('.nameIn');
@@ -201,5 +213,4 @@ function closeChoiceBox(delLastMarker) {
     }
     showOverlays();
 }
-
 getMarkersFromDb();

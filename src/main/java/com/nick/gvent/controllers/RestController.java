@@ -18,7 +18,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 
-@Controller
+@org.springframework.web.bind.annotation.RestController
 @RequestMapping(value = "/api")
 public class RestController {
 
@@ -48,7 +47,7 @@ public class RestController {
 
     @RequestMapping(value = "/createEvent", method = RequestMethod.POST,
             consumes="application/json")
-    public @ResponseBody String createNewEvent(@RequestBody EventDTO eventDTO ,
+    public String createNewEvent(@RequestBody EventDTO eventDTO ,
                                                Principal principal,
                                                Authentication authentication){
 
@@ -78,7 +77,6 @@ public class RestController {
 
     @RequestMapping(value = "/getAll/absolute", method = RequestMethod.GET,
                     produces = "application/json")
-    @ResponseBody
     public Map<String, List<EventDTO> > getAllEventsAbs(Authentication authentication){
         Map<String, List<EventDTO>> map = new HashMap<>();
         if (authentication == null){
@@ -90,9 +88,8 @@ public class RestController {
         return map;
     }
 
-    @RequestMapping(value = "/getAll{json}", method = RequestMethod.GET,
+    @RequestMapping(value = "/getAll/{json}", method = RequestMethod.GET,
                     produces = "application/json")
-    @ResponseBody
     public Map<String, List<EventDTO> > getAllUserEvents(@PathVariable JSONObject json, Authentication authentication)
             throws JSONException {
         Map<String, List<EventDTO>> map = new HashMap<>();
@@ -100,12 +97,27 @@ public class RestController {
             map.put("auth",null);
             return map;
         }
-        Long id = Long.parseLong((String) json.get("user"));
-        List<EventDTO> list = eventService.getAllByUserId(id);
+        Integer id = (Integer) json.get("user");
+
+        List<EventDTO> list = eventService.getAllByUserId(id.longValue());
         map.put("events",list);
         return map;
     }
 
+    @RequestMapping(value = "/getAll/{json}", method = RequestMethod.GET,
+            produces = "application/json")
+    public Map<String, List<EventDTO>> removeEvent(@PathVariable JSONObject json, Authentication authentication)
+            throws JSONException {
+        Map<String, List<EventDTO>> map = new HashMap<>();
+        if (authentication == null){
+            map.put("auth",null);
+            return map;
+        }
+        Integer id = (Integer) json.get("event");
+        eventService.delete(id.longValue());
+        map.put("deleted",new ArrayList<>());
+        return map;
+    }
 
 //    @RequestMapping(value = "/getAll{json}", method = RequestMethod.GET)
 //    @ResponseBody

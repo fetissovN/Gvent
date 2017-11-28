@@ -15,7 +15,7 @@ import java.util.List;
 
 @Repository("eventCustom")
 @Transactional
-public class EventCustom {
+public class EventCustom{
 
     @Resource(name = "sessionFactory")
     public SessionFactory sessionFactory;

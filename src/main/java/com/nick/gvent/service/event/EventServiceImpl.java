@@ -7,11 +7,13 @@ import com.nick.gvent.dao.event.EventDao;
 import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.dto.EventDTO;
 import com.nick.gvent.entity.Event;
+import com.nick.gvent.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 @Service
 public class EventServiceImpl implements EventService{
@@ -35,8 +37,13 @@ public class EventServiceImpl implements EventService{
     }
 
     @Override
-    public Event delete(Event event) {
-        return null;
+    public void delete(Long id) {
+        eventDao.delete(id);
+    }
+
+    @Override
+    public Event getOne(Long id) {
+        return eventDao.findOne(id);
     }
 
     @Override
@@ -52,24 +59,18 @@ public class EventServiceImpl implements EventService{
 
     @Override
     public List<EventDTO> getAllByUserId(Long id) {
-        List<Event> list = eventDao.findByUserId(id);
+        User user = userDao.findOne(id);
+        List<Event> list = eventDao.findByUserId(user);
         return convertEventsToUser(list);
     }
 
+
+
     private List<EventDTO> convertEventsToUser(List<Event> listEvents){
-        List<EventDTO> listDTO = new ArrayList<>();
+        List<EventDTO> listDTO = new Vector<>();
         for (Event e: listEvents){
-            EventDTO eventDTO = eventToEventDTO.convert(e);
-            listDTO.add(eventDTO);
+            listDTO.add(eventToEventDTO.convert(e));
         }
         return listDTO;
     }
-
-//    public List<EventDTO> getAllPureTable(){
-//        return eventCustom.getAllPureTable();
-//
-//    }
-
-
-
 }

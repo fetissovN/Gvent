@@ -77,6 +77,11 @@ public class UserServiceImpl implements UserService {
         return userDao.findByUsername(username);
     }
 
+    @Override
+    public User findById(Long id){
+        return userDao.findOne(id);
+    }
+
 //    /**
 //    * Creation of basic users:
 //     * login: user, pass: root
