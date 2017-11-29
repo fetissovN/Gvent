@@ -77,10 +77,10 @@ public class RestController {
                     produces = "application/json")
     public Map<String, List<EventDTO> > getAllEventsAbs(Authentication authentication){
         Map<String, List<EventDTO>> map = new HashMap<>();
-//        if (authentication == null){
-//            map.put("auth",null);
-//            return map;
-//        }
+        if (authentication == null){
+            map.put("auth",null);
+            return map;
+        }
         List<EventDTO> list = eventService.getAll();
         map.put("events",list);
         return map;

@@ -118,7 +118,6 @@ function showChoiceBox() {
     btn_cancel.on('click', function (){
         closeChoiceBox(true);
     });
-
 }
 
 function createEvent() {
@@ -137,7 +136,7 @@ function createEvent() {
             if (data == "authFail"){
                 document.location.href = '/login';
             }else if (data == 1){
-
+                closeChoiceBox();
             }else if (data == 0 ){
             }
         },
