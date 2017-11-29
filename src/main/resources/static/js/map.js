@@ -20,6 +20,10 @@ var isLoaded = false;
 
 var map, infoWindow;
 var newEvent = null;
+var currentPositionWithZoom = {
+    latLng:null,
+    zoom:17
+};
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -37,6 +41,14 @@ function initMap() {
         placeMarker(event.latLng);
         showOverlays();
     });
+    google.maps.event.addListener($('.refresh'), 'click', function(event) {
+        alert('add listener');
+        console.log(event.zoom);
+        currentPositionWithZoom.latLng = event.latLng;
+        currentPositionWithZoom.zoom = event.zoom;
+        console.log(currentPositionWithZoom);
+        run(event.latLng,event.zoom);
+    });
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -49,6 +61,8 @@ function initMap() {
             infoWindow.setContent('You are here!');
             infoWindow.open(map);
             map.setCenter(pos);
+            currentPositionWithZoom.latLng = pos;
+            console.log(currentPositionWithZoom);
             run();
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -146,11 +160,6 @@ function createEvent() {
 }
 
 function getMarkersFromDb() {
-    var method = "all";
-    var obj = {"name":method};
-    console.log(obj);
-    var request = JSON.stringify(obj);
-    console.log(request);
     $.ajax({
         type: 'GET',
         url: '/api/getAll/absolute',
@@ -171,6 +180,33 @@ function getMarkersFromDb() {
         }
     });
 }
+
+function getMarkersFromDbWithBoundaries() {
+
+    var request = JSON.stringify(currentPositionWithZoom);
+    console.log(request);
+    $.ajax({
+        type: 'GET',
+        url: '/api/getAll',
+        data: request,
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('events' in data){
+                var arr = data.events;
+                for(var i=0;i<arr.length;i++){
+                    markersDB.push(arr[i]);
+                    isLoaded = true;
+                }
+            }
+        },
+        error: function () {
+            alert('fail');
+        }
+    });
+}
+
 
 function getMarkersFromDbPrivate(id) {
     var request = JSON.stringify({"user":id});
@@ -227,7 +263,8 @@ function closeChoiceBox(delLastMarker) {
 function run() {
     //Map is already shown
     //1) getting Events from server to markersDB[] variable
-    getMarkersFromDb();
+    getMarkersFromDbWithBoundaries();
+    // getMarkersFromDb();
 
     //2) checking trigger(isLoaded) that markersBD[] is not empty
     var timer = setInterval(function() {

@@ -117,18 +117,20 @@ public class RestController {
         return map;
     }
 
-//    @RequestMapping(value = "/getAll{json}", method = RequestMethod.GET)
-//    @ResponseBody
-//    public ResponseEntity<List<EventDTO>> getAll(@PathVariable JSONObject json) throws JSONException {
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET,
+                    produces = "application/json")
+    @ResponseBody
+    public Map<String, List<EventDTO>> getAll(@RequestBody JSONObject json) throws JSONException {
+        Map<String, List<EventDTO>> map = new HashMap<>();
 //        if (json.get("name").equals("all")){
 //            List<EventDTO> list = eventService.getAll();
 //            JSONObject object = new JSONObject();
 //            object.put("events", list);
-//            return new ResponseEntity<List<EventDTO>>(list, HttpStatus.OK);
+//            return map;
 //        }
-//
-//        return new ResponseEntity<List<EventDTO>>(HttpStatus.OK);
-//    }
+
+        return map;
+    }
 
 //    /** Makes Quiz objects form from UserDTO object and saves to db
 //     * @param theme

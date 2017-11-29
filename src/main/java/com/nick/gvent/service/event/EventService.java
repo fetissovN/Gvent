@@ -22,6 +22,7 @@ public interface EventService {
 
     List<EventDTO> getAllByUserId(Long id);
 
+    List<EventDTO> getAllInBoundaries(Float lat1,Float lat2,Float lng1,Float lng2);
 //    List<EventDTO> getAllPureTable();
 
 
