@@ -186,8 +186,9 @@ function getMarkersFromDbWithBoundaries() {
     var request = JSON.stringify(currentPositionWithZoom);
     console.log(request);
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: '/api/getAll',
+        contentType: "application/json",
         data: request,
         success: function(data){
             if('auth' in data){

@@ -6,6 +6,7 @@ import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.dto.EventDTO;
 import com.nick.gvent.entity.Event;
 import com.nick.gvent.entity.User;
+import com.nick.gvent.entity.json.MarkerSortingJSON;
 import com.nick.gvent.service.event.EventService;
 import com.nick.gvent.service.user.UserService;
 import com.nick.gvent.util.event.EventValidation;
@@ -117,10 +118,11 @@ public class RestController {
         return map;
     }
 
-    @RequestMapping(value = "/getAll", method = RequestMethod.GET,
-                    produces = "application/json")
+    @RequestMapping(value = "/getAll", method = RequestMethod.POST,
+                    produces = "application/json",
+                    consumes = "application/json")
     @ResponseBody
-    public Map<String, List<EventDTO>> getAll(@RequestBody JSONObject json) throws JSONException {
+    public Map<String, List<EventDTO>> getAll(@RequestBody MarkerSortingJSON json) throws JSONException {
         Map<String, List<EventDTO>> map = new HashMap<>();
 //        if (json.get("name").equals("all")){
 //            List<EventDTO> list = eventService.getAll();

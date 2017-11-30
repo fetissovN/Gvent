@@ -1,8 +1,6 @@
 package com.nick.gvent.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.aspectj.lang.annotation.DeclareError;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -11,13 +9,14 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import javax.websocket.OnError;
 import java.util.Collections;
 import java.util.List;
 
 @Configuration
 @ComponentScan("com.nick.gvent")
 public class WebConfig extends WebMvcConfigurerAdapter {
+//            ObjectMapper objectMapper = new ObjectMapper()
+//                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
