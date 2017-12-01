@@ -16,24 +16,6 @@ public class HttpErrorHandler implements ErrorController {
     @Value("${error.handle.path}")
     private String PATH;
 
-//    @RequestMapping(value="/400")
-//    public String error400(Model model){
-//        model.addAttribute("ex", "Bad request");
-//        return path+"/400";
-//    }
-//
-//    @RequestMapping(value="/404")
-//    public String error404(Model model){
-//        model.addAttribute("ex", "Page not found");
-//        return path+"/404";
-//    }
-//
-//    @RequestMapping(value="/500")
-//    public String error500(Model model){
-//        model.addAttribute("ex", "Bad gateway");
-//        return path+"/500";
-//    }
-
     @RequestMapping(value = "/error", method = RequestMethod.GET)
     public String err(HttpServletResponse response, Model model){
         Integer status = response.getStatus();
@@ -41,6 +23,8 @@ public class HttpErrorHandler implements ErrorController {
             model.addAttribute("ex","Page not found 404");
         }else if (status >500){
             model.addAttribute("ex","Bad request 5XX");
+        }else if(status == 405){
+            model.addAttribute("ex","Not Allowed 405");
         }else {
             model.addAttribute("ex","Fuck off");
         }

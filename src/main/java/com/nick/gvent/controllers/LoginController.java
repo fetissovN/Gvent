@@ -6,17 +6,22 @@ import com.nick.gvent.entity.User;
 import com.nick.gvent.service.user.UserService;
 import com.nick.gvent.validators.RegFormValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.util.Locale;
 
 @Controller
 @RequestMapping(value = "/login")
-public class LoginController {
+public class LoginController{
 
     @Autowired
     private SpringConverterUserDTOToUser userDTOToUser;
@@ -43,7 +48,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String register(@ModelAttribute("newUser") UserDTO newUser,Model model, BindingResult result) {
+    public String register(@ModelAttribute("newUser") UserDTO newUser, Model model, BindingResult result) {
         validator.validate(newUser, result);
         if (result.hasErrors()){
             return "registration";

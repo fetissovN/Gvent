@@ -213,3 +213,70 @@
 13:02:38.762 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 664 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
 13:02:38.762 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
 13:02:38.778 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+13:06:02.209 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 4728 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+13:06:02.225 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+13:06:02.225 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+13:06:25.993 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 24.815 seconds (JVM running for 26.929)
+13:06:46.866 [http-nio-8077-exec-4] INFO  c.n.g.s.s.u.UserDetailsServiceImpl - New user saved User{id=16, authorities=[Role{id=1, name=USER}], username='user', firstName='user', lastName='useravich', age=26, gender='male', email='fetissov.n@gmail.com', password='$2a$10$JqepHNM4QXxH08SDrLr0g.D2Tz3pWrFGbOLEsksqHGGVEVSmJZa/e', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=[com.nick.gvent.entity.Event@487a9db0, com.nick.gvent.entity.Event@487a9dcf, com.nick.gvent.entity.Event@487a9dee, com.nick.gvent.entity.Event@487a9e2c, com.nick.gvent.entity.Event@487a9e6a, com.nick.gvent.entity.Event@487a9ea8, com.nick.gvent.entity.Event@487a9ee6, com.nick.gvent.entity.Event@487a9f24, com.nick.gvent.entity.Event@487a9f62, com.nick.gvent.entity.Event@487a9f81, com.nick.gvent.entity.Event@487a9fbf, com.nick.gvent.entity.Event@487a9fde, com.nick.gvent.entity.Event@487a9ffd, com.nick.gvent.entity.Event@487aa01c]}
+16:51:54.056 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 2104 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+16:51:54.072 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+16:51:54.072 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+16:52:33.824 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 40.783 seconds (JVM running for 46.972)
+16:59:10.824 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 8572 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+16:59:10.824 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+16:59:10.840 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+16:59:39.848 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 30.586 seconds (JVM running for 33.184)
+17:00:29.168 [http-nio-8077-exec-6] INFO  c.n.g.s.s.u.UserDetailsServiceImpl - New user saved User{id=16, authorities=[Role{id=1, name=USER}], username='user', firstName='user', lastName='useravich', age=26, gender='male', email='fetissov.n@gmail.com', password='$2a$10$JqepHNM4QXxH08SDrLr0g.D2Tz3pWrFGbOLEsksqHGGVEVSmJZa/e', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=[com.nick.gvent.entity.Event@18980547, com.nick.gvent.entity.Event@18980566, com.nick.gvent.entity.Event@18980585, com.nick.gvent.entity.Event@189805c3, com.nick.gvent.entity.Event@18980601, com.nick.gvent.entity.Event@1898063f, com.nick.gvent.entity.Event@1898067d, com.nick.gvent.entity.Event@189806bb, com.nick.gvent.entity.Event@189806f9, com.nick.gvent.entity.Event@18980718, com.nick.gvent.entity.Event@18980756, com.nick.gvent.entity.Event@18980775, com.nick.gvent.entity.Event@18980794, com.nick.gvent.entity.Event@189807b3]}
+17:05:18.223 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 8680 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:05:18.223 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:05:18.239 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:05:44.309 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 27.452 seconds (JVM running for 29.908)
+17:08:26.853 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 8668 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:08:26.853 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:08:26.853 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:08:54.356 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 28.878 seconds (JVM running for 31.362)
+17:12:29.408 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 8608 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:12:29.408 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:12:29.408 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:12:59.413 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 31.646 seconds (JVM running for 34.139)
+17:23:46.296 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 6372 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:23:46.312 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:23:46.312 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:24:13.913 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 29.07 seconds (JVM running for 31.25)
+17:25:14.306 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 10164 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:25:14.306 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:25:14.306 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:31:20.385 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 9880 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:31:20.385 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:31:20.385 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:32:09.680 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 8412 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:32:09.695 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:32:09.695 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:32:34.515 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 26.398 seconds (JVM running for 28.912)
+17:35:00.970 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 4204 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:35:00.986 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:35:01.017 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:35:27.659 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 28.22 seconds (JVM running for 30.542)
+17:38:38.513 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 10880 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:38:38.528 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:38:38.528 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:39:05.258 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 28.139 seconds (JVM running for 30.666)
+17:42:31.086 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 7960 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:42:31.102 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:42:31.102 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:42:56.464 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 27.065 seconds (JVM running for 29.819)
+17:44:57.304 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 452 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:44:57.335 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:44:57.335 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:46:06.052 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 6284 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:46:06.052 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:46:06.052 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:46:32.632 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 27.923 seconds (JVM running for 30.225)
+17:47:45.509 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 212 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:47:45.525 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:47:45.525 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:48:12.375 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 28.397 seconds (JVM running for 30.662)
+17:49:55.433 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 6660 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+17:49:55.448 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+17:49:55.448 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+17:50:24.111 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 30.148 seconds (JVM running for 32.789)
