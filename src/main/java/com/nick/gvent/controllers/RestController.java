@@ -124,7 +124,17 @@ public class RestController {
     @ResponseBody
     public Map<String, List<EventDTO>> getAll(@RequestBody MarkerSortingJSON json) throws JSONException {
         Map<String, List<EventDTO>> map = new HashMap<>();
-//        if (json.get("name").equals("all")){
+        double south = (Double) json.getBoundaries().get("south");
+        double north = (Double) json.getBoundaries().get("north");
+        double east = (Double) json.getBoundaries().get("east");
+        double west = (Double) json.getBoundaries().get("west");
+        List<EventDTO> list = eventService.getAllInBoundaries(
+                (float) south,
+                (float) north,
+                (float) east,
+                (float) west);
+        map.put("events",list);
+//        if (json.("name").equals("all")){
 //            List<EventDTO> list = eventService.getAll();
 //            JSONObject object = new JSONObject();
 //            object.put("events", list);

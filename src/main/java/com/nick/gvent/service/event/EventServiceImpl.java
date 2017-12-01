@@ -66,7 +66,7 @@ public class EventServiceImpl implements EventService{
 
     @Override
     public List<EventDTO> getAllInBoundaries(Float lat1, Float lat2, Float lng1, Float lng2) {
-        List<Event> list = eventDao.findByLatitudeBetweenAndLongitudeBetween(lat1,lat2,lng1,lng2);
+        List<Event> list = eventDao.findWithBoundaries(lat1,lat2,lng2,lng1);
         return convertEventsToUser(list);
     }
 

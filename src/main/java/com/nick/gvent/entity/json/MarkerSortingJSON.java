@@ -7,7 +7,7 @@ public class MarkerSortingJSON {
 
     private JSONObject latLng;
 
-    private Integer zoom;
+    private JSONObject boundaries;
 
     public MarkerSortingJSON() {
     }
@@ -20,11 +20,11 @@ public class MarkerSortingJSON {
         this.latLng = latLng;
     }
 
-    public Integer getZoom() {
-        return zoom;
+    public JSONObject getBoundaries() {
+        return boundaries;
     }
 
-    public void setZoom(Integer zoom) {
-        this.zoom = zoom;
+    public void setBoundaries(JSONObject boundaries) {
+        this.boundaries = boundaries;
     }
 }

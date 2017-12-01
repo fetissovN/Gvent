@@ -22,7 +22,7 @@ var map, infoWindow;
 var newEvent = null;
 var currentPositionWithZoom = {
     latLng:null,
-    zoom:17
+    boundaries:null
 };
 
 function initMap() {
@@ -41,13 +41,14 @@ function initMap() {
         placeMarker(event.latLng);
         showOverlays();
     });
-    google.maps.event.addListener($('.refresh'), 'click', function(event) {
+    $('.refresh').on('click', function() {
         alert('add listener');
-        console.log(event.zoom);
-        currentPositionWithZoom.latLng = event.latLng;
-        currentPositionWithZoom.zoom = event.zoom;
-        console.log(currentPositionWithZoom);
-        run(event.latLng,event.zoom);
+        console.log(map.center);
+        console.log(map.getBounds());
+        currentPositionWithZoom.latLng = map.center;
+        currentPositionWithZoom.boundaries = map.getBounds();
+        // deleteArrayMarkersAndMarkersDB();
+        run();
     });
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -62,6 +63,7 @@ function initMap() {
             infoWindow.open(map);
             map.setCenter(pos);
             currentPositionWithZoom.latLng = pos;
+            currentPositionWithZoom.boundaries = map.getBounds();
             console.log(currentPositionWithZoom);
             run();
         }, function() {
@@ -82,6 +84,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function setAllMap(map) {
+    console.log(markers.length);
+    console.log(markers);
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
     }
@@ -103,6 +107,11 @@ function clearOverlays() {
     for (var i = 0; i < markers.length; i++){
         markers[i].setMap(null);
     }
+}
+
+function deleteArrayMarkersAndMarkersDB() {
+    markers = [];
+    markersDB = [];
 }
 
 function deleteLastMarker() {
@@ -182,7 +191,6 @@ function getMarkersFromDb() {
 }
 
 function getMarkersFromDbWithBoundaries() {
-
     var request = JSON.stringify(currentPositionWithZoom);
     console.log(request);
     $.ajax({
