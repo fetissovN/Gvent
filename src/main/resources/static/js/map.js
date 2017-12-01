@@ -41,7 +41,6 @@ function initMap() {
         showOverlays();
     });
     $('.refresh').on('click', function() {
-        alert('add listener');
         isLoaded = false;
         currentPositionWithZoom.latLng = map.center;
         currentPositionWithZoom.boundaries = map.getBounds();
