@@ -202,3 +202,14 @@
 12:42:25.338 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
 12:42:25.338 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
 12:42:54.523 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 30.86 seconds (JVM running for 33.228)
+12:52:56.719 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 8056 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+12:52:56.734 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+12:52:56.734 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+12:53:24.180 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 28.805 seconds (JVM running for 31.124)
+12:56:42.147 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 10656 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+12:56:42.147 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+12:56:42.147 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+12:57:08.937 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 28.118 seconds (JVM running for 30.461)
+13:02:38.762 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 664 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+13:02:38.762 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+13:02:38.778 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default

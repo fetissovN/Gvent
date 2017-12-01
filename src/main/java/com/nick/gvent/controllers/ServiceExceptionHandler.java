@@ -1,35 +1,27 @@
 //package com.nick.gvent.controllers;
 //
-//import org.hibernate.service.spi.ServiceException;
-//import org.springframework.http.HttpHeaders;
 //import org.springframework.http.HttpStatus;
-//import org.springframework.http.ResponseEntity;
 //import org.springframework.web.bind.annotation.ControllerAdvice;
-//import org.springframework.web.bind.annotation.ExceptionHandler;
-//import org.springframework.web.bind.annotation.ResponseBody;
-//import org.springframework.web.context.request.WebRequest;
-//import org.springframework.web.servlet.ModelAndView;
-//import org.springframework.web.servlet.NoHandlerFoundException;
-//import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 //import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-//
 //import javax.servlet.http.HttpServletRequest;
-//import java.util.HashMap;
-//import java.util.Map;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
 //
-////@EnableWebMvc
 //@ControllerAdvice
 //public class ServiceExceptionHandler extends ResponseEntityExceptionHandler{
 //
-//    @ExceptionHandler(NoHandlerFoundException.class)
-//    public ModelAndView handleError404(HttpServletRequest request, Exception e)   {
-//        ModelAndView mav = new ModelAndView("404");
-//        mav.addObject("exception", e);
-//        //mav.addObject("errorcode", "404");
-//        return mav;
-//    }
+////    @ExceptionHandler(NoHandlerFoundException.class)
+////    public ModelAndView handleError404(HttpServletRequest request, Exception e)   {
+////        ModelAndView mav = new ModelAndView("404");
+////        mav.addObject("exception", e);
+////        //mav.addObject("errorcode", "404");
+////        return mav;
+////    }
+////    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+////    public ModelAndView handleError404(HttpServletRequest request, Exception e)   {
+////        ModelAndView mav = new ModelAndView("404");
+////        mav.addObject("error/errorPage", e);
+////        //mav.addObject("errorcode", "404");
+////        return mav;
+////    }
 ////
 ////    @ExceptionHandler(NoHandlerFoundException.class)
 ////    public ModelAndView handleError404(HttpServletRequest request, Exception e)   {

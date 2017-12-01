@@ -37,7 +37,7 @@ public class RegFormValidator extends ValidatorSample implements Validator {
             if (user.getAge() == null){
                 break;
             }
-            if (!(user.getAge() > 100)){
+            if (user.getAge() > 100){
                 errors.rejectValue("age","reg.age.tooOld","You can't live any more!");
             }
             break;
