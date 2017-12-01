@@ -122,8 +122,12 @@ public class RestController {
                     produces = "application/json",
                     consumes = "application/json")
     @ResponseBody
-    public Map<String, List<EventDTO>> getAll(@RequestBody MarkerSortingJSON json) throws JSONException {
+    public Map<String, List<EventDTO>> getAll(@RequestBody MarkerSortingJSON json, Authentication authentication) throws JSONException {
         Map<String, List<EventDTO>> map = new HashMap<>();
+        if (authentication == null){
+            map.put("auth",null);
+            return map;
+        }
         double south = (Double) json.getBoundaries().get("south");
         double north = (Double) json.getBoundaries().get("north");
         double east = (Double) json.getBoundaries().get("east");
@@ -134,13 +138,6 @@ public class RestController {
                 (float) east,
                 (float) west);
         map.put("events",list);
-//        if (json.("name").equals("all")){
-//            List<EventDTO> list = eventService.getAll();
-//            JSONObject object = new JSONObject();
-//            object.put("events", list);
-//            return map;
-//        }
-
         return map;
     }
 

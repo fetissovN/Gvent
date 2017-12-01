@@ -37,17 +37,15 @@ function initMap() {
     google.maps.event.addListener(map, 'rightclick', function(event) {
         newEvent = new Event(null,null,null,null,event.latLng.lat(),event.latLng.lng());
         showChoiceBox();
-        console.log(event.latLng);
         placeMarker(event.latLng);
         showOverlays();
     });
     $('.refresh').on('click', function() {
         alert('add listener');
-        console.log(map.center);
-        console.log(map.getBounds());
+        isLoaded = false;
         currentPositionWithZoom.latLng = map.center;
         currentPositionWithZoom.boundaries = map.getBounds();
-        // deleteArrayMarkersAndMarkersDB();
+        deleteArrayMarkersAndMarkersDB();
         run();
     });
     // Try HTML5 geolocation.
@@ -62,9 +60,9 @@ function initMap() {
             infoWindow.setContent('You are here!');
             infoWindow.open(map);
             map.setCenter(pos);
+
             currentPositionWithZoom.latLng = pos;
             currentPositionWithZoom.boundaries = map.getBounds();
-            console.log(currentPositionWithZoom);
             run();
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -84,15 +82,12 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function setAllMap(map) {
-    console.log(markers.length);
-    console.log(markers);
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
     }
 }
 
 function setAllMarkerDBLocation(arr) {
-    console.log(arr);
     for (var i = 0; i < arr.length; i++) {
         var pos = {
             lat: +arr[i].latitude,
@@ -110,6 +105,7 @@ function clearOverlays() {
 }
 
 function deleteArrayMarkersAndMarkersDB() {
+    clearOverlays();
     markers = [];
     markersDB = [];
 }
@@ -133,7 +129,6 @@ function placeMarker(location) {
 
 function showChoiceBox() {
     var box = $('.createEventWindow_wrapper');
-    console.log(box);
     box.show();
     var btn_add = $('.createEvent_createBtn');
     var btn_cancel = $('.createEvent_cancelBtn');
@@ -180,8 +175,8 @@ function getMarkersFromDb() {
                 var arr = data.events;
                 for(var i=0;i<arr.length;i++){
                     markersDB.push(arr[i]);
-                    isLoaded = true;
                 }
+                isLoaded = true;
             }
         },
         error: function () {
@@ -192,7 +187,6 @@ function getMarkersFromDb() {
 
 function getMarkersFromDbWithBoundaries() {
     var request = JSON.stringify(currentPositionWithZoom);
-    console.log(request);
     $.ajax({
         type: 'POST',
         url: '/api/getAll',
@@ -206,8 +200,8 @@ function getMarkersFromDbWithBoundaries() {
                 var arr = data.events;
                 for(var i=0;i<arr.length;i++){
                     markersDB.push(arr[i]);
-                    isLoaded = true;
                 }
+                isLoaded = true;
             }
         },
         error: function () {

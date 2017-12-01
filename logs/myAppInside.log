@@ -190,3 +190,15 @@
 03:54:00.681 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
 03:54:00.682 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
 03:54:30.702 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 31.56 seconds (JVM running for 33.914)
+12:30:47.676 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 2300 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+12:30:47.691 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+12:30:47.691 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+12:31:21.706 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 35.764 seconds (JVM running for 40.33)
+12:35:40.377 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 7780 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+12:35:40.393 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+12:35:40.393 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+12:36:09.313 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 30.264 seconds (JVM running for 32.719)
+12:42:25.322 [restartedMain] INFO  com.nick.gvent.Application - Starting Application on DESKTOP-VIHR577 with PID 7112 (C:\Users\Nick\IdeaProjects\Gvent\target\classes started by Nick in C:\Users\Nick\IdeaProjects\Gvent)
+12:42:25.338 [restartedMain] DEBUG com.nick.gvent.Application - Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+12:42:25.338 [restartedMain] INFO  com.nick.gvent.Application - No active profile set, falling back to default profiles: default
+12:42:54.523 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 30.86 seconds (JVM running for 33.228)
