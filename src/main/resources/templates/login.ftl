@@ -11,8 +11,6 @@
 
 <body>
 
-<!-- 1234567890 -->
-
 <div class="loginPage-wrapper">
     <div class="title-wrapper">
         <div class="headTitle">
