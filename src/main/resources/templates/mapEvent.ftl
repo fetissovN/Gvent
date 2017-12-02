@@ -13,6 +13,9 @@
     <div class="overlay-back"></div>
         <div class ="mapContentBox">
         <#include "bar.ftl">
+            <div class="refresh_wrapper">
+                <button class="refresh">refresh</button>
+            </div>
                 <div class="createEventWindow_wrapper">
                     <div class="createEventWindow">
                         <div class="createEventWindow_header">

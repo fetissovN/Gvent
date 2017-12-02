@@ -26,10 +26,10 @@ public class Event {
     private String description;
 
     @Column(name = "latitude")
-    private String latitude;
+    private Float latitude;
 
     @Column(name = "longitude")
-    private String longitude;
+    private Float longitude;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "event_id")
     private List<Message> eventRelatedMessages;
@@ -69,19 +69,19 @@ public class Event {
         this.description = description;
     }
 
-    public String getLatitude() {
+    public Float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(Float latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public Float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(Float longitude) {
         this.longitude = longitude;
     }
 

@@ -7,6 +7,8 @@ import com.nick.gvent.entity.Role;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,11 +22,13 @@ public class EventCustom{
     @Resource(name = "sessionFactory")
     public SessionFactory sessionFactory;
 
-//    public List<EventDTO> getAllPureTable(){
-//        String sql = "SELECT * FROM users_events";
-//        SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery(sql);
-//        query.addEntity(EventDTO.class);
-//        List results = query.list();
+//    public List<Event> getAllPureTable(Float lat1,Float lat2,Float lng1,Float lng2){
+//
+//        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Event.class)
+//                .add(Restrictions.lt("post_id", post));
+//        criteria.addOrder(Order.desc("message_date"));
+//
+//        List<Event> results = criteria.list();
 //        return results;
 //    }
 }

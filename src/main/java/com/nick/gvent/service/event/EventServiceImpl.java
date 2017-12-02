@@ -64,7 +64,11 @@ public class EventServiceImpl implements EventService{
         return convertEventsToUser(list);
     }
 
-
+    @Override
+    public List<EventDTO> getAllInBoundaries(Float lat1, Float lat2, Float lng1, Float lng2) {
+        List<Event> list = eventDao.findWithBoundaries(lat1,lat2,lng2,lng1);
+        return convertEventsToUser(list);
+    }
 
     private List<EventDTO> convertEventsToUser(List<Event> listEvents){
         List<EventDTO> listDTO = new Vector<>();

@@ -11,14 +11,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class SpringConverterEventDTOToEvent<T extends Event> implements Converter<EventDTO, Event> {
 
-    private Event event = new Event();
+
     @Override
     public Event convert(EventDTO eventDTO) {
+        Event event = new Event();
         event.setName(eventDTO.getName());
         event.setDescription(eventDTO.getDescription());
         event.setUserId(null);
-        event.setLatitude(eventDTO.getLatitude());
-        event.setLongitude(eventDTO.getLongitude());
+        event.setLatitude(Float.parseFloat(eventDTO.getLatitude()));
+        event.setLongitude(Float.parseFloat(eventDTO.getLongitude()));
         return event;
     }
 }

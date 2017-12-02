@@ -6,6 +6,7 @@ import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.dto.EventDTO;
 import com.nick.gvent.entity.Event;
 import com.nick.gvent.entity.User;
+import com.nick.gvent.entity.json.MarkerSortingJSON;
 import com.nick.gvent.service.event.EventService;
 import com.nick.gvent.service.user.UserService;
 import com.nick.gvent.util.event.EventValidation;
@@ -77,10 +78,10 @@ public class RestController {
                     produces = "application/json")
     public Map<String, List<EventDTO> > getAllEventsAbs(Authentication authentication){
         Map<String, List<EventDTO>> map = new HashMap<>();
-//        if (authentication == null){
-//            map.put("auth",null);
-//            return map;
-//        }
+        if (authentication == null){
+            map.put("auth",null);
+            return map;
+        }
         List<EventDTO> list = eventService.getAll();
         map.put("events",list);
         return map;
@@ -117,18 +118,28 @@ public class RestController {
         return map;
     }
 
-//    @RequestMapping(value = "/getAll{json}", method = RequestMethod.GET)
-//    @ResponseBody
-//    public ResponseEntity<List<EventDTO>> getAll(@PathVariable JSONObject json) throws JSONException {
-//        if (json.get("name").equals("all")){
-//            List<EventDTO> list = eventService.getAll();
-//            JSONObject object = new JSONObject();
-//            object.put("events", list);
-//            return new ResponseEntity<List<EventDTO>>(list, HttpStatus.OK);
-//        }
-//
-//        return new ResponseEntity<List<EventDTO>>(HttpStatus.OK);
-//    }
+    @RequestMapping(value = "/getAll", method = RequestMethod.POST,
+                    produces = "application/json",
+                    consumes = "application/json")
+    @ResponseBody
+    public Map<String, List<EventDTO>> getAll(@RequestBody MarkerSortingJSON json, Authentication authentication) throws JSONException {
+        Map<String, List<EventDTO>> map = new HashMap<>();
+        if (authentication == null){
+            map.put("auth",null);
+            return map;
+        }
+        double south = (Double) json.getBoundaries().get("south");
+        double north = (Double) json.getBoundaries().get("north");
+        double east = (Double) json.getBoundaries().get("east");
+        double west = (Double) json.getBoundaries().get("west");
+        List<EventDTO> list = eventService.getAllInBoundaries(
+                (float) south,
+                (float) north,
+                (float) east,
+                (float) west);
+        map.put("events",list);
+        return map;
+    }
 
 //    /** Makes Quiz objects form from UserDTO object and saves to db
 //     * @param theme
