@@ -14,7 +14,6 @@ public class ServiceExceptionHandler{
     public ModelAndView handleError(HttpServletRequest req, Exception ex) {
         ModelAndView mav = new ModelAndView();
         mav.addObject("ex", "Error "+getStatus(req));
-//        mav.addObject("url", req.getRequestURL());
         mav.setViewName("/error/errorPage");
         return mav;
     }

@@ -40,13 +40,7 @@ function initMap() {
         placeMarker(event.latLng);
         showOverlays();
     });
-    $('.refresh').on('click', function() {
-        isLoaded = false;
-        currentPositionWithZoom.latLng = map.center;
-        currentPositionWithZoom.boundaries = map.getBounds();
-        deleteArrayMarkersAndMarkersDB();
-        run();
-    });
+    refresh();
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -80,6 +74,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
+function refresh() {
+    $('.refresh').on('click', function() {
+        isLoaded = false;
+        currentPositionWithZoom.latLng = map.center;
+        currentPositionWithZoom.boundaries = map.getBounds();
+        deleteArrayMarkersAndMarkersDB();
+        run();
+    });
+}
+
 function setAllMap(map) {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
@@ -110,7 +114,10 @@ function deleteArrayMarkersAndMarkersDB() {
 }
 
 function deleteLastMarker() {
+    alert('as');
+    console.log(markers);
     markers.pop();
+    console.log(markers);
 }
 
 // Shows any overlays currently in the array.
