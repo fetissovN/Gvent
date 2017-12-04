@@ -118,7 +118,7 @@ ul.nav {
 .chatHead_title {
 	display: fixed;
 	border: 0 solid orange;
-	border-radius: 2px 2px 0 0;
+	border-radius: 3px 3px 0 0;
 	color: white;
 	background-color: gray;
 	font-size: 1.5em;
@@ -167,7 +167,7 @@ ul.nav {
 }
 .chatBody_userList {
 	width: 150px;
-	max-width: 450px;
+	max-width: 350px;
 	min-width: 50px;
 	border-right: 1px solid lightgray;
 	resize: horizontal;
@@ -191,14 +191,14 @@ form {
 	/*flex: 1 1;*/
 	height: 40px;
 	display: fixed;
-	border: 0px solid gray;
+	border: 0 solid gray;
 	box-shadow: inset 0 0 10px 0 lightgray;
 }
 .chatBody_field_input {
 	float: left;
 	height: 100%;
 	width: 92%;
-	border: 0px solid gray;
+	border: 0 solid gray;
 	font-family: Roboto,Arial,sans-serif;
 	background-color: transparent;
 	padding-left: 10px;
@@ -248,7 +248,7 @@ input[type=text]:focus {
 	width: 35px;
 	font-size: 1em;
 	text-align: center;
-	border: 0px solid transparent;
+	border: 0 solid transparent;
 	border-radius: 50%;
 	color: white;
 	background-color: gray;
@@ -429,7 +429,7 @@ h6 {
 	color: white;
 	font-size: 1em;
 	background-color: gray;
-	border: 0px solid transparent;
+	border: 0 solid transparent;
 	border-radius: 1em;
 }
 .createEvent_createBtn:hover {
@@ -439,6 +439,17 @@ h6 {
 	animation-duration: .15s;
 	cursor: pointer;
 }
-
+.overlay-back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	z-index: 2;
+	display: none;
+}
 
 /*---------------MAP CREATE EVENT WINDOW END----------------*/

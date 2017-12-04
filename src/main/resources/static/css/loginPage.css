@@ -5,38 +5,39 @@ body, html {
 	overflow: auto;
 	font-family: Roboto,Arial,sans-serif;
 }
-
 body {
 	margin: 0 auto;
 	background-color: gray;
 }
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 .super {
 	vertical-align: +7px;
 }
-.wrapper_headTitle {
-	width: 30%;
-	display: block;
-	position: relative;
+.headTitle {
 	float: left;
-	overflow: hidden;
 	margin-left: 10px;
-	margin-top: 2px;
 	font-family: Roboto,Arial,sans-serif;
 	font-size: 3em;
-	color:white;
+	color: orange;
+}
+.str_logIn {
+	color: white;
 }
 .signMenu {
-	width: 25%;
 	display: block;
 	position: relative;
-	margin-top: 2px;
-	font-family: Roboto, Arial, sans-serif;
 	float: right;
+	margin-top: 10px;
+	font-family: Roboto, Arial, sans-serif;
 }
 .signMenu li {
 	display: inline-block;
 	list-style: none;
-	font-size: 1em;
+	font-size: 1.2em;
 	padding-right: 15px;
 	font-family: Roboto,Arial,sans-serif;
 }
@@ -44,7 +45,7 @@ body {
 /* ---------------LOGIN FORM-------------*/
 .formBlock_logIn {
 	position: relative;
-	margin-top: 15%;
+	margin-top: 60px;
 }
 .formBlock_signUp {
 	position: relative;
@@ -127,7 +128,7 @@ input[type="submit"]:hover {
 	font-size: .9em;
 	width: 118px;
 }
-/* ---------------LOGIN FORM END---------*/
+/* -------------LOGIN FORM END----------- */
 
 a:hover, a:active, a:focus {
 	color: orange;
@@ -137,3 +138,71 @@ a:link, a:visited {
 	color: white;
 	text-decoration: none;
 }
+
+/* ------------WARNING MESSAGES------------ */
+.danger, .error {
+	 position: relative;
+	 margin: 0 auto;
+	 height: 30px;
+	 width: 200px;
+	 text-align: center;
+	 line-height: 30px;
+	 color: white;
+	 background-color: #ff5100;
+	 -webkit-border-radius: 15px;
+	 -moz-border-radius: 15px;
+	 border-radius: 15px;
+	 animation-name: warning-animation;
+	 animation-duration: .5s;
+ }
+/*.error {*/
+	/*display: inline-block;*/
+	/*position: relative;*/
+	/*margin: 0 auto;*/
+	/*height: 30px;*/
+	/*width: 200px;*/
+	/*text-align: center;*/
+	/*line-height: 30px;*/
+	/*color: white;*/
+	/*background-color: #ff5100;*/
+	/*-webkit-border-radius: 15px;*/
+	/*-moz-border-radius: 15px;*/
+	/*border-radius: 15px;*/
+	/*animation-name: warning-animation;*/
+	/*animation-duration: .5s;*/
+
+/*}*/
+@keyframes warning-animation {
+	0%   {transform: scale(0);}
+	50%   {transform: scale(1.08);}
+	75%   {transform: scale(.92);}
+	100%   {transform: scale(1);}
+}
+/* ----------WARNING MESSAGES END---------- */
+
+.loginPage-wrapper {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	width: 100%;
+
+}
+.title-wrapper {
+	flex: 1;
+	flex-grow: 0;
+	flex-shrink: 0;
+	max-height: 64px;
+}
+.warning-wrapper {
+	flex: 1;
+	min-height: 58px;
+	max-height: 58px;
+}
+.form-wrapper {
+	flex: 5;
+}
+
+
+
+
+

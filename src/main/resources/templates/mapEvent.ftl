@@ -10,6 +10,7 @@
     </head>
     
     <body>
+    <div class="overlay-back"></div>
         <div class ="mapContentBox">
         <#include "bar.ftl">
             <div class="refresh_wrapper">
