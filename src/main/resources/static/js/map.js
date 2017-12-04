@@ -17,7 +17,7 @@ var markersDB = [];
 var markersDBPrivate = [];
 
 var isLoaded = false;
-
+var delLastMarkerInfoTrigger = true;
 var map, infoWindow;
 var newEvent = null;
 var currentPositionWithZoom = {
@@ -40,7 +40,6 @@ function initMap() {
         placeMarker(event.latLng);
         showOverlays();
     });
-    refresh();
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -74,7 +73,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
-function refresh() {
+function refreshInit() {
     $('.refresh').on('click', function() {
         isLoaded = false;
         currentPositionWithZoom.latLng = map.center;
@@ -85,12 +84,16 @@ function refresh() {
 }
 
 function setAllMap(map) {
+    console.log('enter set all map');
+    console.log(markers.length+ "before");
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
     }
+    console.log(markers.length+ "after");
 }
 
 function setAllMarkerDBLocation(arr) {
+    console.log('set all db location')
     for (var i = 0; i < arr.length; i++) {
         var pos = {
             lat: +arr[i].latitude,
@@ -102,9 +105,12 @@ function setAllMarkerDBLocation(arr) {
 
 // Removes the overlays from the map, but keeps them in the array.
 function clearOverlays() {
+    console.log('enter clear overlays');
+    console.log(markers.length+ "before");
     for (var i = 0; i < markers.length; i++){
         markers[i].setMap(null);
     }
+    console.log(markers.length + "after");
 }
 
 function deleteArrayMarkersAndMarkersDB() {
@@ -114,10 +120,11 @@ function deleteArrayMarkersAndMarkersDB() {
 }
 
 function deleteLastMarker() {
-    alert('as');
-    console.log(markers);
-    markers.pop();
-    console.log(markers);
+    console.log('enter del l m');
+    console.log(markers.length);
+    var e = markers.pop();
+    alert(e);
+    console.log(markers.length);
 }
 
 // Shows any overlays currently in the array.
@@ -126,22 +133,33 @@ function showOverlays() {
 }
 
 function placeMarker(location) {
+    console.log('place marker');
     var marker = new google.maps.Marker({
-        position: location,
+        position: location
     });
     markers.push(marker);
-    return marker;
+    // return marker;
 }
 
 function showChoiceBox() {
+    console.log('show box');
     var box = $('.createEventWindow_wrapper');
     box.show();
-    var btn_add = $('.createEvent_createBtn');
-    var btn_cancel = $('.createEvent_cancelBtn');
-    btn_add.on('click', createEvent);
-    btn_cancel.on('click', function (){
-        closeChoiceBox(true);
-    });
+}
+
+function closeChoiceBox() {
+    console.log('enter close ch b');
+    var box = $('.createEventWindow_wrapper');
+    box.hide();
+    deleteLastMarker();
+    clearOverlays();
+    showOverlays();
+    if(delLastMarkerInfoTrigger){
+        var inp_name = $('.nameIn');
+        var inp_desc = $('.descIn');
+        inp_name.val('');
+        inp_desc.val('');
+    }
 }
 
 function createEvent() {
@@ -160,8 +178,11 @@ function createEvent() {
             if (data == "authFail"){
                 document.location.href = '/login';
             }else if (data == 1){
+                console.log(data)
+                delLastMarkerInfoTrigger = true;
                 closeChoiceBox();
             }else if (data == 0 ){
+
             }
         },
         error: function () {
@@ -212,6 +233,7 @@ function getMarkersFromDbWithBoundaries() {
         },
         error: function () {
             alert('fail');
+            isLoaded = true;
         }
     });
 }
@@ -255,21 +277,14 @@ function removeEvent(id) {
     });
 }
 
-function closeChoiceBox(delLastMarker) {
-    var inp_name = $('.nameIn');
-    var inp_desc = $('.descIn');
-    inp_name.val('');
-    inp_desc.val('');
-    var box = $('.createEventWindow_wrapper');
-    box.hide();
-    clearOverlays();
-    if (delLastMarker){
-        deleteLastMarker();
-    }
-    showOverlays();
-}
-
 function run() {
+    console.log('run');
+    var btn_add = $('.createEvent_createBtn');
+    var btn_cancel = $('.createEvent_cancelBtn');
+    btn_add.on('click', createEvent);
+    btn_cancel.on('click', closeChoiceBox);
+    // Initializing refresh button
+    refreshInit();
     //Map is already shown
     //1) getting Events from server to markersDB[] variable
     getMarkersFromDbWithBoundaries();
@@ -279,13 +294,13 @@ function run() {
     var timer = setInterval(function() {
         console.log("not loaded");
         if (isLoaded){
+            isLoaded = false;
             console.log("loaded");
             //3) convert markersDB[] to markers[] with valid location
             setAllMarkerDBLocation(markersDB);
             //4) put map to all markers[] with delay 500ms, after that they will be shown to user
             setTimeout(showOverlays,500);
             clearInterval(timer);
-            // isLoaded = false;
         }
     }, 50);
 }
