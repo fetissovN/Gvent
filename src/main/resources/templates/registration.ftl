@@ -41,46 +41,22 @@
             <form action="/login/registration" method="post">
             <@spring.bind path= "newUser" />
                 <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden">
-
             <@spring.formInput "newUser.username","placeholder='User Name'" />
-                <#--<div class="error">-->
                     <@spring.showErrors "newUser.username","error" />
-                <#--</div>-->
             <@spring.formInput "newUser.firstName","placeholder='First Name'" />
-                <#--<div class="danger">-->
                     <@spring.showErrors "newUser.firstName","error" />
-                <#--</div>-->
-
             <@spring.formInput "newUser.lastName","placeholder='Last Name'" />
-                <#--<div class="danger">-->
                     <@spring.showErrors "newUser.lastName","error" />
-                <#--</div>-->
-
             <@spring.formInput "newUser.email","placeholder='Email'" />
-                <#--<div class="danger">-->
                     <@spring.showErrors "newUser.email","error" />
-                <#--</div>-->
-
             <@spring.formInput "newUser.age","placeholder='Age',class='age'" />
-                <#--<div class="danger">-->
                     <@spring.showErrors "newUser.age","error" />
-                <#--</div>-->
-
-
             <@spring.formInput "newUser.gender","placeholder='Gender',class='age'" />
-                <#--<div class="danger">-->
                     <@spring.showErrors "newUser.gender","error" />
-                <#--</div>-->
-
             <@spring.formInput "newUser.password","placeholder='Password'" />
-                <#--<div class="danger">-->
                     <@spring.showErrors "newUser.password","error" />
-                <#--</div>-->
-
             <@spring.formInput "newUser.passwordCheck","placeholder='Confirm Password'" />
-                <#--<div class="danger">-->
                     <@spring.showErrors "newUser.passwordCheck","error" />
-                <#--</div>-->
             <input type="submit" value="SignUp">
             </form>
         </div>

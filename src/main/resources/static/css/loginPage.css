@@ -155,23 +155,6 @@ a:link, a:visited {
 	 animation-name: warning-animation;
 	 animation-duration: .5s;
  }
-/*.error {*/
-	/*display: inline-block;*/
-	/*position: relative;*/
-	/*margin: 0 auto;*/
-	/*height: 30px;*/
-	/*width: 200px;*/
-	/*text-align: center;*/
-	/*line-height: 30px;*/
-	/*color: white;*/
-	/*background-color: #ff5100;*/
-	/*-webkit-border-radius: 15px;*/
-	/*-moz-border-radius: 15px;*/
-	/*border-radius: 15px;*/
-	/*animation-name: warning-animation;*/
-	/*animation-duration: .5s;*/
-
-/*}*/
 @keyframes warning-animation {
 	0%   {transform: scale(0);}
 	50%   {transform: scale(1.08);}
