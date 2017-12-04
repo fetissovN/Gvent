@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class SpringConverterUserDTOToUser<T extends User> implements Converter<UserDTO, User> {
 
-    private User user = new User();
-
+    @Override
     public User convert(UserDTO userDTO){
+        User user = new User();
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
         user.setUsername(userDTO.getUsername());
@@ -27,6 +27,7 @@ public class SpringConverterUserDTOToUser<T extends User> implements Converter<U
         user.setGender(userDTO.getGender());
         user.setEventsList(null);
         user.setPassword(userDTO.getPassword());
+        user.setEvents(userDTO.getEvents());
         return user;
     }
 }

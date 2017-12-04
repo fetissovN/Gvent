@@ -54,23 +54,23 @@ public class EventServiceImpl implements EventService{
     @Override
     public List<EventDTO> getAll() {
         List<Event> list = eventDao.findAll();
-        return convertEventsToUser(list);
+        return convertEventsToEventsDTO(list);
     }
 
     @Override
     public List<EventDTO> getAllByUserId(Long id) {
         User user = userDao.findOne(id);
         List<Event> list = eventDao.findByUserId(user);
-        return convertEventsToUser(list);
+        return convertEventsToEventsDTO(list);
     }
 
     @Override
     public List<EventDTO> getAllInBoundaries(Float lat1, Float lat2, Float lng1, Float lng2) {
         List<Event> list = eventDao.findWithBoundaries(lat1,lat2,lng2,lng1);
-        return convertEventsToUser(list);
+        return convertEventsToEventsDTO(list);
     }
 
-    private List<EventDTO> convertEventsToUser(List<Event> listEvents){
+    private List<EventDTO> convertEventsToEventsDTO(List<Event> listEvents){
         List<EventDTO> listDTO = new Vector<>();
         for (Event e: listEvents){
             listDTO.add(eventToEventDTO.convert(e));

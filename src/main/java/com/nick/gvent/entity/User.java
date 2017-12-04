@@ -23,6 +23,9 @@ public class User implements UserDetails{
                 , inverseJoinColumns = {@JoinColumn(name = "role_id")})
     private Set<Role> authorities;
 
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "participants")
+    private List<Event> events;
+
     @Column(name = "username", unique = true)
     private String username;
 
@@ -61,6 +64,14 @@ public class User implements UserDetails{
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "userId")
     private List<Event> eventsList;
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
 
     public Long getId() {
         return id;
