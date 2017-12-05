@@ -180,9 +180,21 @@ function createEvent() {
                 document.location.href = '/login';
             }
             if('event' in data){
+                console.log(data);
+                var content = data.description;
+                var title = data.name;
+                var pos = {
+                    lat: +data.latitude,
+                    lng: +data.longitude
+                };
                 closeChoiceBox();
+                clearOverlays();
+                console.log(markers.length);
                 deleteLastMarker();
-                placeMarker();
+                console.log(markers.length);
+                placeMarker(pos,content,title);
+                showOverlays();
+                console.log(markers.length);
             }
             if ('invalid' in data){
 
