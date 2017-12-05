@@ -135,8 +135,11 @@ function showOverlays() {
 }
 
 function placeMarker(location, contentInfo, title) {
+    var customBox = createCustomInfoWindow(contentInfo);
+   console.log(customBox);
+   console.log(customBox.html());
     var infowindow = new google.maps.InfoWindow({
-        content: contentInfo
+        content: customBox.html()
     });
     var marker = new google.maps.Marker({
         position: location,
@@ -167,6 +170,20 @@ function closeChoiceBox(delLastMarker) {
         showOverlays();
     }
 
+}
+
+function createCustomInfoWindow(content) {
+    var box = $('<div></div>');
+    box.addClass('customInfo');
+    var insideBox = $('<div></div>').addClass('custom');
+    var button = $('<button></button>').text('Participate');
+    button.addClass('participate');
+    var desc = $('<p></p>').text(content);
+    // desc.textContent = content;
+    insideBox.append(desc);
+    insideBox.append(button);
+    box.append(insideBox);
+    return box;
 }
 
 
