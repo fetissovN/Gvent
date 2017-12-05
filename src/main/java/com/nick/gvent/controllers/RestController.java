@@ -1,6 +1,7 @@
 package com.nick.gvent.controllers;
 
 import com.nick.gvent.converters.SpringConverterEventDTOToEvent;
+import com.nick.gvent.converters.SpringConverterEventToEventDTO;
 import com.nick.gvent.dao.event.EventDao;
 import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.dto.EventDTO;
@@ -46,32 +47,42 @@ public class RestController {
     @Autowired
     private SpringConverterEventDTOToEvent eventDTOToEvent;
 
+    @Autowired
+    private SpringConverterEventToEventDTO eventToEventDTO;
+
     @RequestMapping(value = "/createEvent", method = RequestMethod.POST,
             consumes="application/json")
-    public String createNewEvent(@RequestBody EventDTO eventDTO ,
+    public Map<String, EventDTO>  createNewEvent(@RequestBody EventDTO eventDTO ,
                                                Principal principal,
                                                Authentication authentication){
-        if (authentication == null){return "authFail";}
+        Map<String, EventDTO> map = new HashMap<>();
+        if (authentication == null){
+            map.put("auth",null);
+            return map;
+        }
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         if (userDetails.getUsername() != null){
-            User user = userService.findUserByUsername(userDetails.getUsername());
             EventValidation validation = EventValidation.getInstance();
             if (!validation.validate(eventDTO)){
-                return "0";
+                map.put("invalid",null);
+                return map;
             }
             Event event = eventDTOToEvent.convert(eventDTO);
+            User user = userService.findUserByUsername(userDetails.getUsername());
 
             event.setEventRelatedMessages(null);
             event.setUserId(user);
             Event eventDB = eventService.save(event);
+            EventDTO eventDTODB = eventToEventDTO.convert(eventDB);
             if (eventDB != null){
-                return "1";
-            }else {
-                return "0";
+                map.put("event", eventDTODB);
+                return map;
             }
         }else {
-            return "0";
+            map.put("error", null);
+            return map;
         }
+        return map;
     }
 
     @RequestMapping(value = "/getAll/absolute", method = RequestMethod.GET,

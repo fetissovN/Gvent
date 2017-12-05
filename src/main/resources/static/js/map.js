@@ -94,12 +94,15 @@ function setAllMap(map) {
 }
 
 function setAllMarkerDBLocation(arr) {
+
     for (var i = 0; i < arr.length; i++) {
+        var content = arr[i].description;
+        var title = arr[i].name;
         var pos = {
             lat: +arr[i].latitude,
             lng: +arr[i].longitude
         };
-        placeMarker(pos);
+        placeMarker(pos, content, title);
     }
 }
 
@@ -125,9 +128,16 @@ function showOverlays() {
     setAllMap(map);
 }
 
-function placeMarker(location) {
+function placeMarker(location, contentInfo, title) {
+    var infowindow = new google.maps.InfoWindow({
+        content: contentInfo
+    });
     var marker = new google.maps.Marker({
         position: location,
+        title: title
+    });
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
     });
     markers.push(marker);
     return marker;
@@ -166,11 +176,19 @@ function createEvent() {
         contentType: "application/json",
         data: d,
         success: function(data){
-            if (data == "authFail"){
+            if('auth' in data){
                 document.location.href = '/login';
-            }else if (data == 1){
+            }
+            if('event' in data){
                 closeChoiceBox();
-            }else if (data == 0 ){
+                deleteLastMarker();
+                placeMarker();
+            }
+            if ('invalid' in data){
+
+            }
+            if ('error' in data){
+                console.log(data);
             }
         },
         error: function () {

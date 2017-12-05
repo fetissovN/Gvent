@@ -19,10 +19,10 @@ public class SpringConverterUserDTOToUser<T extends User> implements Converter<U
         user.setUsername(userDTO.getUsername());
         user.setAuthorities(userDTO.getAuthorities());
         user.setEmail(userDTO.getEmail());
-        user.setEnabled(true);
-        user.setAccountNonLocked(true);
-        user.setCredentialsNonExpired(true);
-        user.setAccountNonExpired(true);
+        user.setEnabled(userDTO.isEnabled());
+        user.setAccountNonLocked(userDTO.isAccountNonLocked());
+        user.setCredentialsNonExpired(userDTO.isCredentialsNonExpired());
+        user.setAccountNonExpired(userDTO.isAccountNonExpired());
         user.setAge(userDTO.getAge());
         user.setGender(userDTO.getGender());
         user.setEventsList(null);
