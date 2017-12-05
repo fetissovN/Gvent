@@ -102,6 +102,7 @@ function setAllMarkerDBLocation(arr) {
             lat: +arr[i].latitude,
             lng: +arr[i].longitude
         };
+        console.log(title);
         placeMarker(pos, content, title);
     }
 }
@@ -117,6 +118,11 @@ function deleteArrayMarkersAndMarkersDB() {
     clearOverlays();
     markers = [];
     markersDB = [];
+}
+
+function deleteArrayMarkers() {
+    clearOverlays();
+    markers = [];
 }
 
 function deleteLastMarker() {
@@ -155,11 +161,12 @@ function closeChoiceBox(delLastMarker) {
     inp_desc.val('');
     var box = $('.createEventWindow_wrapper');
     box.hide();
-    clearOverlays();
     if (delLastMarker){
+        clearOverlays();
         deleteLastMarker();
+        showOverlays();
     }
-    showOverlays();
+
 }
 
 
@@ -180,21 +187,11 @@ function createEvent() {
                 document.location.href = '/login';
             }
             if('event' in data){
-                console.log(data);
-                var content = data.description;
-                var title = data.name;
-                var pos = {
-                    lat: +data.latitude,
-                    lng: +data.longitude
-                };
-                closeChoiceBox();
-                clearOverlays();
-                console.log(markers.length);
-                deleteLastMarker();
-                console.log(markers.length);
-                placeMarker(pos,content,title);
+                closeChoiceBox(false);
+                markersDB.push(data.event);
+                deleteArrayMarkers();
+                setAllMarkerDBLocation(markersDB);
                 showOverlays();
-                console.log(markers.length);
             }
             if ('invalid' in data){
 
