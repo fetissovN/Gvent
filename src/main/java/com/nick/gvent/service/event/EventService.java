@@ -3,6 +3,7 @@ package com.nick.gvent.service.event;
 
 import com.nick.gvent.dto.EventDTO;
 import com.nick.gvent.entity.Event;
+import com.nick.gvent.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +24,8 @@ public interface EventService {
     List<EventDTO> getAllByUserId(Long id);
 
     List<EventDTO> getAllInBoundaries(Float lat1,Float lat2,Float lng1,Float lng2);
+
+    EventDTO addParticipantToEvent(Long idEvent, String username);
 //    List<EventDTO> getAllPureTable();
 
 

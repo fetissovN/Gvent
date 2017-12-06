@@ -2,33 +2,28 @@ package com.nick.gvent.controllers;
 
 import com.nick.gvent.converters.SpringConverterEventDTOToEvent;
 import com.nick.gvent.converters.SpringConverterEventToEventDTO;
-import com.nick.gvent.dao.event.EventDao;
-import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.dto.EventDTO;
+import com.nick.gvent.dto.EventParticipantsDTO;
 import com.nick.gvent.entity.Event;
 import com.nick.gvent.entity.User;
 import com.nick.gvent.entity.json.MarkerSortingJSON;
 import com.nick.gvent.service.event.EventService;
 import com.nick.gvent.service.user.UserService;
 import com.nick.gvent.util.event.EventValidation;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 @org.springframework.web.bind.annotation.RestController
@@ -75,6 +70,7 @@ public class RestController {
             Event eventDB = eventService.save(event);
             EventDTO eventDTODB = eventToEventDTO.convert(eventDB);
             if (eventDB != null){
+                eventDB.setParticipants(null);
                 map.put("event", eventDTODB);
                 return map;
             }
@@ -114,6 +110,42 @@ public class RestController {
         return map;
     }
 
+    @RequestMapping(value = "/addParticipant/{id}", method = RequestMethod.GET,
+            produces = "application/json")
+    public Map<String, EventDTO> addParticipant(@PathVariable Long id, Authentication authentication)
+            throws JSONException {
+        Map<String, EventDTO> map = new HashMap<>();
+        if (authentication == null){
+            map.put("auth",null);
+            return map;
+        }
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String username = userDetails.getUsername();
+        if (username != null) {
+            EventDTO eventDTO = eventService.addParticipantToEvent(id,username);
+//            List<User> users = eventDTO.getParticipants();
+//            eventDTO.setParticipants(null);
+//            List<Long> longs = users.stream()
+//                    .filter(u->(u.getId()>=1L))
+//                    .map(user -> user.getId())
+//                    .collect(Collectors.toList());
+//            List<String> usernames = users.stream()
+//                    .filter(u->(u.getId()>=1L))
+//                    .map(user -> user.getUsername())
+//                    .collect(Collectors.toList());
+
+//            EventParticipantsDTO eventPatricipantsDTO = new EventParticipantsDTO();
+//            eventPatricipantsDTO.setPatricipantsIds(longs);
+//            eventPatricipantsDTO.setPatricipantsNicknames(usernames);
+            if (eventDTO == null){
+                map.put("error", null);
+            }else {
+                map.put("event", eventDTO);
+            }
+            return map;
+        }
+        return map;
+    }
     @RequestMapping(value = "/removeEvent/{json}", method = RequestMethod.DELETE,
             produces = "application/json")
     public Map<String, List<EventDTO>> removeEvent(@PathVariable JSONObject json, Authentication authentication)

@@ -18,7 +18,7 @@ public class SpringConverterEventDTOToEvent<T extends Event> implements Converte
         event.setName(eventDTO.getName());
         event.setDescription(eventDTO.getDescription());
         event.setUserId(null);
-        event.setParticipants(eventDTO.getParticipants());
+        event.setParticipants(null);
         event.setLatitude(Float.parseFloat(eventDTO.getLatitude()));
         event.setLongitude(Float.parseFloat(eventDTO.getLongitude()));
         return event;

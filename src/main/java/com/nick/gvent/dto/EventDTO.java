@@ -12,7 +12,7 @@ public class EventDTO {
 
     private Long userId;
 
-    private List<User> participants;
+//    private List<User> participants;
 
     private String name;
 
@@ -22,10 +22,10 @@ public class EventDTO {
 
     private String longitude;
 
-    public EventDTO(Long id, Long userId, List<User> participants,String name, String description, String latitude, String longitude) {
+    public EventDTO(Long id, Long userId,String name, String description, String latitude, String longitude) {
         this.id = id;
         this.userId = userId;
-        this.participants = participants;
+//        this.participants = participants;
         this.name = name;
         this.description = description;
         this.latitude = latitude;
@@ -33,14 +33,6 @@ public class EventDTO {
     }
 
     public EventDTO() {
-    }
-
-    public List<User> getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(List<User> participants) {
-        this.participants = participants;
     }
 
     public Long getId() {

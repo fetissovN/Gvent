@@ -6,6 +6,7 @@ import com.nick.gvent.dao.event.EventCustom;
 import com.nick.gvent.dao.event.EventDao;
 import com.nick.gvent.dao.user.UserDao;
 import com.nick.gvent.dto.EventDTO;
+import com.nick.gvent.dto.UserDTO;
 import com.nick.gvent.entity.Event;
 import com.nick.gvent.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Vector;
 
 @Service
@@ -62,6 +64,38 @@ public class EventServiceImpl implements EventService{
         User user = userDao.findOne(id);
         List<Event> list = eventDao.findByUserId(user);
         return convertEventsToEventsDTO(list);
+    }
+
+    @Override
+    public EventDTO addParticipantToEvent(Long idEvent, String username){
+        User user = userDao.findByUsername(username);
+        Event event = eventDao.getOne(idEvent);
+        if(checkParticipantValid(user,event)){
+
+            List<User> users = event.getParticipants();
+            users.add(user);
+            event.setParticipants(users);
+            Event eventDB = eventDao.save(event);
+            return eventToEventDTO.convert(eventDB);
+        }else {
+            return null;
+        }
+    }
+
+    /**
+     * Checks that user is not participant, and avoid duplicate
+     * **/
+    private boolean checkParticipantValid(User user, Event event){
+        for (User u: event.getParticipants()){
+            if (u.getId() == user.getId()){
+                return false;
+            }
+        }
+        if (user.getId() == event.getUserId().getId()){
+            return false;
+        }else {
+            return true;
+        }
     }
 
     @Override

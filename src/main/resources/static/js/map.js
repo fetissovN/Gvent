@@ -53,6 +53,11 @@ function initMap() {
     btn_cancel.on('click', function (){
         closeChoiceBox(true);
     });
+    $(document).on('click', '.participate', function() {
+        var btn = $('.participate');
+        participate(btn.attr('data-id'));
+
+    });
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -102,8 +107,8 @@ function setAllMarkerDBLocation(arr) {
             lat: +arr[i].latitude,
             lng: +arr[i].longitude
         };
-        console.log(title);
-        placeMarker(pos, content, title);
+        var id = arr[i].id;
+        placeMarker(pos, content, title, id);
     }
 }
 
@@ -134,8 +139,8 @@ function showOverlays() {
     setAllMap(map);
 }
 
-function placeMarker(location, contentInfo, title) {
-    var customBox = createCustomInfoWindow(contentInfo);
+function placeMarker(location, contentInfo, title, id) {
+    var customBox = createCustomInfoWindow(contentInfo, id);
    console.log(customBox);
    console.log(customBox.html());
     var infowindow = new google.maps.InfoWindow({
@@ -172,12 +177,16 @@ function closeChoiceBox(delLastMarker) {
 
 }
 
-function createCustomInfoWindow(content) {
+function createCustomInfoWindow(content,id) {
     var box = $('<div></div>');
     box.addClass('customInfo');
     var insideBox = $('<div></div>').addClass('custom');
     var button = $('<button></button>').text('Participate');
     button.addClass('participate');
+    button.attr('data-id',id);
+    // button.click(function () {
+    //    participate(id);
+    // });
     var desc = $('<p></p>').text(content);
     // desc.textContent = content;
     insideBox.append(desc);
@@ -215,6 +224,36 @@ function createEvent() {
             }
             if ('error' in data){
                 console.log(data);
+            }
+        },
+        error: function () {
+        }
+    });
+}
+
+function participate(id) {
+    var idInt = +id;
+    console.log(idInt);
+    $.ajax({
+        type: 'GET',
+        url: '/api/addParticipant/'+idInt,
+        contentType: "application/json",
+        // data: JSON.stringify({"id",id}),
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('event' in data){
+                var btn = $('.participate');
+                btn.text("You are in");
+                btn.prop('disabled', true);
+                console.log(data.event);
+            }
+            if ('invalid' in data){
+                console.log(data.invalid);
+            }
+            if ('error' in data){
+                console.log(data.error);
             }
         },
         error: function () {
@@ -310,7 +349,6 @@ function removeEvent(id) {
 
 function run() {
     //Map is already shown
-
     //1) getting Events from server to markersDB[] variable
     getMarkersFromDbWithBoundaries();
     // getMarkersFromDb();
