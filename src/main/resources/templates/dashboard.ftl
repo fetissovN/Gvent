@@ -38,9 +38,9 @@
             </div>
 
             <div class="headNav-mapActions-wrapped">
-                <div class="refresh"> <i class="material-icons">refresh</i> </div>
-                <div class="my-location"> <i class="material-icons">my_location</i> </div>
-                <div class="search"> <i class="material-icons">search</i> </div>
+                <#--<div class="refresh"> <i class="material-icons">refresh</i> </div>-->
+                <#--<div class="my-location"> <i class="material-icons">my_location</i> </div>-->
+                <#--<div class="search"> <i class="material-icons">search</i> </div>-->
             </div>
         </div>
         <!-- Header_navigation_menu END -->

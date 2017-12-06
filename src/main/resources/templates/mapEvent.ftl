@@ -51,12 +51,12 @@
             <div class="createEventWindow">
                 <div class="createEventWindow_header">
                     <input class="nameIn" placeholder="Add title..."/>
-                    <button class="createEvent_cancelBtn">&#10005</button>
+                    <div class="createEvent_cancelBtn"> <i class="material-icons">close</i> </div>
                 </div>
 
                 <div class="createEventWindow_body">
                     <input class="descIn" placeholder="Add description..."/>
-                    <button class="createEvent_createBtn">CREATE</button>
+                    <div class="createEvent_createBtn"> <span>CREATE</span> </div>
                 </div>
             </div>
         </div>

@@ -48,10 +48,21 @@ ul.nav {
 	list-style-type: none;
 	line-height: 50px;
 	text-align: center;
+	cursor: default;
 }
 .nav li {
 	display: inline-block;
+	height: 40px;
 	padding: 0 1% 0 1%;
+	border-bottom: 2px solid transparent;
+}
+.nav li:hover {
+	border-bottom: 2px solid orange;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
 }
 /* --------ACTIONS BAR-------- */
 .headNav-mapActions-wrapped {
@@ -359,13 +370,14 @@ h6 {
 	width: 450px;
 	height: 200px;
 	flex-flow: column;
-	outline: none;
-
 }
 .createEventWindow_header {
 	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	position: relative;
-	height: 47px;
+	min-height: 40px;
 	width: 100%;
 	background-color: gray;
 	border-radius: 3px 3px 0 0;
@@ -374,7 +386,6 @@ h6 {
 	position: relative;
 	float: left;
 	margin-left: 10px;
-	line-height: 45.45px;
 	width: 87.5%;
 	border-style: none;
 	outline: none;
@@ -386,16 +397,12 @@ h6 {
 	padding: 5px;
 }
 .createEvent_cancelBtn {
-	display: block;
-	position: relative;
-	margin-top: 3px;
-	height: 40px;
-	width: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 36px;
+	width: 36px;
 	color: white;
-	text-align: center;
-	font-size: 1em;
-	outline: none;
-	border-style: none;
 	background-color: transparent;
 }
 .createEvent_cancelBtn:hover {
@@ -431,11 +438,12 @@ h6 {
 }
 .createEvent_createBtn {
 	position: relative;
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin: 120px auto;
 	height: 2em;
 	width: 80px;
-	outline: none;
 	color: white;
 	font-size: 1em;
 	background-color: gray;
