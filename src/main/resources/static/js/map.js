@@ -55,8 +55,10 @@ function initMap() {
     });
     $(document).on('click', '.participate', function() {
         var btn = $('.participate');
-        participate(btn.attr('data-id'));
-
+        console.log(btn);
+        console.log(this);
+        var b = this.getAttribute('data-id');
+        participate(b);
     });
 
     // Try HTML5 geolocation.
@@ -143,8 +145,6 @@ function showOverlays() {
 
 function placeMarker(location, contentInfo, title, idEvent, userId, participants) {
     var customBox = createCustomInfoWindow(contentInfo, idEvent, userId, participants);
-   console.log(customBox);
-   console.log(customBox.html());
     var infowindow = new google.maps.InfoWindow({
         content: customBox.html()
     });
@@ -180,8 +180,6 @@ function closeChoiceBox(delLastMarker) {
 }
 
 function createCustomInfoWindow(content,id, userId, participants) {
-    console.log(participants);
-
     var box = $('<div></div>');
     box.addClass('customInfo');
     var insideBox = $('<div></div>').addClass('custom');
@@ -189,12 +187,10 @@ function createCustomInfoWindow(content,id, userId, participants) {
     button.addClass('participate');
     button.attr('data-id',id);
     if (checkCookieOwner(userId)){
-        console.log('check creator');
         button.text("You are Creator");
         button.prop('disabled', true);
     }
     if (checkIsParticipant(participants)){
-        console.log('check participant');
         button.text("You are participant");
         button.prop('disabled', true);
     }
@@ -214,16 +210,8 @@ function checkCookieOwner(idUserOfEvent) {
 
 function checkIsParticipant(participantsArr) {
     var id = $.cookie('userId');
-    console.log(jQuery.inArray(+id, participantsArr));
-    if(jQuery.inArray(+id, participantsArr) !== -1){
-        console.log('is participant');
-        return true;
-    }else {
-        console.log('not participant');
-        return false;
-    }
+    return jQuery.inArray(+id, participantsArr) !== -1;
 }
-
 
 function createEvent() {
     var inp_name = $('.nameIn');
@@ -262,7 +250,6 @@ function createEvent() {
 
 function participate(id) {
     var idInt = +id;
-    console.log(idInt);
     $.ajax({
         type: 'GET',
         url: '/api/addParticipant/'+idInt,
@@ -273,10 +260,10 @@ function participate(id) {
                 document.location.href = '/login';
             }
             if('event' in data){
-                var btn = $('.participate');
+                var btn = $('.participate[data-id='+idInt+']');
+                console.log(btn);
                 btn.text("You are in");
                 btn.prop('disabled', true);
-                console.log(data.event);
             }
             if ('invalid' in data){
                 console.log(data.invalid);
