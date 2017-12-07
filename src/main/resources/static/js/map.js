@@ -109,7 +109,8 @@ function setAllMarkerDBLocation(arr) {
         };
         var idEvent = arr[i].id;
         var userId = arr[i].userId;
-        placeMarker(pos, content, title, idEvent, userId);
+        var participants = arr[i].participants;
+        placeMarker(pos, content, title, idEvent, userId, participants);
     }
 }
 
@@ -140,8 +141,8 @@ function showOverlays() {
     setAllMap(map);
 }
 
-function placeMarker(location, contentInfo, title, idEvent, userId) {
-    var customBox = createCustomInfoWindow(contentInfo, idEvent, userId);
+function placeMarker(location, contentInfo, title, idEvent, userId, participants) {
+    var customBox = createCustomInfoWindow(contentInfo, idEvent, userId, participants);
    console.log(customBox);
    console.log(customBox.html());
     var infowindow = new google.maps.InfoWindow({
@@ -178,7 +179,8 @@ function closeChoiceBox(delLastMarker) {
 
 }
 
-function createCustomInfoWindow(content,id, userId) {
+function createCustomInfoWindow(content,id, userId, participants) {
+    console.log(participants);
 
     var box = $('<div></div>');
     box.addClass('customInfo');
@@ -189,6 +191,11 @@ function createCustomInfoWindow(content,id, userId) {
     if (checkCookieOwner(userId)){
         console.log('check creator');
         button.text("You are Creator");
+        button.prop('disabled', true);
+    }
+    if (checkIsParticipant(participants)){
+        console.log('check participant');
+        button.text("You are participant");
         button.prop('disabled', true);
     }
     var desc = $('<p></p>').text(content);
@@ -202,9 +209,19 @@ function createCustomInfoWindow(content,id, userId) {
 
 function checkCookieOwner(idUserOfEvent) {
     var id = $.cookie('userId');
-    // var nickname = $.cookie('userNickname');
-    // var enabled = $.cookie('enabled');
     return id == idUserOfEvent;
+}
+
+function checkIsParticipant(participantsArr) {
+    var id = $.cookie('userId');
+    console.log(jQuery.inArray(+id, participantsArr));
+    if(jQuery.inArray(+id, participantsArr) !== -1){
+        console.log('is participant');
+        return true;
+    }else {
+        console.log('not participant');
+        return false;
+    }
 }
 
 
