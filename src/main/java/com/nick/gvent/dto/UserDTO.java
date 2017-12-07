@@ -23,9 +23,11 @@ public class UserDTO {
 
     private Long id;
 
-    private Set<Role> authorities;
+    private String authorities;
 
-    private List<Event> events;
+//    private boolean isAdmin;
+
+//    private List<Event> events;
 
     private String username;
 

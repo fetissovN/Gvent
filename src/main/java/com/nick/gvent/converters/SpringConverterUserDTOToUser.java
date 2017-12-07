@@ -17,9 +17,10 @@ public class SpringConverterUserDTOToUser<T extends User> implements Converter<U
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
         user.setUsername(userDTO.getUsername());
-        user.setAuthorities(userDTO.getAuthorities());
+        user.setAuthorities(null);
         user.setEmail(userDTO.getEmail());
         user.setEnabled(userDTO.isEnabled());
+
         user.setAccountNonLocked(userDTO.isAccountNonLocked());
         user.setCredentialsNonExpired(userDTO.isCredentialsNonExpired());
         user.setAccountNonExpired(userDTO.isAccountNonExpired());
@@ -27,7 +28,7 @@ public class SpringConverterUserDTOToUser<T extends User> implements Converter<U
         user.setGender(userDTO.getGender());
         user.setEventsList(null);
         user.setPassword(userDTO.getPassword());
-        user.setEvents(userDTO.getEvents());
+        user.setEvents(null);
         return user;
     }
 }

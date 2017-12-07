@@ -13,10 +13,11 @@ public class SpringConverterUserToUserDTO<T extends UserDTO> implements Converte
     @Override
     public UserDTO convert(User user){
         UserDTO userDTO = new UserDTO();
+        userDTO.setId(user.getId());
         userDTO.setFirstName(user.getFirstName());
         userDTO.setLastName(user.getLastName());
         userDTO.setUsername(user.getUsername());
-        userDTO.setAuthorities(user.getAuthorities());
+        userDTO.setAuthorities(user.getAuthorities().toString());
         userDTO.setEmail(user.getEmail());
         userDTO.setEnabled(user.isEnabled());
         userDTO.setAccountNonLocked(user.isAccountNonLocked());
@@ -26,7 +27,7 @@ public class SpringConverterUserToUserDTO<T extends UserDTO> implements Converte
         userDTO.setGender(user.getGender());
 //        userDTO.setEventsList(null);
         userDTO.setPassword(null);
-        userDTO.setEvents(user.getEvents());
+//        userDTO.setEvents(user.getEvents());
         return userDTO;
     }
 }

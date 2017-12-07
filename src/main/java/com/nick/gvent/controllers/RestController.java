@@ -2,8 +2,10 @@ package com.nick.gvent.controllers;
 
 import com.nick.gvent.converters.SpringConverterEventDTOToEvent;
 import com.nick.gvent.converters.SpringConverterEventToEventDTO;
+import com.nick.gvent.converters.SpringConverterUserToUserDTO;
 import com.nick.gvent.dto.EventDTO;
 import com.nick.gvent.dto.EventParticipantsDTO;
+import com.nick.gvent.dto.UserDTO;
 import com.nick.gvent.entity.Event;
 import com.nick.gvent.entity.User;
 import com.nick.gvent.entity.json.MarkerSortingJSON;
@@ -44,6 +46,33 @@ public class RestController {
 
     @Autowired
     private SpringConverterEventToEventDTO eventToEventDTO;
+
+    @Autowired
+    private SpringConverterUserToUserDTO userToUserDTO;
+
+    @RequestMapping(value = "/getUserInfo", method = RequestMethod.GET
+                            ,produces = "application/json")
+    public Map<String,UserDTO> getUserInfo(Authentication authentication){
+        Map<String, UserDTO> map = new HashMap<>();
+        if (authentication == null){
+            map.put("auth",null);
+            return map;
+        }
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String nickname = userDetails.getUsername();
+        if (nickname != null) {
+            User user = userService.findUserByUsername(nickname);
+            if (user != null){
+                UserDTO userDTO = userToUserDTO.convert(user);
+                map.put("user", userDTO);
+            }else {
+                map.put("error", null);
+            }
+            return map;
+        }
+        map.put("error", null);
+        return map;
+    }
 
     @RequestMapping(value = "/createEvent", method = RequestMethod.POST,
             consumes="application/json")
