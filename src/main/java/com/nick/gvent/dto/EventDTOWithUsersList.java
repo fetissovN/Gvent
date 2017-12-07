@@ -1,7 +1,6 @@
 package com.nick.gvent.dto;
 
 
-import com.nick.gvent.entity.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,14 +8,13 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode
-public class EventDTO {
-
+public class EventDTOWithUsersList{
 
     private Long id;
 
     private Long userId;
 
-//    private List<Long> participants;
+    private List<Long> participants;
 
     private String name;
 
@@ -25,6 +23,4 @@ public class EventDTO {
     private String latitude;
 
     private String longitude;
-
-
 }

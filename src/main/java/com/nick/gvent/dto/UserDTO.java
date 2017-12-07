@@ -1,11 +1,13 @@
 package com.nick.gvent.dto;
 
+import com.nick.gvent.entity.Event;
 import com.nick.gvent.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 /** Simple POJO class for User
@@ -21,7 +23,11 @@ public class UserDTO {
 
     private Long id;
 
-    private Set<Role> authorities;
+    private String authorities;
+
+//    private boolean isAdmin;
+
+//    private List<Event> events;
 
     private String username;
 

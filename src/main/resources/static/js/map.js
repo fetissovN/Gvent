@@ -53,6 +53,13 @@ function initMap() {
     btn_cancel.on('click', function (){
         closeChoiceBox(true);
     });
+    $(document).on('click', '.participate', function() {
+        var btn = $('.participate');
+        console.log(btn);
+        console.log(this);
+        var b = this.getAttribute('data-id');
+        participate(b);
+    });
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -69,6 +76,13 @@ function initMap() {
 
             currentPositionWithZoom.latLng = pos;
             currentPositionWithZoom.boundaries = map.getBounds();
+            if(currentPositionWithZoom.boundaries == null){
+                console.log('if u see this call me!');
+                setTimeout(function () {
+                    currentPositionWithZoom.boundaries = map.getBounds();
+                },100);
+                run();
+            }
             run();
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -94,12 +108,18 @@ function setAllMap(map) {
 }
 
 function setAllMarkerDBLocation(arr) {
+
     for (var i = 0; i < arr.length; i++) {
+        var content = arr[i].description;
+        var title = arr[i].name;
         var pos = {
             lat: +arr[i].latitude,
             lng: +arr[i].longitude
         };
-        placeMarker(pos);
+        var idEvent = arr[i].id;
+        var userId = arr[i].userId;
+        var participants = arr[i].participants;
+        placeMarker(pos, content, title, idEvent, userId, participants);
     }
 }
 
@@ -116,6 +136,11 @@ function deleteArrayMarkersAndMarkersDB() {
     markersDB = [];
 }
 
+function deleteArrayMarkers() {
+    clearOverlays();
+    markers = [];
+}
+
 function deleteLastMarker() {
     markers.pop();
 }
@@ -125,9 +150,17 @@ function showOverlays() {
     setAllMap(map);
 }
 
-function placeMarker(location) {
+function placeMarker(location, contentInfo, title, idEvent, userId, participants) {
+    var customBox = createCustomInfoWindow(contentInfo, idEvent, userId, participants);
+    var infowindow = new google.maps.InfoWindow({
+        content: customBox.html()
+    });
     var marker = new google.maps.Marker({
         position: location,
+        title: title
+    });
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
     });
     markers.push(marker);
     return marker;
@@ -145,13 +178,53 @@ function closeChoiceBox(delLastMarker) {
     inp_desc.val('');
     var box = $('.createEventWindow_wrapper');
     box.hide();
-    clearOverlays();
     if (delLastMarker){
+        clearOverlays();
         deleteLastMarker();
+        showOverlays();
     }
-    showOverlays();
+
 }
 
+function createCustomInfoWindow(content,id, userId, participants) {
+    var box = $('<div></div>');
+    box.addClass('customInfo');
+    var insideBox = $('<div></div>').addClass('custom');
+    var p = $('<p></p>').addClass('size');
+    if(participants != null){
+        p.text(participants.length+': participants');
+    }
+    var button = $('<button></button>').text('Participate');
+    button.addClass('participate');
+    button.attr('data-id',id);
+
+    if (checkCookieOwner(userId)){
+        button.text("You are Creator");
+        button.prop('disabled', true);
+    }
+    if (checkIsParticipant(participants)){
+        button.text("You are participant");
+        button.prop('disabled', true);
+    }
+    var desc = $('<p></p>').text('description: '+content);
+    // desc.textContent = content;
+    insideBox.append(desc);
+    insideBox.append(p);
+    insideBox.append(button);
+    box.append(insideBox);
+    return box;
+}
+
+
+function checkCookieOwner(idUserOfEvent) {
+    var id = $.cookie('userId');
+    return id == idUserOfEvent;
+}
+
+function checkIsParticipant(participantsArr) {
+    var id = $.cookie('userId');
+    return jQuery.inArray(+id, participantsArr) !== -1;
+}
 
 function createEvent() {
     var inp_name = $('.nameIn');
@@ -166,11 +239,50 @@ function createEvent() {
         contentType: "application/json",
         data: d,
         success: function(data){
-            if (data == "authFail"){
+            if('auth' in data){
                 document.location.href = '/login';
-            }else if (data == 1){
-                closeChoiceBox();
-            }else if (data == 0 ){
+            }
+            if('event' in data){
+                closeChoiceBox(false);
+                markersDB.push(data.event);
+                deleteArrayMarkers();
+                setAllMarkerDBLocation(markersDB);
+                showOverlays();
+            }
+            if ('invalid' in data){
+
+            }
+            if ('error' in data){
+                console.log(data);
+            }
+        },
+        error: function () {
+        }
+    });
+}
+
+function participate(id) {
+    var idInt = +id;
+    $.ajax({
+        type: 'GET',
+        url: '/api/addParticipant/'+idInt,
+        contentType: "application/json",
+        // data: JSON.stringify({"id",id}),
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('event' in data){
+                var btn = $('.participate[data-id='+idInt+']');
+                console.log(btn);
+                btn.text("You are in");
+                btn.prop('disabled', true);
+            }
+            if ('invalid' in data){
+                console.log(data.invalid);
+            }
+            if ('error' in data){
+                console.log(data.error);
             }
         },
         error: function () {
@@ -220,7 +332,8 @@ function getMarkersFromDbWithBoundaries() {
             }
         },
         error: function () {
-            alert('fail');
+            // document.location.href = '/map';
+            console.log('some error');
         }
     });
 }
@@ -266,11 +379,8 @@ function removeEvent(id) {
 
 function run() {
     //Map is already shown
-
     //1) getting Events from server to markersDB[] variable
     getMarkersFromDbWithBoundaries();
-    // getMarkersFromDb();
-
     //2) checking trigger(isLoaded) that markersBD[] is not empty
     var timer = setInterval(function() {
         console.log("not loaded");

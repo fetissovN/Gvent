@@ -11,22 +11,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class SpringConverterUserDTOToUser<T extends User> implements Converter<UserDTO, User> {
 
-    private User user = new User();
-
+    @Override
     public User convert(UserDTO userDTO){
+        User user = new User();
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
         user.setUsername(userDTO.getUsername());
-        user.setAuthorities(userDTO.getAuthorities());
+        user.setAuthorities(null);
         user.setEmail(userDTO.getEmail());
-        user.setEnabled(true);
-        user.setAccountNonLocked(true);
-        user.setCredentialsNonExpired(true);
-        user.setAccountNonExpired(true);
+        user.setEnabled(userDTO.isEnabled());
+
+        user.setAccountNonLocked(userDTO.isAccountNonLocked());
+        user.setCredentialsNonExpired(userDTO.isCredentialsNonExpired());
+        user.setAccountNonExpired(userDTO.isAccountNonExpired());
         user.setAge(userDTO.getAge());
         user.setGender(userDTO.getGender());
         user.setEventsList(null);
         user.setPassword(userDTO.getPassword());
+        user.setEvents(null);
         return user;
     }
 }
