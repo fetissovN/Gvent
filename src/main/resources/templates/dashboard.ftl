@@ -8,7 +8,6 @@
     <body>
     <#include "bar.ftl">
 
-
     <!-- Card section -->
     <div class="card_m"  draggable="true"> <h6>Message: Kate</h6>
         LOL, or lol, is an acronym for laugh(ing) out loud or lots of laughs and a popular element of Internet slang.
@@ -66,7 +65,6 @@
             </div>
         </div>
     </div>
-
 
     <#--********************-->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>

@@ -4,6 +4,7 @@ import com.nick.gvent.converters.SpringConverterEventDTOToEvent;
 import com.nick.gvent.converters.SpringConverterEventToEventDTO;
 import com.nick.gvent.converters.SpringConverterUserToUserDTO;
 import com.nick.gvent.dto.EventDTO;
+import com.nick.gvent.dto.EventDTOWithUsersList;
 import com.nick.gvent.dto.EventParticipantsDTO;
 import com.nick.gvent.dto.UserDTO;
 import com.nick.gvent.entity.Event;
@@ -194,8 +195,8 @@ public class RestController {
                     produces = "application/json",
                     consumes = "application/json")
     @ResponseBody
-    public Map<String, List<EventDTO>> getAll(@RequestBody MarkerSortingJSON json, Authentication authentication) throws JSONException {
-        Map<String, List<EventDTO>> map = new HashMap<>();
+    public Map<String, List<EventDTOWithUsersList>> getAll(@RequestBody MarkerSortingJSON json, Authentication authentication) throws JSONException {
+        Map<String, List<EventDTOWithUsersList>> map = new HashMap<>();
         if (authentication == null){
             map.put("auth",null);
             return map;
@@ -204,7 +205,7 @@ public class RestController {
         double north = (Double) json.getBoundaries().get("north");
         double east = (Double) json.getBoundaries().get("east");
         double west = (Double) json.getBoundaries().get("west");
-        List<EventDTO> list = eventService.getAllInBoundaries(
+        List<EventDTOWithUsersList> list = eventService.getAllInBoundariesWithParticipants(
                 (float) south,
                 (float) north,
                 (float) east,

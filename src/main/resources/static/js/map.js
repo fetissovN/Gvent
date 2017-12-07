@@ -107,8 +107,9 @@ function setAllMarkerDBLocation(arr) {
             lat: +arr[i].latitude,
             lng: +arr[i].longitude
         };
-        var id = arr[i].id;
-        placeMarker(pos, content, title, id);
+        var idEvent = arr[i].id;
+        var userId = arr[i].userId;
+        placeMarker(pos, content, title, idEvent, userId);
     }
 }
 
@@ -139,8 +140,8 @@ function showOverlays() {
     setAllMap(map);
 }
 
-function placeMarker(location, contentInfo, title, id) {
-    var customBox = createCustomInfoWindow(contentInfo, id);
+function placeMarker(location, contentInfo, title, idEvent, userId) {
+    var customBox = createCustomInfoWindow(contentInfo, idEvent, userId);
    console.log(customBox);
    console.log(customBox.html());
     var infowindow = new google.maps.InfoWindow({
@@ -177,22 +178,33 @@ function closeChoiceBox(delLastMarker) {
 
 }
 
-function createCustomInfoWindow(content,id) {
+function createCustomInfoWindow(content,id, userId) {
+
     var box = $('<div></div>');
     box.addClass('customInfo');
     var insideBox = $('<div></div>').addClass('custom');
     var button = $('<button></button>').text('Participate');
     button.addClass('participate');
     button.attr('data-id',id);
-    // button.click(function () {
-    //    participate(id);
-    // });
+    if (checkCookieOwner(userId)){
+        console.log('check creator');
+        button.text("You are Creator");
+        button.prop('disabled', true);
+    }
     var desc = $('<p></p>').text(content);
     // desc.textContent = content;
     insideBox.append(desc);
     insideBox.append(button);
     box.append(insideBox);
     return box;
+}
+
+
+function checkCookieOwner(idUserOfEvent) {
+    var id = $.cookie('userId');
+    // var nickname = $.cookie('userNickname');
+    // var enabled = $.cookie('enabled');
+    return id == idUserOfEvent;
 }
 
 
@@ -296,6 +308,7 @@ function getMarkersFromDbWithBoundaries() {
             }
             if('events' in data){
                 var arr = data.events;
+                console.log(arr);
                 for(var i=0;i<arr.length;i++){
                     markersDB.push(arr[i]);
                 }
@@ -351,8 +364,6 @@ function run() {
     //Map is already shown
     //1) getting Events from server to markersDB[] variable
     getMarkersFromDbWithBoundaries();
-    // getMarkersFromDb();
-
     //2) checking trigger(isLoaded) that markersBD[] is not empty
     var timer = setInterval(function() {
         console.log("not loaded");
