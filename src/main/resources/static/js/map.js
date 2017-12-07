@@ -183,9 +183,14 @@ function createCustomInfoWindow(content,id, userId, participants) {
     var box = $('<div></div>');
     box.addClass('customInfo');
     var insideBox = $('<div></div>').addClass('custom');
+    var p = $('<p></p>').addClass('size');
+    if(participants != null){
+        p.text(participants.length+': participants');
+    }
     var button = $('<button></button>').text('Participate');
     button.addClass('participate');
     button.attr('data-id',id);
+
     if (checkCookieOwner(userId)){
         button.text("You are Creator");
         button.prop('disabled', true);
@@ -194,9 +199,10 @@ function createCustomInfoWindow(content,id, userId, participants) {
         button.text("You are participant");
         button.prop('disabled', true);
     }
-    var desc = $('<p></p>').text(content);
+    var desc = $('<p></p>').text('description: '+content);
     // desc.textContent = content;
     insideBox.append(desc);
+    insideBox.append(p);
     insideBox.append(button);
     box.append(insideBox);
     return box;
@@ -301,6 +307,7 @@ function getMarkersFromDb() {
 
 function getMarkersFromDbWithBoundaries() {
     var request = JSON.stringify(currentPositionWithZoom);
+    console.log(request);
     $.ajax({
         type: 'POST',
         url: '/api/getAll',
@@ -320,7 +327,8 @@ function getMarkersFromDbWithBoundaries() {
             }
         },
         error: function () {
-            alert('fail');
+            // document.location.href = '/map';
+            console.log('some error');
         }
     });
 }
