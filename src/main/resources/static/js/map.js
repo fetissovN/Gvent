@@ -76,6 +76,13 @@ function initMap() {
 
             currentPositionWithZoom.latLng = pos;
             currentPositionWithZoom.boundaries = map.getBounds();
+            if(currentPositionWithZoom.boundaries == null){
+                console.log('if u see this call me!');
+                setTimeout(function () {
+                    currentPositionWithZoom.boundaries = map.getBounds();
+                },100);
+                run();
+            }
             run();
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -307,7 +314,6 @@ function getMarkersFromDb() {
 
 function getMarkersFromDbWithBoundaries() {
     var request = JSON.stringify(currentPositionWithZoom);
-    console.log(request);
     $.ajax({
         type: 'POST',
         url: '/api/getAll',
@@ -319,7 +325,6 @@ function getMarkersFromDbWithBoundaries() {
             }
             if('events' in data){
                 var arr = data.events;
-                console.log(arr);
                 for(var i=0;i<arr.length;i++){
                     markersDB.push(arr[i]);
                 }
