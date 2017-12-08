@@ -54,16 +54,22 @@ function initMap() {
     });
     var btn_add = $('.createEvent_createBtn');
     var btn_cancel = $('.createEvent_cancelBtn');
+    var btn_private = $('.showPrivateBtn');
     btn_add.on('click', createEvent);
     btn_cancel.on('click', function (){
         closeChoiceBox(true);
+    });
+    btn_private.on('click',function () {
+        clearOverlays();
+        deleteArrayMarkers();
+        setAllMarkersDBPrivateLocation();
+        showOverlays()
     });
     $(document).on('click', '.participate', function() {
         // var btn = $('.participate');
         var b = this.getAttribute('data-id');
         participate(b);
     });
-
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -110,19 +116,37 @@ function setAllMap(map) {
     }
 }
 
-function setAllMarkerDBLocation(arr) {
-
-    for (var i = 0; i < arr.length; i++) {
-        var content = arr[i].description;
-        var title = arr[i].name;
+function setAllMarkerDBLocation() {
+    for (var i = 0; i < markersDB.length; i++) {
+        var content = markersDB[i].description;
+        var title = markersDB[i].name;
         var pos = {
-            lat: +arr[i].latitude,
-            lng: +arr[i].longitude
+            lat: +markersDB[i].latitude,
+            lng: +markersDB[i].longitude
         };
-        var idEvent = arr[i].id;
-        var userId = arr[i].userId;
-        var participants = arr[i].participants;
+        var idEvent = markersDB[i].id;
+        var userId = markersDB[i].userId;
+        var participants = markersDB[i].participants;
         placeMarker(pos, content, title, idEvent, userId, participants);
+    }
+}
+
+function setAllMarkersDBPrivateLocation() {
+    if (markersDB.length != 0){
+        for (var i = 0; i < markersDB.length; i++) {
+            if (checkCookieOwner(markersDB[i].userId)){
+                var content = markersDB[i].description;
+                var title = markersDB[i].name;
+                var pos = {
+                    lat: +markersDB[i].latitude,
+                    lng: +markersDB[i].longitude
+                };
+                var idEvent = markersDB[i].id;
+                var userId = markersDB[i].userId;
+                var participants = markersDB[i].participants;
+                placeMarker(pos, content, title, idEvent, userId, participants);
+            }
+        }
     }
 }
 
@@ -389,7 +413,7 @@ function run() {
         if (isLoaded){
             console.log("loaded");
             //3) convert markersDB[] to markers[] with valid location
-            setAllMarkerDBLocation(markersDB);
+            setAllMarkerDBLocation();
             //4) put map to all markers[] with delay 500ms, after that they will be shown to user
             setTimeout(showOverlays,500);
             clearInterval(timer);

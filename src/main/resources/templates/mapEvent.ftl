@@ -60,6 +60,9 @@
                 </div>
             </div>
         </div>
+        <div class="private">
+            <button class="showPrivateBtn">Show my markers</button>
+        </div>
         <div id="map"></div>
     </div>
     <script src="/js/map.js"> </script>
