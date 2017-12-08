@@ -36,9 +36,14 @@ function initMap() {
 
     google.maps.event.addListener(map, 'rightclick', function(event) {
         newEvent = new Event(null,null,null,null,event.latLng.lat(),event.latLng.lng());
-        showChoiceBox();
-        placeMarker(event.latLng);
-        showOverlays();
+        var box = $('.createEventWindow_wrapper');
+        if (box.is(":visible")){
+            return;
+        }else {
+            showChoiceBox();
+            placeMarker(event.latLng);
+            showOverlays();
+        }
     });
     $('.refresh').on('click', function() {
         isLoaded = false;
@@ -54,9 +59,7 @@ function initMap() {
         closeChoiceBox(true);
     });
     $(document).on('click', '.participate', function() {
-        var btn = $('.participate');
-        console.log(btn);
-        console.log(this);
+        // var btn = $('.participate');
         var b = this.getAttribute('data-id');
         participate(b);
     });
@@ -197,7 +200,6 @@ function createCustomInfoWindow(content,id, userId, participants) {
     var button = $('<button></button>').text('Participate');
     button.addClass('participate');
     button.attr('data-id',id);
-
     if (checkCookieOwner(userId)){
         button.text("You are Creator");
         button.prop('disabled', true);
