@@ -63,7 +63,7 @@ function initMap() {
         clearOverlays();
         deleteArrayMarkers();
         setAllMarkersDBPrivateLocation();
-        showOverlays()
+        showOverlays();
     });
     $(document).on('click', '.participate', function() {
         // var btn = $('.participate');
@@ -117,37 +117,63 @@ function setAllMap(map) {
 }
 
 function setAllMarkerDBLocation() {
-    for (var i = 0; i < markersDB.length; i++) {
-        var content = markersDB[i].description;
-        var title = markersDB[i].name;
-        var pos = {
-            lat: +markersDB[i].latitude,
-            lng: +markersDB[i].longitude
-        };
-        var idEvent = markersDB[i].id;
-        var userId = markersDB[i].userId;
-        var participants = markersDB[i].participants;
-        placeMarker(pos, content, title, idEvent, userId, participants);
-    }
+    convertFromMarkersDBToMarkres(false);
 }
 
 function setAllMarkersDBPrivateLocation() {
-    if (markersDB.length != 0){
-        for (var i = 0; i < markersDB.length; i++) {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var currLat = position.coords.latitude;
+            var currLng = position.coords.longitude;
+            var latPrev = currentPositionWithZoom.latLng.lat;
+            var lngPrev = currentPositionWithZoom.latLng.lng;
+            console.log(currLat);
+            console.log(currLng);
+            console.log(latPrev);
+            console.log(lngPrev);
+            if (currLat == latPrev && currLng == lngPrev){
+                convertFromMarkersDBToMarkres(true);
+            }else {
+                console.log('was refreshed');
+                run();
+                //TO DO timer
+                clearOverlays();
+                console.log('clear');
+                deleteArrayMarkers();
+                console.log('del markers');
+                convertFromMarkersDBToMarkres(true);
+                console.log('convert');
+                showOverlays();
+                console.log('show');
+            }
+        })
+    }
+}
+
+function convertFromMarkersDBToMarkres(privateTrigger) {
+    for (var i = 0; i < markersDB.length; i++) {
+        if (!privateTrigger){
+            placeSingleMarkerFromMarkerDB(markersDB[i]);
+        }else {
             if (checkCookieOwner(markersDB[i].userId)){
-                var content = markersDB[i].description;
-                var title = markersDB[i].name;
-                var pos = {
-                    lat: +markersDB[i].latitude,
-                    lng: +markersDB[i].longitude
-                };
-                var idEvent = markersDB[i].id;
-                var userId = markersDB[i].userId;
-                var participants = markersDB[i].participants;
-                placeMarker(pos, content, title, idEvent, userId, participants);
+                placeSingleMarkerFromMarkerDB(markersDB[i]);
             }
         }
+
     }
+}
+
+function placeSingleMarkerFromMarkerDB(marDB) {
+    var content = marDB.description;
+    var title = marDB.name;
+    var pos = {
+        lat: +marDB.latitude,
+        lng: +marDB.longitude
+    };
+    var idEvent = marDB.id;
+    var userId = marDB.userId;
+    var participants = marDB.participants;
+    placeMarker(pos, content, title, idEvent, userId, participants);
 }
 
 // Removes the overlays from the map, but keeps them in the array.
@@ -403,7 +429,7 @@ function removeEvent(id) {
     });
 }
 
-function run() {
+function run(privateTrigger) {
     //Map is already shown
     //1) getting Events from server to markersDB[] variable
     getMarkersFromDbWithBoundaries();
