@@ -390,8 +390,9 @@ function getMarkersFromDb() {
 }
 
 function getMarkersFromDbWithBoundaries() {
-    console.log(currentPositionWithZoom.boundaries.lat);
-    console.log(currentPositionWithZoom.boundaries.lng);
+    //TO DO check map not null
+    // console.log(currentPositionWithZoom.boundaries.lat);
+    // console.log(currentPositionWithZoom.boundaries.lng);
     var request = JSON.stringify(currentPositionWithZoom);
     $.ajax({
         type: 'POST',

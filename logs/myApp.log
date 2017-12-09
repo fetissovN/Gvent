@@ -4904,3 +4904,7 @@ java.lang.NullPointerException: null
 17:25:10.633 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
 17:25:10.742 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8077 (http)
 17:25:10.773 [restartedMain] INFO  com.nick.gvent.Application - Started Application in 36.51 seconds (JVM running for 38.843)
+17:25:28.950 [http-nio-8077-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+17:25:28.950 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+17:25:29.091 [http-nio-8077-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 141 ms
+17:25:38.551 [http-nio-8077-exec-3] INFO  c.n.g.s.s.u.UserDetailsServiceImpl - New user saved User{id=2, authorities=[Role{id=1, name=USER}, Role{id=2, name=ADMIN}], username='admin', firstName='admin', lastName='adminovich', age=26, gender='male', email='fetissov.admin.n@gmail.com', password='$2a$10$qb2UpFnmQkTMpcFwwdkgmu3YQ4w33jJPCRZmkl4kNkCdBOrXpcnsK', passwordCheck='null', accountNonExpired=true, accountNonLocked=true, credentialsNonExpired=true, enabled=true, eventsList=[com.nick.gvent.entity.Event@1aa76250, com.nick.gvent.entity.Event@1aa7626f, com.nick.gvent.entity.Event@1aa7628e]}
