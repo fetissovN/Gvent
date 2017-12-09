@@ -63,10 +63,9 @@ function initMap() {
         clearOverlays();
         deleteArrayMarkers();
         setAllMarkersDBPrivateLocation();
-        showOverlays();
+        // showOverlays();
     });
     $(document).on('click', '.participate', function() {
-        // var btn = $('.participate');
         var b = this.getAttribute('data-id');
         participate(b);
     });
@@ -118,35 +117,60 @@ function setAllMap(map) {
 
 function setAllMarkerDBLocation() {
     convertFromMarkersDBToMarkres(false);
+    setTimeout(showOverlays,500);
 }
 
 function setAllMarkersDBPrivateLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            var currLatLng = map.center;
+            console.log(pos == currLatLng);
+            currentPositionWithZoom.latLng = map.center;
+            currentPositionWithZoom.boundaries = map.getBounds();
             var currLat = position.coords.latitude;
             var currLng = position.coords.longitude;
             var latPrev = currentPositionWithZoom.latLng.lat;
             var lngPrev = currentPositionWithZoom.latLng.lng;
+            currLat.toString().substring(0, 10);
+            currLng.toString().substring(0, 10);
+            latPrev.toString().substring(0, 10);
+            lngPrev.toString().substring(0, 10);
             console.log(currLat);
             console.log(currLng);
             console.log(latPrev);
             console.log(lngPrev);
             if (currLat == latPrev && currLng == lngPrev){
+                console.log('same location');
+                console.log(markers);
                 convertFromMarkersDBToMarkres(true);
+                setTimeout(showOverlays,500);
+                console.log(markers);
             }else {
                 console.log('was refreshed');
-                run();
-                //TO DO timer
-                clearOverlays();
-                console.log('clear');
-                deleteArrayMarkers();
-                console.log('del markers');
-                convertFromMarkersDBToMarkres(true);
-                console.log('convert');
-                showOverlays();
-                console.log('show');
+                deleteArrayMarkersAndMarkersDB();
+                getMarkersFromDbWithBoundaries();
+                //2) checking trigger(isLoaded) that markersBD[] is not empty
+                var timer = setInterval(function() {
+                    console.log("not loaded");
+                    if (isLoaded){
+                        console.log("loaded");
+                        convertFromMarkersDBToMarkres(true);
+                        console.log('converted');
+                        setTimeout(showOverlays,500);
+                        // showOverlays();
+                        console.log('show');
+                        clearInterval(timer);
+                        isLoaded = false;
+                    }
+                }, 50);
             }
         })
+    }else {
+        //TO DO show error message, that navigation not avaliable
     }
 }
 
@@ -155,6 +179,7 @@ function convertFromMarkersDBToMarkres(privateTrigger) {
         if (!privateTrigger){
             placeSingleMarkerFromMarkerDB(markersDB[i]);
         }else {
+            console.log(markersDB[i].userId);
             if (checkCookieOwner(markersDB[i].userId)){
                 placeSingleMarkerFromMarkerDB(markersDB[i]);
             }
@@ -365,6 +390,8 @@ function getMarkersFromDb() {
 }
 
 function getMarkersFromDbWithBoundaries() {
+    console.log(currentPositionWithZoom.boundaries.lat);
+    console.log(currentPositionWithZoom.boundaries.lng);
     var request = JSON.stringify(currentPositionWithZoom);
     $.ajax({
         type: 'POST',
@@ -443,7 +470,7 @@ function run(privateTrigger) {
             //4) put map to all markers[] with delay 500ms, after that they will be shown to user
             setTimeout(showOverlays,500);
             clearInterval(timer);
-            // isLoaded = false;
+            isLoaded = false;
         }
     }, 50);
 }
