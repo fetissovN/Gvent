@@ -83,20 +83,11 @@ public class EventServiceImpl implements EventService{
         }
     }
 
-    /**
-     * Checks that user is not participant, and avoid duplicate
-     * **/
-    private boolean checkParticipantValid(User user, Event event){
-        for (User u: event.getParticipants()){
-            if (u.getId() == user.getId()){
-                return false;
-            }
-        }
-        if (user.getId() == event.getUserId().getId()){
-            return false;
-        }else {
-            return true;
-        }
+    @Override
+    public List<EventDTO> getAllTakePartInByUserId(Long id) {
+        User user = userDao.findOne(id);
+        List<Event> list = eventDao.findByParticipants(user);
+        return convertEventsToEventsDTO(list);
     }
 
     @Override
@@ -126,4 +117,21 @@ public class EventServiceImpl implements EventService{
         }
         return listDTO;
     }
+
+    /**
+     * Checks that user is not participant, and avoid duplicate
+     * **/
+    private boolean checkParticipantValid(User user, Event event){
+        for (User u: event.getParticipants()){
+            if (u.getId() == user.getId()){
+                return false;
+            }
+        }
+        if (user.getId() == event.getUserId().getId()){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
 }

@@ -1,9 +1,10 @@
 
+var userCookieChecked = false;
 
 function getUserAjax() {
     $.ajax({
         type: 'GET',
-        url: '/api/getUserInfo',
+        url: '/api/user/getUserInfo',
         success: function(data){
             if('auth' in data){
                 document.location.href = '/login';
@@ -17,6 +18,7 @@ function getUserAjax() {
                     setSTDCookie(user);
                     console.log("setted");
                 }
+                userCookieChecked = true;
             }
         },
         error: function () {
@@ -24,6 +26,45 @@ function getUserAjax() {
         }
     });
 }
+
+function getMarkersFromDbPrivate(id) {
+    var request = JSON.stringify({"user":id});
+    $.ajax({
+        type: 'GET',
+        url: '/api/user/getUsersEvents/'+request,
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('events' in data){
+                console.log(data);
+            }
+        },
+        error: function () {
+            alert('fail');
+        }
+    });
+}
+
+function getEventsFromDbTakePartIn(id) {
+    var request = JSON.stringify({"user":id});
+    $.ajax({
+        type: 'GET',
+        url: '/api/user/getUsersEventsTakePart/'+request,
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('events' in data){
+                console.log(data);
+            }
+        },
+        error: function () {
+            alert('fail');
+        }
+    });
+}
+
 
 function setSTDCookie(userJson) {
     $.cookie('userId',userJson.id,{
@@ -55,8 +96,19 @@ function checkCookieValid(userJson) {
     }
     return false;
 }
-
+function run() {
+    var timer = setInterval(function () {
+        if (userCookieChecked){
+            console.log('run');
+            var id = $.cookie('userId');
+            getEventsFromDbTakePartIn(id);
+            clearInterval(timer);
+        }
+    },300);
+}
 getUserAjax();
+run();
+
 
 // show/hide SEND button --------------
 $("input").keyup(function () {

@@ -29,6 +29,8 @@ public interface EventService {
     EventDTO addParticipantToEvent(Long idEvent, String username);
 
     List<EventDTOWithUsersList> getAllInBoundariesWithParticipants(Float lat1, Float lat2, Float lng1, Float lng2);
+
+    List<EventDTO> getAllTakePartInByUserId(Long id);
 //    List<EventDTO> getAllPureTable();
 
 

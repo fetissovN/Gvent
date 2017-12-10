@@ -337,7 +337,7 @@ function createEvent() {
     var d = JSON.stringify(newEvent);
     $.ajax({
         type: 'POST',
-        url: '/api/createEvent',
+        url: '/api/event/createEvent',
         contentType: "application/json",
         data: d,
         success: function(data){
@@ -367,7 +367,7 @@ function participate(id) {
     var idInt = +id;
     $.ajax({
         type: 'GET',
-        url: '/api/addParticipant/'+idInt,
+        url: '/api/event/addParticipant/'+idInt,
         contentType: "application/json",
         // data: JSON.stringify({"id",id}),
         success: function(data){
@@ -395,7 +395,7 @@ function participate(id) {
 function getMarkersFromDb() {
     $.ajax({
         type: 'GET',
-        url: '/api/getAll/absolute',
+        url: '/api/event/getAll/absolute',
         success: function(data){
             if('auth' in data){
                 document.location.href = '/login';
@@ -423,7 +423,7 @@ function getMarkersFromDbWithBoundaries() {
             var request = JSON.stringify(currentPositionWithZoom);
             $.ajax({
                 type: 'POST',
-                url: '/api/getAll',
+                url: '/api/event/getAll',
                 contentType: "application/json",
                 data: request,
                 success: function(data){
@@ -455,7 +455,7 @@ function getMarkersFromDbPrivate(id) {
     var request = JSON.stringify({"user":id});
     $.ajax({
         type: 'GET',
-        url: '/api/getUsersEvents/'+request,
+        url: '/api/user/getUsersEvents/'+request,
         success: function(data){
             if('auth' in data){
                 document.location.href = '/login';
@@ -474,7 +474,7 @@ function removeEvent(id) {
     var request = JSON.stringify({"event":id});
     $.ajax({
         type: 'DELETE',
-        url: '/api/removeEvent/'+request,
+        url: '/api/event/removeEvent/'+request,
         success: function(data){
             if('auth' in data){
                 document.location.href = '/login';

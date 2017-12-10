@@ -30,8 +30,8 @@ import java.util.stream.Collectors;
 
 
 @org.springframework.web.bind.annotation.RestController
-@RequestMapping(value = "/api")
-public class RestController {
+@RequestMapping(value = "/api/event")
+public class RestEventController {
 
     @Value("${host}")
     private String HOST;
@@ -50,30 +50,6 @@ public class RestController {
 
     @Autowired
     private SpringConverterUserToUserDTO userToUserDTO;
-
-    @RequestMapping(value = "/getUserInfo", method = RequestMethod.GET
-                            ,produces = "application/json")
-    public Map<String,UserDTO> getUserInfo(Authentication authentication){
-        Map<String, UserDTO> map = new HashMap<>();
-        if (authentication == null){
-            map.put("auth",null);
-            return map;
-        }
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        String nickname = userDetails.getUsername();
-        if (nickname != null) {
-            User user = userService.findUserByUsername(nickname);
-            if (user != null){
-                UserDTO userDTO = userToUserDTO.convert(user);
-                map.put("user", userDTO);
-            }else {
-                map.put("error", null);
-            }
-            return map;
-        }
-        map.put("error", null);
-        return map;
-    }
 
     @RequestMapping(value = "/createEvent", method = RequestMethod.POST,
             consumes="application/json")
@@ -120,22 +96,6 @@ public class RestController {
             return map;
         }
         List<EventDTO> list = eventService.getAll();
-        map.put("events",list);
-        return map;
-    }
-
-    @RequestMapping(value = "/getUsersEvents/{json}", method = RequestMethod.GET,
-                    produces = "application/json")
-    public Map<String, List<EventDTO> > getAllUserEvents(@PathVariable JSONObject json, Authentication authentication)
-            throws JSONException {
-        Map<String, List<EventDTO>> map = new HashMap<>();
-        if (authentication == null){
-            map.put("auth",null);
-            return map;
-        }
-        Integer id = (Integer) json.get("user");
-
-        List<EventDTO> list = eventService.getAllByUserId(id.longValue());
         map.put("events",list);
         return map;
     }
