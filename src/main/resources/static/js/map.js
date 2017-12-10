@@ -90,13 +90,6 @@ function initMap() {
             currentPositionWithZoom.latLng = pos;
             currentPositionWithZoom.boundaries = map.getBounds();
             zoom = map.getZoom();
-            // if(currentPositionWithZoom.boundaries == null){
-            //     console.log('if u see this call me!');
-            //     setTimeout(function () {
-            //         currentPositionWithZoom.boundaries = map.getBounds();
-            //     },100);
-            //     run();
-            // }
             run();
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -119,15 +112,12 @@ function checkMapLoaded() {
     triggerMapLoaded = false;
     var timer = setInterval(function () {
         if (!triggerMapLoaded){
-            console.log(triggerMapLoaded);
-            console.log(currentPositionWithZoom.latLng);
-            console.log(currentPositionWithZoom.boundaries);
             if (currentPositionWithZoom.latLng != null && currentPositionWithZoom.boundaries != null){
-                console.log('not null');
+                // console.log('not null');
                 triggerMapLoaded = true;
                 clearInterval(timer);
             }else {
-                console.log('map not loaded yet');
+                // console.log('map not loaded yet');
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var pos = {
                         lat: position.coords.latitude,
