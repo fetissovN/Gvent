@@ -59,6 +59,7 @@ function initMap() {
     var btn_add = $('.createEvent_createBtn');
     var btn_cancel = $('.createEvent_cancelBtn');
     var btn_private = $('.showPrivateBtn');
+    var btn_take_part_in= $('.showIAmParticipateInBtn');
     btn_add.on('click', createEvent);
     btn_cancel.on('click', function (){
         closeChoiceBox(true);
@@ -68,7 +69,12 @@ function initMap() {
         deleteArrayMarkers();
         checkMapLoaded();
         setAllMarkersDBPrivateLocation();
-        // showOverlays();
+    });
+    btn_take_part_in.on('click', function () {
+        clearOverlays();
+        deleteArrayMarkers();
+        checkMapLoaded();
+        setAllMarkerDBTakePartLocation();
     });
     $(document).on('click', '.participate', function() {
         var b = this.getAttribute('data-id');
@@ -140,27 +146,27 @@ function setAllMap(map) {
 }
 
 function setAllMarkerDBLocation() {
-    convertFromMarkersDBToMarkres(false);
+    convertFromMarkersDBToMarkers(false);
+    setTimeout(showOverlays,500);
+}
+
+function setAllMarkerDBTakePartLocation() {
+    convertFromMarkersDBToMarkers(false, true);
     setTimeout(showOverlays,500);
 }
 
 function setAllMarkersDBPrivateLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            console.log('check map latlng');
             var currLat = position.coords.latitude;
             var currLng = position.coords.longitude;
             var latPrev = currentPositionWithZoom.latLng.lat;
             var lngPrev = currentPositionWithZoom.latLng.lng;
-            // console.log(Math.abs(position.coords.latitude - currentPositionWithZoom.latLng.lat));
-            // console.log(Math.abs(position.coords.longitude - currentPositionWithZoom.latLng.lng));
-            // console.log(zoom);
-            // console.log(map.getZoom());
             if (Math.abs(currLat-latPrev) < 0.00001 && Math.abs(currLng-lngPrev) < 0.00001
                     && zoom == map.getZoom()){
                 console.log('same location');
                 console.log(markers);
-                convertFromMarkersDBToMarkres(true);
+                convertFromMarkersDBToMarkers(true);
                 zoom = map.getZoom();
                 setTimeout(showOverlays,500);
             }else {
@@ -172,7 +178,7 @@ function setAllMarkersDBPrivateLocation() {
                     console.log("not loaded");
                     if (isLoaded){
                         console.log("loaded");
-                        convertFromMarkersDBToMarkres(true);
+                        convertFromMarkersDBToMarkers(true);
                         console.log('converted');
                         setTimeout(showOverlays,500);
                         // showOverlays();
@@ -189,17 +195,21 @@ function setAllMarkersDBPrivateLocation() {
     }
 }
 
-function convertFromMarkersDBToMarkres(privateTrigger) {
+function convertFromMarkersDBToMarkers(owner, takesPart) {
     for (var i = 0; i < markersDB.length; i++) {
-        if (!privateTrigger){
-            placeSingleMarkerFromMarkerDB(markersDB[i]);
-        }else {
-            console.log(markersDB[i].userId);
-            if (checkCookieOwner(markersDB[i].userId)){
+        if (takesPart){
+            if (checkIsParticipant(markersDB[i].participants)){
                 placeSingleMarkerFromMarkerDB(markersDB[i]);
             }
+        }else {
+            if (!owner){
+                placeSingleMarkerFromMarkerDB(markersDB[i]);
+            }else {
+                if (checkCookieOwner(markersDB[i].userId)){
+                    placeSingleMarkerFromMarkerDB(markersDB[i]);
+                }
+            }
         }
-
     }
 }
 

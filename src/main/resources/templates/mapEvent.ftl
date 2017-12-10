@@ -60,9 +60,15 @@
                 </div>
             </div>
         </div>
+        // u can name button class as u wish , they are initialized in map js in initMap function (u should rename them there also)
+        // div classes are not used in js
         <div class="private">
             <button class="showPrivateBtn">Show my markers</button>
         </div>
+        <div class="private">
+            <button class="showIAmParticipateInBtn">Show my markers</button>
+        </div>
+
         <div id="map"></div>
     </div>
     <script src="/js/map.js"> </script>
