@@ -17,6 +17,7 @@ var markersDB = [];
 var markersDBPrivate = [];
 
 var isLoaded = false;
+var triggerMapLoaded = false;
 
 var map, infoWindow;
 var newEvent = null;
@@ -24,8 +25,10 @@ var currentPositionWithZoom = {
     latLng:null,
     boundaries:null
 };
+var zoom = null;
 
 function initMap() {
+    console.log('init');
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.758570, lng: -73.985077},
         zoom: 17
@@ -49,6 +52,7 @@ function initMap() {
         isLoaded = false;
         currentPositionWithZoom.latLng = map.center;
         currentPositionWithZoom.boundaries = map.getBounds();
+        zoom = map.getZoom();
         deleteArrayMarkersAndMarkersDB();
         run();
     });
@@ -62,6 +66,7 @@ function initMap() {
     btn_private.on('click',function () {
         clearOverlays();
         deleteArrayMarkers();
+        checkMapLoaded();
         setAllMarkersDBPrivateLocation();
         // showOverlays();
     });
@@ -84,13 +89,14 @@ function initMap() {
 
             currentPositionWithZoom.latLng = pos;
             currentPositionWithZoom.boundaries = map.getBounds();
-            if(currentPositionWithZoom.boundaries == null){
-                console.log('if u see this call me!');
-                setTimeout(function () {
-                    currentPositionWithZoom.boundaries = map.getBounds();
-                },100);
-                run();
-            }
+            zoom = map.getZoom();
+            // if(currentPositionWithZoom.boundaries == null){
+            //     console.log('if u see this call me!');
+            //     setTimeout(function () {
+            //         currentPositionWithZoom.boundaries = map.getBounds();
+            //     },100);
+            //     run();
+            // }
             run();
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -109,6 +115,34 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
+function checkMapLoaded() {
+    triggerMapLoaded = false;
+    var timer = setInterval(function () {
+        if (!triggerMapLoaded){
+            console.log(triggerMapLoaded);
+            console.log(currentPositionWithZoom.latLng);
+            console.log(currentPositionWithZoom.boundaries);
+            if (currentPositionWithZoom.latLng != null && currentPositionWithZoom.boundaries != null){
+                console.log('not null');
+                triggerMapLoaded = true;
+                clearInterval(timer);
+            }else {
+                console.log('map not loaded yet');
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    currentPositionWithZoom.latLng = map.setCenter(pos);
+                    currentPositionWithZoom.boundaries = map.getBounds();
+                });
+            }
+        }
+    },1000);
+
+
+}
+
 function setAllMap(map) {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
@@ -123,32 +157,22 @@ function setAllMarkerDBLocation() {
 function setAllMarkersDBPrivateLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            var currLatLng = map.center;
-            console.log(pos == currLatLng);
-            currentPositionWithZoom.latLng = map.center;
-            currentPositionWithZoom.boundaries = map.getBounds();
+            console.log('check map latlng');
             var currLat = position.coords.latitude;
             var currLng = position.coords.longitude;
             var latPrev = currentPositionWithZoom.latLng.lat;
             var lngPrev = currentPositionWithZoom.latLng.lng;
-            currLat.toString().substring(0, 10);
-            currLng.toString().substring(0, 10);
-            latPrev.toString().substring(0, 10);
-            lngPrev.toString().substring(0, 10);
-            console.log(currLat);
-            console.log(currLng);
-            console.log(latPrev);
-            console.log(lngPrev);
-            if (currLat == latPrev && currLng == lngPrev){
+            // console.log(Math.abs(position.coords.latitude - currentPositionWithZoom.latLng.lat));
+            // console.log(Math.abs(position.coords.longitude - currentPositionWithZoom.latLng.lng));
+            // console.log(zoom);
+            // console.log(map.getZoom());
+            if (Math.abs(currLat-latPrev) < 0.00001 && Math.abs(currLng-lngPrev) < 0.00001
+                    && zoom == map.getZoom()){
                 console.log('same location');
                 console.log(markers);
                 convertFromMarkersDBToMarkres(true);
+                zoom = map.getZoom();
                 setTimeout(showOverlays,500);
-                console.log(markers);
             }else {
                 console.log('was refreshed');
                 deleteArrayMarkersAndMarkersDB();
@@ -167,6 +191,7 @@ function setAllMarkersDBPrivateLocation() {
                         isLoaded = false;
                     }
                 }, 50);
+                zoom = map.getZoom();
             }
         })
     }else {
@@ -390,32 +415,39 @@ function getMarkersFromDb() {
 }
 
 function getMarkersFromDbWithBoundaries() {
-    //TO DO check map not null
-    // console.log(currentPositionWithZoom.boundaries.lat);
-    // console.log(currentPositionWithZoom.boundaries.lng);
-    var request = JSON.stringify(currentPositionWithZoom);
-    $.ajax({
-        type: 'POST',
-        url: '/api/getAll',
-        contentType: "application/json",
-        data: request,
-        success: function(data){
-            if('auth' in data){
-                document.location.href = '/login';
-            }
-            if('events' in data){
-                var arr = data.events;
-                for(var i=0;i<arr.length;i++){
-                    markersDB.push(arr[i]);
+    console.log(triggerMapLoaded);
+    checkMapLoaded();
+    var timer = setInterval(function () {
+        if (triggerMapLoaded){
+            console.log('go to db');
+            var request = JSON.stringify(currentPositionWithZoom);
+            $.ajax({
+                type: 'POST',
+                url: '/api/getAll',
+                contentType: "application/json",
+                data: request,
+                success: function(data){
+                    if('auth' in data){
+                        document.location.href = '/login';
+                    }
+                    if('events' in data){
+                        var arr = data.events;
+                        for(var i=0;i<arr.length;i++){
+                            markersDB.push(arr[i]);
+                        }
+                        isLoaded = true;
+                    }
+                },
+                error: function () {
+                    // document.location.href = '/map';
+                    console.log('some error');
                 }
-                isLoaded = true;
-            }
-        },
-        error: function () {
-            // document.location.href = '/map';
-            console.log('some error');
+            });
+            clearInterval(timer);
         }
-    });
+
+    },1000);
+
 }
 
 
@@ -458,6 +490,7 @@ function removeEvent(id) {
 }
 
 function run(privateTrigger) {
+    console.log('run');
     //Map is already shown
     //1) getting Events from server to markersDB[] variable
     getMarkersFromDbWithBoundaries();
