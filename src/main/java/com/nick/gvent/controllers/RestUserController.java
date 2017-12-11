@@ -15,10 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -71,33 +68,29 @@ public class RestUserController {
         return map;
     }
 
-    @RequestMapping(value = "/getUsersEvents/{json}", method = RequestMethod.GET,
+    @RequestMapping(value = "/getUsersEvents", method = RequestMethod.GET,
             produces = "application/json")
-    public Map<String, List<EventDTO>> getAllUserEvents(@PathVariable JSONObject json, Authentication authentication)
+    public Map<String, List<EventDTO>> getAllUserEvents(@RequestParam("userId") Integer id, Authentication authentication)
             throws JSONException {
         Map<String, List<EventDTO>> map = new HashMap<>();
         if (authentication == null){
             map.put("auth",null);
             return map;
         }
-        Integer id = (Integer) json.get("user");
-
         List<EventDTO> list = eventService.getAllByUserId(id.longValue());
         map.put("events",list);
         return map;
     }
 
-    @RequestMapping(value = "/getUsersEventsTakePart/{json}", method = RequestMethod.GET,
+    @RequestMapping(value = "/getUsersEventsTakePart", method = RequestMethod.GET,
             produces = "application/json")
-    public Map<String, List<EventDTO>> getAllUserEventsTakePart(@PathVariable JSONObject json, Authentication authentication)
+    public Map<String, List<EventDTO>> getAllUserEventsTakePart(@RequestParam("userId") Integer id, Authentication authentication)
             throws JSONException {
         Map<String, List<EventDTO>> map = new HashMap<>();
         if (authentication == null){
             map.put("auth",null);
             return map;
         }
-        Integer id = (Integer) json.get("user");
-
         List<EventDTO> list = eventService.getAllTakePartInByUserId(id.longValue());
         map.put("events",list);
         return map;

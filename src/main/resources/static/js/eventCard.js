@@ -1,5 +1,9 @@
 
 var userCookieChecked = false;
+var eventsTakePartTriggerLoaded = false;
+var eventsCreatorTriggerLoaded= false;
+var eventArrParticipant = [];
+var eventArrCreator = [];
 
 function getUserAjax() {
     $.ajax({
@@ -28,16 +32,21 @@ function getUserAjax() {
 }
 
 function getMarkersFromDbPrivate(id) {
-    var request = JSON.stringify({"user":id});
+    // var request = JSON.stringify({"user":id});
     $.ajax({
         type: 'GET',
-        url: '/api/user/getUsersEvents/'+request,
+        url: '/api/user/getUsersEvents/',
+        data:'userId='+id,
         success: function(data){
             if('auth' in data){
                 document.location.href = '/login';
             }
             if('events' in data){
                 console.log(data);
+                for(var i=0;i<data.events.length;i++){
+                    eventArrCreator.push(data.events[i]);
+                }
+                eventsCreatorTriggerLoaded= true;
             }
         },
         error: function () {
@@ -47,15 +56,19 @@ function getMarkersFromDbPrivate(id) {
 }
 
 function getEventsFromDbTakePartIn(id) {
-    var request = JSON.stringify({"user":id});
     $.ajax({
         type: 'GET',
-        url: '/api/user/getUsersEventsTakePart/'+request,
+        url: '/api/user/getUsersEventsTakePart/',
+        data: "userId="+id,
         success: function(data){
             if('auth' in data){
                 document.location.href = '/login';
             }
             if('events' in data){
+                for(var i=0;i<data.events.length;i++){
+                    eventArrParticipant.push(data.events[i]);
+                }
+                eventsTakePartTriggerLoaded = true;
                 console.log(data);
             }
         },
@@ -96,15 +109,53 @@ function checkCookieValid(userJson) {
     }
     return false;
 }
+
+function createCards() {
+    var container = $('.card_container');
+    for(var i = 0;i<eventArrCreator.length;i++){
+        var card = $('<div></div>');
+        card.addClass('card_m');
+        card.addClass('creator');
+        card.attr('draggable','true');
+        card.text(eventArrCreator[i].description);
+        container.append(card);
+    }
+    for(var i = 0;i<eventArrParticipant.length;i++){
+        var card = $('<div></div>');
+        card.addClass('card_m');
+        card.attr('draggable','true');
+        card.text(eventArrParticipant[i].description);
+        container.append(card);
+    }
+}
+
 function run() {
-    var timer = setInterval(function () {
+    var timerLoadTP = setInterval(function () {
         if (userCookieChecked){
             console.log('run');
             var id = $.cookie('userId');
             getEventsFromDbTakePartIn(id);
-            clearInterval(timer);
+            userCookieChecked = false;
+            clearInterval(timerLoadTP);
         }
     },300);
+    var timerLoadC = setInterval(function () {
+        console.log('wait for creator events');
+        if (eventsTakePartTriggerLoaded){
+            var id = $.cookie('userId');
+            getMarkersFromDbPrivate(id);
+            clearInterval(timerLoadC);
+        }
+    },500);
+
+    var timerAllLoaded = setInterval(function () {
+        console.log('check all true');
+        if (eventsCreatorTriggerLoaded && eventsTakePartTriggerLoaded){
+            console.log('are true');
+            createCards();
+            clearInterval(timerAllLoaded);
+        }
+    },500);
 }
 getUserAjax();
 run();
