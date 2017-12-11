@@ -1,7 +1,7 @@
 function getUserAjax() {
     $.ajax({
         type: 'GET',
-        url: '/api/getUserInfo',
+        url: '/api/user/getUserInfo',
         success: function(data){
             if('auth' in data){
                 document.location.href = '/login';

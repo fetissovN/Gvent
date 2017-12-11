@@ -431,6 +431,7 @@ function getMarkersFromDbWithBoundaries() {
                         document.location.href = '/login';
                     }
                     if('events' in data){
+                        console.log(data);
                         var arr = data.events;
                         for(var i=0;i<arr.length;i++){
                             markersDB.push(arr[i]);

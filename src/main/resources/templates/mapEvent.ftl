@@ -66,7 +66,7 @@
             <button class="showPrivateBtn">Show my markers</button>
         </div>
         <div class="private">
-            <button class="showIAmParticipateInBtn">Show my markers</button>
+            <button class="showIAmParticipateInBtn">Show markers takePart</button>
         </div>
 
         <div id="map"></div>
