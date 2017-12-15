@@ -55,6 +55,31 @@ function getMarkersFromDbPrivate(id) {
     });
 }
 
+function removeEvent(id) {
+    $.ajax({
+        type: 'DELETE',
+        url: '/api/event/removeEvent/'+id,
+        success: function(data){
+            if('auth' in data){
+                document.location.href = '/login';
+            }
+            if('fail' in data){
+                console.log('no such id');
+            }
+            if('deleted' in data){
+                var cardToDelete = $('.deleteEvent[data-id='+id+']');
+                var parent = cardToDelete.parent();
+                parent.remove();
+                // $('.refresh').click();
+
+            }
+        },
+        error: function () {
+            alert('fail');
+        }
+    });
+}
+
 function getEventsFromDbTakePartIn(id) {
     $.ajax({
         type: 'GET',
@@ -113,11 +138,15 @@ function checkCookieValid(userJson) {
 function createCards() {
     var container = $('.card_container');
     for(var i = 0;i<eventArrCreator.length;i++){
+        var del = $('<button>X</button>');
+        del.addClass('deleteEvent');
+        del.attr('data-id',eventArrCreator[i].id);
         var card = $('<div></div>');
         card.addClass('card_m');
         card.addClass('creator');
         card.attr('draggable','true');
         card.text(eventArrCreator[i].description);
+        card.append(del);
         container.append(card);
     }
     for(var i = 0;i<eventArrParticipant.length;i++){
@@ -157,6 +186,12 @@ function run() {
         }
     },500);
 }
+
+$(document).on('click','.deleteEvent',function () {
+    var b = this.getAttribute('data-id');
+    removeEvent(b);
+});
+
 getUserAjax();
 run();
 
