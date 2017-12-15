@@ -17,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -136,17 +137,20 @@ public class RestEventController {
         }
         return map;
     }
-    @RequestMapping(value = "/removeEvent/{json}", method = RequestMethod.DELETE,
+    @RequestMapping(value = "/removeEvent/{id}", method = RequestMethod.DELETE,
             produces = "application/json")
-    public Map<String, List<EventDTO>> removeEvent(@PathVariable JSONObject json, Authentication authentication)
+    public Map<String, List<EventDTO>> removeEvent(@PathVariable("id") Long id, Authentication authentication)
             throws JSONException {
         Map<String, List<EventDTO>> map = new HashMap<>();
         if (authentication == null){
             map.put("auth",null);
             return map;
         }
-        Integer id = (Integer) json.get("event");
-        eventService.delete(id.longValue());
+        try{
+            eventService.delete(id);
+        }catch (EmptyResultDataAccessException e){
+            map.put("fail",new ArrayList<>());
+        }
         map.put("deleted",new ArrayList<>());
         return map;
     }

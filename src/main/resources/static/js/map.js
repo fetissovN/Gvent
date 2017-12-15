@@ -60,6 +60,7 @@ function initMap() {
     var btn_cancel = $('.createEvent_cancelBtn');
     var btn_private = $('.showPrivateBtn');
     var btn_take_part_in= $('.showIAmParticipateInBtn');
+    var btn_delete_event= $('.deleteEvent');
     btn_add.on('click', createEvent);
     btn_cancel.on('click', function (){
         closeChoiceBox(true);
@@ -76,9 +77,14 @@ function initMap() {
         checkMapLoaded();
         setAllMarkerDBTakePartLocation();
     });
+
     $(document).on('click', '.participate', function() {
         var b = this.getAttribute('data-id');
         participate(b);
+    });
+    $(document).on('click', '.deleteEvent', function() {
+        var b = this.getAttribute('data-id');
+        removeEvent(b);
     });
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -301,6 +307,11 @@ function createCustomInfoWindow(content,id, userId, participants) {
     button.addClass('participate');
     button.attr('data-id',id);
     if (checkCookieOwner(userId)){
+        var delButton = $('<button></button>');
+        delButton.text('delete');
+        delButton.addClass('deleteEvent');
+        delButton.attr('data-id',id);
+        insideBox.append(delButton);
         button.text("You are Creator");
         button.prop('disabled', true);
     }
@@ -472,16 +483,18 @@ function getMarkersFromDbPrivate(id) {
 }
 
 function removeEvent(id) {
-    var request = JSON.stringify({"event":id});
     $.ajax({
         type: 'DELETE',
-        url: '/api/event/removeEvent/'+request,
+        url: '/api/event/removeEvent/'+id,
         success: function(data){
             if('auth' in data){
                 document.location.href = '/login';
             }
+            if('fail' in data){
+                console.log('no such id');
+            }
             if('deleted' in data){
-                console.log(data);
+                $('.refresh').click();
             }
         },
         error: function () {
