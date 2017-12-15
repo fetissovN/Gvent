@@ -31,6 +31,8 @@ public interface EventService {
     List<EventDTOWithUsersList> getAllInBoundariesWithParticipants(Float lat1, Float lat2, Float lng1, Float lng2);
 
     List<EventDTO> getAllTakePartInByUserId(Long id);
+
+    boolean isUserCreatorOfEvent(Long eventId, String username);
 //    List<EventDTO> getAllPureTable();
 
 

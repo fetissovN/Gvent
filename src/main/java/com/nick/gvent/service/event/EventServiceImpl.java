@@ -102,6 +102,12 @@ public class EventServiceImpl implements EventService{
         return convertEventsToEventsDTOWithPatricipants(list);
     }
 
+    @Override
+    public boolean isUserCreatorOfEvent(Long eventId, String username) {
+        Event event = eventDao.findOne(eventId);
+        return event.getUserId().getUsername().equals(username);
+    }
+
     private List<EventDTO> convertEventsToEventsDTO(List<Event> listEvents){
         List<EventDTO> listDTO = new Vector<>();
         for (Event e: listEvents){

@@ -147,14 +147,14 @@ public class RestEventController {
             return map;
         }
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        User user = userService.findUserByUsername(userDetails.getUsername());
-
-        try{
-            eventService.delete(id);
-        }catch (EmptyResultDataAccessException e){
-            map.put("fail",new ArrayList<>());
+        if (eventService.isUserCreatorOfEvent(id,userDetails.getUsername())){
+            try{
+                eventService.delete(id);
+            }catch (EmptyResultDataAccessException e){
+                map.put("fail",null);
+            }
         }
-        map.put("deleted",new ArrayList<>());
+        map.put("deleted",null);
         return map;
     }
 
