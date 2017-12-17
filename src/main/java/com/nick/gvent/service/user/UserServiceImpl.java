@@ -69,6 +69,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByUsername(String username) {
         User userDB = userDao.findByUsername(username);
+        if(userDB != null){
+            LOGGER.info("Find user by nickname passed {}", userDB);
+        }else {
+            LOGGER.info("Find user by nickname {} failed", username);
+        }
         return userDB;
     }
 

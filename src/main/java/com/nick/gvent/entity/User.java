@@ -204,20 +204,16 @@ public class User implements UserDetails{
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", authorities=" + authorities +
                 ", username='" + username + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", passwordCheck='" + passwordCheck + '\'' +
                 ", accountNonExpired=" + accountNonExpired +
                 ", accountNonLocked=" + accountNonLocked +
                 ", credentialsNonExpired=" + credentialsNonExpired +
                 ", enabled=" + enabled +
-                ", eventsList=" + eventsList +
                 '}';
     }
 }

@@ -12,13 +12,13 @@ import java.util.List;
 
 public interface EventService {
 
-    Event save(Event event);
+    Event save(String usernameAuth, Event event);
 
-    void delete(Long id);
+    void delete(Long id, String usernameAuth);
 
-    Event update(Event event);
+    Event update(Event event, String usernameAuth);
 
-    Event getOne(Long id);
+    Event getOne(Long id, String usernameAuth);
 
     List<EventDTO> getAll();
 
@@ -28,9 +28,9 @@ public interface EventService {
 
     EventDTO addParticipantToEvent(Long idEvent, String username);
 
-    List<EventDTOWithUsersList> getAllInBoundariesWithParticipants(Float lat1, Float lat2, Float lng1, Float lng2);
+    List<EventDTOWithUsersList> getAllInBoundariesWithParticipants(Float lat1, Float lat2, Float lng1, Float lng2, String usernameAuth);
 
-    List<EventDTO> getAllTakePartInByUserId(Long id);
+    List<EventDTO> getAllTakePartInByUserId(Long id, String usernameAuth);
 
     boolean isUserCreatorOfEvent(Long eventId, String username);
 //    List<EventDTO> getAllPureTable();

@@ -74,7 +74,7 @@ public class RestEventController {
 
             event.setEventRelatedMessages(null);
             event.setUserId(user);
-            Event eventDB = eventService.save(event);
+            Event eventDB = eventService.save(user.getUsername(),event);
             EventDTO eventDTODB = eventToEventDTO.convert(eventDB);
             if (eventDB != null){
                 eventDB.setParticipants(null);
@@ -149,7 +149,7 @@ public class RestEventController {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         if (eventService.isUserCreatorOfEvent(id,userDetails.getUsername())){
             try{
-                eventService.delete(id);
+                eventService.delete(id, userDetails.getUsername());
             }catch (EmptyResultDataAccessException e){
                 map.put("fail",null);
             }
@@ -168,15 +168,13 @@ public class RestEventController {
             map.put("auth",null);
             return map;
         }
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         double south = (Double) json.getBoundaries().get("south");
         double north = (Double) json.getBoundaries().get("north");
         double east = (Double) json.getBoundaries().get("east");
         double west = (Double) json.getBoundaries().get("west");
-        List<EventDTOWithUsersList> list = eventService.getAllInBoundariesWithParticipants(
-                (float) south,
-                (float) north,
-                (float) east,
-                (float) west);
+        List<EventDTOWithUsersList> list = eventService.getAllInBoundariesWithParticipants((float) south,
+                (float) north, (float) east, (float) west, userDetails.getUsername());
         map.put("events",list);
         return map;
     }

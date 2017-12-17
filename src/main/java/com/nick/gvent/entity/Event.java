@@ -1,6 +1,7 @@
 package com.nick.gvent.entity;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -125,5 +126,13 @@ public class Event {
         int result = id.hashCode();
         result = 31 * result + userId.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", userId=" + userId +
+                '}';
     }
 }

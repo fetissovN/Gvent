@@ -36,12 +36,6 @@ public class RestUserController {
     private UserService userService;
 
     @Autowired
-    private SpringConverterEventDTOToEvent eventDTOToEvent;
-
-    @Autowired
-    private SpringConverterEventToEventDTO eventToEventDTO;
-
-    @Autowired
     private SpringConverterUserToUserDTO userToUserDTO;
 
     @RequestMapping(value = "/getUserInfo", method = RequestMethod.GET
@@ -91,7 +85,9 @@ public class RestUserController {
             map.put("auth",null);
             return map;
         }
-        List<EventDTO> list = eventService.getAllTakePartInByUserId(id.longValue());
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+
+        List<EventDTO> list = eventService.getAllTakePartInByUserId(id.longValue(), userDetails.getUsername());
         map.put("events",list);
         return map;
     }
