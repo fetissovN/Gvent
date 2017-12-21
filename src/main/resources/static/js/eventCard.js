@@ -211,7 +211,7 @@ $(".closeBtn").click(function(){
 });
 // CLOSE button END-------------
 
-$(".cardZip_m").click(function(){
+$(".card_m").click(function(){
     $(".cardEvent_chat_wrapper").show();
 });
 

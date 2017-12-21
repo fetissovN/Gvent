@@ -37,6 +37,19 @@ function initMap() {
     // trafficLayer.setMap(map); SHOWS TRAFFIC ON THE MAP
     infoWindow = new google.maps.InfoWindow;
 
+
+
+    jQuery(document).ready(function() {
+        if ($('.createEventWindow').is(":visible") ) {
+            $('.overlay-back').show();
+        } else {
+            $('.overlay-back').hide();
+        }
+    });
+
+
+
+
     google.maps.event.addListener(map, 'rightclick', function(event) {
         newEvent = new Event(null,null,null,null,event.latLng.lat(),event.latLng.lng());
         var box = $('.createEventWindow_wrapper');

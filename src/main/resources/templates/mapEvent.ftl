@@ -33,8 +33,8 @@
             <div class="navigation-wrapper">
                 <ul class="nav">
                     <li> <a href="/">Dashboard</a> </li>
-                    <li> <a href="/map">MapEvent</a> </li>
                     <li> <a href="">3rd page</a> </li>
+                    <li> <a href="/map">MapEvent</a> </li>
                 </ul>
             </div>
 
@@ -63,10 +63,10 @@
         // u can name button class as u wish , they are initialized in map js in initMap function (u should rename them there also)
         // div classes are not used in js
         <div class="private">
-            <button class="showPrivateBtn">Show my markers</button>
+            <button class="showPrivateBtn">My Events</button>
         </div>
         <div class="private">
-            <button class="showIAmParticipateInBtn">Show markers takePart</button>
+            <button class="showIAmParticipateInBtn">Participation</button>
         </div>
 
         <div id="map"></div>

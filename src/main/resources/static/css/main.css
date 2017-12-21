@@ -64,6 +64,33 @@ ul.nav {
 	-o-transition: all .5s ease;
 	transition: all .5s ease;
 }
+
+
+
+
+
+
+
+/* --------USER PROFILE--------*/
+
+.user-profile-wrapper {
+	position: absolute;
+	margin: 0 auto;
+	width: 60px;
+	/*height: 40px;*/
+	z-index: 3;
+	background-color: red;
+}
+
+/* ------USER PROFILE END------*/
+
+
+
+
+
+
+
+
 /* --------ACTIONS BAR-------- */
 .headNav-mapActions-wrapped {
 	flex: 1 1;
@@ -95,7 +122,7 @@ ul.nav {
 /* ----------Navigation Header END---------- */
 
 /* ----------Body Cards---------- */
-.card_m, .cardZip_m {
+.card_m {
 	border: 2px solid rgb(255, 255, 255);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -112,24 +139,18 @@ ul.nav {
 	padding: 0.5%;
 	overflow: hidden;
 	background-color: rgb(255, 255, 255);
-	box-shadow: 0 2px 3px 0 rgb(209, 209, 209);
+	box-shadow: 0 2px 3px 0 rgb(185, 185, 185);
 	float: left;
 	transition: .1s ease;
 }
 .card_m:hover{
-	box-shadow:0 2px 8px 1px rgb(196, 196, 196);
-	-webkit-transform: translateY(-1px);
-	transform: translateY(-1px);
+	box-shadow:0 2px 8px 1px rgb(150, 150, 150);
+	-webkit-transform: translateY(-2px);
+	transform: translateY(-2px);
 }
 
 .creator{
 	background: green;
-}
-
-.cardZip_m:hover{
-	box-shadow:0 2px 8px 1px rgb(196, 196, 196);
-	-webkit-transform: translateY(-1px);
-	transform: translateY(-1px);
 }
 .cardEvent_chat_wrapper{
 	display: none;
@@ -294,6 +315,7 @@ input[type=text]:focus {
 	background-color: gray;
 	animation-name: chatHead_animation;
 	animation-duration: .3s;
+	cursor: pointer;
 }
 input[type=submit]:focus {
 	outline: none;

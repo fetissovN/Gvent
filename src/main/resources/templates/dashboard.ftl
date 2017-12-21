@@ -32,8 +32,8 @@
             <div class="navigation-wrapper">
                 <ul class="nav">
                     <li> <a href="/">Dashboard</a> </li>
-                    <li> <a href="/map">MapEvent</a> </li>
                     <li> <a href="">3rd page</a> </li>
+                    <li> <a href="/map">MapEvent</a> </li>
                 </ul>
             </div>
 
@@ -44,32 +44,14 @@
             </div>
         </div>
         <!-- Header_navigation_menu END -->
-    <div class="card_container">
-        <!-- Card section -->
-        <div class="card_m"  draggable="true"> <h6>Message: Kate</h6>
-            LOL, or lol, is an acronym for laugh(ing) out loud or lots of laughs and a popular element of Internet slang.
-            It was first used almost exclusively on Usenet, but has since become widespread in other forms of computer-mediated communication and even face-to-face communication.
-            It is one of many initialisms for expressing bodily reactions, in particular laughter, as text, including initialisms for more emphatic expressions of laughter such as LMAO ("laugh(ing) my ass off")
-            and ROFL (or its older form ROTFL; "roll(ing) on the floor laughing"). Other unrelated expansions include the now mostly obsolete "lots of luck" or "lots of love" used in letter-writing.
-        </div>
 
-        <div class="cardZip_m"  draggable="true"> <h6>8100 East 7th Streer, Charlotte, NC 28202</h6>
+        <!-- Card_m section -->
+    <div class="card_container">
+        <div class="card_m"  draggable="true"> <h6>8100 East 7th Streer, Charlotte, NC 28202</h6>
             <p>Chat</p>
         </div>
-
-        <div class="card_m"  draggable="true"> <h6>Message: Nick</h6>
-            LOL, or lol, is an acronym for laugh(ing) out loud or lots of laughs and a popular element of Internet slang.
-            It was first used almost exclusively on Usenet, but has since become widespread in other forms of computer-mediated communication and even face-to-face communication.
-            It is one of many initialisms for expressing bodily reactions, in particular laughter, as text, including initialisms for more emphatic expressions of laughter such as LMAO ("laugh(ing) my ass off")
-            and ROFL (or its older form ROTFL; "roll(ing) on the floor laughing"). Other unrelated expansions include the now mostly obsolete "lots of luck" or "lots of love" used in letter-writing.
-        </div>
-
-        <div class="card_m"  draggable="true"> <h6>John send you a picture</h6>
-            <img src="images/image.jpeg" alt="img" draggable="false" style="width:75%;height:75%;">
-        </div>
-        <!-- Card section END -->
-
     </div>
+    <!-- Card_m section END -->
 
     <#--******************-->
     <div class="cardEvent_chat_wrapper">
@@ -104,9 +86,8 @@
             </div>
         </div>
     </div>
-
-
     <#--********************-->
+
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="js/jquery.cookie.js"> </script>
     <script src="js/eventCard.js"> </script>
