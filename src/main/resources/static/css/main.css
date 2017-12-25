@@ -85,12 +85,6 @@ ul.nav {
 /* ------USER PROFILE END------*/
 
 
-
-
-
-
-
-
 /* --------ACTIONS BAR-------- */
 .headNav-mapActions-wrapped {
 	flex: 1 1;
@@ -98,7 +92,7 @@ ul.nav {
 	align-items: center;
 	justify-content: center;
 }
-.refresh, .search, .my-location {
+.refresh, .search, .my-location, .markers {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -109,7 +103,7 @@ ul.nav {
 	margin-right: 5px;
 	cursor: pointer;
 }
-.refresh:hover, .search:hover, .my-location:hover {
+.refresh:hover, .search:hover, .my-location:hover, .markers:hover {
 	color: 	white;
 	background-color: orange;
 	box-shadow: 0 5px 5px 0 #888888;
@@ -143,14 +137,14 @@ ul.nav {
 	float: left;
 	transition: .1s ease;
 }
-.card_m:hover{
+.card_m:hover, .creator:hover{
 	box-shadow:0 2px 8px 1px rgb(150, 150, 150);
 	-webkit-transform: translateY(-2px);
 	transform: translateY(-2px);
 }
 
 .creator{
-	background: green;
+	background: #8de192;
 }
 .cardEvent_chat_wrapper{
 	display: none;
@@ -499,3 +493,50 @@ h6 {
 	display: none;
 }
 /*---------------MAP CREATE EVENT WINDOW END----------------*/
+
+.markers-menu-wrapper {
+	display: none;
+	position: absolute;
+	top: 60px;
+	right: 14%;
+	z-index: 1;
+}
+.markers-menu-list {
+	list-style: none;
+}
+.markers-menu-list li {
+	padding-bottom: 10px;
+}
+.markers-my-events, .markers-involved {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	height: 30px;
+	border: 2px solid orange;
+	border-radius: 20px;
+	background-color: white;
+	color: orange;
+	box-shadow: 0 5px 5px 0 #aaaaaa;
+	margin-right: 5px;
+	cursor: pointer;
+}
+.markers-my-events button, .markers-involved button {
+	border-style: none;
+	outline: none;
+	font-family: Roboto,Arial,sans-serif;
+	color: orange;
+	font-size: .8em;
+	margin: 0 5px 0 5px;
+	cursor: pointer;
+	background-color: transparent;
+}
+.markers-my-events:hover, .markers-involved:hover {
+	color: 	white;
+	background-color: orange;
+	box-shadow: 0 5px 5px 0 #888888;
+	animation-name: chatHead_animation;
+	animation-duration: .15s;
+}
+.markers-my-events i, .markers-involved i {
+	margin-left: 5px;
+}

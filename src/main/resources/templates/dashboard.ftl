@@ -21,7 +21,6 @@
 </head>
 
 <body>
-    <#--<#include "bar.ftl">-->
 
         <!-- Header_navigation_menu -->
         <div class="headNavBox-wrapper">
@@ -32,8 +31,8 @@
             <div class="navigation-wrapper">
                 <ul class="nav">
                     <li> <a href="/">Dashboard</a> </li>
-                    <li> <a href="">3rd page</a> </li>
                     <li> <a href="/map">MapEvent</a> </li>
+                    <li> <a href="">3rd page</a> </li>
                 </ul>
             </div>
 
@@ -45,20 +44,19 @@
         </div>
         <!-- Header_navigation_menu END -->
 
-        <!-- Card_m section -->
+        <!-- Card section -->
     <div class="card_container">
-        <div class="card_m"  draggable="true"> <h6>8100 East 7th Streer, Charlotte, NC 28202</h6>
+        <div class="card_m"  draggable="true"> <h6>8100 East 7th Street, Charlotte, NC 28202</h6>
             <p>Chat</p>
         </div>
     </div>
-    <!-- Card_m section END -->
-
+        <!-- Card section END -->
     <#--******************-->
     <div class="cardEvent_chat_wrapper">
         <div class="cardEvent_chat">
 
             <div class="chatHead_title">
-                <p class="chatHead_eventAddress"> 810 East 7th Streer, Charlotte, NC 28202 </p>
+                <p class="chatHead_eventAddress"> 810 East 7th Street, Charlotte, NC 28202 </p>
 
                 <div class="chatHead_menu">
                     <div class="event-options"> <i class="material-icons">more_vert</i> </div>
@@ -86,12 +84,11 @@
             </div>
         </div>
     </div>
-    <#--********************-->
 
+
+    <#--********************-->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="js/jquery.cookie.js"> </script>
     <script src="js/eventCard.js"> </script>
     </body>
 </html>
-
-<#--TEST 12-24-2017-->

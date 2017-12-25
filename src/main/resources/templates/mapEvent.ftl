@@ -39,10 +39,30 @@
             </div>
 
             <div class="headNav-mapActions-wrapped">
+                <div class="markers"> <i class="material-icons">location_on</i> </div>
                 <div class="refresh"> <i class="material-icons">refresh</i> </div>
                 <div class="my-location"> <i class="material-icons">my_location</i> </div>
                 <div class="search"> <i class="material-icons">search</i> </div>
             </div>
+        </div>
+
+        <div class="markers-menu-wrapper">
+            <!-- // u can name button class as u wish , they are initialized in map js in initMap function (u should rename them there also)
+            div classes are not used in js -->
+            <ul class="markers-menu-list">
+                <li>
+                    <div class="markers-my-events">
+                        <i class="material-icons">person_outline</i>
+                        <button class="showPrivateBtn">My Events</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="markers-involved">
+                        <i class="material-icons">people_outline</i>
+                        <button class="showIAmParticipateInBtn">Involved In</button>
+                    </div>
+                </li>
+            </ul>
         </div>
         <!-- Header_navigation_menu END -->
 
@@ -59,14 +79,6 @@
                     <div class="createEvent_createBtn"> <span>CREATE</span> </div>
                 </div>
             </div>
-        </div>
-        // u can name button class as u wish , they are initialized in map js in initMap function (u should rename them there also)
-        // div classes are not used in js
-        <div class="private">
-            <button class="showPrivateBtn">My Events</button>
-        </div>
-        <div class="private">
-            <button class="showIAmParticipateInBtn">Participation</button>
         </div>
 
         <div id="map"></div>
