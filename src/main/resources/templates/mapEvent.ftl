@@ -33,7 +33,6 @@
             <div class="navigation-wrapper">
                 <ul class="nav">
                     <li> <a href="/">Dashboard</a> </li>
-                    <li> <a href="">3rd page</a> </li>
                     <li> <a href="/map">MapEvent</a> </li>
                 </ul>
             </div>

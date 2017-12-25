@@ -136,17 +136,27 @@ function checkCookieValid(userJson) {
 }
 
 function createCards() {
+    console.log(eventArrParticipant);
+    console.log(eventArrCreator);
     var container = $('.card_container');
     for(var i = 0;i<eventArrCreator.length;i++){
         var del = $('<button>X</button>');
         del.addClass('deleteEvent');
         del.attr('data-id',eventArrCreator[i].id);
         var card = $('<div></div>');
+        var name = $('<p></p>');
+        var descr = $('<p></p>');
+        descr.addClass('descr');
+        descr.text(eventArrCreator[i].description);
+        name.addClass('card_m-name');
+        name.text(eventArrCreator[i].name);
         card.addClass('card_m');
         card.addClass('creator');
         card.attr('draggable','true');
-        card.text(eventArrCreator[i].description);
+        card.attr('data-id', eventArrCreator[i].id);
         card.append(del);
+        card.append(name);
+        card.append(descr);
         container.append(card);
     }
     for(var i = 0;i<eventArrParticipant.length;i++){
@@ -157,7 +167,6 @@ function createCards() {
         container.append(card);
     }
 }
-
 function run() {
     var timerLoadTP = setInterval(function () {
         if (userCookieChecked){
@@ -211,17 +220,17 @@ $(".closeBtn").click(function(){
 });
 // CLOSE button END-------------
 
-$(".card_m").click(function(){
+$(document).on('click', '.card_m', function () {
+    console.log(this);
+    var id = this.getAttribute('data-id');
+    console.log(id);
+    var instantCard = null;
+    for (var i = 0; i < eventArrCreator.length; i++) {
+        if (eventArrCreator[i].id == id) {
+            instantCard = eventArrCreator[i];
+        }
+    }
+    console.log(instantCard);
+    $('.chatHead_eventAddress').text(instantCard.name);
     $(".cardEvent_chat_wrapper").show();
 });
-
-
-
-
-
-
-
-
-
-
-

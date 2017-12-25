@@ -535,3 +535,29 @@ function run(privateTrigger) {
         }
     }, 50);
 }
+
+///////////// Markers dropdown menu ////////////
+$(document).ready(function() {
+    $('.markers, .markers-menu-list').on('click', function(){
+        $('.markers-menu-wrapper').toggle();
+    });
+});
+
+$(function() {
+    $('.markers-my-events').hover(function() {
+        $('.showPrivateBtn').css('color', 'white');
+    }, function() {
+        // on mouseout, reset the background colour
+        $('.showPrivateBtn').css('color', '');
+    });
+});
+
+$(function() {
+    $('.markers-involved').hover(function() {
+        $('.showIAmParticipateInBtn').css('color', 'white');
+    }, function() {
+        // on mouseout, reset the background colour
+        $('.showIAmParticipateInBtn').css('color', '');
+    });
+});
+//////////// Markers dropdown menu END ///////////

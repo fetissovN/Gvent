@@ -32,7 +32,6 @@
                 <ul class="nav">
                     <li> <a href="/">Dashboard</a> </li>
                     <li> <a href="/map">MapEvent</a> </li>
-                    <li> <a href="">3rd page</a> </li>
                 </ul>
             </div>
 

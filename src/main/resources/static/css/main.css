@@ -146,6 +146,9 @@ ul.nav {
 .creator{
 	background: #8de192;
 }
+.deleteEvent {
+	float: right;
+}
 .cardEvent_chat_wrapper{
 	display: none;
 }
@@ -498,7 +501,7 @@ h6 {
 	display: none;
 	position: absolute;
 	top: 60px;
-	right: 14%;
+	right: 13%;
 	z-index: 1;
 }
 .markers-menu-list {
