@@ -140,7 +140,7 @@ function createCards() {
     console.log(eventArrCreator);
     var container = $('.card_container');
     for(var i = 0;i<eventArrCreator.length;i++){
-        var del = $('<button>X</button>');
+        var del = $('<button><i class="material-icons" style="font-size: 1.5em">close</i></button>');
         del.addClass('deleteEvent');
         del.attr('data-id',eventArrCreator[i].id);
         var card = $('<div></div>');

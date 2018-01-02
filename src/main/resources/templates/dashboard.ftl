@@ -43,13 +43,31 @@
         </div>
         <!-- Header_navigation_menu END -->
 
+
+
+
+
+
+
+
         <!-- Card section -->
-    <div class="card_container">
-        <div class="card_m"  draggable="true"> <h6>8100 East 7th Street, Charlotte, NC 28202</h6>
-            <p>Chat</p>
+        <div class="card_container">
+            <div class="card_m"  draggable="true">
+                <p class="card_m-name">8100 East 7th Street, Charlotte, NC 28202</p>
+                <button class="deleteEvent" data-id="1"><i class="material-icons" style="font-size: 1.5em">close</i></button>
+                <p class="descr">Description</p>
+            </div>
         </div>
-    </div>
         <!-- Card section END -->
+
+
+
+
+
+
+
+
+
     <#--******************-->
     <div class="cardEvent_chat_wrapper">
         <div class="cardEvent_chat">

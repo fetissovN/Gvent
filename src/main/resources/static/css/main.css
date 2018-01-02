@@ -65,22 +65,7 @@ ul.nav {
 	transition: all .5s ease;
 }
 
-
-
-
-
-
-
 /* --------USER PROFILE--------*/
-
-.user-profile-wrapper {
-	position: absolute;
-	margin: 0 auto;
-	width: 60px;
-	/*height: 40px;*/
-	z-index: 3;
-	background-color: red;
-}
 
 /* ------USER PROFILE END------*/
 
@@ -110,10 +95,7 @@ ul.nav {
 	animation-name: chatHead_animation;
 	animation-duration: .15s;
 }
-.search {
-	margin-right: 20px;
-}
-/* ----------Navigation Header END---------- */
+	/* ----------Navigation Header END---------- */
 
 /* ----------Body Cards---------- */
 .card_m {
@@ -126,7 +108,7 @@ ul.nav {
 	width: 180px;
 	height: 100px;
 	text-align: center;
-	font-size: 70%;
+	font-size: .7em;
 	word-wrap: break-word;
 	color: #666666;
 	margin: 1%;
@@ -137,19 +119,37 @@ ul.nav {
 	float: left;
 	transition: .1s ease;
 }
-.card_m:hover, .creator:hover{
+.card_m:hover, .creator:hover {
 	box-shadow:0 2px 8px 1px rgb(150, 150, 150);
 	-webkit-transform: translateY(-2px);
 	transform: translateY(-2px);
 }
-
-.creator{
-	background: #8de192;
+.deleteEvent {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 0px solid red;
+	color: red;
+	outline-style: none;
+}
+.deleteEvent:hover {
+	border-radius: 50%;
+	color: white;
+	background-color: red;
+}
+.card_m-name {
+	font-weight: 900;
+}
+.descr {
+	margin-top: 5px;
+}
+.creator {
+	border: 2px solid orange;
 }
 .deleteEvent {
 	float: right;
 }
-.cardEvent_chat_wrapper{
+.cardEvent_chat_wrapper {
 	display: none;
 }
 .cardEvent_chat {
@@ -330,7 +330,7 @@ input[type=submit]:focus {
 
 
 
-h6 {
+/*h6 {
 	text-align: center;
 	font-size: 110%;
 	font-family: Roboto,Arial,sans-serif;
@@ -340,7 +340,7 @@ h6 {
 	overflow: hidden;
 	margin-top: 1%;
 	margin-bottom: 2%;
-}
+}*/
 /* ----------Body Cards END----------- */
 
 /* LINKS */
