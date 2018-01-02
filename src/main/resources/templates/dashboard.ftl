@@ -36,74 +36,72 @@
             </div>
 
             <div class="headNav-mapActions-wrapped">
-                <#--<div class="refresh"> <i class="material-icons">refresh</i> </div>-->
-                <#--<div class="my-location"> <i class="material-icons">my_location</i> </div>-->
-                <#--<div class="search"> <i class="material-icons">search</i> </div>-->
+                <div class="search"> <i class="material-icons">search</i> </div>
+                <div class="user-settings"> <i class="material-icons">settings</i> </div>
             </div>
         </div>
         <!-- Header_navigation_menu END -->
 
 
-
-
-
+        <!--******************-->
+        <div class="cardEvent_chat_wrapper">
+            <div class="cardEvent_chat">
+                <div class="chatHead_title">
+                    <p class="chatHead_eventAddress"> 810 East 7th Street, Charlotte, NC 28202 </p>
+                    <div class="chatHead_menu">
+                        <div class="event-options"> <i class="material-icons">more_vert</i> </div>
+                        <div class="closeBtn"> <i class="material-icons">close</i> </div>
+                    </div>
+                </div>
+                <div class="bodyWrapper">
+                    <div class="chatBody_userList"> users </div>
+                    <div class="chatBody_chatWindow">
+                        <div class="chatBody_displayer">
+                        </div>
+                        <div class="chatBody_typer">
+                            <form>
+                                <input class="chatBody_field_input" type="text" name="sendAMessage" placeholder="Send a message">
+                                <input class="chatBody_btn_send" type="submit" value="&#10148">
+                                <!-- <form action="/action_page.php"> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--********************-->
 
 
 
         <!-- Card section -->
-        <div class="card_container">
-            <div class="card_m"  draggable="true">
-                <p class="card_m-name">8100 East 7th Street, Charlotte, NC 28202</p>
-                <button class="deleteEvent" data-id="1"><i class="material-icons" style="font-size: 1.5em">close</i></button>
-                <p class="descr">Description</p>
+        <div class="dashboard-wrapper">
+
+            <div class="user-info-wrapper">
+                <div class="user-info-picture"></div>
+                <div class="user-info-summary">
+                    <div class="user-info-menu"> </div>
+                    <div class="user-info-name">
+                        <p> Dennis Kiparyn </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-space">
+                <div class="dashboard-space-events">
+                    <div class="card_m"  draggable="true">
+                        <p class="card_m-name">8100 East 7th Street, Charlotte, NC 28202</p>
+                        <button class="deleteEvent" data-id="1"><i class="material-icons" style="font-size: 1.5em">close</i> </button>
+                        <p class="descr">Description</p>
+                    </div>
+                </div>
+                <div class="dashboard-space-feed">
+                    <div class="feed-card"> <p>Test Feed :)</p> </div>
+                </div>
             </div>
         </div>
         <!-- Card section END -->
 
 
-
-
-
-
-
-
-
-    <#--******************-->
-    <div class="cardEvent_chat_wrapper">
-        <div class="cardEvent_chat">
-
-            <div class="chatHead_title">
-                <p class="chatHead_eventAddress"> 810 East 7th Street, Charlotte, NC 28202 </p>
-
-                <div class="chatHead_menu">
-                    <div class="event-options"> <i class="material-icons">more_vert</i> </div>
-                    <div class="closeBtn"> <i class="material-icons">close</i> </div>
-                </div>
-
-            </div>
-
-            <div class="bodyWrapper">
-                <div class="chatBody_userList"> users </div>
-                <div class="chatBody_chatWindow">
-
-                    <div class="chatBody_displayer">
-                    </div>
-
-                    <div class="chatBody_typer">
-                        <form>
-                            <input class="chatBody_field_input" type="text" name="sendAMessage" placeholder="Send a message">
-                            <input class="chatBody_btn_send" type="submit" value="&#10148">
-                            <!-- <form action="/action_page.php"> -->
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-    <#--********************-->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="js/jquery.cookie.js"> </script>
     <script src="js/eventCard.js"> </script>

@@ -138,7 +138,7 @@ function checkCookieValid(userJson) {
 function createCards() {
     console.log(eventArrParticipant);
     console.log(eventArrCreator);
-    var container = $('.card_container');
+    var container = $('.dashboard-space-events');
     for(var i = 0;i<eventArrCreator.length;i++){
         var del = $('<button><i class="material-icons" style="font-size: 1.5em">close</i></button>');
         del.addClass('deleteEvent');
@@ -161,9 +161,18 @@ function createCards() {
     }
     for(var i = 0;i<eventArrParticipant.length;i++){
         var card = $('<div></div>');
+        var name = $('<p></p>');
+        var descr = $('<p></p>');
+        descr.addClass('descr');
+        descr.text(eventArrParticipant[i].description);
+        name.addClass('card_m-name');
+        name.text(eventArrParticipant[i].name);
         card.addClass('card_m');
         card.attr('draggable','true');
-        card.text(eventArrParticipant[i].description);
+        card.attr('data-id', eventArrParticipant[i].id);
+        // card.append(del);
+        card.append(name);
+        card.append(descr);
         container.append(card);
     }
 }
@@ -234,3 +243,18 @@ $(document).on('click', '.card_m', function () {
     $('.chatHead_eventAddress').text(instantCard.name);
     $(".cardEvent_chat_wrapper").show();
 });
+
+// $(document).on('click', '.card_m', function () {
+//     console.log(this);
+//     var id = this.getAttribute('data-id');
+//     console.log(id);
+//     var instantCard = null;
+//     for (var i = 0; i < eventArrParticipant.length; i++) {
+//         if (eventArrParticipant[i].id == id) {
+//             instantCard = eventArrParticipant[i];
+//         }
+//     }
+//     console.log(instantCard);
+//     $('.chatHead_eventAddress').text(instantCard.name);
+//     $(".cardEvent_chat_wrapper").show();
+// });
