@@ -5,6 +5,7 @@ body, html {
 body {
 	margin: 0 auto;
 	font-family: Roboto,Arial,sans-serif;
+	background-color: #f9f9f9;
 }
 * {
 	margin: 0;
@@ -91,7 +92,6 @@ ul.nav {
 /* ----------Navigation Header END---------- */
 
 .dashboard-wrapper {
-	background-color: #eeeeee;
 	display: flex;
 	align-items: center;
 	flex-flow: column;
@@ -110,8 +110,8 @@ ul.nav {
 	background-size: 180px 180px;
 	border: 3px solid white;
 	border-radius: 3px;
-	height: 180px;
-	width: 180px;
+	min-height: 180px;
+	min-width: 180px;
 	margin: 0 10px 0 0;
 	box-shadow: 0 5px 7px 0 rgb(150, 150, 150);
 
@@ -121,7 +121,7 @@ ul.nav {
 	flex-flow: column;
 	background-color: white;
 	height: 180px;
-	width: 84.3%;
+	width: 100%;
 	border-radius: 3px;
 	box-shadow: 0 5px 7px 0 rgb(150, 150, 150);
 }
@@ -152,7 +152,7 @@ ul.nav {
 }
 .dashboard-space-feed {
 	display: flex;
-	flex: 4;
+	flex: 7;
 	flex-flow: column;
 }
 /* ----------Body Cards---------- */
@@ -172,11 +172,11 @@ ul.nav {
 	margin: 0 0 10px 1%;
 	overflow: auto;
 	background-color: rgb(255, 255, 255);
-	box-shadow: 0 2px 3px 0 rgb(185, 185, 185);
+	box-shadow:0 2px 8px 1px rgb(150, 150, 150);
 	transition: .1s ease;
 }
 .card_m:hover, .creator:hover {
-	box-shadow:0 2px 8px 1px rgb(150, 150, 150);
+	box-shadow: 0 5px 7px 0 rgb(150, 150, 150);
 	-webkit-transform: translateY(-2px);
 	transform: translateY(-2px);
 }
@@ -186,6 +186,7 @@ ul.nav {
 	justify-content: center;
 	border: 0px solid red;
 	color: red;
+	background-color: transparent;
 	outline-style: none;
 }
 .deleteEvent:hover {
@@ -200,7 +201,7 @@ ul.nav {
 	margin-top: 5px;
 }
 .creator {
-	border: 2px solid orange;
+	color: black;
 }
 .deleteEvent {
 	float: right;
@@ -229,6 +230,7 @@ ul.nav {
 }
 .feed-card {
 	height:230px;
+	margin-left: 15px;
 	color: gray;
 	background-color: white;
 	-webkit-border-radius: 3px;
