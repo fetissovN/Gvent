@@ -61,7 +61,7 @@
                         <div class="chat-menu-wrapper">
                             <ul class="chat-menu-list">
                                 <li>
-                                    <div class="deleteEvent" data-id="1">
+                                    <div class="deleteEvent">
                                         <i class="material-icons">delete_forever</i>
                                         Delete Event
                                     </div>

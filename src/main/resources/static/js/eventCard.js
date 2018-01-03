@@ -67,9 +67,11 @@ function removeEvent(id) {
                 console.log('no such id');
             }
             if('deleted' in data){
-                var cardToDelete = $('.deleteEvent[data-id='+id+']');
-                var parent = cardToDelete.parent();
-                parent.remove();
+                var cardToDelete = $('.card_m[data-id='+id+']');
+                cardToDelete.remove();
+                closeChatWindow();
+                // var parent = cardToDelete.parent();
+                // parent.remove();
                 // $('.refresh').click();
 
             }
@@ -140,9 +142,9 @@ function createCards() {
     console.log(eventArrCreator);
     var container = $('.dashboard-space-events');
     for(var i = 0;i<eventArrCreator.length;i++){
-        var del = $('<div></div>');
-        del.addClass('deleteEvent');
-        del.attr('data-id',eventArrCreator[i].id);
+        // var del = $('<div></div>');
+        // del.addClass('deleteEvent');
+        // del.attr('data-id',eventArrCreator[i].id);
         var card = $('<div></div>');
         var name = $('<p></p>');
         var descr = $('<p></p>');
@@ -154,7 +156,7 @@ function createCards() {
         card.addClass('creator');
         card.attr('draggable','true');
         card.attr('data-id', eventArrCreator[i].id);
-        card.append(del);
+        // card.append(del);
         card.append(name);
         card.append(descr);
         container.append(card);
@@ -175,6 +177,10 @@ function createCards() {
         card.append(descr);
         container.append(card);
     }
+}
+function closeChatWindow() {
+    $('.cardEvent_chat_wrapper').hide();
+    $('.chat-menu-wrapper').hide();
 }
 function run() {
     var timerLoadTP = setInterval(function () {
@@ -224,45 +230,35 @@ $("input").keyup(function () {
     }
 });
 
-$(".closeBtn").click(function(){
-    $(".cardEvent_chat_wrapper").hide();
-});
+$(".closeBtn").click(closeChatWindow);
 // CLOSE button END-------------
 
 $(document).on('click', '.card_m', function () {
     console.log(this);
     var id = this.getAttribute('data-id');
+    var pName = $(this).find('.card_m-name');
+    var name = pName.text();
+    console.log(name);
     console.log(id);
-    var instantCard = null;
-    for (var i = 0; i < eventArrCreator.length; i++) {
-        if (eventArrCreator[i].id == id) {
-            instantCard = eventArrCreator[i];
-        }
-    }
-    console.log(instantCard);
-    $('.chatHead_eventAddress').text(instantCard.name);
+    var eventDelDiv = $('.deleteEvent');
+    eventDelDiv.attr('data-id', id);
+    // var instantCard = null;
+    // for (var i = 0; i < eventArrCreator.length; i++) {
+    //     if (eventArrCreator[i].id == id) {
+    //         instantCard = eventArrCreator[i];
+    //     }
+    // }
+    // console.log(instantCard);
+
+    $('.chatHead_eventAddress').text(name);
     $(".cardEvent_chat_wrapper").show();
 });
 
-// $(document).on('click', '.card_m', function () {
-//     console.log(this);
-//     var id = this.getAttribute('data-id');
-//     console.log(id);
-//     var instantCard = null;
-//     for (var i = 0; i < eventArrParticipant.length; i++) {
-//         if (eventArrParticipant[i].id == id) {
-//             instantCard = eventArrParticipant[i];
-//         }
-//     }
-//     console.log(instantCard);
-//     $('.chatHead_eventAddress').text(instantCard.name);
-//     $(".cardEvent_chat_wrapper").show();
-// });
 
 
 ///////////// dashboard chat dropdown menu ////////////
 $(document).ready(function() {
-    $('.event-options, .chat-menu-list').on('click', function(){
+    $('.event-options, .chat-menu-list, .chat-menu-list li').on('click', function(){
         $('.chat-menu-wrapper').toggle();
     });
 });
