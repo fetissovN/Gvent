@@ -54,6 +54,18 @@
                     </div>
                 </div>
                 <div class="bodyWrapper">
+                <#--dropdown menu-->
+                    <div class="chat-menu-wrapper">
+                        <ul class="chat-menu-list">
+                            <li>
+                                <div class="deleteEvent" data-id="1">
+                                    <i class="material-icons">delete_forever</i>
+                                    Delete Event
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                <#--dropdown menu END-->
                     <div class="chatBody_userList"> users </div>
                     <div class="chatBody_chatWindow">
                         <div class="chatBody_displayer">
@@ -90,7 +102,6 @@
                 <div class="dashboard-space-events">
                     <div class="card_m"  draggable="true">
                         <p class="card_m-name">8100 East 7th Street, Charlotte, NC 28202</p>
-                        <button class="deleteEvent" data-id="1"><i class="material-icons" style="font-size: 1.5em">close</i> </button>
                         <p class="descr">Description</p>
                     </div>
                 </div>
