@@ -20,7 +20,7 @@ body {
 	overflow: hidden;
 	background-color: white;
 	box-shadow: 0 5px 7px 0 rgb(150, 150, 150);
-	position: sticky;
+	position: fixed;
 	display: flex;
 	z-index: 1;
 	font-size: 1em;
@@ -96,6 +96,7 @@ ul.nav {
 	align-items: center;
 	flex-flow: column;
 	width: 100%;
+	padding-top: 60px;
 }
 .user-info-wrapper {
 	display: flex;
@@ -626,11 +627,12 @@ input[type=submit]:focus {
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	box-shadow: 0 5px 5px 0 #aaaaaa;
+	box-shadow: 0 5px 5px 0 #bbbbbb;
 }
 .deleteEvent:hover {
 	color: white;
 	background-color: red;
+	box-shadow: 0 5px 5px 0 #888888;
 	animation-name: chatHead_animation;
 	animation-duration: .15s;
 }
