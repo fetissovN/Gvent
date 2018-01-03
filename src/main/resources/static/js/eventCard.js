@@ -258,3 +258,12 @@ $(document).on('click', '.card_m', function () {
 //     $('.chatHead_eventAddress').text(instantCard.name);
 //     $(".cardEvent_chat_wrapper").show();
 // });
+
+
+///////////// dashboard chat dropdown menu ////////////
+$(document).ready(function() {
+    $('.event-options, .chat-menu-list').on('click', function(){
+        $('.chat-menu-wrapper').toggle();
+    });
+});
+//////////// dashboard chat dropdown menu END ///////////

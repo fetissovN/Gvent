@@ -169,7 +169,7 @@ ul.nav {
 	font-size: .75em;
 	word-wrap: break-word;
 	color: #666666;
-	margin: 0 0 10px 1%;
+	margin: 0 0 20px 1%;
 	overflow: auto;
 	background-color: rgb(255, 255, 255);
 	box-shadow:0 2px 8px 1px rgb(150, 150, 150);
@@ -232,11 +232,12 @@ ul.nav {
 	color: white;
 	background-color: gray;
 	font-size: 1.5em;
-	padding-left: 5px;
+	padding-left: 20px;
 }
 .chatHead_eventAddress {
 	float: left;
 	line-height: 40px;
+	cursor: default;
 }
 .chatHead_menu {
 	height: 40px;
@@ -599,6 +600,7 @@ input[type=submit]:focus {
 
 /*------------DASHBOARD CHAT WINDOW DROPDOWN MENU------------- */
 .chat-menu-wrapper {
+	display: none;
 	position: absolute;
 	z-index: 6;
 	padding: 10px 10px 0 0;
@@ -625,5 +627,11 @@ input[type=submit]:focus {
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	box-shadow: 0 5px 5px 0 #aaaaaa;
+}
+.deleteEvent:hover {
+	color: white;
+	background-color: red;
+	animation-name: chatHead_animation;
+	animation-duration: .15s;
 }
 /*----------DASHBOARD CHAT WINDOW DROPDOWN MENU END----------- */
