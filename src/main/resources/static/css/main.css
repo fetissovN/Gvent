@@ -94,6 +94,7 @@ ul.nav {
 .dashboard-wrapper {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	flex-flow: column;
 	width: 100%;
 	padding-top: 60px;
@@ -195,6 +196,7 @@ ul.nav {
 }
 .cardEvent_chat_wrapper {
 	display: none;
+	margin-right: 25%;
 }
 .cardEvent_chat {
 	position: absolute;
@@ -204,7 +206,7 @@ ul.nav {
 	font-family: Roboto,Arial,sans-serif;
 	height: 85%;
 	width: 950px;
-	margin: 1% 20%;
+	/*margin: 1% 20%;*/
 	z-index: 1;
 	border-radius: 2px;
 	-webkit-border-radius: 2px;

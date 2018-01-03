@@ -42,51 +42,50 @@
         </div>
         <!-- Header_navigation_menu END -->
 
+        <!-- Card section -->
+        <div class="dashboard-wrapper">
 
-        <!--******************-->
-        <div class="cardEvent_chat_wrapper">
-            <div class="cardEvent_chat">
-                <div class="chatHead_title">
-                    <p class="chatHead_eventAddress"> 810 East 7th Street, Charlotte, NC 28202 </p>
-                    <div class="chatHead_menu">
-                        <div class="event-options"> <i class="material-icons">more_vert</i> </div>
-                        <div class="closeBtn"> <i class="material-icons">close</i> </div>
-                    </div>
-                </div>
-                <div class="bodyWrapper">
-                <#--dropdown menu-->
-                    <div class="chat-menu-wrapper">
-                        <ul class="chat-menu-list">
-                            <li>
-                                <div class="deleteEvent" data-id="1">
-                                    <i class="material-icons">delete_forever</i>
-                                    Delete Event
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                <#--dropdown menu END-->
-                    <div class="chatBody_userList"> users </div>
-                    <div class="chatBody_chatWindow">
-                        <div class="chatBody_displayer">
+
+            <!--******************-->
+            <div class="cardEvent_chat_wrapper">
+                <div class="cardEvent_chat">
+                    <div class="chatHead_title">
+                        <p class="chatHead_eventAddress"> 810 East 7th Street, Charlotte, NC 28202 </p>
+                        <div class="chatHead_menu">
+                            <div class="event-options"> <i class="material-icons">more_vert</i> </div>
+                            <div class="closeBtn"> <i class="material-icons">close</i> </div>
                         </div>
-                        <div class="chatBody_typer">
-                            <form>
-                                <input class="chatBody_field_input" type="text" name="sendAMessage" placeholder="Send a message">
-                                <input class="chatBody_btn_send" type="submit" value="&#10148">
-                                <!-- <form action="/action_page.php"> -->
-                            </form>
+                    </div>
+                    <div class="bodyWrapper">
+                    <#--dropdown menu-->
+                        <div class="chat-menu-wrapper">
+                            <ul class="chat-menu-list">
+                                <li>
+                                    <div class="deleteEvent" data-id="1">
+                                        <i class="material-icons">delete_forever</i>
+                                        Delete Event
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    <#--dropdown menu END-->
+                        <div class="chatBody_userList"> users </div>
+                        <div class="chatBody_chatWindow">
+                            <div class="chatBody_displayer">
+                            </div>
+                            <div class="chatBody_typer">
+                                <form>
+                                    <input class="chatBody_field_input" type="text" name="sendAMessage" placeholder="Send a message">
+                                    <input class="chatBody_btn_send" type="submit" value="&#10148">
+                                    <!-- <form action="/action_page.php"> -->
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--********************-->
+            <!--********************-->
 
-
-
-        <!-- Card section -->
-        <div class="dashboard-wrapper">
 
             <div class="user-info-wrapper">
                 <div class="user-info-picture"></div>
