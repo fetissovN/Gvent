@@ -18,6 +18,21 @@
                 integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="
                 crossorigin="anonymous">
         </script>
+
+        <#---------this--------->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery UI Datepicker - Default functionality</title>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $( function() {
+                $( "#datepicker" ).datepicker();
+            } );
+        </script>
+        <#-------this end------->
+
     </head>
 
     <body>
@@ -46,8 +61,6 @@
         </div>
 
         <div class="markers-menu-wrapper">
-            <!-- // u can name button class as u wish , they are initialized in map js in initMap function (u should rename them there also)
-            div classes are not used in js -->
             <ul class="markers-menu-list">
                 <li>
                     <div class="markers-my-events">
@@ -75,6 +88,12 @@
 
                 <div class="createEventWindow_body">
                     <input class="descIn" placeholder="Add description..."/>
+
+                    <p class="date-picker">
+                        <i class="material-icons">date_range</i>
+                        <input type="text" id="datepicker" placeholder="Select Date...">
+                    </p>
+
                     <div class="createEvent_createBtn"> <span>CREATE</span> </div>
                 </div>
             </div>
@@ -88,6 +107,5 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbDY4iinrNtE_w231GN3mwj3OCt2Lz8kI&callback=initMap"> //GOOGLE MAPS API KEY
     </script>
-
     </body>
 </html>

@@ -33,12 +33,13 @@ function initMap() {
         center: {lat: 40.758570, lng: -73.985077},
         zoom: 17
     });
-    var trafficLayer = new google.maps.TrafficLayer();
-    // SHOWS TRAFFIC ON THE MAP
-    trafficLayer.setMap(map);
-    // SHOWS TRAFFIC ON THE MAP
-    infoWindow = new google.maps.InfoWindow;
 
+
+    // var trafficLayer = new google.maps.TrafficLayer();
+    // // SHOWS TRAFFIC ON THE MAP
+    // trafficLayer.setMap(map);
+    // // SHOWS TRAFFIC ON THE MAP
+    infoWindow = new google.maps.InfoWindow;
 
 
     jQuery(document).ready(function() {
@@ -563,3 +564,4 @@ $(function() {
     });
 });
 //////////// Markers dropdown menu END ///////////
+
