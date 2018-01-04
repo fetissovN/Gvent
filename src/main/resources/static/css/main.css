@@ -43,6 +43,10 @@ ul.nav {
 	line-height: 50px;
 	text-align: center;
 	cursor: default;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .nav li {
 	display: inline-block;
@@ -70,6 +74,10 @@ ul.nav {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .refresh, .search, .my-location, .markers, .user-settings {
 	display: flex;
@@ -189,7 +197,7 @@ ul.nav {
 	margin-top: 5px;
 }
 .creator {
-	background-color: rgb(255, 229, 208);
+	background-color: rgb(255, 248, 246);
 }
 .deleteEvent {
 	float: right;
@@ -254,6 +262,10 @@ ul.nav {
 	justify-content: center;
 	height: 36px;
 	width: 36px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .event-options:hover, .closeBtn:hover {
 	border-radius: 50%;
@@ -486,6 +498,12 @@ input[type=submit]:focus {
 	color: white;
 	background-color: transparent;
 }
+.createEvent_cancelBtn i {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
 .createEvent_cancelBtn:hover {
 	border-radius: 50%;
 	background-color: orange;
@@ -537,6 +555,10 @@ input[type=submit]:focus {
 	border-top-left-radius: 16px;
 	border-bottom-right-radius: 16px;
 	border-bottom-left-radius: 16px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .createEvent_createBtn:hover {
 	background-color: orange;
@@ -568,6 +590,10 @@ input[type=submit]:focus {
 }
 .markers-menu-list {
 	list-style: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .markers-menu-list li {
 	padding-bottom: 10px;
@@ -616,6 +642,10 @@ input[type=submit]:focus {
 }
 .chat-menu-list {
 	list-style: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .chat-menu-list li {
 	padding-bottom: 10px;
@@ -657,6 +687,10 @@ input[type=submit]:focus {
 	border-bottom: 1px solid orange;
 	color: gray;
 	margin-left: 10px;
+}
+.date-picker i {
+	cursor: default;
+	user-select: none;
 }
 ::-webkit-input-placeholder {
 	font-size: 1em;
