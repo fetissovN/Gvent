@@ -119,19 +119,31 @@ function setSTDCookie(userJson) {
         expires: 5,
         path: '/'
     });
+    $.cookie('firstName',userJson.firstName,{
+        expires: 5,
+        path: '/'
+    });
+    $.cookie('lastName',userJson.lastName,{
+        expires: 5,
+        path: '/'
+    });
 }
 
 function deletSTDCookie() {
     $.cookie('userId',null);
     $.cookie('userNickname',null);
     $.cookie('enabled',null);
+    $.cookie('firstName',null);
+    $.cookie('lastName',null);
 }
 
 function checkCookieValid(userJson) {
     var id = $.cookie('userId');
     var nickname = $.cookie('userNickname');
     var enabled = $.cookie('enabled');
-    if (id!=null && nickname!=null && enabled!= null){
+    var enabled = $.cookie('firstName');
+    var enabled = $.cookie('lastName');
+    if (id!=null && nickname!=null && enabled!= null && firstName!=null && lastName!=null){
         return userJson.id == id;
     }
     return false;
@@ -182,6 +194,17 @@ function closeChatWindow() {
     $('.cardEvent_chat_wrapper').hide();
     $('.chat-menu-wrapper').hide();
 }
+
+function setFirstLastName() {
+    var div = $('.user-info-name');
+    var firstName = $.cookie('firstName');
+    var lastName = $.cookie('lastName');
+    console.log(firstName);
+    console.log(lastName);
+    if (firstName != null && lastName != null) {
+        div.text(firstName + ' ' + lastName);
+    }
+}
 function run() {
     var timerLoadTP = setInterval(function () {
         if (userCookieChecked){
@@ -218,6 +241,9 @@ $(document).on('click','.deleteEvent',function () {
 
 getUserAjax();
 run();
+
+//set first/last name on the dashboard from cookie
+setFirstLastName();
 
 
 // show/hide SEND button --------------

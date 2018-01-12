@@ -461,7 +461,7 @@ input[type=submit]:focus {
 	width: 450px;
 	height: 200px;
 	flex-flow: column;
-	box-shadow: 0 50px 100px 10px #555555;
+	box-shadow: 0 50px 100px 10px #484848;
 }
 
 .createEventWindow_header {
