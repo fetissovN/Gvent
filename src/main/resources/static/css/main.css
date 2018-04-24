@@ -139,14 +139,12 @@ ul.nav {
 	flex: 2.5;
 }
 .user-info-name {
+	margin-left: 15px;
 	flex: 1;
 	display: flex;
 	font-size: 2em;
 	align-items: center;
 	color: gray;
-}
-.user-info-name p {
-	margin-left: 10px;
 }
 .dashboard-space {
 	display: flex;
@@ -226,7 +224,6 @@ ul.nav {
 }
 .feed-card {
 	height:230px;
-	margin-left: 15px;
 	color: gray;
 	background-color: white;
 	-webkit-border-radius: 3px;

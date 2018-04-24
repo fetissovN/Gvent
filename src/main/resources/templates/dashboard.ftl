@@ -91,7 +91,7 @@
                 <div class="user-info-picture"></div>
                 <div class="user-info-summary">
                     <div class="user-info-name">
-                        <p> Dennis Kiparyn </p>
+                        <p> </p>
                     </div>
                     <div class="user-info-menu"> </div>
                 </div>

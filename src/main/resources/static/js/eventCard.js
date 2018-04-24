@@ -141,8 +141,8 @@ function checkCookieValid(userJson) {
     var id = $.cookie('userId');
     var nickname = $.cookie('userNickname');
     var enabled = $.cookie('enabled');
-    var enabled = $.cookie('firstName');
-    var enabled = $.cookie('lastName');
+    var firstName = $.cookie('firstName');
+    var lastName = $.cookie('lastName');
     if (id!=null && nickname!=null && enabled!= null && firstName!=null && lastName!=null){
         return userJson.id == id;
     }
