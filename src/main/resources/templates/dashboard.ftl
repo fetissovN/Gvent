@@ -50,7 +50,7 @@
             <div class="cardEvent_chat_wrapper">
                 <div class="cardEvent_chat">
                     <div class="chatHead_title">
-                        <p class="chatHead_eventAddress"> 810 East 7th Street, Charlotte, NC 28202 </p>
+                        <p class="chatHead_eventAddress"></p>
                         <div class="chatHead_menu">
                             <div class="event-options"> <i class="material-icons">more_vert</i> </div>
                             <div class="closeBtn"> <i class="material-icons">close</i> </div>
@@ -69,7 +69,7 @@
                             </ul>
                         </div>
                     <#--dropdown menu END-->
-                        <div class="chatBody_userList"> users </div>
+                        <div class="chatBody_userList"> Users </div>
                         <div class="chatBody_chatWindow">
                             <div class="chatBody_displayer">
                             </div>
@@ -96,21 +96,17 @@
                     <div class="user-info-menu"> </div>
                 </div>
             </div>
-
-            <div class="dashboard-space">
                 <div class="dashboard-space-events">
+
+                    <div class="dashboard-space-events-line"> </div>
+
                     <div class="card_m"  draggable="true">
-                        <p class="card_m-name">8100 East 7th Street, Charlotte, NC 28202</p>
-                        <p class="descr">Description</p>
+                        <p class="card_m-name"> </p>
+                        <p class="descr"> </p>
                     </div>
                 </div>
-                <div class="dashboard-space-feed">
-                    <div class="feed-card"> <p>Test Feed :)</p> </div>
-                </div>
-            </div>
         </div>
         <!-- Card section END -->
-
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="js/jquery.cookie.js"> </script>

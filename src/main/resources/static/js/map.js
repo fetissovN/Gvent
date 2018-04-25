@@ -550,7 +550,7 @@ $(function() {
     $('.markers-my-events').hover(function() {
         $('.showPrivateBtn').css('color', 'white');
     }, function() {
-        // on mouseout, reset the background colour
+        // on mouse out, reset the background color
         $('.showPrivateBtn').css('color', '');
     });
 });
@@ -559,7 +559,7 @@ $(function() {
     $('.markers-involved').hover(function() {
         $('.showIAmParticipateInBtn').css('color', 'white');
     }, function() {
-        // on mouseout, reset the background colour
+        // on mouse out, reset the background color
         $('.showIAmParticipateInBtn').css('color', '');
     });
 });

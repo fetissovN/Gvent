@@ -166,6 +166,7 @@ function createCards() {
         name.text(eventArrCreator[i].name);
         card.addClass('card_m');
         card.addClass('creator');
+        card.addClass('card-visible');
         card.attr('draggable','true');
         card.attr('data-id', eventArrCreator[i].id);
         // card.append(del);
@@ -182,6 +183,7 @@ function createCards() {
         name.addClass('card_m-name');
         name.text(eventArrParticipant[i].name);
         card.addClass('card_m');
+        card.addClass('card-visible');
         card.attr('draggable','true');
         card.attr('data-id', eventArrParticipant[i].id);
         // card.append(del);
