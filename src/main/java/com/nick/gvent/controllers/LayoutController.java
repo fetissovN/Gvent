@@ -23,6 +23,10 @@ public class LayoutController {
         return "mapEvent";
     }
 
+    public void method2() {
+        System.out.println("");
+    }
+
 //    @RequestMapping("/error")
 //    public String error(Model model){
 //        model.addAttribute("ex","eee");
