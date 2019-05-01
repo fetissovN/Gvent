@@ -24,6 +24,11 @@ public class LayoutController {
     }
 
     public void method2() {
+
+        System.out.println("");
+    }
+
+    public void method3() {
         System.out.println("");
     }
 
