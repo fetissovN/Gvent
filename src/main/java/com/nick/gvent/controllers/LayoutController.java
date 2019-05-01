@@ -25,6 +25,10 @@ public class LayoutController {
 
     public void method1(){
         System.out.println("one");
+
+    }
+    public void method_add(){
+        System.out.println("add");
     }
 
 //    @RequestMapping("/error")
